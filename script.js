@@ -10,6 +10,7 @@ $(document).ready(function(){
 
 function selectNbPlayers()
 {   
+   // var NbPlayer = document.getElementById('grr').value;
     var NbPlayer = document.getElementById('grr').value;
   
     
@@ -35,10 +36,7 @@ function selectNbPlayers()
 
 }
 
-function test(){
-    var testa = selectNbPlayers();
 
-}
 
 class Player
 {
@@ -91,10 +89,12 @@ function choisirJeu(){
 
 function g301() {
     document.getElementById("h4").innerHTML= 'vous avez choisi le 301' ;
-    var NbPlayer = document.getElementsByClassName("nbplayers").value
+    var NbPlayer = document.getElementById("grr").value
     console.log(NbPlayer);
     document.getElementById("h5").innerHTML= 'vous etes ' +NbPlayer+ ' a jouer' ;
-    inputPlayer();
+
+    //inputPlayer();
+    myFunction();
     
 
 }
