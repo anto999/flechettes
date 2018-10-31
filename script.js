@@ -92,9 +92,18 @@ function g301() {
     var NbPlayer = document.getElementById("grr").value
     console.log(NbPlayer);
     document.getElementById("h5").innerHTML= 'vous etes ' +NbPlayer+ ' a jouer' ;
+   // $(".admin_input1").addClass("red");
+    $('#forminput').css('display', 'flex');
+
 
     //inputPlayer();
-    myFunction();
+      for (i=0;i<NbPlayer-1;i++){
+        addplayerinput();
+   }
+
+
+
+    //addplayerinput();
     
 
 }
@@ -107,7 +116,7 @@ function g701() {
     document.getElementById("h4").innerHTML= 'vous avez choisi le 701' ;
 }
 
-function inputPlayer(){
+/*function inputPlayer(){
     var inputplayername = '';
     inputplayername += '<label id="nameplayer">prénom:</label>';
     inputplayername += '<input type="input" id="inputplayername"></input>';
@@ -115,9 +124,9 @@ function inputPlayer(){
 
     $('#h5').html(inputplayername);
   
-}
+}*/
 
-function myFunction() {
+function addplayerinput() {
     var elmnt = document.getElementsByTagName("form")[0];
     var cln = elmnt.cloneNode(true);
     document.body.appendChild(cln);
