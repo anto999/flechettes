@@ -12,10 +12,8 @@ function selectNbPlayers()
 {   
    // var NbPlayer = document.getElementById('grr').value;
     var NbPlayer = document.getElementById('grr').value;
-  
-    
-    
-    console.log(NbPlayer);
+
+    //console.log(NbPlayer);
     
     document.getElementById("h0").innerHTML= NbPlayer;
 
@@ -44,9 +42,14 @@ class Player
     {
         this.num=num;
         this.name=name;
-        this.pointsRestants=301;
+        this.pointsrestantsDebutTour=301;
+        this.pointsRestantsActuels=301;
         this.coupsRestants = 3;
-
+        this.fleche = 0;
+        this.resultatTour = 0;
+        this.nbredetours=0;
+        this.gagnant= false;
+        this.test=null;
     }
     sayplayer()
     {
@@ -54,52 +57,53 @@ class Player
     }
         
 }
+const player = new Player ();
 const player1 = new Player (1,"anto");
-const player2 = new Player (2,"micka",501);
-console.log(player1.name)
+const player2 = new Player (2,"micka");
+//console.log(player);
+console.log(player1);
+console.log(player2);
+/*console.log(player1.name)
 console.log(player1.sayplayer());
 console.log(player2.sayplayer());
-console.log(player1.name);
+console.log(player1.name);*/
 
-var x = 10;
-var y = 55;
-var z = 50;
 
-for (i=3;i>0;i--){
+/*for (i=3;i>0;i--){
     
     console.log(player1);
     player1.coupsRestants -= 1 ;
     console.log(player1);
-    player1.pointsRestants -= x;
-    console.log(player1);
-    player1.pointsRestants -= y;
-    console.log(player1);
-    player1.pointsRestants -= z;
-    
-    
+    player1.pointsRestants -= x;    
 
-}
+}*/
 
 
-function choisirJeu(){
+function choisirJeu()
+{
     document.getElementById("h2").innerHTML= "choisissez votre jeu";
     var listejeu= '<div class="listejeux"><button type="button" onclick= g301()>301</button><br><button type="button" onclick=g501()>501</button><br><button type="button" onclick=g701()>701</button></div'
     document.getElementById("h3").innerHTML= listejeu
 }
 
-function g301() {
-    document.getElementById("h4").innerHTML= 'vous avez choisi le 301' ;
+function g301() 
+{   //a remettre quand j'aurais finis la fction go()
+
+   /* document.getElementById("h4").innerHTML= 'vous avez choisi le 301' ;
     var NbPlayer = document.getElementById("grr").value
     console.log(NbPlayer);
     document.getElementById("h5").innerHTML= 'vous etes ' +NbPlayer+ ' a jouer' ;
-   // $(".admin_input1").addClass("red");
+ 
     $('#forminput').css('display', 'flex');
 
 
-    //inputPlayer();
-      for (i=0;i<NbPlayer-1;i++){
+    
+      for (i=0;i<NbPlayer-1;i++)
+      {
         addplayerinput();
-   }
+      }*/
+
+   go();
 
 
 
@@ -130,4 +134,63 @@ function addplayerinput() {
     var elmnt = document.getElementsByTagName("form")[0];
     var cln = elmnt.cloneNode(true);
     document.body.appendChild(cln);
+}
+
+function go(){
+    
+    console.log('a '+player1.name+' de jouer!');
+    
+    
+    
+   
+        for (i=player1.coupsRestants;i>0;i--)
+        {   
+            player1.fleche=25;
+
+            if (player1.fleche>player1.pointsRestantsActuels)
+            {
+                //perdu();
+                console.log("domage vous avez fait trop de points!")
+                player1.pointsRestantsActuels = pointsrestantsDebutTour;    
+                console.log('coup 1 : ' +player1.fleche+' ! ');
+
+                
+            }else if(player1.fleche == player1.pointsRestantsActuels) 
+            {
+                gagné();
+            }else if (player1.fleche<player1.pointsRestantsActuels){
+
+
+                player1.resultatTour += player1.fleche;
+                player1.coupsRestants -= 1;
+                player1.pointsRestantsActuels-= player1.fleche;
+                console.log('coup 1 : ' +player1.fleche+' ! ');
+
+                        if (player1.fleche>player1.pointsRestantsActuels)
+                        {
+                            //perdu();
+                            console.log("domage vous avez fait trop de points!")
+                            player1.pointsRestantsActuels = pointsrestantsDebutTour;    
+                            console.log('coup 1 : ' +player1.fleche+' ! ');
+                
+                            
+                        }else if(player1.fleche == player1.pointsRestantsActuels) 
+                        {
+                            gagné();
+                        }
+                
+                console.log(player1);
+                player1.fleche=0;
+
+
+            }
+    
+        }
+    
+
+
+}
+
+function perdu(){
+
 }
