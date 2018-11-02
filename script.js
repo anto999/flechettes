@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 function selectNbPlayers()
 {   
-   // var NbPlayer = document.getElementById('grr').value;
+  
     var NbPlayer = document.getElementById('grr').value;
 
     //console.log(NbPlayer);
@@ -34,18 +34,43 @@ function selectNbPlayers()
 
 }
 
+function displayNbPlayers(){
+    var NbPlayers =selectNbPlayers();
+    console.log(NbPlayers);
+}
+
+displayNbPlayers();
+
+function pts()
+{   
+   //on stock la valeur de 
+    var nbpts = document.getElementById('ptsfleches').value;
+
+    console.log(parseInt(nbpts));
+    
+    document.getElementById("h0").innerHTML= nbpts;
+
+    return parseInt(nbpts);
+   // console.log (JSON.stringify (nbpts));
+
+   
+
+}
+
 
 
 class Player
 {
-    constructor(num,name,pointsRestants,coupsRestants)
+    constructor(num,name)
     {
         this.num=num;
         this.name=name;
         this.pointsrestantsDebutTour=301;
         this.pointsRestantsActuels=301;
         this.coupsRestants = 3;
-        this.fleche = 0;
+        this.fleche1 = 0;
+        this.fleche2 = 0;
+        this.fleche3 = 0;
         this.resultatTour = 0;
         this.nbredetours=0;
         this.gagnant= false;
@@ -57,9 +82,40 @@ class Player
     }
         
 }
-const player = new Player ();
 const player1 = new Player (1,"anto");
 const player2 = new Player (2,"micka");
+
+
+/*const player1 = {
+    num: 1,
+    name: "anthony",
+    pointsrestantsDebutTour:301,
+    pointsRestantsActuels:301,
+    coupsRestants:3,
+    fleche:0,
+    fleche:0,
+    fleche:0,
+    resultatTour:0,
+    nbredetours:0,
+    gagnant:false,
+    test:null,
+
+    }
+
+    const player2 = {
+        num: 1,
+        name: "micka",
+        pointsrestantsDebutTour:301,
+        pointsRestantsActuels:301,
+        coupsRestants:3,
+        fleche:0,
+        resultatTour:0,
+        nbredetours:0,
+        gagnant:false,
+        test:null,
+    
+        }*/
+
 //console.log(player);
 console.log(player1);
 console.log(player2);
@@ -136,51 +192,69 @@ function addplayerinput() {
     document.body.appendChild(cln);
 }
 
-function go(){
-    
-    console.log('a '+player1.name+' de jouer!');
-    
-    
-    
+function go()
+{
    
-        for (i=player1.coupsRestants;i>0;i--)
-        {   
-            player1.fleche=25;
+    console.log('a '+player1.name+' de jouer!');
+   
 
-            if (player1.fleche>player1.pointsRestantsActuels)
+        for (i=player1.coupsRestants;i>0;i--)
+        {/* player1.fleche1=0;*/
+            player1.fleche1=pts();
+
+            if (player1.fleche1>player1.pointsRestantsActuels)
             {
                 //perdu();
                 console.log("domage vous avez fait trop de points!")
-                player1.pointsRestantsActuels = pointsrestantsDebutTour;    
+                player1.pointsRestantsActuels = player1.pointsrestantsDebutTour;    
                 console.log('coup 1 : ' +player1.fleche+' ! ');
+                console.log('coups restants : ' + player1.coupsRestants+' ! ');
+                player1.fleche = player1.fleche + player1.fleche;
+                console.log('pts : ' +player1.fleche+' ! ');
+
+
 
                 
-            }else if(player1.fleche == player1.pointsRestantsActuels) 
+            }else if(player1.fleche1 == player1.pointsRestantsActuels) 
             {
                 gagné();
-            }else if (player1.fleche<player1.pointsRestantsActuels){
+            }else if (player1.fleche1<player1.pointsRestantsActuels){
 
-
-                player1.resultatTour += player1.fleche;
+               
+                console.log(player1.resultatTour);
+                console.log(player1.fleche1);
+                pts();
+                selectNbPlayers();
+                /*console.log(NbPlayers);
+                console.log(NbPlayer);*/
+                
+                player1.resultatTour = player1.resultatTour + player1.fleche1
+                console.log(`resultat du tour 1 :  ${player1.resultatTour} ! `)
+              //  console.log(`il reste ${p2.pv} PV à ${p2.prenom}.`)
+                player1.fleche1=pts()
                 player1.coupsRestants -= 1;
-                player1.pointsRestantsActuels-= player1.fleche;
-                console.log('coup 1 : ' +player1.fleche+' ! ');
+                player1.pointsRestantsActuels = player1.pointsrestantsDebutTour; 
 
-                        if (player1.fleche>player1.pointsRestantsActuels)
+                console.log('coup 1 : ' +player1.fleche1+' ! ');
+                console.log('coups restants : ' +player1.coupsRestants+' ! ');
+                player1.fleche=player1.fleche+player1.fleche;
+                console.log('pts : ' +player1.fleche1+' ! ');
+
+                        if (player1.fleche1>player1.pointsRestantsActuels)
                         {
                             //perdu();
                             console.log("domage vous avez fait trop de points!")
-                            player1.pointsRestantsActuels = pointsrestantsDebutTour;    
+                            player1.pointsRestantsActuels = player1.pointsrestantsDebutTour;    
                             console.log('coup 1 : ' +player1.fleche+' ! ');
                 
                             
-                        }else if(player1.fleche == player1.pointsRestantsActuels) 
+                        }else if(player1.fleche1 == player1.pointsRestantsActuels) 
                         {
                             gagné();
                         }
                 
                 console.log(player1);
-                player1.fleche=0;
+                //player1.fleche=0;
 
 
             }
