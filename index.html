@@ -18,9 +18,15 @@
         <label id ="nbjoueurs">selectionnez le nombre de joueurs</label>
         <input type="int"  id="grr">
         <button type ="button" onclick="selectNbPlayers()">select</button><br>
-        <label id ="fleche">notez vos points !</label>
+        <div id ="fleche">notez vos points !</div>
         <input type="int"  id="ptsfleches">
-        <button type ="button" onclick="pts()">nbpts</button>
+        <button type ="button" onclick="pts()">lancer fleche 1 !</button><br>
+        <input type="int"  id="ptsfleches2">
+        <button type ="button" onclick="pts2()">lancer fleche 2 !</button><br>
+        <input type="int"  id="ptsfleches3">
+        <button type ="button" onclick="pts3()">lancer fleche 3 !</button><br>
+        <button type ="button" onclick="go()">go!</button><br>
+        <button type ="button" onclick="changescore()">test changescore!</button><br>
         <div id="h1"></div>
         <div id="h2"></div>
         <div id="h3"></div>
@@ -28,6 +34,8 @@
         <div id="h5"></div>
         <div id="h6"></div>
 
+
+        <div class="titre" id="titre"></div>
         <div class="container-card">
                 <div class ="nomjoueur" id="nomjoueur">nom Joueur</div>   
                 <div id="points-restants" class ="points-restants">points restants</div> 
