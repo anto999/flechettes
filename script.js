@@ -61,7 +61,8 @@ function pts()//retourne la valeur de fleche 1
 
     var nbpts = document.getElementById('ptsfleches').value;
     player1.fleche1=parseInt(nbpts);
-    player1.pointsRestantsActuels=(player1.pointsRestantsActuels- player1.fleche1);
+    
+    console.log(player1.pointsRestantsActuels);
     player1.coupsRestants --;
     player1.resultatTotal =(player1.resultatTotal+ player1.fleche1) ;
     player1.resultatTour=(player1.resultatTour+player1.fleche1);
@@ -87,6 +88,8 @@ function pts()//retourne la valeur de fleche 1
        console.log('perdu!');
        return parseInt(nbpts);
    }else if (player1.fleche1<player1.pointsRestantsActuels){
+    player1.pointsRestantsActuels=(player1.pointsRestantsActuels- player1.fleche1);
+    document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
     
    // document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
     console.log(parseInt(nbpts));
@@ -227,7 +230,7 @@ function ptspts2()//retourne la valeur de fleche 1
           gagné2();
           
           return parseInt(nbnbpts2);
-      }else if(player2.fleche2>player1.pointsRestantsActuels){
+      }else if(player2.fleche2>player2.pointsRestantsActuels){
          console.log('perdu!');
           perdu2();
           return parseInt(nbnbpts2);
