@@ -13,20 +13,39 @@
 
 <body>
   
-   
+        <!--   <div id="h7"></div>
+        <button onclick="myFunction()">Try it</button>--> 
+   <!--     <form id="forminput">
+                <label id="nameplayer">prénom:</label>
+                <input type="input" id="inputplayername">
+                <button>créer joueur !</button><br>
+        </form> 
+
         <div id="h0"></div>
         <label id ="nbjoueurs">selectionnez le nombre de joueurs</label>
         <input type="int"  id="grr">
-        <button type ="button" onclick="selectNbPlayers()">select</button><br>
-        <div id ="fleche">notez vos points !</div>
-        <input type="int"  id="ptsfleches">
-        <button type ="button" onclick="pts()">lancer fleche 1 !</button><br>
-        <input type="int"  id="ptsfleches2">
-        <button type ="button" onclick="pts2()">lancer fleche 2 !</button><br>
-        <input type="int"  id="ptsfleches3">
-        <button type ="button" onclick="pts3()">lancer fleche 3 !</button><br>
-        <button type ="button" onclick="go()">go!</button><br>
-        <button type ="button" onclick="changescore()">test changescore!</button><br>
+        <button type ="button" onclick="selectNbPlayers()">select</button><br>-->
+        
+        <div class="tableaubouttons">
+                <div class="container-button">
+                        <input type="int"  id="ptsfleches">
+                        <button type ="button" onclick="pts()">lancer fleche 1 !</button><br>
+                        <input type="int"  id="ptsfleches2">
+                        <button type ="button" onclick="pts2()">lancer fleche 2 !</button><br>
+                        <input type="int"  id="ptsfleches3">
+                        <button type ="button" onclick="pts3()">lancer fleche 3 !</button><br><br>
+                </div>
+        
+                <div class="container-button">
+                        <input type="int"  id="pts2fleches">
+                        <button type ="button" onclick="ptspts()">lancer fleche 1 !</button><br>
+                        <input type="int"  id="pts2fleches2">
+                        <button type ="button" onclick="ptspts2()">lancer fleche 2 !</button><br>
+                        <input type="int"  id="pts2fleches3">
+                        <button type ="button" onclick="ptspts3()">lancer fleche 3 !</button><br>
+                </div>
+        </div>
+                
         <div id="h1"></div>
         <div id="h2"></div>
         <div id="h3"></div>
@@ -34,25 +53,30 @@
         <div id="h5"></div>
         <div id="h6"></div>
 
-
         <div class="titre" id="titre"></div>
-        <div class="container-card">
-                <div class ="nomjoueur" id="nomjoueur">nom Joueur</div>   
-                <div id="points-restants" class ="points-restants">points restants</div> 
-                <div class ="score" id="score">score</div>   
-                <div class ="score-cumulé" id="score-cumulé">score cumulé</div> 
-                <div class ="coupsrestants" id="coupsrestants">coups restants</div> 
-        </div>
+       
+         <div class="tableaujoueurs" id="tableaujoueurs">
+               
+                <div class="container-card">
+                        <div class ="nomjoueur" id="nomjoueur">nom Joueur</div>   
+                        <div id="points-restants" class ="points-restants">points restants</div> 
+                        <div class ="score" id="score">score</div>   
+                        <div class ="score-cumulé" id="score-cumulé">score cumulé</div> 
+                        <div class ="coupsrestants" id="coupsrestants">coups restants</div> 
+                </div>
+                <div class="container-card">
+                        <div class ="nomjoueur" id="nomjoueur2">nom Joueur</div>   
+                        <div id="points-restants2" class ="points-restants">points restants</div> 
+                        <div class ="score" id="score2">score</div>   
+                        <div class ="score-cumulé" id="score-cumulé2">score cumulé</div> 
+                        <div class ="coupsrestants" id="coupsrestants2">coups restants</div> 
+                </div>
+        </div>       
+
 
      
      
-     <!--   <div id="h7"></div>
-        <button onclick="myFunction()">Try it</button>--> 
-        <form id="forminput">
-          <label id="nameplayer">prénom:</label>
-          <input type="input" id="inputplayername">
-          <button>créer joueur !</button><br>
-        </form>         
+            
 
 </body>
 

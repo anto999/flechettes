@@ -1,13 +1,17 @@
 #forminput{
     -display:none;
 }
+.container-button{
+    margin-right: 50px;
+}
 
 .container-card{
     width: 300px;
     height: 300px;
-    border-color: red;
+    border-color: black;
     border-style: solid;
     text-align: center;
+    margin-right: 15px;
 }
 .nomjoueur{
     height: 20%;
@@ -37,4 +41,19 @@
 }
 #fleche{
     -text-align: center;
+}
+
+.tableaujoueurs{
+    display: flex;
+    text-align: center;
+}
+
+.titre{
+    text-align: center;
+    height: 50px;
+    font-size: 2em;
+}
+.tableaubouttons{
+    display: flex;
+
 }
