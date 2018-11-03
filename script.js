@@ -8,7 +8,8 @@ $(document).ready(function(){
    document.getElementById("score").innerHTML="score : "+ player1.fleche1;
    document.getElementById("nomjoueur").innerHTML="joueur : "+ player1.name;
    document.getElementById("points-restants").innerHTML="points restants  : "+ player1.pointsRestantsActuels;
-   document.getElementById("score-cumulé").innerHTML="score cumulé : "+ player1.resultatTour;
+   document.getElementById("score-cumulé").innerHTML="score total : "+ player1.resultatTotal;
+   document.getElementById("score-tour").innerHTML="score tour : "+ player1.resultatTour;
    document.getElementById("coupsrestants").innerHTML="cours restants : "+ player1.coupsRestants;
 
    
@@ -16,7 +17,8 @@ $(document).ready(function(){
    document.getElementById("score2").innerHTML="score : "+ player2.fleche1;
    document.getElementById("nomjoueur2").innerHTML="joueur : "+ player2.name;
    document.getElementById("points-restants2").innerHTML="points restants  : "+ player2.pointsRestantsActuels;
-   document.getElementById("score-cumulé2").innerHTML="score cumulé : "+ player2.resultatTour;
+   document.getElementById("score-cumulé2").innerHTML="score total : "+ player2.resultatTotal;
+   document.getElementById("score-tour2").innerHTML="score tour : "+ player2.resultatTour;
    document.getElementById("coupsrestants2").innerHTML="cours restants : "+ player2.coupsRestants;
    
 
@@ -52,17 +54,24 @@ $(document).ready(function(){
 //displayNbPlayers();
 
 function pts()//retourne la valeur de fleche 1
-{   document.getElementById("titre").innerHTML="A  " +player1.name+" de jouer !";
+{   //document.getElementById("titre").innerHTML="A  " +player1.name+" de jouer !";
    //on stock la valeur de l'input dans une  variable nbpts20
+   player2.resultatTour=0;
+   document.getElementById("score-tour2").innerHTML= "score tour : "+player2.resultatTour;
+
     var nbpts = document.getElementById('ptsfleches').value;
     player1.fleche1=parseInt(nbpts);
+    player1.pointsRestantsActuels=(player1.pointsRestantsActuels- player1.fleche1);
     player1.coupsRestants --;
-    player1.resultatTour =(player1.resultatTour+ player1.fleche1) ;
+    player1.resultatTotal =(player1.resultatTotal+ player1.fleche1) ;
+    player1.resultatTour=(player1.resultatTour+player1.fleche1);
     
     document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
-    document.getElementById("score-cumulé").innerHTML= "score cumulé : "+player1.resultatTour;
+    document.getElementById("score-cumulé").innerHTML= "score total : "+player1.resultatTotal;
     document.getElementById("coupsrestants").innerHTML= "coups restants : "+player1.coupsRestants;
     document.getElementById("score").innerHTML= "score fleche  : "+player1.fleche1;
+    document.getElementById("score-tour").innerHTML= "score tour  : "+player1.resultatTour;
+
     //on retourne
     console.log(player1);
     
@@ -78,8 +87,8 @@ function pts()//retourne la valeur de fleche 1
        console.log('perdu!');
        return parseInt(nbpts);
    }else if (player1.fleche1<player1.pointsRestantsActuels){
-    player1.pointsRestantsActuels=(player1.pointsRestantsActuels- player1.fleche1);
-    document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
+    
+   // document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
     console.log(parseInt(nbpts));
     return parseInt(nbpts);
    }
@@ -91,12 +100,14 @@ function pts2()//retourne la valeur de fleche 1
     var nbpts2 = document.getElementById('ptsfleches2').value;
     player1.fleche2=parseInt(nbpts2);
     player1.coupsRestants --;
-    player1.resultatTour =(player1.resultatTour+player1.fleche2) ;
+    player1.resultatTotal =(player1.resultatTotal+player1.fleche2) ;
+    player1.resultatTour=(player1.resultatTour+player1.fleche2);
 
     document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
-    document.getElementById("score-cumulé").innerHTML= "score cumulé : "+player1.resultatTour;
+    document.getElementById("score-cumulé").innerHTML= "score total : "+player1.resultatTotal;
     document.getElementById("coupsrestants").innerHTML= "coups restants : "+player1.coupsRestants;
     document.getElementById("score").innerHTML= "score fleche  : "+player1.fleche2;
+    document.getElementById("score-tour").innerHTML= "score tour  : "+player1.resultatTour;
 
     console.log(parseInt(nbpts2));
     console.log(player1);
@@ -121,13 +132,14 @@ function pts3()//retourne la valeur de fleche 1
     var nbpts3 = document.getElementById('ptsfleches3').value;
     player1.fleche3=parseInt(nbpts3);
     player1.coupsRestants --;
-    player1.resultatTour =(player1.resultatTour+player1.fleche3) ;
-    
+    player1.resultatTotal =(player1.resultatTotal+player1.fleche3) ;
+    player1.resultatTour=(player1.resultatTour+player1.fleche3);
 
     document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
-    document.getElementById("score-cumulé").innerHTML= "score cumulé : "+player1.resultatTour;
+    document.getElementById("score-cumulé").innerHTML= "score total : "+player1.resultatTotal;
     document.getElementById("coupsrestants").innerHTML= "coups restants : "+player1.coupsRestants;
     document.getElementById("score").innerHTML= "score fleche  : "+player1.fleche3;
+    document.getElementById("score-tour").innerHTML= "score tour  : "+player1.resultatTour;
 
 
     console.log(parseInt(nbpts3));
@@ -155,18 +167,22 @@ function pts3()//retourne la valeur de fleche 1
 
  function ptspts()//retourne la valeur de fleche 1
         { console.log('ca passe!');
-            
+            player1.resultatTour=0;
+            document.getElementById("score-tour").innerHTML= "score tour  : "+player1.resultatTour;
             document.getElementById("titre").innerHTML="A  " +player2.name+" de jouer !";
+            
         //on stock la valeur de l'input dans une  variable nbpts20
             var nbnbpts = document.getElementById('pts2fleches').value;
             player2.fleche1=parseInt(nbnbpts);
             player2.coupsRestants --;
-            player2.resultatTour =(player2.resultatTour+ player2.fleche1) ;
+            player2.resultatTotal =(player2.resultatTotal+ player2.fleche1) ;
+            player2.resultatTour=(player2.resultatTour+player2.fleche1);
             
             document.getElementById("points-restants2").innerHTML="points restant : " +player2.pointsRestantsActuels;
-            document.getElementById("score-cumulé2").innerHTML= "score cumulé : "+player2.resultatTour;
+            document.getElementById("score-cumulé2").innerHTML= "score total : "+player2.resultatTotal;
             document.getElementById("coupsrestants2").innerHTML= "coups restants : "+player2.coupsRestants;
             document.getElementById("score2").innerHTML= "score fleche  : "+player2.fleche1;
+            document.getElementById("score-tour2").innerHTML= "score tour  : "+player2.resultatTour;
             //on retourne
             console.log(player2);
             
@@ -194,13 +210,15 @@ function ptspts2()//retourne la valeur de fleche 1
     var nbnbpts2 = document.getElementById('pts2fleches2').value;
     player2.fleche2=parseInt(nbnbpts2);
     player2.coupsRestants --;
-    player2.resultatTour =(player2.resultatTour+player2.fleche2) ;
+    player2.resultatTotal =(player2.resultatTotal+player2.fleche2) ;
+    player2.resultatTour=(player2.resultatTour+player2.fleche2);
     console.log(player2.pointsRestantsActuels);
 
-    //document.getElementById("points-restants2").innerHTML="points restant : " +player2.pointsRestantsActuels;
-    document.getElementById("score-cumulé2").innerHTML= "score cumulé : "+player2.resultatTour;
+    document.getElementById("points-restants2").innerHTML="points restant : " +player2.pointsRestantsActuels;
+    document.getElementById("score-cumulé2").innerHTML= "score total : "+player2.resultatTotal;
     document.getElementById("coupsrestants2").innerHTML= "coups restants : "+player2.coupsRestants;
     document.getElementById("score2").innerHTML= "score fleche  : "+player2.fleche2;
+    document.getElementById("score-tour2").innerHTML= "score tour  : "+player2.resultatTour;
 
     console.log(parseInt(nbnbpts2));
     console.log(player2);
@@ -226,13 +244,15 @@ function ptspts3()//retourne la valeur de fleche 1
     var nbnbpts3 = document.getElementById('pts2fleches3').value;
     player2.fleche3=parseInt(nbnbpts3);
     player2.coupsRestants --;
-    player2.resultatTour =(player2.resultatTour+player2.fleche3) ;
+    player2.resultatTotal =(player2.resultatTotal+player2.fleche3) ;
+    player2.resultatTour=(player2.resultatTour+player2.fleche3);
     
 
     document.getElementById("points-restants2").innerHTML="points restant : " +player2.pointsRestantsActuels;
-    document.getElementById("score-cumulé2").innerHTML= "score cumulé : "+player2.resultatTour;
+    document.getElementById("score-cumulé2").innerHTML= "score total : "+player2.resultatTotal;
     document.getElementById("coupsrestants2").innerHTML= "coups restants : "+player2.coupsRestants;
     document.getElementById("score2").innerHTML= "score fleche  : "+player2.fleche3;
+    document.getElementById("score-tour2").innerHTML= "score tour  : "+player2.resultatTour;
 
 
     console.log(parseInt(nbnbpts3));
@@ -265,7 +285,7 @@ class Player
     constructor(num,name){
         this.num=num;this.name=name;this.pointsrestantsDebutTour=301;this.pointsRestantsActuels=301;
         this.coupsRestants = 3;this.fleche1 = 0;this.fleche2 = 0;this.fleche3 = 0;
-        this.resultatTour = 0;this.nbredetours=0;this.gagnant= false;this.test=null;
+        this.resultatTotal = 0;this.nbredetours=0;this.gagnant= false;this.test=null;this.resultatTour=0;
     }//fin constructor
    /* sayplayer()
     {
@@ -337,6 +357,7 @@ function gagné2(){
 
 function perdu1(){
     document.getElementById("titre").innerHTML="Domage " +player1.name+" ,vous avez fait trop !"
+
 }
 
 function perdu2(){

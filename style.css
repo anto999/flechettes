@@ -14,28 +14,33 @@
     margin-right: 15px;
 }
 .nomjoueur{
-    height: 20%;
+    height: 15%;
     background-color: yellow;
     vertical-align: baseline;
 }
 .points-restants{
-    height: 20%;
+    height: 15%;
     background-color: red;
     vertical-align: middle;
 }
 
 .score{
-    height: 20%;
+    height: 15%;
     background-color: green;
     vertical-align: middle;
 }
 .score-cumulé{
-    height: 20%;
+    height: 15%;
     background-color: pink;
     vertical-align: middle;
 }
+.score-tour{
+    height: 15%;
+    background-color: grey;
+    vertical-align: middle;
+}
 .coupsrestants{
-    height: 20%;
+    height: 15%;
     background-color: orange;
     vertical-align: middle;
 }
