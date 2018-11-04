@@ -1,3 +1,8 @@
+body {
+    background-image: url("https://static1.squarespace.com/static/5366a1f8e4b0f0c8a1bd660f/t/53dc1d5de4b08daa81246f25/1517911795307/");
+    background-size: 100%;
+}
+
 #forminput{
     -display:none;
 }
@@ -8,41 +13,42 @@
 .container-card{
     width: 400px;
     height: 400px;
-    border-color: black;
+    border-color:rgb(205, 126, 9);
     border-style: solid;
     text-align: center;
-    margin-right: 15px;
+    margin-right: 30px;;
     vertical-align: baseline;
+    border-width: 5px;
 
 }
 .nomjoueur{
-    height: 15%;
+    height: 16.66%;
     background-color: yellow;
    
 }
 .points-restants{
-    height: 15%;
+    height: 16.66%;
     background-color: red;
     vertical-align: middle;
 }
 
 .score{
-    height: 15%;
+    height: 16.66%;
     background-color: green;
     vertical-align: middle;
 }
 .score-cumulé{
-    height: 15%;
+    height: 16.66%;
     background-color: pink;
     vertical-align: middle;
 }
 .score-tour{
-    height: 15%;
+    height: 16.66%;
     background-color: grey;
     vertical-align: middle;
 }
 .coupsrestants{
-    height: 15%;
+    height: 16.66%;
     background-color: orange;
     vertical-align: middle;
 }
@@ -54,12 +60,23 @@
     display: flex;
     text-align: center;
     position: relative;
+    margin: auto;
+    width: 60%;
+    margin-left: 23%;
+    opacity: 0.8;
+    font-size: 2em;
+    margin-top: 21%;
 }
 
 .titre{
     text-align: center;
     height: 50px;
     font-size: 2em;
+    width: 25%;
+    margin-left: 35%;
+    background-color: wheat;
+    padding-top: 7px;
+    border-radius: 22px;
 }
 .tableaubouttons{
     display: flex;
@@ -67,5 +84,28 @@
 }
 
 button{
-    margin-bottom: 10px;
+    margin-bottom: 22px;
+   cursor: pointer;
+    height: 55px;
+    font-size: 1.1em;
+    
+}
+
+.case{
+    margin: auto;
+}
+
+#form2{
+    position: absolute;
+    right: 1%;
+}
+#form1{
+    position: absolute;
+    left: 1%;
+}
+input{
+   
+    height: 45px;
+    width: 55px;
+    font-size: 1.4em;
 }

@@ -19,7 +19,7 @@ $(document).ready(function(){
    document.getElementById("points-restants2").innerHTML="points restants  : "+ player2.pointsRestantsActuels;
    document.getElementById("score-cumulé2").innerHTML="score total : "+ player2.resultatTotal;
    document.getElementById("score-tour2").innerHTML="score tour : "+ player2.resultatTour;
-   document.getElementById("coupsrestants2").innerHTML="cours restants : "+ player2.coupsRestants;
+   document.getElementById("coupsrestants2").innerHTML="coups restants : "+ player2.coupsRestants;
    
 
 
@@ -367,7 +367,7 @@ function gagné2(){
 }
 
 function perdu1(){
-    document.getElementById("titre").innerHTML="Domage " +player1.name+" ,vous avez fait trop !"
+    document.getElementById("titre").innerHTML="Domage " +player1.name+", trop de points !"
     player1.pointsRestantsActuels=player1.pointsrestantsDebutTour;
     document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
     player2.coupsRestants=3;
@@ -378,7 +378,7 @@ function perdu1(){
 }
 
 function perdu2(){
-    document.getElementById("titre").innerHTML="Domage " +player2.name+" ,vous avez fait trop !"
+    document.getElementById("titre").innerHTML="Domage " +player2.name+", trop de points !"
     player2.pointsRestantsActuels=player2.pointsrestantsDebutTour;
        document.getElementById("points-restants2").innerHTML="points restant : " +player2.pointsRestantsActuels;
        player1.coupsRestants=3;
