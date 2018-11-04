@@ -60,7 +60,15 @@ function pts()//retourne la valeur de fleche 1
    document.getElementById("score-tour2").innerHTML= "score tour : "+player2.resultatTour;
 
     var nbpts = document.getElementById('ptsfleches').value;
+ if (isNaN(parseInt(nbpts)) == true){
+        nbpts=0;
+        player1.coupsRestants ++;
+        console.log(nbpts);
+    }
+
+
     player1.fleche1=parseInt(nbpts);
+   
     
     
     player1.coupsRestants --;
@@ -104,6 +112,11 @@ function pts2()//retourne la valeur de fleche 1
 {   
    //on stock la valeur de l'input dans une  variable nbpts20
     var nbpts2 = document.getElementById('ptsfleches2').value;
+    if (isNaN(parseInt(nbpts2)) == true){
+        nbpts2=0;
+        player1.coupsRestants ++;
+        console.log(nbpts2);
+    }
     player1.fleche2=parseInt(nbpts2);
     player1.coupsRestants --;
     player1.resultatTotal =(player1.resultatTotal+player1.fleche2) ;
@@ -136,6 +149,11 @@ function pts3()//retourne la valeur de fleche 1
 {   
    //on stock la valeur de l'input dans une  variable nbpts20
     var nbpts3 = document.getElementById('ptsfleches3').value;
+    if (isNaN(parseInt(nbpts3)) == true){
+        nbpts3=0;
+        player1.coupsRestants ++;
+        console.log(nbpts3);
+    }
     player1.fleche3=parseInt(nbpts3);
     player1.coupsRestants --;
     player1.resultatTotal =(player1.resultatTotal+player1.fleche3) ;
@@ -181,6 +199,11 @@ function pts3()//retourne la valeur de fleche 1
             
         //on stock la valeur de l'input dans une  variable nbpts20
             var nbnbpts = document.getElementById('pts2fleches').value;
+            if (isNaN(parseInt(nbnbpts)) == true){
+                nbnbpts=0;
+                player2.coupsRestants ++;
+                console.log(nbnbpts);
+            }
             player2.fleche1=parseInt(nbnbpts);
             player2.coupsRestants --;
             player2.resultatTotal =(player2.resultatTotal+ player2.fleche1) ;
@@ -217,6 +240,11 @@ function ptspts2()//retourne la valeur de fleche 1
 {   
    //on stock la valeur de l'input dans une  variable nbpts20
     var nbnbpts2 = document.getElementById('pts2fleches2').value;
+    if (isNaN(parseInt(nbnbpts2)) == true){
+        nbnbpts2=0;
+        player2.coupsRestants ++;
+        console.log(nbnbpts2);
+    }
     player2.fleche2=parseInt(nbnbpts2);
     player2.coupsRestants --;
     player2.resultatTotal =(player2.resultatTotal+player2.fleche2) ;
@@ -251,6 +279,11 @@ function ptspts3()//retourne la valeur de fleche 1
 {   
    //on stock la valeur de l'input dans une  variable nbpts20
     var nbnbpts3 = document.getElementById('pts2fleches3').value;
+    if (isNaN(parseInt(nbnbpts3)) == true){
+        nbnbpts3=0;
+        player2.coupsRestants ++;
+        console.log(nbnbpts3);
+    }
     player2.fleche3=parseInt(nbnbpts3);
     player2.coupsRestants --;
     player2.resultatTotal =(player2.resultatTotal+player2.fleche3) ;

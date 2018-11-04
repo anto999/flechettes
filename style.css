@@ -88,6 +88,9 @@ button{
    cursor: pointer;
     height: 55px;
     font-size: 1.1em;
+    background-color: indianred;
+    border-radius: 39px;
+    
     
 }
 
@@ -108,4 +111,8 @@ input{
     height: 45px;
     width: 55px;
     font-size: 1.4em;
+    text-align: center;
+    border-radius: 46px;
+    background-color: green;
+    color: aliceblue; 
 }
