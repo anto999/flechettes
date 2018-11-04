@@ -6,7 +6,7 @@ $(document).ready(function(){
    document.getElementById("titre").innerHTML="A  " +player1.name+" de jouer !";
 
    document.getElementById("score").innerHTML="score : "+ player1.fleche1;
-   document.getElementById("nomjoueur").innerHTML="joueur : "+ player1.name;
+   document.getElementById("nomjoueur").innerHTML= player1.name;
    document.getElementById("points-restants").innerHTML="points restants  : "+ player1.pointsRestantsActuels;
    document.getElementById("score-cumulé").innerHTML="score total : "+ player1.resultatTotal;
    document.getElementById("score-tour").innerHTML="score tour : "+ player1.resultatTour;
@@ -15,7 +15,7 @@ $(document).ready(function(){
    
 
    document.getElementById("score2").innerHTML="score : "+ player2.fleche1;
-   document.getElementById("nomjoueur2").innerHTML="joueur : "+ player2.name;
+   document.getElementById("nomjoueur2").innerHTML= player2.name;
    document.getElementById("points-restants2").innerHTML="points restants  : "+ player2.pointsRestantsActuels;
    document.getElementById("score-cumulé2").innerHTML="score total : "+ player2.resultatTotal;
    document.getElementById("score-tour2").innerHTML="score tour : "+ player2.resultatTour;
@@ -394,9 +394,11 @@ function addplayerinput() {
 
 function gagné1(){
     document.getElementById("titre").innerHTML="Victoire de  " +player1.name+" !"
+    openmodal();
 }
 function gagné2(){
     document.getElementById("titre").innerHTML="Victoire de  " +player2.name+" !"
+    openmodal();
 }
 
 function perdu1(){
@@ -437,4 +439,29 @@ function changescore(){
     document.getElementById("score").innerHTML="score : "+ player1.fleche1;
 
     console.log(player1.fleche1);
+}
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+ function openmodal() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
