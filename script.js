@@ -167,6 +167,7 @@ function pts3()//retourne la valeur de fleche 1
        player2.coupsRestants=3;
        document.getElementById("coupsrestants2").innerHTML="coups restants : " +player2.coupsRestants;
        player1.pointsrestantsDebutTour=player1.pointsRestantsActuels;
+       document.getElementById("form2").reset();
 
        return parseInt(nbpts3);
       }
@@ -282,6 +283,7 @@ function ptspts3()//retourne la valeur de fleche 1
        player1.coupsRestants=3;
        document.getElementById("coupsrestants").innerHTML="coups restants : " +player1.coupsRestants;
        player2.pointsrestantsDebutTour=player2.pointsRestantsActuels;
+       document.getElementById("form1").reset();
        return parseInt(nbnbpts3);
       }
 
@@ -372,7 +374,7 @@ function perdu1(){
     document.getElementById("coupsrestants").innerHTML="coups restants : "+ player2.coupsRestants;
     player2.coupsRestants=3;
     document.getElementById("coupsrestants2").innerHTML="coups restants : "+ player2.coupsRestants;
-
+    document.getElementById("form2").reset();
 }
 
 function perdu2(){
@@ -382,6 +384,7 @@ function perdu2(){
        player1.coupsRestants=3;
        document.getElementById("coupsrestants").innerHTML="coups restants : "+ player1.coupsRestants;
        document.getElementById("coupsrestants2").innerHTML="coups restants : "+ player2.coupsRestants;
+       document.getElementById("form1").reset();
 }
 
 
