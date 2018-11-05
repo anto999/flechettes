@@ -476,11 +476,25 @@ function displayI(){
     var a = document.getElementById('playerName').value;
     console.log(a);
    // $('#btn-playername').click(console.log('coucou'));
-     for(i=a;i>0;i--){
-     console.log(i);
-}
-    return parseInt(a);
+   var card ="";
+        for(i=a;i>0;i--)
+        {
+        console.log(i);
+        
+        card += ' <div class="container-card">';
+        card += ' <div class ="nomjoueur case" id="nomjoueur">nom Joueur</div>';
+        card += '<div id="points-restants" class ="case points-restants">points restants</div>';
+        card += ' <div class ="score case" id="score">score</div>';
+        card += ' <div class ="score-cumulé case" id="score-cumulé">score total</div>';
+        card += '<div class ="score-tour case" id="score-tour">score tour</div>';
+        card += '<div class ="coupsrestants case" id="coupsrestants">coups restants</div>';
+        card += '</div>';
+
+    }
+    
    //alert('gogol');
+   $("#h6").html(card);
+   return parseInt(a);
    
 }
 
@@ -500,3 +514,21 @@ $(function(){
 });
 
 $('#btn-playername').click(console.log('coucou'));
+
+function card (){
+    var card ="";
+
+card += ' <div class="container-card">';
+card += ' <div class ="nomjoueur case" id="nomjoueur">nom Joueur</div>';
+card += '<div id="points-restants" class ="case points-restants">points restants</div>';
+card += ' <div class ="score case" id="score">score</div>';
+card += ' <div class ="score-cumulé case" id="score-cumulé">score total</div>';
+card += '<div class ="score-tour case" id="score-tour">score tour</div>';
+card += '<div class ="coupsrestants case" id="coupsrestants">coups restants</div>';
+card += '</div>';
+
+
+
+}
+$('.ok').click(card);
+$("#h6").html(card);
