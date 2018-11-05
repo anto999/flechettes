@@ -21,7 +21,7 @@ $(document).ready(function(){
    document.getElementById("score-tour2").innerHTML="score tour : "+ player2.resultatTour;
    document.getElementById("coupsrestants2").innerHTML="coups restants : "+ player2.coupsRestants;
    
-   $('#btn-playername').click(coucou);
+   $('.ok').click(console.log('coucou'));
 
 });
 function coucou(){
@@ -457,9 +457,9 @@ var span = document.getElementsByClassName("close")[0];
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+/*span.onclick = function() {
     modal.style.display = "none";
-}
+}*/
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -489,7 +489,7 @@ function displayI(){
 
 
 //à voir, il faut que ca marche !
-$('#btn-playernamess').click(displayI);
+$('.ok').click(displayI);
 
 $(function(){
     $(".ok").click(function(){
