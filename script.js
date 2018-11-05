@@ -21,10 +21,12 @@ $(document).ready(function(){
    document.getElementById("score-tour2").innerHTML="score tour : "+ player2.resultatTour;
    document.getElementById("coupsrestants2").innerHTML="coups restants : "+ player2.coupsRestants;
    
-
+   $('#btn-playername').click(coucou);
 
 });
-
+function coucou(){
+    console.log('coucou');
+}
 /*function selectNbPlayers()
 {    
     var NbPlayer = document.getElementById('grr').value;
@@ -465,3 +467,36 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+
+
+
+
+function displayI(){
+    var a = document.getElementById('playerName').value;
+    console.log(a);
+   // $('#btn-playername').click(console.log('coucou'));
+     for(i=a;i>0;i--){
+     console.log(i);
+}
+    return parseInt(a);
+   //alert('gogol');
+   
+}
+
+
+
+
+
+//à voir, il faut que ca marche !
+$('#btn-playernamess').click(displayI);
+
+$(function(){
+    $(".ok").click(function(){
+        var a=1;
+        console.log(a);
+    });
+
+});
+
+$('#btn-playername').click(console.log('coucou'));
