@@ -27,33 +27,7 @@ $(document).ready(function(){
 function coucou(){
     console.log('coucou');
 }
-/*function selectNbPlayers()
-{    
-    var NbPlayer = document.getElementById('grr').value;
-    //console.log(NbPlayer);
-   // document.getElementById("h0").innerHTML= NbPlayer;
 
-    if (NbPlayer <= 10 )
-    {
-        document.getElementById("h1").innerHTML= "nous avons " +NbPlayer+  " joueurs" ;
-        choisirJeu();
-        return parseInt(NbPlayer);
-    } 
-    else
-    {
-        document.getElementById("h1").innerHTML= "<h1>trop de monde!</h1> ";
-        document.getElementById("h2").innerHTML= "";
-        document.getElementById("h3").innerHTML= "";
-    }
-}*/
-
-/*function displayNbPlayers(){
-    var NbPlayers =selectNbPlayers();
-    console.log('Vous etes' +NbPlayers+' !');
-}*/
-
-
-//displayNbPlayers();
 
 function pts()//retourne la valeur de fleche 1
 {   //document.getElementById("titre").innerHTML="A  " +player1.name+" de jouer !";
@@ -340,6 +314,11 @@ class Player
 }
 const player1 = new Player (1,"anto");
 const player2 = new Player (2,"micka");
+var array=[];
+array.push(player1,player2);
+console.log(array[0].name);
+console.log(array);
+console.log(array);
 
 //console.log(player);
 console.log(player1);
@@ -467,8 +446,41 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+function selectNbPlayers()
+{    
+    var NbPlayer = document.getElementById('input_add_name').value;
+    //console.log(NbPlayer);
+   // document.getElementById("h0").innerHTML= NbPlayer;
+
+    if (NbPlayer <= 10 )
+    {
+        document.getElementById("h1").innerHTML= "nous avons " +NbPlayer+  " joueurs" ;
+        choisirJeu();
+        return parseInt(NbPlayer);
+    } 
+    else
+    {
+        document.getElementById("h1").innerHTML= "<h1>trop de monde!</h1> ";
+        
+    }
+}
+
+$('#btn_add_name').click(selectNbPlayers);
+
+/*function displayNbPlayers(){
+    var NbPlayers =selectNbPlayers();
+    console.log('Vous etes' +NbPlayers+' !');
+}*/
 
 
+//displayNbPlayers();
+
+/*var 
+function createInputName(){
+    var input_name ="";
+
+    
+}*/
 
 
 
@@ -477,21 +489,20 @@ function displayI(){
     console.log(a);
    // $('#btn-playername').click(console.log('coucou'));
    var card ="";
-        for(i=a;i>0;i--)
+        for(i=a;i>-0;i--)
         {
-        console.log(i);
-        
-        card += ' <div class="container-card">';
-        card += ' <div class ="nomjoueur case" id="nomjoueur">nom Joueur</div>';
-        card += '<div id="points-restants" class ="case points-restants">points restants</div>';
-        card += ' <div class ="score case" id="score">score</div>';
-        card += ' <div class ="score-cumulé case" id="score-cumulé">score total</div>';
-        card += '<div class ="score-tour case" id="score-tour">score tour</div>';
-        card += '<div class ="coupsrestants case" id="coupsrestants">coups restants</div>';
+        console.log(array[i-1]);
+        card += '<div class="tableaubouttons">'; 
+            card += ' <div class="container-card" id="'+i+'">';
+                card += ' <div class ="nomjoueur case pl'+i+'" id="nomjoueur">'+array[i-1].name+'</div>';
+                card += '<div id="points-restants" class ="case points-restants">points restants</div>';
+                card += ' <div class ="score case" id="score">score</div>';
+                card += ' <div class ="score-cumulé case" id="score-cumulé">score total</div>';
+                card += '<div class ="score-tour case" id="score-tour">score tour</div>';
+                card += '<div class ="coupsrestants case" id="coupsrestants">coups restants</div>';
+            card += '</div>';
         card += '</div>';
-
-    }
-    
+         }    
    //alert('gogol');
    $("#h6").html(card);
    return parseInt(a);
@@ -532,3 +543,4 @@ card += '</div>';
 }
 $('.ok').click(card);
 $("#h6").html(card);
+
