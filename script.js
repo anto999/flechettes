@@ -328,7 +328,7 @@ function choisirJeu()
 {
     document.getElementById("h2").innerHTML= "choisissez votre jeu";
     var listejeu= '<div class="listejeux"><button type="button" onclick= g301()>301</button><br><button type="button" onclick=g501()>501</button><br><button type="button" onclick=g701()>701</button></div'
-    document.getElementById("h3").innerHTML= listejeu
+    document.getElementById("h6").innerHTML= listejeu
 }
 
 function g301() 
@@ -448,7 +448,7 @@ window.onclick = function(event) {
 }
 function selectNbPlayers()
 {    
-    var NbPlayer = document.getElementById('input_add_name').value;
+    var NbPlayer = document.getElementById('input_nbplayer').value;
     //console.log(NbPlayer);
    // document.getElementById("h0").innerHTML= NbPlayer;
 
@@ -465,7 +465,7 @@ function selectNbPlayers()
     }
 }
 
-$('#btn_add_name').click(selectNbPlayers);
+$('#btn-display-input-name').click(selectNbPlayers);
 
 /*function displayNbPlayers(){
     var NbPlayers =selectNbPlayers();
@@ -477,23 +477,26 @@ $('#btn_add_name').click(selectNbPlayers);
 
 
 function createInputName(){
-    console.log(NbPlayer);
-
+    var b = document.getElementById('input_nbplayer').value;
+    console.log(b);
     var inputname="";
-    inputname +=' <input type ="text" id ="input_add_name" class="input_add_name">';
-    inputname +=' <button type ="button" id="btn_add_name" class="btn_add_name">create!</button>';
+        for(i=b;i>-0;i--)
+        {
+            inputname +=' <input type ="text" id ="input_add_name" class="input_add_name">';
+            inputname +=' <button type ="button" id="btn-display-input-name" class="btn-display-input-name">create!</button>';
 
-
-    
+        }
+        $("#h6").html(inputname);
+        return parseInt(b);
 }
+$('#btn-display-input-name').click(createInputName);
 
 
 
 function displayContainer(){
     var a = document.getElementById('nbPlayerContainer').value;
     console.log(a);
-   // $('#btn-playername').click(console.log('coucou'));
-   var card ="";
+     var card ="";
         for(i=a;i>-0;i--)
         {
         console.log(array[i-1]);
@@ -508,7 +511,7 @@ function displayContainer(){
             card += '</div>';
         card += '</div>';
          }    
-   //alert('gogol');
+   
    $("#h6").html(card);
    return parseInt(a);
    
