@@ -475,17 +475,22 @@ $('#btn_add_name').click(selectNbPlayers);
 
 //displayNbPlayers();
 
-/*var 
+
 function createInputName(){
-    var input_name ="";
+    console.log(NbPlayer);
+
+    var inputname="";
+    inputname +=' <input type ="text" id ="input_add_name" class="input_add_name">';
+    inputname +=' <button type ="button" id="btn_add_name" class="btn_add_name">create!</button>';
+
 
     
-}*/
+}
 
 
 
-function displayI(){
-    var a = document.getElementById('playerName').value;
+function displayContainer(){
+    var a = document.getElementById('nbPlayerContainer').value;
     console.log(a);
    // $('#btn-playername').click(console.log('coucou'));
    var card ="";
@@ -508,21 +513,21 @@ function displayI(){
    return parseInt(a);
    
 }
+$('#displayContainer').click(displayContainer);
 
 
 
 
 
-//à voir, il faut que ca marche !
-$('.ok').click(displayI);
 
-$(function(){
+
+/*$(function(){
     $(".ok").click(function(){
         var a=1;
         console.log(a);
     });
 
-});
+});*/
 
 $('#btn-playername').click(console.log('coucou'));
 
