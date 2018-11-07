@@ -455,7 +455,11 @@ function selectNbPlayers()
     if (NbPlayer <= 10 )
     {
         document.getElementById("h1").innerHTML= "nous avons " +NbPlayer+  " joueurs" ;
-        choisirJeu();
+        createInputName();
+
+
+
+
         return parseInt(NbPlayer);
     } 
     else
@@ -482,7 +486,7 @@ function createInputName(){
     var inputname="";
         for(i=b;i>-0;i--)
         {
-            inputname +=' <input type ="text" id ="input_add_name" class="input_add_name">';
+            inputname +=' <input type ="text" id ="input_add_name'+i+'" class="input_add_name">';
             inputname +=' <button type ="button" id="btn-display-input-name" class="btn-display-input-name">create!</button>';
 
         }
