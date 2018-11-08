@@ -329,6 +329,14 @@ function createPlayer()
         console.log(array)
     }
 
+    function enattente(){
+        
+        var P1=document.getElementById('input_add_name1').value
+        array.push(P1)
+        console.log(array);
+    }
+    $('#atd').click(enattente);
+   
 //var NbPlayer = document.getElementById('input_nbplayer').value;
 
 
