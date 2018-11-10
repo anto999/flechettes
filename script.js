@@ -303,39 +303,82 @@ class Player
         return `${this.num} ${this.name} ${this.pointsRestants}`;
     }*/
 }
-const player1 = new Player (1,"anto");
-const player2 = new Player (2,"micka");
 
+var array=[];
+var Match=[];
+
+function myFunction() {
+    var x = document.getElementsByClassName("input_add_name");
+    console.log(x.length);
+   
+    console.log(x[0].value);
+    var nom1 = document.getElementById("input_add_name").value;
+    console.log(nom1);
+    x[0].value = nom1;
+    x[1].value = "Helpddddddddd!";
+    var res=[];
+    res.push(x[0].value)
+    console.log(res);
+
+}
 
 function createPlayer()
     {
-        var P = document.getElementById('input_nbplayer').value;
-        for (i=P;i>0;i--)
+        var P = document.getElementById('input_nbplayer0').value;
+        for (i=0;i<P;i++)
         {
             const player = new Player (i);
-            console.log(player);
-          
-            var x = document.getElementById('input_add_name').value
+           // console.log(player);
+            var x = document.getElementById("input_add_name0").value
+          //  var x = document.getElementById("input_add_name"+i).value
             console.log(x);
             player.name= x;
-            array.push(player)
+          //  array.push(player)
+          //  console.log(array[i])
+            console.log(i);
             
         }
     }
-    $('#btn-display-input-name').click(createPlayer);
+    $('#creerjoueur').click(createPlayer);
+   // $('#btn-display-input-name').click(createPlayer);
     $('#test').click(displayArray);
 
     function displayArray(){
         console.log(array)
+        
     }
 
     function enattente(){
+        var P = document.getElementById('input_nbplayer0').value;
+        for (i=0;i<P;i++){
+            a=0;
+            var P1 = new Player;
+            //var res= document.getElementById("input_add_name'+i+'").value;
+            var inpt2= document.getElementById("input_add_name0").value;
+           
+            P1.name=inpt2;
+          //  P1.name=res;
+
+
+            P1.num=i;
+
+            array.push(P1)
+            console.log(array);
+            document.getElementById("input_add_name1").value="";
+           var inpt2= document.getElementById("input_add_name'+i+'").value;
+
+           document.getElementById('input_add_name1').value=inpt2;
+
+            a=a+1;
+
+
+        }//fin for
         
-        var P1=document.getElementById('input_add_name1').value
-        array.push(P1)
-        console.log(array);
-    }
+    }//fin function
     $('#atd').click(enattente);
+
+
+
    
 //var NbPlayer = document.getElementById('input_nbplayer').value;
 
@@ -345,11 +388,13 @@ createInputName();
 var x=createInputName();
 console.log(x);*/
 
+const player1 = new Player (1,"anto");
+const player2 = new Player (2,"micka");
 
-var array=[];
-array.push(player1,player2);
-console.log(array[0].name);
-console.log(array);
+var arrayAntoMick=[];
+arrayAntoMick.push(player1,player2);
+console.log(arrayAntoMick[0].name);
+console.log(arrayAntoMick);
 
 
 //console.log(player);
@@ -476,14 +521,14 @@ window.onclick = function(event) {
 var nbplayers=selectNbPlayers();
 function selectNbPlayers()
 {    
-    var NbPlayer = document.getElementById('input_nbplayer').value;
+    var NbPlayer = document.getElementById('input_nbplayer0').value;
     //console.log(NbPlayer);
    // document.getElementById("h0").innerHTML= NbPlayer;
 
     if (NbPlayer <= 10 )
     {
         document.getElementById("h1").innerHTML= "nous avons " +NbPlayer+  " joueurs" ;
-        createInputName();
+       // createInputName();
 
         return parseInt(NbPlayer);
     } 
@@ -504,17 +549,17 @@ $('#btn-display-input-name').click(selectNbPlayers);
 
 //displayNbPlayers();
 
-var enculé =parseInt(selectNbPlayers());
 
 function createInputName(){
-    var b = document.getElementById('input_nbplayer').value;
+    var b = document.getElementById('input_nbplayer0').value;
+    a=b-b;
     //console.log(b);
     var inputname="";
         for(i=b;i>-0;i--)
-        {
-            inputname +=' <input type ="text" id ="input_add_name'+i+'" class="input_add_name">';
+        {   
+            inputname +=' <input type ="text" id ="input_add_name'+a+'" class="input_add_name">';
             inputname +=' <button type ="button" id="btn-display-input-name" class="btn-display-input-name">create!</button>';
-
+            a=a+1
         }
         $("#h6").html(inputname);
         return parseInt(b);
@@ -532,7 +577,7 @@ function displayContainer(){
         console.log(array[i-1]);
         card += '<div class="tableaubouttons">'; 
             card += ' <div class="container-card" id="'+i+'">';
-                card += ' <div class ="nomjoueur case pl'+i+'" id="nomjoueur">'+array[i-1].name+'</div>';
+                card += ' <div class ="nomjoueur case pl'+i+'" id="nomjoueur">'+arrayAntoMick[i-1].name+'</div>';
                 card += '<div id="points-restants" class ="case points-restants">points restants</div>';
                 card += ' <div class ="score case" id="score">score</div>';
                 card += ' <div class ="score-cumulé case" id="score-cumulé">score total</div>';
@@ -549,16 +594,6 @@ function displayContainer(){
 $('#displayContainer').click(displayContainer);
 
 
-
-/*$(function(){
-    $(".ok").click(function(){
-        var a=1;
-        console.log(a);
-    });
-
-});*/
-
-$('#btn-playername').click(console.log('coucou'));
 
 function card (){
     var card ="";
