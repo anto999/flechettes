@@ -308,17 +308,20 @@ var array=[];
 var Match=[];
 
 function myFunction() {
+
+
     var x = document.getElementsByClassName("input_add_name");
-    console.log(x.length);
-   
-    console.log(x[0].value);
-    var nom1 = document.getElementById("input_add_name").value;
-    console.log(nom1);
-    x[0].value = nom1;
-    x[1].value = "Helpddddddddd!";
     var res=[];
-    res.push(x[0].value)
-    console.log(res);
+    var a=0;
+    for (i=x.length;i>0;i--){
+       
+        console.log(x[a].value);
+        var nom = x[a].value;
+        console.log(nom);
+        res.push(x[a].value)
+        console.log(res);
+        a=a+1;
+    }
 
 }
 
@@ -358,7 +361,6 @@ function createPlayer()
            
             P1.name=inpt2;
           //  P1.name=res;
-
 
             P1.num=i;
 
