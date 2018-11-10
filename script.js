@@ -315,30 +315,68 @@ function myFunction() {
     var a=0;
     for (i=x.length;i>0;i--){
        
-        console.log(x[a].value);
+      //  console.log(x[a].value);
         var nom = x[a].value;
         console.log(nom);
-        res.push(x[a].value)
-        console.log(res);
+        res.push(x[a].value);
         a=a+1;
     }
+    console.log(res);
+    createPlayer();
+        function createPlayer()
+        {  // returnRes();
+            var P = document.getElementById('input_nbplayer0').value;
+            for (i=0;i<P;i++)
+            {   
+                
+                const player = new Player();
+            // console.log(player);
+            // var x = document.getElementById("input_add_name0").value
+            var x = res[i];
+            //  var x = document.getElementById("input_add_name"+i).value
+                console.log(x);
+                player.name= x;
+                player.num=i;
+              array.push(player)
+              console.log(array[i])
+                console.log(array);
 
+            
+        }//fin for
+        
+    }//fin createPlayer
+   
+
+}// fin myfunction
+
+
+
+
+
+
+
+function returnRes(){
+    var joueursdanstableau=myFunction();
+    console.log(joueursdanstableau);
 }
 
 function createPlayer()
-    {
+    {  // returnRes();
         var P = document.getElementById('input_nbplayer0').value;
         for (i=0;i<P;i++)
-        {
-            const player = new Player (i);
+        {   
+            
+            const player = new Player();
            // console.log(player);
-            var x = document.getElementById("input_add_name0").value
+           // var x = document.getElementById("input_add_name0").value
+           var x = res[i];
           //  var x = document.getElementById("input_add_name"+i).value
             console.log(x);
             player.name= x;
           //  array.push(player)
           //  console.log(array[i])
             console.log(i);
+
             
         }
     }
@@ -560,7 +598,6 @@ function createInputName(){
         for(i=b;i>-0;i--)
         {   
             inputname +=' <input type ="text" id ="input_add_name'+a+'" class="input_add_name">';
-            inputname +=' <button type ="button" id="btn-display-input-name" class="btn-display-input-name">create!</button>';
             a=a+1
         }
         $("#h6").html(inputname);
