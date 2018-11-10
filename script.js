@@ -349,10 +349,7 @@ function myFunction() {
 
 }// fin myfunction
 
-
-
-
-
+$('#create_myfunction').click(myFunction);
 
 
 function returnRes(){
@@ -600,6 +597,7 @@ function createInputName(){
             inputname +=' <input type ="text" id ="input_add_name'+a+'" class="input_add_name">';
             a=a+1
         }
+        inputname += '<button type ="button" id="create_myfunctionGhost" class="create_myfunction">create!</button>';
         $("#h6").html(inputname);
         return parseInt(b);
 }
@@ -608,15 +606,17 @@ $('#btn-display-input-name').click(createInputName);
 
 
 function displayContainer(){
-    var a = document.getElementById('nbPlayerContainer').value;
+    var a = document.getElementById('input_nbplayer0').value;
     console.log(a);
      var card ="";
+     b=0;
         for(i=a;i>-0;i--)
         {
-        console.log(array[i-1]);
+       
+        console.log(array[b]);
         card += '<div class="tableaubouttons">'; 
             card += ' <div class="container-card" id="'+i+'">';
-                card += ' <div class ="nomjoueur case pl'+i+'" id="nomjoueur">'+arrayAntoMick[i-1].name+'</div>';
+                card += ' <div class ="nomjoueur case pl'+i+'" id="nomjoueur">'+array[b].name+'</div>';
                 card += '<div id="points-restants" class ="case points-restants">points restants</div>';
                 card += ' <div class ="score case" id="score">score</div>';
                 card += ' <div class ="score-cumulé case" id="score-cumulé">score total</div>';
@@ -624,6 +624,7 @@ function displayContainer(){
                 card += '<div class ="coupsrestants case" id="coupsrestants">coups restants</div>';
             card += '</div>';
         card += '</div>';
+        b=b+1;
          }    
    
    $("#h6").html(card);
