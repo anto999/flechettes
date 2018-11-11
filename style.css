@@ -2,6 +2,14 @@ body {
     background-image: url("https://static1.squarespace.com/static/5366a1f8e4b0f0c8a1bd660f/t/53dc1d5de4b08daa81246f25/1517911795307/");
     background-size: 100%;
 }
+#h6{
+    display:flex;
+    width: 100%;
+    flex-wrap: wrap;
+    border-color: black;
+    border-style: solid;
+    justify-content: center;
+}
 
 #forminput{
     -display:none;
@@ -80,6 +88,9 @@ body {
 }
 .tableaubouttons{
     display: flex;
+    margin-top: 1%;
+    margin-left: 1%;
+    opacity: 0.8;
 
 }
 

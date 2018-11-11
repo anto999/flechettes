@@ -329,7 +329,7 @@ function myFunction() {
             for (i=0;i<P;i++)
             {   
                 
-                const player = new Player();
+            const player = new Player();
             // console.log(player);
             // var x = document.getElementById("input_add_name0").value
             var x = res[i];
@@ -610,18 +610,18 @@ function displayContainer(){
     console.log(a);
      var card ="";
      b=0;
-        for(i=a;i>-0;i--)
+        for(i=0;i<a;i++)
         {
        
         console.log(array[b]);
         card += '<div class="tableaubouttons">'; 
             card += ' <div class="container-card" id="'+i+'">';
-                card += ' <div class ="nomjoueur case pl'+i+'" id="nomjoueur">'+array[b].name+'</div>';
-                card += '<div id="points-restants" class ="case points-restants">points restants</div>';
-                card += ' <div class ="score case" id="score">score</div>';
-                card += ' <div class ="score-cumulé case" id="score-cumulé">score total</div>';
-                card += '<div class ="score-tour case" id="score-tour">score tour</div>';
-                card += '<div class ="coupsrestants case" id="coupsrestants">coups restants</div>';
+                card += ' <div class ="nomjoueur case pl" id="nomjoueur'+i+'">'+array[b].name+'</div>';
+                card += '<div id="points-restants'+i+'" class ="case points-restants">points restants : '+array[b].pointsRestantsActuels+' </div>';
+                card += ' <div class ="score case" id="score'+i+'">score: '+array[b].fleche1+'</div>';
+                card += ' <div class ="score-cumulé case" id="score-cumulé'+i+'">score total '+array[b].resultatTotal+'</div>';
+                card += '<div class ="score-tour case" id="score-tour'+i+'">score tour '+array[b].resultatTour+'</div>';
+                card += '<div class ="coupsrestants case" id="coupsrestants'+i+'">coups restants '+array[b].coupsRestants+'</div>';
             card += '</div>';
         card += '</div>';
         b=b+1;
