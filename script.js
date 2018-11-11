@@ -653,3 +653,52 @@ card += '</div>';
 $('.ok').click(card);
 $("#h6").html(card);
 
+function lancerFleche()//retourne la valeur de fleche 1
+{   //document.getElementById("titre").innerHTML="A  " +player1.name+" de jouer !";
+   //on stock la valeur de l'input dans une  variable nbpts20
+   player2.resultatTour=0;
+   document.getElementById("score-tour2").innerHTML= "score tour : "+player2.resultatTour;
+
+    var nbpts = document.getElementById('ptsfleches').value;
+ if (isNaN(parseInt(nbpts)) == true){
+        nbpts=0;
+        player1.coupsRestants ++;
+        console.log(nbpts);
+    }
+
+    player1.fleche1=parseInt(nbpts);
+    player1.coupsRestants --;
+    player1.resultatTotal =(player1.resultatTotal+ player1.fleche1) ;
+    player1.resultatTour=(player1.resultatTour+player1.fleche1);
+    
+    document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
+    document.getElementById("score-cumulé").innerHTML= "score total : "+player1.resultatTotal;
+    document.getElementById("coupsrestants").innerHTML= "coups restants : "+player1.coupsRestants;
+    document.getElementById("score").innerHTML= "score fleche  : "+player1.fleche1;
+    document.getElementById("score-tour").innerHTML= "score tour  : "+player1.resultatTour;
+
+    //on retourne
+    console.log(player1);
+    
+   // console.log (JSON.stringify (nbpts));
+   if (player1.fleche1== player1.pointsRestantsActuels){
+     console.log('gagné!')
+       gagné1();
+       
+       
+       return parseInt(nbpts);
+   }else if(player1.fleche1>player1.pointsRestantsActuels){
+       perdu1();
+       player1.pointsRestantsActuels=player1.pointsrestantsDebutTour;
+       document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
+
+       console.log('perdu!');
+       return parseInt(nbpts);
+   }else if (player1.fleche1<player1.pointsRestantsActuels){
+    player1.pointsRestantsActuels=(player1.pointsRestantsActuels- player1.fleche1);
+    document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
+    
+   // document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
+    console.log(parseInt(nbpts));
+    return parseInt(nbpts);
+   }
