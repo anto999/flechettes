@@ -482,7 +482,7 @@ function addplayerinput() {
 }
 
 function gagné1(){
-    document.getElementById("titre").innerHTML="Victoire de  " +player1.name+" !"
+    document.getElementById("titre").innerHTML="Victoire de  " +array[result].name+" !"
     openmodal();
 }
 function gagné2(){
@@ -628,6 +628,7 @@ function displayContainer(){
          }    
    
    $("#h6").html(card);
+   document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
    return parseInt(a);
    
 }
@@ -672,14 +673,11 @@ function nextPlayer(){
     var result =compteur();
     console.log(result);
 
-    function lancerFleche()//retourne la valeur de fleche 1
-    {   //document.getElementById("titre").innerHTML="A  " +player1.name+" de jouer !";
-  /*  var result =compteur();
-    console.log(result);*/
-        
+    function lancerFleche()
+    {   
+
         var fin = false;
-        
-    
+        console.log(result);
             
             array[result].resultatTour=0;
             document.getElementById("score-tour"+result).innerHTML= "score tour : "+array[0].resultatTour;
@@ -840,8 +838,19 @@ function nextPlayer(){
             
             // document.getElementById("points-restants").innerHTML="points restant : " +array[0].pointsRestantsActuels;
             console.log(parseInt(nbpts3));
-
-            result =+1;
+            
+            function nextPlayer(){
+                if (result>= array.length-1){
+                    result=0;
+                }else{
+                    result=result+1;
+                }
+                
+            }
+            nextPlayer();
+            document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
+            array[result].coupsRestants=3;
+            document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
             return parseInt(nbpts3);
            
             lancerFleche();
