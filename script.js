@@ -490,16 +490,7 @@ function gagné2(){
     openmodal();
 }
 
-function perdu1(){
-    document.getElementById("titre").innerHTML="Domage " +player1.name+", trop de points !"
-    player1.pointsRestantsActuels=player1.pointsrestantsDebutTour;
-    document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
-    player2.coupsRestants=3;
-    document.getElementById("coupsrestants").innerHTML="coups restants : "+ player2.coupsRestants;
-    player2.coupsRestants=3;
-    document.getElementById("coupsrestants2").innerHTML="coups restants : "+ player2.coupsRestants;
-    document.getElementById("form2").reset();
-}
+
 
 function perdu2(){
     document.getElementById("titre").innerHTML="Domage " +player2.name+", trop de points !"
@@ -665,6 +656,17 @@ function nextPlayer(){
     
 }
 
+function perdu1(){
+    document.getElementById("titre").innerHTML="Domage " +array[result].name+", trop de points !"
+    array[result].pointsRestantsActuels=array[result].pointsrestantsDebutTour;
+    document.getElementById("points-restants").innerHTML="points restant : " +array[result].pointsRestantsActuels;
+    array[result].coupsRestants=3;
+    document.getElementById("coupsrestants"+[result]).innerHTML="coups restants : "+ array[result].coupsRestants;
+   
+    document.getElementById("form").reset();
+    form.reset();
+}
+
     function compteur(){
         var resultCompteur=0;
         return resultCompteur;
@@ -736,11 +738,6 @@ function nextPlayer(){
  function lancerFleche2()//retourne la valeur de fleche 1
     {   
         
-       // var fin = false;
-        
-    
-            
-            
             document.getElementById("score-tour"+result).innerHTML= "score tour : "+array[result].resultatTour;
             if (array[result])
             var nbpts2 = document.getElementById('lancer2').value;
@@ -755,7 +752,7 @@ function nextPlayer(){
             array[result].coupsRestants --;
             array[result].resultatTotal =(array[result].resultatTotal+ array[result].fleche2);
             array[result].resultatTour=(array[result].resultatTour+array[result].fleche2);
-            //document.getElementById("points-restants0").innerHTML="points restant : " +array[0].pointsRestantsActuels;
+         //   document.getElementById("points-restants"+result).innerHTML="points restant : " +array[0].pointsRestantsActuels;
             //var h=0;
         
             document.getElementById("score-cumulé"+result).innerHTML= "score total : "+array[result].resultatTotal;
@@ -796,7 +793,7 @@ function nextPlayer(){
         
     
             
-            array[result].resultatTour=0;
+            
             document.getElementById("score-tour"+result).innerHTML= "score tour : "+array[result].resultatTour;
             if (array[result])
             var nbpts3 = document.getElementById('lancer3').value;
