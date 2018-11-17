@@ -321,7 +321,7 @@ $('#create_myfunctionGhost').click(enchaine);
 function enchaine(){
     myFunction();
     displayContainer();
-    $('#form').css("display","flex");
+    $('#form').css("display","block");
 
 }
 
