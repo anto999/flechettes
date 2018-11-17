@@ -254,10 +254,15 @@ function gagné1(){
     document.getElementById("titre").innerHTML="Victoire de  " +array[result].name+" !"
     array[result].pointsRestantsActuels=0;
     document.getElementById("points-restants"+result).innerHTML="points restant : " +array[result].pointsRestantsActuels;
-
-    openmodal();
+    modalwin();
+   // $("#exampleModal").modal("show");
+    //openmodal();
 }
+ function modalwin(){
+   // $("#exampleModalCenter").modal("show");
+   document.getElementById("open").click()
 
+ }
 
 
 
@@ -309,6 +314,14 @@ function selectNbPlayers()
 }
 
 $('#btn-display-input-name').click(selectNbPlayers);
+
+
+$('#create_myfunctionGhost').click(compteur);
+
+function enchaine(){
+    myFunction();
+    displayContainer();
+}
 
 /*function displayNbPlayers(){
     var NbPlayers =selectNbPlayers();
