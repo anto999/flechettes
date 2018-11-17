@@ -301,7 +301,7 @@ function selectNbPlayers()
 
     if (NbPlayer <= 10 )
     {
-        document.getElementById("h1").innerHTML= "nous avons " +NbPlayer+  " joueurs" ;
+        //document.getElementById("h1").innerHTML= "nous avons " +NbPlayer+  " joueurs" ;
        // createInputName();
 
         return parseInt(NbPlayer);
@@ -316,11 +316,13 @@ function selectNbPlayers()
 $('#btn-display-input-name').click(selectNbPlayers);
 
 
-$('#create_myfunctionGhost').click(compteur);
+$('#create_myfunctionGhost').click(enchaine);
 
 function enchaine(){
     myFunction();
     displayContainer();
+    $('#form').css("display","flex");
+
 }
 
 /*function displayNbPlayers(){
@@ -335,15 +337,20 @@ function enchaine(){
 function createInputName(){
     var b = document.getElementById('input_nbplayer0').value;
     a=b-b;
+    var c =1; //pour placeholder
     //console.log(b);
     var inputname="";
         for(i=b;i>-0;i--)
         {   
-            inputname +=' <input type ="text" id ="input_add_name'+a+'" class="input_add_name">';
-            a=a+1
+            inputname +=' <input type ="text" placeholder="enter player'+c+' name" id ="input_add_name'+a+'" class="input_add_name">';
+            a=a+1;
+            c=c+1;
         }
-        inputname += '<button type ="button" id="create_myfunctionGhost" class="create_myfunction">create!</button>';
+        inputname += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine()" class="create_myfunction">let\'s go!</button>';
         $("#h6").html(inputname);
+        $("#formOptions").css("display","none");
+        $("#formOptions").css("flex-wrap","wrap");
+
         return parseInt(b);
 }
 $('#btn-display-input-name').click(createInputName);

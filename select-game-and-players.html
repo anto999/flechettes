@@ -13,43 +13,48 @@
 </head>
 
 <body>
-       
 
-        <div class="titre" id="titre"></div>
+       
+       
+    <div class="container-title">
+        <div class="titre" id="titre"> Choisissez le nombre de joueurs</div>
+        <form class="selectplayers" id="formOptions">
+                <!-- <input type="text" id="input_nbplayer0">-->
+                 <select id="input_nbplayer0">
+                         <option value="1">1</option>
+                         <option value="2" selected>2</option>
+                         <option value="3">3</option>
+                         <option value="4">4</option>
+                         <option value="5">5</option>
+                         <option value="6">6</option>
+                         <option value="7">7</option>
+                         <option value="8">8</option>
+                 </select>
+                 <button type="button"  id="btn-display-input-name" >select nb players </button>
+                 <h1 class="ok"></h1>      
+          </form>
+    </div>
+
+
         <form class="" id="form">
             <div class ="contflech">
                  <input type="int"  id="lancer1">
-                <button type ="button" onclick="lancerFleche()">lancer fleche  !</button>
+                <button type ="button" onclick="lancerFleche()">lancer 1</button>
                 <div class ="ff f1"> <img class="picture" src="dart.png"></div><br>
             </div>
             <div class ="contflech">
                 <input type="int"  id="lancer2">
-                <button type ="button" onclick="lancerFleche2()">lancer fleche 2 !</button>
+                <button type ="button" onclick="lancerFleche2()">lancer 2</button>
                 <div class ="ff f2"> <img class="picture" src="dart.png"></div><br>
             </div>    
             <div class ="contflech">
                 <input type="int"  id="lancer3">
-                <button type ="button" onclick="lancerFleche3()">lancer fleche 3 !</button>
+                <button type ="button" onclick="lancerFleche3()">lancer 3</button>
                 <div class ="ff f3"> <img class="picture" src="dart.png"></div><br><br>
             </div>    
         </form>
 
-    <form class="selectplayers" id="formOptions">
-        <input type="text" id="input_nbplayer0">
-        <button type="button"  id="btn-display-input-name" >select nb player+create+arraypush </button>
-       
-        <h1 class="ok"></h1>
-        
-        <button type="button"  id="displayContainer" >display container</button>
-        
 
-        <button type="button"  id="create_myfunction" >myfunction()</button>
-        
-       
-        
-
-       
-    </form>
     <div id="h1"></div>
     <div id="h2"></div>
     <div id="h6"></div>
