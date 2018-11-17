@@ -1,28 +1,7 @@
 $(document).ready(function(){
-/*   for (i=0;i<5;i++){
-       myFunction();
-       
-   }*/
-  // document.getElementById("titre").innerHTML="A  " +player1.name+" de jouer !";
-
-   document.getElementById("score").innerHTML="score : "+ player1.fleche1;
-   document.getElementById("nomjoueur").innerHTML= player1.name;
-   document.getElementById("points-restants").innerHTML="points restants  : "+ player1.pointsRestantsActuels;
-   document.getElementById("score-cumulé").innerHTML="score total : "+ player1.resultatTotal;
-   document.getElementById("score-tour").innerHTML="score tour : "+ player1.resultatTour;
-   document.getElementById("coupsrestants").innerHTML="coups restants : "+ player1.coupsRestants;
-
-   document.getElementById("score2").innerHTML="score : "+ player2.fleche1;
-   document.getElementById("nomjoueur2").innerHTML= player2.name;
-   document.getElementById("points-restants2").innerHTML="points restants  : "+ player2.pointsRestantsActuels;
-   document.getElementById("score-cumulé2").innerHTML="score total : "+ player2.resultatTotal;
-   document.getElementById("score-tour2").innerHTML="score tour : "+ player2.resultatTour;
-   document.getElementById("coupsrestants2").innerHTML="coups restants : "+ player2.coupsRestants;
-   
-
 
    
-  
+
 });
 function coucou(){
     console.log('coucou');
@@ -79,216 +58,6 @@ function pts()//retourne la valeur de fleche 1
     return parseInt(nbpts);
    }
 
-}
-function pts2()//retourne la valeur de fleche 1
-{   
-   //on stock la valeur de l'input dans une  variable nbpts20
-    var nbpts2 = document.getElementById('ptsfleches2').value;
-    if (isNaN(parseInt(nbpts2)) == true){
-        nbpts2=0;
-        player1.coupsRestants ++;
-        console.log(nbpts2);
-    }
-    player1.fleche2=parseInt(nbpts2);
-    player1.coupsRestants --;
-    player1.resultatTotal =(player1.resultatTotal+player1.fleche2) ;
-    player1.resultatTour=(player1.resultatTour+player1.fleche2);
-
-    document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
-    document.getElementById("score-cumulé").innerHTML= "score total : "+player1.resultatTotal;
-    document.getElementById("coupsrestants").innerHTML= "coups restants : "+player1.coupsRestants;
-    document.getElementById("score").innerHTML= "score fleche  : "+player1.fleche2;
-    document.getElementById("score-tour").innerHTML= "score tour  : "+player1.resultatTour;
-
-    console.log(parseInt(nbpts2));
-    console.log(player1);
-    if (player1.fleche2== player1.pointsRestantsActuels){
-        console.log('gagné!')
-          gagné1();
-          
-          return parseInt(nbpts2);
-      }else if(player1.fleche2>player1.pointsRestantsActuels){
-         console.log('perdu!');
-          perdu1();
-          return parseInt(nbpts2);
-      }else if (player1.fleche2<player1.pointsRestantsActuels){
-       player1.pointsRestantsActuels=(player1.pointsRestantsActuels- player1.fleche2);
-       document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
-       return parseInt(nbpts2);
-      }
-}
-function pts3()//retourne la valeur de fleche 1
-{   
-   //on stock la valeur de l'input dans une  variable nbpts20
-    var nbpts3 = document.getElementById('ptsfleches3').value;
-    if (isNaN(parseInt(nbpts3)) == true){
-        nbpts3=0;
-        player1.coupsRestants ++;
-        console.log(nbpts3);
-    }
-    player1.fleche3=parseInt(nbpts3);
-    player1.coupsRestants --;
-    player1.resultatTotal =(player1.resultatTotal+player1.fleche3) ;
-    player1.resultatTour=(player1.resultatTour+player1.fleche3);
-
-    document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
-    document.getElementById("score-cumulé").innerHTML= "score total : "+player1.resultatTotal;
-    document.getElementById("coupsrestants").innerHTML= "coups restants : "+player1.coupsRestants;
-    document.getElementById("score").innerHTML= "score fleche  : "+player1.fleche3;
-    document.getElementById("score-tour").innerHTML= "score tour  : "+player1.resultatTour;
-
-    console.log(parseInt(nbpts3));
-    console.log(player1);
-    if (player1.fleche3== player1.pointsRestantsActuels){
-        console.log('gagné!')
-          gagné1();
-          
-          return parseInt(nbpts3);
-      }else if(player1.fleche3>player1.pointsRestantsActuels){
-          perdu1();
-          console.log('perdu!');
-          return parseInt(nbpts3);
-      }else if (player1.fleche3<player1.pointsRestantsActuels){
-       console.log('joueur suivant!') 
-       player1.pointsRestantsActuels=(player1.pointsRestantsActuels- player1.fleche3);
-       document.getElementById("titre").innerHTML="A  " +player2.name+" de jouer !";
-       document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
-       player2.coupsRestants=3;
-       document.getElementById("coupsrestants2").innerHTML="coups restants : " +player2.coupsRestants;
-       player1.pointsrestantsDebutTour=player1.pointsRestantsActuels;
-       document.getElementById("form2").reset();
-
-       return parseInt(nbpts3);
-      }
-    }
-
- function ptspts()//retourne la valeur de fleche 1
-        { console.log('ca passe!');
-            player1.resultatTour=0;
-            document.getElementById("score-tour").innerHTML= "score tour  : "+player1.resultatTour;
-            document.getElementById("titre").innerHTML="A  " +player2.name+" de jouer !";
-            
-        //on stock la valeur de l'input dans une  variable nbpts20
-            var nbnbpts = document.getElementById('pts2fleches').value;
-            if (isNaN(parseInt(nbnbpts)) == true){
-                nbnbpts=0;
-                player2.coupsRestants ++;
-                console.log(nbnbpts);
-            }
-            player2.fleche1=parseInt(nbnbpts);
-            player2.coupsRestants --;
-            player2.resultatTotal =(player2.resultatTotal+ player2.fleche1) ;
-            player2.resultatTour=(player2.resultatTour+player2.fleche1);
-            
-            document.getElementById("points-restants2").innerHTML="points restant : " +player2.pointsRestantsActuels;
-            document.getElementById("score-cumulé2").innerHTML= "score total : "+player2.resultatTotal;
-            document.getElementById("coupsrestants2").innerHTML= "coups restants : "+player2.coupsRestants;
-            document.getElementById("score2").innerHTML= "score fleche  : "+player2.fleche1;
-            document.getElementById("score-tour2").innerHTML= "score tour  : "+player2.resultatTour;
-            //on retourne
-            console.log(player2);
-            
-        // console.log (JSON.stringify (nbpts));
-                if (player2.fleche1== player2.pointsRestantsActuels){
-                    console.log('gagné!')
-                    gagné2();
-                    
-                    return parseInt(nbnbpts);
-                }else if(player2.fleche1>player2.pointsRestantsActuels){
-                    perdu2();
-                    console.log('perdu!');
-                    return parseInt(nbnbpts);
-                }else if (player2.fleche1<player2.pointsRestantsActuels){
-                    player2.pointsRestantsActuels=(player2.pointsRestantsActuels- player2.fleche1);
-                    document.getElementById("points-restants2").innerHTML="points restant : " +player2.pointsRestantsActuels;
-
-                    return parseInt(nbnbpts);
-                }
-        }
-        
-function ptspts2()//retourne la valeur de fleche 1
-{   
-   //on stock la valeur de l'input dans une  variable nbpts20
-    var nbnbpts2 = document.getElementById('pts2fleches2').value;
-    if (isNaN(parseInt(nbnbpts2)) == true){
-        nbnbpts2=0;
-        player2.coupsRestants ++;
-        console.log(nbnbpts2);
-    }
-    player2.fleche2=parseInt(nbnbpts2);
-    player2.coupsRestants --;
-    player2.resultatTotal =(player2.resultatTotal+player2.fleche2) ;
-    player2.resultatTour=(player2.resultatTour+player2.fleche2);
-    console.log(player2.pointsRestantsActuels);
-
-    document.getElementById("points-restants2").innerHTML="points restant : " +player2.pointsRestantsActuels;
-    document.getElementById("score-cumulé2").innerHTML= "score total : "+player2.resultatTotal;
-    document.getElementById("coupsrestants2").innerHTML= "coups restants : "+player2.coupsRestants;
-    document.getElementById("score2").innerHTML= "score fleche  : "+player2.fleche2;
-    document.getElementById("score-tour2").innerHTML= "score tour  : "+player2.resultatTour;
-
-    console.log(parseInt(nbnbpts2));
-    console.log(player2);
-    if (player2.fleche2== player2.pointsRestantsActuels){
-        console.log('gagné!')
-          gagné2();
-          
-          return parseInt(nbnbpts2);
-      }else if(player2.fleche2>player2.pointsRestantsActuels){
-         console.log('perdu!');
-          perdu2();
-          return parseInt(nbnbpts2);
-      }else if (player2.fleche2<player2.pointsRestantsActuels){
-       player2.pointsRestantsActuels=(player2.pointsRestantsActuels- player2.fleche2);
-       document.getElementById("points-restants2").innerHTML="points restant : " +player2.pointsRestantsActuels;
-       console.log(player2.pointsRestantsActuels);
-       return parseInt(nbnbpts2);
-      }
-}
-function ptspts3()//retourne la valeur de fleche 1
-{   
-   //on stock la valeur de l'input dans une  variable nbpts20
-    var nbnbpts3 = document.getElementById('pts2fleches3').value;
-    if (isNaN(parseInt(nbnbpts3)) == true){
-        nbnbpts3=0;
-        player2.coupsRestants ++;
-        console.log(nbnbpts3);
-    }
-    player2.fleche3=parseInt(nbnbpts3);
-    player2.coupsRestants --;
-    player2.resultatTotal =(player2.resultatTotal+player2.fleche3) ;
-    player2.resultatTour=(player2.resultatTour+player2.fleche3);
-    
-
-    document.getElementById("points-restants2").innerHTML="points restant : " +player2.pointsRestantsActuels;
-    document.getElementById("score-cumulé2").innerHTML= "score total : "+player2.resultatTotal;
-    document.getElementById("coupsrestants2").innerHTML= "coups restants : "+player2.coupsRestants;
-    document.getElementById("score2").innerHTML= "score fleche  : "+player2.fleche3;
-    document.getElementById("score-tour2").innerHTML= "score tour  : "+player2.resultatTour;
-
-
-    console.log(parseInt(nbnbpts3));
-    console.log(player2);
-    if (player2.fleche3== player2.pointsRestantsActuels){
-        console.log('gagné!')
-          gagné2();
-          
-          return parseInt(nbnbpts3);
-      }else if(player2.fleche3>player2.pointsRestantsActuels){
-          perdu2();
-          console.log('perdu!');
-          return parseInt(nbnbpts3);
-      }else if (player2.fleche3<player2.pointsRestantsActuels){
-       console.log('joueur suivant!') 
-       player2.pointsRestantsActuels=(player2.pointsRestantsActuels- player2.fleche3);
-       document.getElementById("titre").innerHTML="A  " +player1.name+" de jouer !";
-       document.getElementById("points-restants2").innerHTML="points restant : " +player2.pointsRestantsActuels;
-       player1.coupsRestants=3;
-       document.getElementById("coupsrestants").innerHTML="coups restants : " +player1.coupsRestants;
-       player2.pointsrestantsDebutTour=player2.pointsRestantsActuels;
-       document.getElementById("form1").reset();
-       return parseInt(nbnbpts3);
-      }
 }
 
 class Player
@@ -483,43 +252,15 @@ function addplayerinput() {
 
 function gagné1(){
     document.getElementById("titre").innerHTML="Victoire de  " +array[result].name+" !"
+    array[result].pointsRestantsActuels=0;
+    document.getElementById("points-restants"+result).innerHTML="points restant : " +array[result].pointsRestantsActuels;
+
     openmodal();
 }
-function gagné2(){
-    document.getElementById("titre").innerHTML="Victoire de  " +player2.name+" !"
-    openmodal();
-}
 
 
 
-function perdu2(){
-    document.getElementById("titre").innerHTML="Domage " +player2.name+", trop de points !"
-    player2.pointsRestantsActuels=player2.pointsrestantsDebutTour;
-       document.getElementById("points-restants2").innerHTML="points restant : " +player2.pointsRestantsActuels;
-       player1.coupsRestants=3;
-       document.getElementById("coupsrestants").innerHTML="coups restants : "+ player1.coupsRestants;
-       document.getElementById("coupsrestants2").innerHTML="coups restants : "+ player2.coupsRestants;
-       document.getElementById("form1").reset();
-}
 
-
-
-/*function inputPlayer(){
-    var inputplayername = '';
-    inputplayername += '<label id="nameplayer">prénom:</label>';
-    inputplayername += '<input type="input" id="inputplayername"></input>';
-    inputplayername += '<button>créer joueur !</button><br>';
-
-    $('#h5').html(inputplayername);
-  
-}*/
-
-function changescore(){
-    player1.fleche1=100;
-    document.getElementById("score").innerHTML="score : "+ player1.fleche1;
-
-    console.log(player1.fleche1);
-}
 // Get the modal
 var modal = document.getElementById('myModal');
 
@@ -620,6 +361,7 @@ function displayContainer(){
    
    $("#h6").html(card);
    document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
+   $(".f1").css("display","flex");
    return parseInt(a);
    
 }
@@ -658,13 +400,31 @@ function nextPlayer(){
 
 function perdu1(){
     document.getElementById("titre").innerHTML="Domage " +array[result].name+", trop de points !"
+    
     array[result].pointsRestantsActuels=array[result].pointsrestantsDebutTour;
-    document.getElementById("points-restants").innerHTML="points restant : " +array[result].pointsRestantsActuels;
+    document.getElementById("points-restants"+result).innerHTML="points restant : " +array[result].pointsRestantsActuels;
     array[result].coupsRestants=3;
     document.getElementById("coupsrestants"+[result]).innerHTML="coups restants : "+ array[result].coupsRestants;
    
     document.getElementById("form").reset();
     form.reset();
+    nextPlayer();
+    array[result].coupsRestants=3;
+    document.getElementById("coupsrestants"+[result]).innerHTML="coups restants : "+ array[result].coupsRestants;
+
+    $(".f1").css("display","flex");
+    $(".f2").css("display","none");
+    $(".f3").css("display","none");
+
+}
+
+function nextPlayer(){
+    if (result>= array.length-1){
+        result=0;
+    }else{
+        result=result+1;
+    }
+    
 }
 
     function compteur(){
@@ -680,7 +440,7 @@ function perdu1(){
 
         var fin = false;
         console.log(result);
-            
+      
             array[result].resultatTour=0;
             document.getElementById("score-tour"+result).innerHTML= "score tour : "+array[0].resultatTour;
             if (array[result])
@@ -702,10 +462,11 @@ function perdu1(){
         
             document.getElementById("score-cumulé"+result).innerHTML= "score total : "+array[result].resultatTotal;
             document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
-            document.getElementById("score"+result).innerHTML= "score flecheeee  : "+array[result].fleche1;
+            document.getElementById("score"+result).innerHTML= "score fleche  : "+array[result].fleche1;
             document.getElementById("score-tour"+result).innerHTML= "score tour  : "+array[result].resultatTour;
             //on retourne
-            console.log(array[result]);
+            //console.log(array[result]);
+            console.log(array[result].pointsrestantsDebutTour);
             
             // console.log (JSON.stringify (nbpts));
             if (array[result].fleche1== array[result].pointsRestantsActuels){
@@ -723,9 +484,11 @@ function perdu1(){
             document.getElementById("points-restants"+result).innerHTML="points restant : " +array[result].pointsRestantsActuels;
         
             document.getElementById("score"+result).innerHTML= "score fleche  : "+array[result].fleche1;
-            
+            console.log(array[result].pointsrestantsDebutTour);
             // document.getElementById("points-restants").innerHTML="points restant : " +array[0].pointsRestantsActuels;
             console.log(parseInt(nbpts));
+            $(".f1").css("display","none");
+            $(".f2").css("display","flex");
 
             
             return parseInt(nbpts);
@@ -737,7 +500,7 @@ function perdu1(){
 
  function lancerFleche2()//retourne la valeur de fleche 1
     {   
-        
+      
             document.getElementById("score-tour"+result).innerHTML= "score tour : "+array[result].resultatTour;
             if (array[result])
             var nbpts2 = document.getElementById('lancer2').value;
@@ -754,7 +517,7 @@ function perdu1(){
             array[result].resultatTour=(array[result].resultatTour+array[result].fleche2);
          //   document.getElementById("points-restants"+result).innerHTML="points restant : " +array[0].pointsRestantsActuels;
             //var h=0;
-        
+            console.log(array[result].pointsrestantsDebutTour);
             document.getElementById("score-cumulé"+result).innerHTML= "score total : "+array[result].resultatTotal;
             document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
             document.getElementById("score"+result).innerHTML= "score fleche  : "+array[result].fleche2;
@@ -779,8 +542,9 @@ function perdu1(){
             
             // document.getElementById("points-restants").innerHTML="points restant : " +array[0].pointsRestantsActuels;
             console.log(parseInt(nbpts2));
-            
-            
+            $(".f2").css("display","none");
+            $(".f3").css("display","flex");
+            console.log(array[result].pointsrestantsDebutTour);
             return parseInt(nbpts2);
 
             }//fin else if
@@ -791,7 +555,8 @@ function perdu1(){
         
       //  var fin = false;
         
-    
+      $(".f3").css("display","none");
+      $(".f1").css("display","flex");
             
             
             document.getElementById("score-tour"+result).innerHTML= "score tour : "+array[result].resultatTour;
@@ -810,7 +575,7 @@ function perdu1(){
             array[result].resultatTour=(array[result].resultatTour+array[result].fleche3);
             //document.getElementById("points-restants0").innerHTML="points restant : " +array[0].pointsRestantsActuels;
             //var h=0;
-        
+            console.log(array[result].pointsrestantsDebutTour);
             document.getElementById("score-cumulé"+result).innerHTML= "score total : "+array[result].resultatTotal;
             document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
             document.getElementById("score"+result).innerHTML= "score fleche  : "+array[result].fleche3;
@@ -822,6 +587,9 @@ function perdu1(){
             if (array[result].fleche3== array[result].pointsRestantsActuels){
             console.log('gagné!')
                 gagné1();
+                array[result].pointsRestantsActuels=(array[result].pointsRestantsActuels- array[result].fleche3);
+                document.getElementById("points-restants"+result).innerHTML="points restant : " +array[result].pointsRestantsActuels;
+
                 return parseInt(nbpts3);
             }else if(array[result].fleche3>array[result].pointsRestantsActuels){
                 perdu1();
@@ -835,19 +603,13 @@ function perdu1(){
             
             // document.getElementById("points-restants").innerHTML="points restant : " +array[0].pointsRestantsActuels;
             console.log(parseInt(nbpts3));
-            
-            function nextPlayer(){
-                if (result>= array.length-1){
-                    result=0;
-                }else{
-                    result=result+1;
-                }
-                
-            }
+            console.log(array[result].pointsrestantsDebutTour);
+            array[result].pointsrestantsDebutTour=array[result].pointsrestantsDebutTour-array[result].resultatTour
             nextPlayer();
             document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
             array[result].coupsRestants=3;
             document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
+            form.reset();
             return parseInt(nbpts3);
            
             lancerFleche();
