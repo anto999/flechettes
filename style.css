@@ -132,7 +132,7 @@ button{
     border-color:black;
     border-style: solid;
     width:14%;
-    min-width: 200px;
+    min-width: 240px;
     padding-top: 20px;
     padding-left: 20px;
     margin-left: 10px;
@@ -308,4 +308,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
     visibility:hidden;
   
 
+  }
+
+  .container-wall{
+    right: 0;
+    position: absolute;
+    bottom: 0;
   }

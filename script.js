@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-    $('.container-title').css("margin-top","300px")
+    $('.container-title').css("margin-top","300px");
+    btnWall();
 
 });
 function coucou(){
@@ -370,8 +371,10 @@ function displayContainer(){
        
         console.log(array[b]);
         
-        card += '<div class="tableaubouttons">'; 
-        card += '<img class="icon" id="icon'+i+'" src="cible.png">';
+        card += '<div class="tableaubouttons">';
+        card +='<div class="ico">'; 
+             card += '<img class="icon" id="icon'+i+'" src="cible.png">';
+        card +='</div>'; 
             card += ' <div class="container-card" id="'+i+'">';
                 card += ' <div class ="nomjoueur case pl" id="nomjoueur'+i+'">'+array[b].name+'</div>';
                 card += '<div id="points-restants'+i+'" class ="case points-restants">points restants : '+array[b].pointsRestantsActuels+' </div>';
@@ -423,7 +426,11 @@ function nextPlayer(){
     
 }
 
+
+
+
 function perdu1(){
+    
     document.getElementById("titre").innerHTML="Domage " +array[result].name+", trop de points !"
     
     array[result].pointsRestantsActuels=array[result].pointsrestantsDebutTour;
@@ -648,5 +655,85 @@ function nextPlayer(){
      }//fin function lancerfleche
 
 
+
+     function btnWall(){
+        var card ="";
     
-  
+    card += ' <button id="container-wall" class="container-wall">wall</button>';
+    $("#btnwall").html(card);
+
+    }
+    $('#btnwall').click(changeBackground);
+    
+    
+    function changeBackground(){
+        $("body").css("background-image", "url(wall2.jpg)");
+        var card ="";
+    
+        card += ' <button id="container-wall2" class="container-wall">wall</button>';
+        $("#btnwall").html(card);
+        $('#btnwall').click(changeBackground2);
+
+    }
+    //$('#container-wall1').click(changeBackground1);
+
+  //  $('#btnwall2').click(changeBackground2);
+
+    function changeBackground2(){
+
+      /*  var boule ='<img class="icon" id="icon"'+result+' src="boule.png" ">';
+        $(".ico").html(boule);*/
+
+        $("body").css("background-image", "url(wall3.jpg)");
+
+        var card ="";
+        card += ' <button id="container-wall" class="container-wall">wall</button>';
+        $("#btnwall").html(card);
+
+        $('#btnwall').click(changeBackground3);
+
+    }
+    function changeBackground3(){
+
+       /* var boule ='<img class="icon" id="icon"'+result+' src="cible.png" style="visibility: initial;">';
+        $(".ico").html(boule);*/
+
+        $("body").css("background-image", "url(wall4.jpg)");
+        var card ="";
+    
+        card += ' <button id="container-wall" class="container-wall">wall</button>';
+        $("#btnwall").html(card);
+        $('#btnwall').click(changeBackground4);
+
+    }
+
+    function changeBackground4(){
+        $("body").css("background-image", "url(wall5.jpg)");
+        var card ="";
+    
+        card += ' <button id="container-wall" class="container-wall">wall</button>';
+        $("#btnwall").html(card);
+        $('#btnwall').click(changeBackground5);
+
+    }
+
+    function changeBackground5(){
+        $("body").css("background-image", "url(wall6.jpg)");
+        var card ="";
+    
+        card += ' <button id="container-wall" class="container-wall">wall</button>';
+        $("#btnwall").html(card);
+        $('#btnwall').click(changeBackground6);
+
+    }
+
+    function changeBackground6(){
+        $("body").css("background-image", "url(wall1.jpg)");
+        var card ="";
+    
+        card += ' <button id="container-wall" class="container-wall">wall</button>';
+        $("#btnwall").html(card);
+        $('#btnwall').click(changeBackground);
+
+    }
+
