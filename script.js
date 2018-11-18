@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-   
+    $('.container-title').css("margin-top","300px")
 
 });
 function coucou(){
@@ -321,7 +321,10 @@ $('#create_myfunctionGhost').click(enchaine);
 function enchaine(){
     myFunction();
     displayContainer();
-    $('#form').css("display","block");
+    $('#form').show(1000);
+    $('.container-title').css("margin-top","10px")
+    $('#icon0').css("visibility","initial");
+
 
 }
 
@@ -348,7 +351,7 @@ function createInputName(){
         }
         inputname += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine()" class="create_myfunction">let\'s go!</button>';
         $("#h6").html(inputname);
-        $("#formOptions").css("display","none");
+        $("#formOptions").hide(1000);
         $("#formOptions").css("flex-wrap","wrap");
 
         return parseInt(b);
@@ -366,7 +369,9 @@ function displayContainer(){
         {
        
         console.log(array[b]);
+        
         card += '<div class="tableaubouttons">'; 
+        card += '<img class="icon" id="icon'+i+'" src="cible.png">';
             card += ' <div class="container-card" id="'+i+'">';
                 card += ' <div class ="nomjoueur case pl" id="nomjoueur'+i+'">'+array[b].name+'</div>';
                 card += '<div id="points-restants'+i+'" class ="case points-restants">points restants : '+array[b].pointsRestantsActuels+' </div>';
@@ -428,13 +433,16 @@ function perdu1(){
    
     document.getElementById("form").reset();
     form.reset();
+    $('#icon'+result).css("visibility","hidden");
     nextPlayer();
+    $('#icon'+result).css("visibility","initial");
     array[result].coupsRestants=3;
     document.getElementById("coupsrestants"+[result]).innerHTML="coups restants : "+ array[result].coupsRestants;
 
     $(".f1").css("display","flex");
     $(".f2").css("display","none");
     $(".f3").css("display","none");
+    
 
 }
 
@@ -625,14 +633,16 @@ function nextPlayer(){
             console.log(parseInt(nbpts3));
             console.log(array[result].pointsrestantsDebutTour);
             array[result].pointsrestantsDebutTour=array[result].pointsrestantsDebutTour-array[result].resultatTour
+            $('#icon'+result).css("visibility","hidden");
             nextPlayer();
+            $('#icon'+result).css("visibility","initial");
             document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
             array[result].coupsRestants=3;
             document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
             form.reset();
             return parseInt(nbpts3);
            
-            lancerFleche();
+            
 
             }//fin else if
      }//fin function lancerfleche

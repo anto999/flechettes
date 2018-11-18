@@ -96,7 +96,8 @@ body {
 
 }
 .tableaubouttons{
-    display: flex;
+    flex-wrap: wrap;
+    -display: flex;
     margin-top: 1%;
     margin-left: 1%;
     -opacity: 0.8;
@@ -155,7 +156,7 @@ input{
     text-align: center;
     border-radius: 46px;
     background-color:rgb(201, 163, 79);
-    color: aliceblue; 
+    color: black; 
     margin-top:5px;
     margin-right: 10px;
     
@@ -294,4 +295,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
     font-size: 0.75em;
     font-style: italic;
     opacity: 0.65;
+  }
+
+  
+
+  .icon{
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    margin-left: 150px;
+    margin-bottom: 10px;
+    visibility:hidden;
+  
+
   }
