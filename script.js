@@ -251,6 +251,8 @@ function addplayerinput() {
     document.body.appendChild(cln);
 }
 
+
+
 function gagné1(){
     document.getElementById("titre").innerHTML="Victoire de  " +array[result].name+" !"
     array[result].pointsRestantsActuels=0;
@@ -622,8 +624,6 @@ function nextPlayer(){
             if (array[result].fleche3== array[result].pointsRestantsActuels){
             console.log('gagné!')
                 gagné1();
-                array[result].pointsRestantsActuels=(array[result].pointsRestantsActuels- array[result].fleche3);
-                document.getElementById("points-restants"+result).innerHTML="points restant : " +array[result].pointsRestantsActuels;
 
                 return parseInt(nbpts3);
             }else if(array[result].fleche3>array[result].pointsRestantsActuels){

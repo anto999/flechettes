@@ -93,6 +93,8 @@ body {
     background-color: rgb(201, 163, 79);
     padding-top: 7px;
     border-radius: 22px;
+    border-color:black;
+    border-style: solid;
 
 }
 .tableaubouttons{
