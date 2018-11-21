@@ -1,5 +1,5 @@
 body {
-    background-image: url("https://static1.squarespace.com/static/5366a1f8e4b0f0c8a1bd660f/t/53dc1d5de4b08daa81246f25/1517911795307/");
+    background-image: url("./images/wall/wall1.jpg");
     background-size: 100%;
 }
 #h6{
@@ -41,7 +41,7 @@ body {
 }
 .points-restants{
     height: 16.66%;
-    background-color: rgb(131, 84, 58);
+    background-color: rgb(192,192,192);
     vertical-align: middle;
 
 }
@@ -53,7 +53,7 @@ body {
 }
 .score-cumulé{
     height: 16.66%;
-    background-color: rgb(131, 84, 58);
+    background-color: rgb(192,192,192);
     vertical-align: middle;
 }
 .score-tour{
@@ -63,7 +63,7 @@ body {
 }
 .coupsrestants{
     height: 16.66%;
-    background-color: rgb(131, 84, 58);
+    background-color: rgb(192,192,192);
     vertical-align: middle;
 }
 #fleche{
@@ -111,7 +111,7 @@ button{
    cursor: pointer;
     height: 55px;
     font-size: 1.1em;
-    background-color: rgb(131, 84, 58);
+    background-color: rgb(192,192,192);
     border-radius: 39px;
     
     
@@ -316,4 +316,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
     right: 0;
     position: absolute;
     bottom: 0;
+  }
+
+  #create_myfunctionGhost{
+      background-color: rgb(201, 163, 79);
   }

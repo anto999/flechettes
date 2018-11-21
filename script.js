@@ -375,7 +375,7 @@ function displayContainer(){
         
         card += '<div class="tableaubouttons">';
         card +='<div class="ico">'; 
-             card += '<img class="icon" id="icon'+i+'" src="cible.png">';
+             card += '<img class="icon" id="icon'+i+'" src="./images/icons/cible.png">';
         card +='</div>'; 
             card += ' <div class="container-card" id="'+i+'">';
                 card += ' <div class ="nomjoueur case pl" id="nomjoueur'+i+'">'+array[b].name+'</div>';
@@ -657,7 +657,7 @@ function nextPlayer(){
 
 
      function btnWall(){
-        var card ="";
+    var card ="";
     
     card += ' <button id="container-wall" class="container-wall">wall</button>';
     $("#btnwall").html(card);
@@ -667,7 +667,7 @@ function nextPlayer(){
     
     
     function changeBackground(){
-        $("body").css("background-image", "url(wall2.jpg)");
+        $("body").css("background-image", "url(./images/wall/wall2.jpg)");
         var card ="";
     
         card += ' <button id="container-wall2" class="container-wall">wall</button>';
@@ -675,40 +675,33 @@ function nextPlayer(){
         $('#btnwall').click(changeBackground2);
 
     }
-    //$('#container-wall1').click(changeBackground1);
-
-  //  $('#btnwall2').click(changeBackground2);
+    
 
     function changeBackground2(){
 
       /*  var boule ='<img class="icon" id="icon"'+result+' src="boule.png" ">';
         $(".ico").html(boule);*/
 
-        $("body").css("background-image", "url(wall3.jpg)");
-
+        $("body").css("background-image", "url(./images/wall/wall3.jpg)");
         var card ="";
-        card += ' <button id="container-wall" class="container-wall">wall</button>';
+        card += ' <button id="container-wall3" class="container-wall">wall</button>';
         $("#btnwall").html(card);
-
         $('#btnwall').click(changeBackground3);
 
     }
     function changeBackground3(){
 
-       /* var boule ='<img class="icon" id="icon"'+result+' src="cible.png" style="visibility: initial;">';
-        $(".ico").html(boule);*/
-
-        $("body").css("background-image", "url(wall4.jpg)");
+        $("body").css("background-image", "url(./images/wall/wall4.jpg)");
         var card ="";
     
-        card += ' <button id="container-wall" class="container-wall">wall</button>';
+        card += ' <button id="container-wall4" class="container-wall">wall</button>';
         $("#btnwall").html(card);
         $('#btnwall').click(changeBackground4);
 
     }
 
     function changeBackground4(){
-        $("body").css("background-image", "url(wall5.jpg)");
+        $("body").css("background-image", "url(./images/wall/wall5.jpg)");
         var card ="";
     
         card += ' <button id="container-wall" class="container-wall">wall</button>';
@@ -718,7 +711,7 @@ function nextPlayer(){
     }
 
     function changeBackground5(){
-        $("body").css("background-image", "url(wall6.jpg)");
+        $("body").css("background-image", "url(./images/wall/wall6.jpg)");
         var card ="";
     
         card += ' <button id="container-wall" class="container-wall">wall</button>';
@@ -728,7 +721,7 @@ function nextPlayer(){
     }
 
     function changeBackground6(){
-        $("body").css("background-image", "url(wall1.jpg)");
+        $("body").css("background-image", "url(./images/wall/wall1.jpg)");
         var card ="";
     
         card += ' <button id="container-wall" class="container-wall">wall</button>';
