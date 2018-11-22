@@ -326,3 +326,22 @@ body {font-family: Arial, Helvetica, sans-serif;}
   .ptsrestants{
       font-size: 2em;
   }
+
+  #listefinale{
+    
+    position: absolute;
+    list-style: none;
+    right: 0;
+    top: 0;
+
+  }
+
+  .list{
+      background-color: indianred;
+      border-radius: 20px;
+      font-size: 2em;
+      text-align: center;
+        color: antiquewhite;
+        margin-top: 5px;
+
+  }

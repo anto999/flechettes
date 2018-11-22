@@ -275,12 +275,12 @@ function gagné1(){
     {
 
         
-        li+= '<li class="li"'+[i]+'>';
+        li+= '<li class="list li'+[i]+'">';
         li+=     array[result].tousLesCoups[i];
         li+='</li>';
 
     }
-    $("#h2").html(li);
+    $("#listefinale").html(li);
 
     var listeCoups='';
     listeCoups += '<div class="listecoups">';
