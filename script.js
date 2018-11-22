@@ -27,6 +27,8 @@ function pts()//retourne la valeur de fleche 1
     player1.resultatTotal =(player1.resultatTotal+ player1.fleche1) ;
     player1.resultatTour=(player1.resultatTour+player1.fleche1);
     
+
+
     document.getElementById("points-restants").innerHTML="points restant : " +player1.pointsRestantsActuels;
     document.getElementById("score-cumulé").innerHTML= "score total : "+player1.resultatTotal;
     document.getElementById("coupsrestants").innerHTML= "coups restants : "+player1.coupsRestants;
@@ -66,7 +68,8 @@ class Player
     constructor(num,name){
         this.num=num;this.name=name;this.pointsrestantsDebutTour=301;this.pointsRestantsActuels=301;
         this.coupsRestants = 3;this.fleche1 = 0;this.fleche2 = 0;this.fleche3 = 0;
-        this.resultatTotal = 0;this.nbredetours=0;this.gagnant= false;this.test=null;this.resultatTour=0;
+        this.resultatTotal = 0;this.nbredetours=0;this.gagnant= false;this.test=null;this.resultatTour=0;this.tousLesCoups=[];
+        this.average=0;
     }//fin constructor
    /* sayplayer()
     {
@@ -258,6 +261,37 @@ function gagné1(){
     array[result].pointsRestantsActuels=0;
     document.getElementById("points-restants"+result).innerHTML="points restant : " +array[result].pointsRestantsActuels;
     modalwin();
+
+
+    var num= array[result].average.toFixed(1);
+    console.log(Math.max(...array[result].tousLesCoups))
+    document.getElementById("h1").innerHTML="Vous avez fini en  " +array[result].tousLesCoups.length+" coups! moyenne : "+num+" "
+
+
+  
+
+    var li ='';
+    for (i=0;i<array[result].tousLesCoups.length;i++)
+    {
+
+        
+        li+= '<li class="li"'+[i]+'>';
+        li+=     array[result].tousLesCoups[i];
+        li+='</li>';
+
+    }
+    $("#h2").html(li);
+
+    var listeCoups='';
+    listeCoups += '<div class="listecoups">';
+    listeCoups +=   array[result].tousLesCoups ;
+    listeCoups += '</div>';
+  //  $("#h2").html(listeCoups);
+
+
+   
+    //document.getElementById("h2").innerHTML=array[result].tousLesCoups;
+
    // $("#exampleModal").modal("show");
     //openmodal();
 }
@@ -473,7 +507,7 @@ function nextPlayer(){
     console.log(result);
 
     function lancerFleche()
-    {   
+    { 
 
         var fin = false;
         console.log(result);
@@ -485,18 +519,28 @@ function nextPlayer(){
 
             if (isNaN(parseInt(nbpts)) == true){ //verif si l'input est bien un int
                     nbpts=0;
-                    array[i].coupsRestants ++;
+                    array[result].coupsRestants ++;
                     console.log(nbpts);
                 }
             
             array[result].fleche1=parseInt(nbpts);
             console.log(array[result].fleche1);
+
+
             array[result].coupsRestants --;
             array[result].resultatTotal =(array[result].resultatTotal+ array[result].fleche1) ;
             array[result].resultatTour=(array[result].resultatTour+array[result].fleche1);
             //document.getElementById("points-restants0").innerHTML="points restant : " +array[0].pointsRestantsActuels;
             //var h=0;
-        
+
+            array[result].tousLesCoups.push(array[result].fleche1);
+            console.log(array[result].tousLesCoups);
+
+
+            array[result].average =array[result].resultatTotal/array[result].tousLesCoups.length;
+            var num= array[result].average.toFixed(1);
+            console.log("average:"+num);
+
             document.getElementById("score-cumulé"+result).innerHTML= "score total : "+array[result].resultatTotal;
             document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
             document.getElementById("score"+result).innerHTML= "score fleche  : "+array[result].fleche1;
@@ -554,6 +598,12 @@ function nextPlayer(){
             array[result].resultatTour=(array[result].resultatTour+array[result].fleche2);
          //   document.getElementById("points-restants"+result).innerHTML="points restant : " +array[0].pointsRestantsActuels;
             //var h=0;
+            array[result].tousLesCoups.push(array[result].fleche2);
+            console.log(array[result].tousLesCoups);
+            array[result].average =array[result].resultatTotal/array[result].tousLesCoups.length;
+            var num= array[result].average.toFixed(1);
+            console.log("average:"+num);
+
             console.log(array[result].pointsrestantsDebutTour);
             document.getElementById("score-cumulé"+result).innerHTML= "score total : "+array[result].resultatTotal;
             document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
@@ -561,6 +611,9 @@ function nextPlayer(){
             document.getElementById("score-tour"+result).innerHTML= "score tour  : "+array[result].resultatTour;
             //on retourne
             console.log(array[result]);
+
+           
+            console.log(array[result].tousLesCoups);
             
             // console.log (JSON.stringify (nbpts));
             if (array[result].fleche2== array[result].pointsRestantsActuels){
@@ -612,6 +665,14 @@ function nextPlayer(){
             array[result].resultatTour=(array[result].resultatTour+array[result].fleche3);
             //document.getElementById("points-restants0").innerHTML="points restant : " +array[0].pointsRestantsActuels;
             //var h=0;
+           
+
+            array[result].tousLesCoups.push(array[result].fleche3);
+            console.log(array[result].tousLesCoups);
+            array[result].average =array[result].resultatTotal/array[result].tousLesCoups.length;
+            var num= array[result].average.toFixed(1);
+            console.log("average:"+num);
+
             console.log(array[result].pointsrestantsDebutTour);
             document.getElementById("score-cumulé"+result).innerHTML= "score total : "+array[result].resultatTotal;
             document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
@@ -704,7 +765,7 @@ function nextPlayer(){
         $("body").css("background-image", "url(./images/wall/wall5.jpg)");
         var card ="";
     
-        card += ' <button id="container-wall" class="container-wall">wall</button>';
+        card += ' <button id="container-wall5" class="container-wall">wall</button>';
         $("#btnwall").html(card);
         $('#btnwall').click(changeBackground5);
 
@@ -714,7 +775,7 @@ function nextPlayer(){
         $("body").css("background-image", "url(./images/wall/wall6.jpg)");
         var card ="";
     
-        card += ' <button id="container-wall" class="container-wall">wall</button>';
+        card += ' <button id="container-wall6" class="container-wall">wall</button>';
         $("#btnwall").html(card);
         $('#btnwall').click(changeBackground6);
 

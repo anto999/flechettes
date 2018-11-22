@@ -123,8 +123,9 @@ button{
 
 .case{
     margin: auto;
-    font-size: 1.5em;
+    font-size: 1.8em;
     color:black;
+    padding-top: 8px;
     
 }
 
@@ -320,4 +321,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
   #create_myfunctionGhost{
       background-color: rgb(201, 163, 79);
+  }
+
+  .ptsrestants{
+      font-size: 2em;
   }
