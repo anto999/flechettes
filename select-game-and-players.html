@@ -37,19 +37,24 @@
 
 
         <form class="" id="form">
+                <div class ="contflechhidden">
+                        <input type="int"  id="lancer0">
+                       <button type ="button" id="btn-f1" onclick="lancerFleche()">lancer 1</button>
+                       <div class ="ff f1"> <img class="picture" src="./images/icons/dart.png"></div><br>
+                   </div>
             <div class ="contflech">
                  <input type="int"  id="lancer1">
-                <button type ="button" onclick="lancerFleche()">lancer 1</button>
+                <button type ="button" id="btn-f1" onclick="lancerFleche()">lancer 1</button>
                 <div class ="ff f1"> <img class="picture" src="./images/icons/dart.png"></div><br>
             </div>
             <div class ="contflech">
                 <input type="int"  id="lancer2">
-                <button type ="button" onclick="lancerFleche2()">lancer 2</button>
+                <button type ="button" id="btn-f2" onclick="lancerFleche2()">lancer 2</button>
                 <div class ="ff f2"> <img class="picture" src="./images/icons/dart.png"></div><br>
             </div>    
             <div class ="contflech">
                 <input type="int"  id="lancer3">
-                <button type ="button" onclick="lancerFleche3()">lancer 3</button>
+                <button type ="button" id="btn-f3" onclick="lancerFleche3()">lancer 3</button>
                 <div class ="ff f3"> <img class="picture" src="./images/icons/dart.png"></div><br><br>
             </div>    
         </form>
@@ -90,6 +95,7 @@
 
 <script src ="jquery.min.js"></script>
 <script src ="script.js"></script>
+<script src ="plus-deux-cents.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

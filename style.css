@@ -345,3 +345,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
         margin-top: 5px;
 
   }
+
+  .contflechhidden{
+      display:none;
+  }
