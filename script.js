@@ -23,7 +23,10 @@ function createInputName(){
             c=c+1;
         }
         inputname += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine()" class="create_myfunction">let\'s go!</button>';
+        inputname += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200()" class="create_myfunction">+200</button>';
         $("#h6").html(inputname);
+        
+
         $("#formOptions").hide(1000);
         $("#formOptions").css("flex-wrap","wrap");
         document.getElementById("input_add_name0").focus();
@@ -49,49 +52,71 @@ function enchaine(){
 }
 
 function myFunction() {
-
-
     var x = document.getElementsByClassName("input_add_name");
     var res=[];
     var a=0;
-    for (i=x.length;i>0;i--){
-       
+    for (i=x.length;i>0;i--)
+    {
       //  console.log(x[a].value);
         var nom = x[a].value;
         console.log(nom);
         res.push(x[a].value);
         a=a+1;
-    }
+    }//fin for
     console.log(res);
     createPlayer();
-        function createPlayer()
-        {  // returnRes();
-            var P = document.getElementById('input_nbplayer0').value;
-            for (i=0;i<P;i++)
-            {   
-                
-            const player = new Player();
-            // console.log(player);
-            // var x = document.getElementById("input_add_name0").value
-            var x = res[i];
-            //  var x = document.getElementById("input_add_name"+i).value
-                console.log(x);
-                player.name= x;
-                player.num=i;
-              array.push(player)
-              console.log(array[i])
-                console.log(array);
-              
 
-            
-        }//fin for
+   function createPlayer()
+{  // returnRes();
+    var P = document.getElementById('input_nbplayer0').value;
+    for (i=0;i<P;i++)
+    {   
         
-    }//fin createPlayer
+    const player = new Player();
+    // console.log(player);
+    // var x = document.getElementById("input_add_name0").value
+    var x = res[i];
+    //  var x = document.getElementById("input_add_name"+i).value
+        console.log(x);
+        player.name= x;
+        player.num=i;
+        array.push(player)
+        console.log(array[i])
+        console.log(array);
+    
+}//fin for
+    
+}//fin createPlayer
+   
      
     document.getElementById("lancer1").focus();
 }// fin myfunction
 
+
+
+function createPlayer()
+    {  // returnRes();
+        var P = document.getElementById('input_nbplayer0').value;
+        for (i=0;i<P;i++)
+        {   
+            
+            const player = new Player();
+           // console.log(player);
+           // var x = document.getElementById("input_add_name0").value
+           var x = res[i];
+          //  var x = document.getElementById("input_add_name"+i).value
+            console.log(x);
+            player.name= x;
+          //  array.push(player)
+          //  console.log(array[i])
+            console.log(i);
+
+            
+        }
+    }
+
 function displayContainer(){
+
     var a = document.getElementById('input_nbplayer0').value;
     console.log(a);
      var card ="";
@@ -125,7 +150,41 @@ function displayContainer(){
 }//fin displayContainer()
 
 
+function displayContainer200(){
+    myFunction();
+    var a = document.getElementById('input_nbplayer0').value;
+    console.log(a);
+     var card ="";
+     b=0;
+        for(i=0;i<a;i++)
+        {
+       
+        console.log(array[b]);
+        
+        card += '<div class="tableaubouttons">';
+        card +='<div class="ico">'; 
+             card += '<img class="icon" id="icon'+i+'" src="./images/icons/cible.png">';
+        card +='</div>'; 
+            card += ' <div class="container-card" id="'+i+'">';
+                card += ' <div class ="nomjoueur case pl" id="nomjoueur'+i+'">'+array[b].name+'</div>';
+              
+                card += ' <div class ="score case" id="score'+i+'">score: '+array[b].fleche1+'</div>';
+                card += ' <div class ="score-cumulé case" id="score-cumulé'+i+'">score total '+array[b].resultatTotal+'</div>';
+                card += '<div class ="score-tour case" id="score-tour'+i+'">score tour '+array[b].resultatTour+'</div>';
+                card += '<div class ="coupsrestants case" id="coupsrestants'+i+'">coups restants '+array[b].coupsRestants+'</div>';
+            card += '</div>';
+        card += '</div>';
+        b=b+1;
+         }    
 
+   $("#h6").html(card);
+   document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
+   $(".f1").css("display","flex");
+   $("#form").css("display","none");
+
+   return parseInt(a);
+   
+}//fin displayContainer200()
 
 
 
@@ -158,26 +217,7 @@ function returnRes(){
     console.log(joueursdanstableau);
 }
 
-function createPlayer()
-    {  // returnRes();
-        var P = document.getElementById('input_nbplayer0').value;
-        for (i=0;i<P;i++)
-        {   
-            
-            const player = new Player();
-           // console.log(player);
-           // var x = document.getElementById("input_add_name0").value
-           var x = res[i];
-          //  var x = document.getElementById("input_add_name"+i).value
-            console.log(x);
-            player.name= x;
-          //  array.push(player)
-          //  console.log(array[i])
-            console.log(i);
 
-            
-        }
-    }
     $('#creerjoueur').click(createPlayer);
   
     $('#test').click(displayArray);
