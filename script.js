@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    
     $('.container-title').css("margin-top","300px");
     $('.select_game').css("display","none");
     btnWall();
@@ -151,6 +151,7 @@ function displayContainer(){
 
 
 function displayContainer200(){
+    $('.container-title').css("margin-top","10px")
     myFunction();
     var a = document.getElementById('input_nbplayer0').value;
     console.log(a);
@@ -181,6 +182,7 @@ function displayContainer200(){
    document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
    $(".f1").css("display","flex");
    $("#form").css("display","none");
+   document.getElementById("lancer200_1").focus();
 
    return parseInt(a);
    
@@ -401,53 +403,17 @@ window.onclick = function(event) {
 
 
 
-/*function displayNbPlayers(){
-    var NbPlayers =selectNbPlayers();
-    console.log('Vous etes' +NbPlayers+' !');
-}*/
 
 
-//displayNbPlayers();
-
-
-
-
-
-
-
-
-
-/*
-function card (){
-    var card ="";
-
-card += ' <div class="container-card">';
-card += '   <div class ="nomjoueur case" id="nomjoueur">nom Joueur</div>';
-card += '   <div id="points-restants" class ="case points-restants">points restants</div>';
-card += '   <div class ="score case" id="score">score</div>';
-card += '   <div class ="score-cumulé case" id="score-cumulé">score total</div>';
-card += '   <div class ="score-tour case" id="score-tour">score tour</div>';
-card += '   <div class ="coupsrestants case" id="coupsrestants">coups restants</div>';
-card += '</div>';
-
-
-
-}
-$('.ok').click(card);
-$("#h6").html(card);
-
-*/
 
 function nextPlayer(){
-    if (i> nbjoueurs.length){
-        i=0;
+    if (result>= array.length-1){
+        result=0;
     }else{
-        i=i+1
+        result=result+1;
     }
     
 }
-
-
 
 
 function perdu1(){
@@ -475,14 +441,7 @@ function perdu1(){
 
 }
 
-function nextPlayer(){
-    if (result>= array.length-1){
-        result=0;
-    }else{
-        result=result+1;
-    }
-    
-}
+
 
     function compteur(){
         var resultCompteur=0;
@@ -700,7 +659,57 @@ function nextPlayer(){
             }//fin else if
      }//fin function lancerfleche
 
+     function compteurTour200(){
+        var resultCompteurTour200=3;
+        return resultCompteurTour200;
+    }
 
+    var resultTour200 =compteurTour200();
+    
+
+
+     function flech200()
+     {
+
+            
+                
+                var nbpts200 = document.getElementById('lancer200_1').value;
+                console.log(nbpts200);
+            
+    
+                    if (isNaN(parseInt(nbpts200)) == true)
+                    { //verif si l'input est bien un int
+                    nbpts200=0;
+                    array[result].coupsRestants ++;
+                    console.log(nbpts200);
+                    }
+    
+                array[result].fleche1=parseInt(nbpts200);
+                array[result].coupsRestants --;
+                array[result].resultatTotal =(array[result].resultatTotal+ array[result].fleche1) ;
+                array[result].tousLesCoups.push(array[result].fleche1);
+                array[result].average =array[result].resultatTotal/array[result].tousLesCoups.length;
+                var num= array[result].average.toFixed(1);
+                document.getElementById("score-cumulé"+result).innerHTML= "score total : "+array[result].resultatTotal;
+                document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
+                document.getElementById("score"+result).innerHTML= "score fleche  : "+array[result].fleche1;
+                document.getElementById("score-tour"+result).innerHTML= "score tour  : "+array[result].resultatTour;
+
+                console.log(resultTour200);
+                resultTour200 =resultTour200 -1;
+
+                console.log(resultTour200);
+
+                if(resultTour200==0){
+                    console.log('kiki');
+                    resultTour200=6;
+                    array[result].coupsRestants =6;
+                    document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
+                    nextPlayer();
+                    
+                }
+
+     }//fin flech200()
 
      function btnWall(){
     var card ="";
@@ -802,6 +811,15 @@ function nextPlayer(){
         event.preventDefault();
         if (event.keyCode === 13) {
             document.getElementById("btn-f3").click();
+            
+        }
+    });
+
+    var input200 = document.getElementById("lancer200_1");
+    input200.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("btn200-f1").click();
             
         }
     });
