@@ -2,6 +2,7 @@ $(document).ready(function(){
     
     $('.container-title').css("margin-top","300px");
     $('.select_game').css("display","none");
+    $('.200').css("display","none");
     btnWall();
     document.getElementById("input_nbplayer0").focus();
    
@@ -22,7 +23,7 @@ function createInputName(){
             a=a+1;
             c=c+1;
         }
-        inputname += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine()" class="create_myfunction">let\'s go!</button>';
+        inputname += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine()" class="create_myfunction">301</button>';
         inputname += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200()" class="create_myfunction">+200</button>';
         $("#h6").html(inputname);
         
@@ -182,7 +183,13 @@ function displayContainer200(){
    document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
    $(".f1").css("display","flex");
    $("#form").css("display","none");
+   $('.200').css("display","block");
    document.getElementById("lancer200_1").focus();
+   if(array[result+1]){
+    array[result+1].coupsRestants=6;
+     document.getElementById("coupsrestants1").innerHTML= "coups restants : "+array[result+1].coupsRestants;
+}
+  
 
    return parseInt(a);
    
@@ -670,8 +677,11 @@ function perdu1(){
 
      function flech200()
      {
-
-            
+     /*   if(array[result+1]){
+            array[result+1].coupsRestants=6;
+             document.getElementById("coupsrestants1").innerHTML= "coups restants : "+array[result+1].coupsRestants;
+        }*/
+        
                 
                 var nbpts200 = document.getElementById('lancer200_1').value;
                 console.log(nbpts200);
@@ -706,6 +716,9 @@ function perdu1(){
                     array[result].coupsRestants =6;
                     document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
                     nextPlayer();
+                    document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
+                    array[result].coupsRestants=6;
+                    document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
                     
                 }
 
