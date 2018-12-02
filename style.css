@@ -27,7 +27,7 @@ body {
     text-align: center;
     margin-right: 30px;;
     vertical-align: baseline;
-    border-width: 5px;
+    border-width: 3px;
     -opacity: 0.7;
 
 }
@@ -56,6 +56,7 @@ body {
     background-color: rgb(192,192,192);
     vertical-align: middle;
 }
+
 .score-tour{
     height: 16.66%;
     background-color: rgb(201, 163, 79);
@@ -66,6 +67,42 @@ body {
     background-color: rgb(192,192,192);
     vertical-align: middle;
 }
+/*zezeze*/
+.nomjoueur200{
+    height: 16.66%;
+    background-color:rgb(201, 163, 79);
+    font-weight: bold;
+    font-size: 2em;
+    color: black;
+   
+}
+
+
+.score200{
+    height: 16.66%;
+    background-color: rgb(192,192,192);
+    vertical-align: middle;
+}
+
+.score-cumulé200{
+    height: 33.33%;
+    background-color: rgb(201, 163, 79);
+    vertical-align: middle;
+    padding-top: 7% !important;
+    font-size: 3em !important;
+
+}
+.score-tour200{
+    height: 16.66%;
+    background-color: rgb(201, 163, 79);
+    vertical-align: middle;
+}
+.coupsrestants200{
+    height: 16.66%;
+    background-color: rgb(192,192,192);
+    vertical-align: middle;
+}
+
 #fleche{
     -text-align: center;
 }
@@ -84,7 +121,8 @@ body {
 
 .titre{
     text-align: center;
-    max-height: 100px;;
+    max-height: 15%;
+    height: 10%;
     font-size: 2em;
     width: 30%;
     margin-left: 36%;
@@ -124,7 +162,7 @@ button{
 .case{
     margin: auto;
     font-size: 1.8em;
-    color:black;
+    -color:black;
     padding-top: 8px;
     
 }
@@ -362,4 +400,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
   .contflechhidden{
       display:none;
+  }
+
+  .green{
+      border-color: green;
+      border-width: 6px;
+      font-size: 126%;
+      font-style: italic;
+      
+
   }

@@ -144,7 +144,7 @@ function displayContainer(){
          }    
 
    $("#h6").html(card);
-   document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
+   document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
    $(".f1").css("display","flex");
    return parseInt(a);
    
@@ -168,12 +168,13 @@ function displayContainer200(){
              card += '<img class="icon" id="icon'+i+'" src="./images/icons/cible.png">';
         card +='</div>'; 
             card += ' <div class="container-card" id="'+i+'">';
-                card += ' <div class ="nomjoueur case pl" id="nomjoueur'+i+'">'+array[b].name+'</div>';
+                card += ' <div class ="nomjoueur200 case pl" id="nomjoueur'+i+'">'+array[b].name+'</div>';
               
-                card += ' <div class ="score case" id="score'+i+'">score: '+array[b].fleche1+'</div>';
-                card += ' <div class ="score-cumulé case" id="score-cumulé'+i+'">score total '+array[b].resultatTotal+'</div>';
-                card += '<div class ="score-tour case" id="score-tour'+i+'">score tour '+array[b].resultatTour+'</div>';
-                card += '<div class ="coupsrestants case" id="coupsrestants'+i+'">coups restants '+array[b].coupsRestants+'</div>';
+                card += ' <div class ="score200 case" id="score'+i+'">score: '+array[b].fleche1+'</div>';
+               
+                card += '<div class ="score-tour200 case" id="score-tour'+i+'">score tour '+array[b].resultatTour+'</div>';
+                card += '<div class ="coupsrestants200 case" id="coupsrestants'+i+'">coups restants '+array[b].coupsRestants+'</div>';
+                card += ' <div class ="score-cumulé200 case" id="score-cumulé'+i+'">total '+array[b].resultatTotal+'</div>';
             card += '</div>';
         card += '</div>';
         b=b+1;
@@ -181,6 +182,7 @@ function displayContainer200(){
 
    $("#h6").html(card);
    document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
+   document.getElementById("tit").innerHTML="A  " +array[result].name+" de jouer !" ;
    $(".f1").css("display","flex");
    $("#form").css("display","none");
    $('.200').css("display","block");
@@ -188,6 +190,8 @@ function displayContainer200(){
    if(array[result+1]){
     array[result+1].coupsRestants=6;
      document.getElementById("coupsrestants1").innerHTML= "coups restants : "+array[result+1].coupsRestants;
+     $('#icon0').css("visibility","initial");
+     $("#"+result).addClass("green");
 }
   
 
@@ -335,6 +339,7 @@ function addplayerinput() {
 
 function gagné1(){
     document.getElementById("titre").innerHTML="Victoire de  " +array[result].name+" !"
+    document.getElementById("tit").innerHTML="Victoire de  " +array[result].name+" !"
     array[result].pointsRestantsActuels=0;
     document.getElementById("points-restants"+result).innerHTML="points restant : " +array[result].pointsRestantsActuels;
     modalwin();
@@ -656,6 +661,7 @@ function perdu1(){
             nextPlayer();
             $('#icon'+result).css("visibility","initial");
             document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
+       
             array[result].coupsRestants=3;
             document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
             form.reset();
@@ -677,12 +683,8 @@ function perdu1(){
 
      function flech200()
      {
-     /*   if(array[result+1]){
-            array[result+1].coupsRestants=6;
-             document.getElementById("coupsrestants1").innerHTML= "coups restants : "+array[result+1].coupsRestants;
-        }*/
+      
         
-                
                 var nbpts200 = document.getElementById('lancer200_1').value;
                 console.log(nbpts200);
             
@@ -697,26 +699,38 @@ function perdu1(){
                 array[result].fleche1=parseInt(nbpts200);
                 array[result].coupsRestants --;
                 array[result].resultatTotal =(array[result].resultatTotal+ array[result].fleche1) ;
+                array[result].resultatTour=(array[result].resultatTour+array[result].fleche1);
                 array[result].tousLesCoups.push(array[result].fleche1);
                 array[result].average =array[result].resultatTotal/array[result].tousLesCoups.length;
                 var num= array[result].average.toFixed(1);
-                document.getElementById("score-cumulé"+result).innerHTML= "score total : "+array[result].resultatTotal;
+                document.getElementById("score-cumulé"+result).innerHTML= "total : "+array[result].resultatTotal;
                 document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
                 document.getElementById("score"+result).innerHTML= "score fleche  : "+array[result].fleche1;
                 document.getElementById("score-tour"+result).innerHTML= "score tour  : "+array[result].resultatTour;
-
-                console.log(resultTour200);
+                form200.reset();
+               
+                
                 resultTour200 =resultTour200 -1;
+               
 
                 console.log(resultTour200);
 
                 if(resultTour200==0){
-                    console.log('kiki');
+                    console.log('on change!');
+                    $('#icon'+result).css("visibility","hidden");
                     resultTour200=6;
                     array[result].coupsRestants =6;
                     document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
+                    $("#"+result).removeClass("green");
                     nextPlayer();
+                    document.getElementById("score-tour"+result).innerHTML= "score tour  : 0";
+                    array[result].resultatTour=0;
+                    $('#icon'+result).css("visibility","initial");
+                    $("#"+result).addClass("green");
+                    
+                    
                     document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
+                    document.getElementById("tit").innerHTML="A  " +array[result].name+" de jouer !" ;
                     array[result].coupsRestants=6;
                     document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
                     
