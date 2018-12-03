@@ -11,6 +11,7 @@ $(document).ready(function(){
 
 $('#btn-display-input-name').click(createInputName);
 
+
 function createInputName(){
     var b = document.getElementById('input_nbplayer0').value;
     a=b-b;
@@ -24,7 +25,8 @@ function createInputName(){
             c=c+1;
         }
         inputname += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine()" class="create_myfunction">301</button>';
-        inputname += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200()" class="create_myfunction">+200</button>';
+        inputname += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine501()" class="create_myfunction">501</button>';
+        inputname += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200()" class="create_myfunction">+100</button>';
         $("#h6").html(inputname);
         
 
@@ -36,11 +38,56 @@ function createInputName(){
 }
 $('#create_myfunctionGhost').click(enchaine);
 
+
+//$('#').click(selectGame);
+class GameSelected
+{
+    constructor(){
+        this.game="";
+    }//fin constructor
+  
+}
+
+const gameselected = new GameSelected();
+
+/*function selectGame501(){
+    
+    gameselected.game="501";
+    var game="501";
+    return game;
+}
+function whatgame(){
+    var whatgame=selectGame501();
+    console.log(whatgame);
+    return whatgame;
+    
+}*/
+
+function selectGame501(){
+    document.getElementById("selectedGame").innerHTML="501"
+   // document.getElementById("score-cumulé"+result).innerHTML= "score total : "+array[result].resultatTotal;
+}
+
+
+
+function enchaine501(){
+    selectGame501()
+    //player.pointsrestantsDebutTour=501;player.pointsRestantsActuels=501;
+    myFunction();
+    displayContainer();
+
+    $('#form').show(1000);
+    document.getElementById("lancer1").focus();
+    $('.container-title').css("margin-top","10px")
+    $('#icon0').css("visibility","initial");
+    return 0;
+}
+
+
 function enchaine(){
     
     myFunction();
     displayContainer();
-
 
     $('#form').show(1000);
     document.getElementById("lancer1").focus();
@@ -81,19 +128,22 @@ function myFunction() {
         console.log(x);
         player.name= x;
         player.num=i;
+
+        var d=document.getElementById("selectedGame").innerHTML;
+        console.log(d);
+        if (d=="501"){
+            player.pointsRestantsActuels= 501;
+            player.pointsrestantsDebutTour=501;
+        }
         array.push(player)
-        console.log(array[i])
+        
         console.log(array);
-    
 }//fin for
     
 }//fin createPlayer
    
-     
     document.getElementById("lancer1").focus();
 }// fin myfunction
-
-
 
 function createPlayer()
     {  // returnRes();
@@ -102,17 +152,13 @@ function createPlayer()
         {   
             
             const player = new Player();
-           // console.log(player);
-           // var x = document.getElementById("input_add_name0").value
+           
+          
            var x = res[i];
           //  var x = document.getElementById("input_add_name"+i).value
             console.log(x);
             player.name= x;
-          //  array.push(player)
-          //  console.log(array[i])
-            console.log(i);
-
-            
+            console.log(i);           
         }
     }
 
@@ -188,7 +234,7 @@ function displayContainer200(){
    $('.200').css("display","block");
    document.getElementById("lancer200_1").focus();
    if(array[result+1]){
-    array[result+1].coupsRestants=6;
+    array[result+1].coupsRestants=3;
      document.getElementById("coupsrestants1").innerHTML= "coups restants : "+array[result+1].coupsRestants;
      $('#icon0').css("visibility","initial");
      $("#"+result).addClass("green");
@@ -199,7 +245,108 @@ function displayContainer200(){
    
 }//fin displayContainer200()
 
+function compteurTour200(){
+    var resultCompteurTour200=3;
+    return resultCompteurTour200;
+}
 
+var resultTour200 =compteurTour200();
+
+
+function verifSiwin()
+{
+    var arrayResTotal=[];
+    
+    for (i=0;i<array.length;i++)
+    {   
+         arrayResTotal.push(array[i].resultatTotal)
+    }
+    console.log(arrayResTotal);
+      arrayResTotal.splice(result, 1);
+      console.log(arrayResTotal);
+      var m= Math.max(...arrayResTotal);
+      console.log(m);
+      console.log(array[result].resultatTotal);
+
+      if(array[result].resultatTotal-100>=m){
+         // modalwin();
+        console.log('gagné!!!');
+         document.getElementById("titre").innerHTML="Victoire de  " +array[result].name+" !"
+         document.getElementById("tit").innerHTML="Victoire de  " +array[result].name+" !"
+
+        $("#titre").animate({    
+            width : '600px',
+            height: '400px',
+            marginTop: '300px',
+            paddingTop :'8%',
+            fontSize:'4em'
+        })
+        $("#form200").css({ 
+            display : 'none'
+        })
+          return 0;
+      }
+}
+
+ function flech200()
+ {
+  
+    
+            var nbpts200 = document.getElementById('lancer200_1').value;
+            console.log(nbpts200);
+        
+
+                if (isNaN(parseInt(nbpts200)) == true)
+                { //verif si l'input est bien un int
+                nbpts200=0;
+                array[result].coupsRestants ++;
+                console.log(nbpts200);
+                }
+
+            array[result].fleche1=parseInt(nbpts200);
+            array[result].coupsRestants --;
+            array[result].resultatTotal =(array[result].resultatTotal+ array[result].fleche1) ;
+            array[result].resultatTour=(array[result].resultatTour+array[result].fleche1);
+            array[result].tousLesCoups.push(array[result].fleche1);
+            array[result].average =array[result].resultatTotal/array[result].tousLesCoups.length;
+            var num= array[result].average.toFixed(1);
+            document.getElementById("score-cumulé"+result).innerHTML= "total : "+array[result].resultatTotal;
+            document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
+            document.getElementById("score"+result).innerHTML= "score fleche  : "+array[result].fleche1;
+            document.getElementById("score-tour"+result).innerHTML= "score tour  : "+array[result].resultatTour;
+            form200.reset();
+           
+            
+            resultTour200 =resultTour200 -1;
+            console.log(resultTour200);
+            verifSiwin();
+           
+
+            
+
+            if(resultTour200==0){
+                console.log('on change!');
+                $('#icon'+result).css("visibility","hidden");
+                resultTour200=3;
+                array[result].coupsRestants =3;
+                document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
+                $("#"+result).removeClass("green");
+                
+                nextPlayer();
+                document.getElementById("score-tour"+result).innerHTML= "score tour  : 0";
+                array[result].resultatTour=0;
+                $('#icon'+result).css("visibility","initial");
+                $("#"+result).addClass("green");
+                
+                
+                document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
+                document.getElementById("tit").innerHTML="A  " +array[result].name+" de jouer !" ;
+                array[result].coupsRestants=3;
+                document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
+                
+            }
+
+ }//fin flech200()
 
 
 class Player
@@ -282,15 +429,7 @@ console.log(x);*/
 const player1 = new Player (1,"anto");
 const player2 = new Player (2,"micka");
 
-var arrayAntoMick=[];
-arrayAntoMick.push(player1,player2);
-console.log(arrayAntoMick[0].name);
-console.log(arrayAntoMick);
 
-
-//console.log(player);
-console.log(player1);
-console.log(player2);
 
 function choisirJeu()
 {
@@ -461,7 +600,6 @@ function perdu1(){
     }
 
     var result =compteur();
-    console.log(result);
 
     function lancerFleche()
     { 
@@ -672,71 +810,7 @@ function perdu1(){
             }//fin else if
      }//fin function lancerfleche
 
-     function compteurTour200(){
-        var resultCompteurTour200=3;
-        return resultCompteurTour200;
-    }
-
-    var resultTour200 =compteurTour200();
     
-
-
-     function flech200()
-     {
-      
-        
-                var nbpts200 = document.getElementById('lancer200_1').value;
-                console.log(nbpts200);
-            
-    
-                    if (isNaN(parseInt(nbpts200)) == true)
-                    { //verif si l'input est bien un int
-                    nbpts200=0;
-                    array[result].coupsRestants ++;
-                    console.log(nbpts200);
-                    }
-    
-                array[result].fleche1=parseInt(nbpts200);
-                array[result].coupsRestants --;
-                array[result].resultatTotal =(array[result].resultatTotal+ array[result].fleche1) ;
-                array[result].resultatTour=(array[result].resultatTour+array[result].fleche1);
-                array[result].tousLesCoups.push(array[result].fleche1);
-                array[result].average =array[result].resultatTotal/array[result].tousLesCoups.length;
-                var num= array[result].average.toFixed(1);
-                document.getElementById("score-cumulé"+result).innerHTML= "total : "+array[result].resultatTotal;
-                document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
-                document.getElementById("score"+result).innerHTML= "score fleche  : "+array[result].fleche1;
-                document.getElementById("score-tour"+result).innerHTML= "score tour  : "+array[result].resultatTour;
-                form200.reset();
-               
-                
-                resultTour200 =resultTour200 -1;
-               
-
-                console.log(resultTour200);
-
-                if(resultTour200==0){
-                    console.log('on change!');
-                    $('#icon'+result).css("visibility","hidden");
-                    resultTour200=6;
-                    array[result].coupsRestants =6;
-                    document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
-                    $("#"+result).removeClass("green");
-                    nextPlayer();
-                    document.getElementById("score-tour"+result).innerHTML= "score tour  : 0";
-                    array[result].resultatTour=0;
-                    $('#icon'+result).css("visibility","initial");
-                    $("#"+result).addClass("green");
-                    
-                    
-                    document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
-                    document.getElementById("tit").innerHTML="A  " +array[result].name+" de jouer !" ;
-                    array[result].coupsRestants=6;
-                    document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
-                    
-                }
-
-     }//fin flech200()
 
      function btnWall(){
     var card ="";
