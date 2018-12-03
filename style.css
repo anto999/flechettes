@@ -342,7 +342,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     -display: flex;
     -flex-wrap: wrap;
     text-align: center;
-    margin-top: opx !important;
+    margin-top: 0px !important;
 }
 
 ::placeholder {
@@ -410,3 +410,48 @@ body {font-family: Arial, Helvetica, sans-serif;}
       
 
   }
+
+  #selectedGame{
+      display: none;
+  }
+
+  .boule{
+      width:10%;
+      height: 10%;
+      background-color: aliceblue;
+      text-align: center;
+      margin-top: 5px;
+      border-radius: 72px;
+      font-size: 4em;
+      margin-top:10px;
+      margin-right:27px;
+      margin-left:10px;
+      margin-bottom: 10px;
+      -border-style: solid;
+      border:3px solid;
+      cursor: pointer;
+      
+
+  }
+  .boulerouge{
+    background-color:red
+  }
+
+  .boulevert{
+    background-color:green;
+  }
+
+  .containerboule{
+      text-align: center;
+      width:70%;
+      margin-left:15%;
+    display: flex;
+    -background-color:white;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 20%;
+    -border-style: solid;
+    
+
+  }
+ 

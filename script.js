@@ -71,11 +71,9 @@ function selectGame501(){
 
 
 function enchaine501(){
-    selectGame501()
-    //player.pointsrestantsDebutTour=501;player.pointsRestantsActuels=501;
+    selectGame501();
     myFunction();
     displayContainer();
-
     $('#form').show(1000);
     document.getElementById("lancer1").focus();
     $('.container-title').css("margin-top","10px")
@@ -85,18 +83,13 @@ function enchaine501(){
 
 
 function enchaine(){
-    
     myFunction();
     displayContainer();
-
     $('#form').show(1000);
     document.getElementById("lancer1").focus();
     $('.container-title').css("margin-top","10px")
     $('#icon0').css("visibility","initial");
-
-    
     return 0;
-
 }
 
 function myFunction() {
@@ -105,7 +98,6 @@ function myFunction() {
     var a=0;
     for (i=x.length;i>0;i--)
     {
-      //  console.log(x[a].value);
         var nom = x[a].value;
         console.log(nom);
         res.push(x[a].value);
@@ -113,34 +105,30 @@ function myFunction() {
     }//fin for
     console.log(res);
     createPlayer();
-
-   function createPlayer()
-{  // returnRes();
-    var P = document.getElementById('input_nbplayer0').value;
-    for (i=0;i<P;i++)
-    {   
-        
-    const player = new Player();
-    // console.log(player);
-    // var x = document.getElementById("input_add_name0").value
-    var x = res[i];
-    //  var x = document.getElementById("input_add_name"+i).value
-        console.log(x);
-        player.name= x;
-        player.num=i;
-
-        var d=document.getElementById("selectedGame").innerHTML;
-        console.log(d);
-        if (d=="501"){
-            player.pointsRestantsActuels= 501;
-            player.pointsrestantsDebutTour=501;
-        }
-        array.push(player)
-        
-        console.log(array);
-}//fin for
-    
-}//fin createPlayer
+        function createPlayer()
+        {  // returnRes();
+            var P = document.getElementById('input_nbplayer0').value;
+            for (i=0;i<P;i++)
+            {     
+            const player = new Player();
+            // console.log(player);
+            // var x = document.getElementById("input_add_name0").value
+            var x = res[i];
+            //  var x = document.getElementById("input_add_name"+i).value
+                console.log(x);
+                player.name= x;
+                player.num=i;
+                var d=document.getElementById("selectedGame").innerHTML;
+                console.log(d);
+                if (d=="501"){
+                    player.pointsRestantsActuels= 501;
+                    player.pointsrestantsDebutTour=501;
+                }
+                array.push(player)
+                console.log(array);
+               }//fin for
+            
+        }//fin createPlayer
    
     document.getElementById("lancer1").focus();
 }// fin myfunction
@@ -935,5 +923,4 @@ function perdu1(){
     });*/
 
 
-   
     
