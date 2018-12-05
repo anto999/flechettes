@@ -3,6 +3,8 @@ $(document).ready(function(){
     $('.container-title').css("margin-top","300px");
     $('.select_game').css("display","none");
     $('.200').css("display","none");
+    $('.containerboule').css("display","none");
+
     btnWall();
     document.getElementById("input_nbplayer0").focus();
    
@@ -27,6 +29,7 @@ function createInputName(){
         inputname += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine()" class="create_myfunction">301</button>';
         inputname += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine501()" class="create_myfunction">501</button>';
         inputname += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200()" class="create_myfunction">+100</button>';
+        inputname += ' <button type ="button" class="create_myfunction" onclick="billard()" id="billard">billard</button>';
         $("#h6").html(inputname);
         
 
@@ -80,6 +83,8 @@ function enchaine501(){
     $('#icon0').css("visibility","initial");
     return 0;
 }
+
+
 
 
 function enchaine(){
@@ -269,7 +274,7 @@ function verifSiwin()
             paddingTop :'8%',
             fontSize:'4em'
         })
-        
+
         $("#form200").css({ 
             display : 'none'
         })
@@ -344,7 +349,7 @@ class Player
         this.num=num;this.name=name;this.pointsrestantsDebutTour=301;this.pointsRestantsActuels=301;
         this.coupsRestants = 3;this.fleche1 = 0;this.fleche2 = 0;this.fleche3 = 0;this.fleche4 = 0;this.fleche5 = 0;this.fleche6 = 0;
         this.resultatTotal = 0;this.nbredetours=0;this.gagnant= false;this.test=null;this.resultatTour=0;this.tousLesCoups=[];
-        this.average=0;
+        this.average=0;this.tableaubillard=[];
     }//fin constructor
    /* sayplayer()
     {
@@ -375,7 +380,7 @@ function returnRes(){
         console.log(array)
         
     }
-
+/*
     function enattente(){
         var P = document.getElementById('input_nbplayer0').value;
         for (i=0;i<P;i++){
@@ -402,7 +407,7 @@ function returnRes(){
         }//fin for
         
     }//fin function
-    $('#atd').click(enattente);
+    $('#atd').click(enattente);*/
 
 
 
