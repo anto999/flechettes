@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+        <!--   <div id="h7"></div>
+        <button onclick="myFunction()">Try it</button>-->  
+
+<!--     <label id ="nbjoueurs">selectionnez le nombre de joueurs</label>
+        <input type="int"  id="grr">
+        <button type ="button" onclick="selectNbPlayers()">select</button><br>
+        <form id="forminput">
+                <label id="nameplayer">prénom:</label>
+                <input type="input" id="inputplayername">
+                <button>créer joueur !</button><br>
+        </form> -->
+
+        <div id="h0"></div>
+        
+        <div class="tableaubouttons">
+                <form class="container-button" id="form1">
+                        <input type="int"  id="ptsfleches">
+                        <button type ="button" onclick="pts()">lancer fleche 1 !</button><br>
+                        <input type="int"  id="ptsfleches2">
+                        <button type ="button" onclick="pts2()">lancer fleche 2 !</button><br>
+                        <input type="int"  id="ptsfleches3">
+                        <button type ="button" onclick="pts3()">lancer fleche 3 !</button><br><br>
+                </form>
+        
+                <form class="container-button"id="form2">
+                        <input type="int"  id="pts2fleches">
+                        <button type ="button" onclick="ptspts()">lancer fleche 1 !</button><br>
+                        <input type="int"  id="pts2fleches2">
+                        <button type ="button" onclick="ptspts2()">lancer fleche 2 !</button><br>
+                        <input type="int"  id="pts2fleches3">
+                        <button type ="button" onclick="ptspts3()">lancer fleche 3 !</button><br>
+                </form>
+        </div>
+
+        <div id="h1"></div>
+        <div id="h2"></div>
+        <div id="h3"></div>
+        <div id="h4"></div>
+        <div id="h5"></div>
+        <div id="h6"></div>
+
+        <div class="titre" id="titre"></div>
+       
+         <div class="tableaujoueurs" id="tableaujoueurs">
+               
+                <div class="container-card">
+                        <div class ="nomjoueur case" id="nomjoueur">nom Joueur</div>   
+                        <div id="points-restants" class ="case points-restants">points restants</div> 
+                        <div class ="score case" id="score">score</div>   
+                        <div class ="score-cumulé case" id="score-cumulé">score total</div> 
+                        <div class ="score-tour case" id="score-tour">score tour</div> 
+                        <div class ="coupsrestants case" id="coupsrestants">coups restants</div> 
+                </div>
+                <div class="container-card">
+                        <div class ="nomjoueur case" id="nomjoueur2">nom Joueur</div>   
+                        <div id="points-restants2" class ="case points-restants">points restants</div> 
+                        <div class ="score case" id="score2">score</div>   
+                        <div class ="score-cumulé case" id="score-cumulé2">score cumulé</div> 
+                        <div class ="score-tour case" id="score-tour2">score tour</div> 
+                        <div class ="coupsrestants case" id="coupsrestants2">coups restants</div> 
+                        
+                </div>
+        </div>       
+
+
+
+
+
+        
+        <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <p class="p-modal">Victoire!</p>
+                </div>
+              
+         </div>
+     
+     
+            
+
+</body>
+
+
+
+
+
+
+<script src ="jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src ="script.js"></script>
+</html>
