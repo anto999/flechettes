@@ -33,15 +33,19 @@ body {
 }
 .nomjoueur{
     height: 16.66%;
+
     background-color:rgb(201, 163, 79);
     font-weight: bold;
     font-size: 2em;
     color: black;
+
    
 }
 .points-restants{
     height: 16.66%;
+
     background-color: rgb(192,192,192);
+
     vertical-align: middle;
 
 }
@@ -114,7 +118,7 @@ body {
     margin: auto;
     width: 60%;
     margin-left: 23%;
-    opacity: 0.8;
+    opacity: 0.75;
     font-size: 2em;
     margin-top: 21%;
 }

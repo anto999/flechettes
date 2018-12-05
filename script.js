@@ -357,6 +357,7 @@ class Player
     }*/
 }
 
+
 var array=[];
 var Match=[];
 
@@ -421,6 +422,7 @@ var x=createInputName();
 console.log(x);*/
 
 const player1 = new Player (1,"anto");
+
 const player2 = new Player (2,"micka");
 
 
