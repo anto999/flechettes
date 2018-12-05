@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
-
         <meta charset="utf-8" />
         <link rel="stylesheet" href="style.css">
-  
-
 </head>
 
 
 <body>
-  
+
         <!--   <div id="h7"></div>
-        <button onclick="myFunction()">Try it</button>--> 
-   <!--     <form id="forminput">
+        <button onclick="myFunction()">Try it</button>-->  
+
+<!--     <label id ="nbjoueurs">selectionnez le nombre de joueurs</label>
+        <input type="int"  id="grr">
+        <button type ="button" onclick="selectNbPlayers()">select</button><br>
+        <form id="forminput">
                 <label id="nameplayer">prénom:</label>
                 <input type="input" id="inputplayername">
                 <button>créer joueur !</button><br>
-        </form> 
+        </form> -->
 
         <div id="h0"></div>
-        <label id ="nbjoueurs">selectionnez le nombre de joueurs</label>
-        <input type="int"  id="grr">
-        <button type ="button" onclick="selectNbPlayers()">select</button><br>-->
         
         <div class="tableaubouttons">
                 <form class="container-button" id="form1">
@@ -74,11 +71,18 @@
                         <div class ="score case" id="score2">score</div>   
                        
                         <div class ="score-tour case" id="score-tour2">score tour</div> 
-                        <div class ="score-cumulé case" id="score-cumulé2">score cumulé</div> 
+
+                        <div class ="coupsrestants case" id="coupsrestants2">coups restants</div> 
+
                         
                 </div>
         </div>       
 
+
+
+
+
+        
         <div id="myModal" class="modal">
 
                 <!-- Modal content -->
@@ -99,7 +103,7 @@
 
 
 
-
+<script src ="jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src ="script.js"></script>
 </html>
