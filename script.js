@@ -269,6 +269,7 @@ function verifSiwin()
             paddingTop :'8%',
             fontSize:'4em'
         })
+        
         $("#form200").css({ 
             display : 'none'
         })

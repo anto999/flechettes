@@ -31,6 +31,13 @@ function b1(){
         del.splice(index,1);
     }
     console.log(del);
+    $("#boule1").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule1").removeClass("boulevert");
+    $("#boule1").removeClass("boule");
+    $("#boule1").addClass("boulemorte");
 }
 
 function b2(){
@@ -41,6 +48,13 @@ function b2(){
         del.splice(index,1);
     }
     console.log(del);
+    $("#boule2").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule2").removeClass("boulerouge");
+    $("#boule2").removeClass("boule");
+    $("#boule2").addClass("boulemorte");
 }
 
 function b3(){
@@ -51,6 +65,13 @@ function b3(){
         del.splice(index,1);
     }
     console.log(del);
+    $("#boule3").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule3").removeClass("boulerouge");
+    $("#boule3").removeClass("boule");
+    $("#boule3").addClass("boulemorte");
 }
 
 function b4(){
@@ -61,6 +82,13 @@ function b4(){
             del.splice(index,1);
         }
         console.log(del);
+        $("#boule4").animate({    
+            width : '3%',
+            fontSize:'1em',
+        })
+        $("#boule4").removeClass("boulevert");
+        $("#boule4").removeClass("boule");
+        $("#boule4").addClass("boulemorte");
 }
 
 function b5(){
@@ -71,6 +99,13 @@ function b5(){
         del.splice(index,1);
     }
     console.log(del);
+    $("#boule5").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule5").removeClass("boulevert");
+    $("#boule5").removeClass("boule");
+    $("#boule5").addClass("boulemorte");
 }
 
 function b6(){
@@ -81,7 +116,15 @@ function b6(){
         del.splice(index,1);
     }
     console.log(del);
+    $("#boule6").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule6").removeClass("boulevert");
+    $("#boule6").removeClass("boule");
+    $("#boule6").addClass("boulemorte");
 }
+
 
 function b7(){
     var del = arraybillard.array;
@@ -91,7 +134,15 @@ function b7(){
         del.splice(index,1);
     }
     console.log(del);
+    $("#boule7").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule7").removeClass("boulerouge");
+    $("#boule7").removeClass("boule");
+    $("#boule7").addClass("boulemorte");
 }
+
 
 function b8(){
     var del = arraybillard.array;
@@ -101,6 +152,13 @@ function b8(){
         del.splice(index,1);
     }
     console.log(del);
+    $("#boule8").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule8").removeClass("boulerouge");
+    $("#boule8").removeClass("boule");
+    $("#boule8").addClass("boulemorte");
 }
 
 function b9(){
@@ -111,6 +169,13 @@ function b9(){
         del.splice(index,1);
     }
     console.log(del);
+    $("#boule9").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule9").removeClass("boulevert");
+    $("#boule9").removeClass("boule");
+    $("#boule9").addClass("boulemorte");
 }
 
 function b10(){
@@ -121,6 +186,13 @@ function b10(){
         del.splice(index,1);
     }
     console.log(del);
+    $("#boule10").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule10").removeClass("boulerouge");
+    $("#boule10").removeClass("boule");
+    $("#boule10").addClass("boulemorte");
 }
 
 function b11(){
@@ -131,6 +203,13 @@ function b11(){
             del.splice(index,1);
         }
         console.log(del);
+        $("#boule11").animate({    
+            width : '3%',
+            fontSize:'1em',
+        })
+        $("#boule11").removeClass("boulevert");
+        $("#boule11").removeClass("boule");
+        $("#boule11").addClass("boulemorte");
 }
 
 function b12(){
@@ -141,6 +220,13 @@ function b12(){
         del.splice(index,1);
     }
     console.log(del);
+    $("#boule12").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule12").removeClass("boulerouge");
+    $("#boule12").removeClass("boule");
+    $("#boule12").addClass("boulemorte");
 }
 
 function b13(){
@@ -152,6 +238,13 @@ function b13(){
             del.splice(index,1);
         }
         console.log(del);
+        $("#boule13").animate({    
+            width : '3%',
+            fontSize:'1em',
+        })
+        $("#boule13").removeClass("boulerouge");
+        $("#boule13").removeClass("boule");
+        $("#boule13").addClass("boulemorte");
     
 }
 
@@ -164,6 +257,13 @@ function b14(){
             del.splice(index,1);
         }
         console.log(del);
+        $("#boule14").animate({    
+            width : '3%',
+            fontSize:'1em',
+        })
+        $("#boule14").removeClass("boulerouge");
+        $("#boule14").removeClass("boule");
+        $("#boule14").addClass("boulemorte");
     
 }
 
@@ -176,6 +276,13 @@ function b15(){
             del.splice(index,1);
         }
         console.log(del);
+        $("#boule15").animate({    
+            width : '3%',
+            fontSize:'1em',
+        })
+        $("#boule15").removeClass("boulevert");
+        $("#boule15").removeClass("boule");
+        $("#boule15").addClass("boulemorte");
     
 }
 
@@ -188,6 +295,14 @@ function b16(){
             del.splice(index,1);
         }
         console.log(del);
+
+        $("#boule16").animate({    
+            width : '3%',
+            fontSize:'1em',
+        })
+        $("#boule16").removeClass("boulevert");
+        $("#boule16").removeClass("boule");
+        $("#boule16").addClass("boulemorte");
     
 }
 
@@ -199,6 +314,13 @@ function b17(){
         del.splice(index,1);
     }
     console.log(del);
+    $("#boule17").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule17").removeClass("boulevert");
+    $("#boule17").removeClass("boule");
+    $("#boule17").addClass("boulemorte");
 }
 
 function b18(){
@@ -209,6 +331,13 @@ function b18(){
         del.splice(index,1);
     }
     console.log(del);
+    $("#boule18").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule18").removeClass("boulerouge");
+    $("#boule18").removeClass("boule");
+    $("#boule18").addClass("boulemorte");
 }
 
 function b19(){
@@ -220,6 +349,13 @@ function b19(){
         del.splice(index,1);
     }
     console.log(del);
+    $("#boule19").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule19").removeClass("boulevert");
+    $("#boule19").removeClass("boule");
+    $("#boule19").addClass("boulemorte");
     //del.remove(19);
     
 }
@@ -234,8 +370,14 @@ function b20(){
         del.splice(index,1);
     }
     console.log(del);
-    //del.remove(19);
-   
+    $("#boule20").animate({    
+        width : '3%',
+        fontSize:'1em',
+    })
+    $("#boule20").removeClass("boulerouge");
+    $("#boule20").removeClass("boule");
+    $("#boule20").addClass("boulemorte");
+  
 }
 
 
