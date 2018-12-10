@@ -246,7 +246,7 @@ function compteurTour200(){
 var resultTour200 =compteurTour200();
 
 
-function verifSiwin()
+function verifSiwin() //verif si win le +100
 {
     var arrayResTotal=[];
     
@@ -266,6 +266,7 @@ function verifSiwin()
         console.log('gagné!!!');
          document.getElementById("titre").innerHTML="Victoire de  " +array[result].name+" !"
          document.getElementById("tit").innerHTML="Victoire de  " +array[result].name+" !"
+         array[result].gagnant=true;
 
         $("#titre").animate({    
             width : '600px',
@@ -282,7 +283,9 @@ function verifSiwin()
       }
 }
 
- function flech200()
+
+
+ function flech200() //au clic de du btn "lancer" une fois +100 selectioné 
  {
   
     
@@ -309,15 +312,11 @@ function verifSiwin()
             document.getElementById("score"+result).innerHTML= "score fleche  : "+array[result].fleche1;
             document.getElementById("score-tour"+result).innerHTML= "score tour  : "+array[result].resultatTour;
             form200.reset();
-           
-            
+
             resultTour200 =resultTour200 -1;
             console.log(resultTour200);
             verifSiwin();
-           
-
             
-
             if(resultTour200==0){
                 console.log('on change!');
                 $('#icon'+result).css("visibility","hidden");
@@ -327,6 +326,14 @@ function verifSiwin()
                 $("#"+result).removeClass("green");
                 
                 nextPlayer();
+                var weHaveAWinner=false;
+                for (i=0;i<array.length;i++){
+                    if (array[i].gagnant){
+                        weHaveAWinner=true;
+                    }
+                }
+                    if (weHaveAWinner==false){
+                        
                 document.getElementById("score-tour"+result).innerHTML= "score tour  : 0";
                 array[result].resultatTour=0;
                 $('#icon'+result).css("visibility","initial");
@@ -337,6 +344,8 @@ function verifSiwin()
                 document.getElementById("tit").innerHTML="A  " +array[result].name+" de jouer !" ;
                 array[result].coupsRestants=3;
                 document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
+                    }
+
                 
             }
 
@@ -862,7 +871,7 @@ function perdu1(){
 
     }
 
-    function changeBackground5(){
+   /* function changeBackground5(){
         $("body").css("background-image", "url(./images/wall/wall6.jpg)");
         var card ="";
     
@@ -881,6 +890,7 @@ function perdu1(){
         $('#btnwall').click(changeBackground);
 
     }
+    */
 
 
     // ces  variables servent à "simuler" un click quand on click sur entrée (keycode 13) et aussi de "tabuler" (methode focus)

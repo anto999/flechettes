@@ -185,7 +185,7 @@ button{
 }
 
 #form200{
-    -display:none;
+    display:none;
     flex-wrap: wrap;
     border-color:black;
     border-style: solid;
@@ -478,4 +478,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
     
 
   }
- 
+ .tableaubillard{
+     background-color: beige;
+     height: 30%;
+ }
+
+ .boulesEmpochées{
+     background-color: coral;
+ }
+ .totalbillard{
+     background-color: aquamarine;
+     height: 22%;
+ }
