@@ -320,8 +320,8 @@ function verifSiwin() //verif si win le +100
             if(resultTour200==0){
                 console.log('on change!');
                 $('#icon'+result).css("visibility","hidden");
-                resultTour200=3;
-                array[result].coupsRestants =3;
+                resultTour200=6;
+                array[result].coupsRestants =6;
                 document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
                 $("#"+result).removeClass("green");
                 
@@ -342,7 +342,7 @@ function verifSiwin() //verif si win le +100
                 
                 document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
                 document.getElementById("tit").innerHTML="A  " +array[result].name+" de jouer !" ;
-                array[result].coupsRestants=3;
+                array[result].coupsRestants=6;
                 document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
                     }
 
