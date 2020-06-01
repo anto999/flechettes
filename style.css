@@ -1,8 +1,11 @@
 /*ceci est un test*/
 
 body {
-    background-image: url("./images/wall/wall1.jpg");
+    -background-image: url("./images/wall/wall1.jpg");
     background-size: 100%;
+    width:100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 #h6{
     display:flex;
@@ -11,7 +14,23 @@ body {
   /*  border-color: black;
     border-style: solid;*/
     justify-content: center;
-    margin-left: 20px;
+    text-align: center;
+}
+
+
+#inputname{
+    display:inline-block;
+    width: 100%;
+    flex-wrap: wrap;
+  /*  border-color: black;
+    border-style: solid;*/
+    justify-content: center;
+    text-align: center; 
+}
+#criquetDiv{
+    width: 100%;
+    text-align: center;
+    padding-bottom: 40px;
 }
 
 #forminput{
@@ -130,9 +149,8 @@ body {
     max-height: 15%;
     height: 10%;
     font-size: 2em;
-    width: 30%;
-    margin-left: 36%;
-    margin-top: 10px;
+    width: 60%;
+    margin-left: 20%;
 
     background-color: rgb(201, 163, 79);
     padding-top: 7px;
@@ -367,12 +385,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
     margin-left: 150px;
     margin-bottom: 10px;
    visibility:hidden;
+   display: grid;
   
 
   }
 
   .container-wall{
-    right: 0;
+   right: 0;
     position: absolute;
     bottom: 0;
   }
@@ -472,7 +491,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
       text-align: center;
       width:78%;
       margin-left:11%;
-    display: flex;
+    display: none;
+   
     flex-wrap: wrap;
     justify-content: center;
     height: 20%;
@@ -492,3 +512,58 @@ body {font-family: Arial, Helvetica, sans-serif;}
      background-color: aquamarine;
      height: 22%;
  }
+
+ .containerCriquet{
+    -height: 300px;
+    background-color: rgb(212, 212, 97);
+    font-size: 25px;
+ }
+
+ #btns_criquet{
+    -height: 300px;
+    background-color:cyan;
+    font-size: 25px;
+    display:none;
+    
+ }
+
+ .btncriquet{
+     -widows: 100%;
+     cursor: pointer;
+     padding: 0px 40px;
+     background-color: bisque;
+     height: 60px;
+
+ }
+
+ /*les boules:*/
+ .boutonscriquet{ 
+display: none;
+text-align: center;
+background-color: cornsilk;
+width:100%;
+font-size: 25px;
+justify-content: center;
+
+ }
+
+ #ligne_0, #ligne_2, #ligne_4, #ligne_6{
+     background-color: beige;
+ }
+
+ #ligne_1, #ligne_3, #ligne_5, #ligne_7{
+    background-color: rgb(212, 212, 97);
+}
+.score_joueur_criquet{
+    font-size: 40px;
+    font-style: italic;
+    
+}
+
+.ligne, .case_vide{
+    font-size: 35px;
+}
+
+.joueur{
+    font-size: 40px;/*nom du joueur pour criquet*/
+}

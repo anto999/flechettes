@@ -4,19 +4,20 @@
 
 <head>
 
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="style.css">
-       
+  <link rel="stylesheet" href="style.css">
+
 
 </head>
 
 <body>
 
-    <div id="selectedGame">
-        
-    </div>
+  <div id="selectedGame">
+
+  </div>
 
 
   <!-- <div class="select_game titre">
@@ -33,133 +34,223 @@
 
 
 
-    <div class="container-title">
-        <div class="titre" id="titre"> Choisissez le nombre de joueurs</div>
+  <div class="container-title">
+    <div class="titre" id="titre"> Choisissez le nombre de joueurs</div>
 
-        <form class="selectplayers" id="formOptions">
-                 <select id="input_nbplayer0">
-                         <option value="1">1</option>
-                         <option value="2" selected>2</option>
-                         <option value="3">3</option>
-                         <option value="4">4</option>
-                         <option value="5">5</option>
-                         <option value="6">6</option>
-                         <option value="7">7</option>
-                         <option value="8">8</option>
-                 </select>
-                 <button type="button"  id="btn-display-input-name" >select </button>
+    <form class="selectplayers" id="formOptions">
+      <select id="input_nbplayer0">
+        <option value="1">1</option>
+        <option value="2" selected>2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+      <button type="button" id="btn-display-input-name">select </button>
 
-                 <h1 class="ok"></h1>      
-          </form>
-    </div>
-
-
-        <form class="301" id="form">
-                <div class ="contflechhidden">
-                        <input type="int"  id="lancer0">
-                       <button type ="button" id="btn-f1" onclick="lancerFleche()">lancer 1</button>
-                       <div class ="ff f1"> <img class="picture" src="./images/icons/dart.png"></div><br>
-                   </div>
-            <div class ="contflech">
-                 <input type="int"  id="lancer1">
-                <button type ="button" id="btn-f1" onclick="lancerFleche()">lancer 1</button>
-                <div class ="ff f1"> <img class="picture" src="./images/icons/dart.png"></div><br>
-            </div>
-            <div class ="contflech">
-                <input type="int"  id="lancer2">
-                <button type ="button" id="btn-f2" onclick="lancerFleche2()">lancer 2</button>
-                <div class ="ff f2"> <img class="picture" src="./images/icons/dart.png"></div><br>
-            </div>    
-            <div class ="contflech">
-                <input type="int"  id="lancer3">
-                <button type ="button" id="btn-f3" onclick="lancerFleche3()">lancer 3</button>
-                <div class ="ff f3"> <img class="picture" src="./images/icons/dart.png"></div><br><br>
-            </div>    
-        </form>
-<!--+200   -->
-    <form onSubmit="return false;" class="200" id="form200">
-        <div class ="contflech200">
-            <div id ="tit" class ="tit"></div>
-            <input type="int" class="hh" id="lancer200_1">
-            <button type ="button" id="btn200-f1" onclick="flech200()">lancer</button>
-        </div>
+      <h1 class="ok"></h1>
     </form>
+  </div>
 
 
-    <div id="h1"></div>
-    <div id="h2"></div>
-    <div id="listefinale"></div>
-    <div id="h6"></div>
-    <div id="h7"></div>
-    
-    
+  <form class="301" id="form">
+    <div class="contflechhidden">
+      <input type="int" id="lancer0">
+      <button type="button" id="btn-f1" onclick="lancerFleche()">lancer 1</button>
+      <div class="ff f1"> <img class="picture" src="./images/icons/dart.png"></div><br>
+    </div>
+    <div class="contflech">
+      <input type="int" id="lancer1">
+      <button type="button" id="btn-f1" onclick="lancerFleche()">lancer 1</button>
+      <div class="ff f1"> <img class="picture" src="./images/icons/dart.png"></div><br>
+    </div>
+    <div class="contflech">
+      <input type="int" id="lancer2">
+      <button type="button" id="btn-f2" onclick="lancerFleche2()">lancer 2</button>
+      <div class="ff f2"> <img class="picture" src="./images/icons/dart.png"></div><br>
+    </div>
+    <div class="contflech">
+      <input type="int" id="lancer3">
+      <button type="button" id="btn-f3" onclick="lancerFleche3()">lancer 3</button>
+      <div class="ff f3"> <img class="picture" src="./images/icons/dart.png"></div><br><br>
+    </div>
+  </form>
+  <!--+200   -->
+  <form onSubmit="return false;" class="200" id="form200">
+    <div class="contflech200">
+      <div id="tit" class="tit"></div>
+      <input type="int" class="hh" id="lancer200_1">
+      <button type="button" id="btn200-f1" onclick="flech200()">lancer</button>
+    </div>
+  </form>
 
-    <div id=""><div id="btnwall"></div></div>
+
+  <div id="h1"></div>
+  <div id="h2"></div>
+  <div id="listefinale"></div>
+  <div id="inputname"></div>
+  <div id="h6"></div>
+  <div id="h7"></div>
+  <div id="criquetDiv"></div>
 
 
-    
+ 
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-backdrop="false" data-toggle="modal" id="open" data-target="#exampleModalCenter">
-        Launch demo modal
-      </button>
-      
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Félicitations !!!</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <img class="picturemodal" src="./images/icons/dart.gif">
-            </div>  
-          </div>
+
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-backdrop="false" data-toggle="modal" id="open"
+    data-target="#exampleModalCenter">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Félicitations !!!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img class="picturemodal" src="./images/icons/dart.gif">
         </div>
       </div>
+    </div>
+  </div>
 
 
-      <div class="containerboule">
-            <div class="boule boule1 boulevert" id="boule1">1</div>
-            <div class="boule boule2 boulerouge" id="boule2">2</div>
-            <div class="boule boule3 boulerouge" id="boule3">3</div>
-            <div class="boule boule4 boulevert" id="boule4">4</div>
-            <div class="boule boule5 boulevert" id="boule5">5</div>
-            <div class="boule boule6 boulevert" id="boule6">6</div>
-            <div class="boule boule7 boulerouge" id="boule7">7</div>
-            <div class="boule boule8 boulerouge" id="boule8">8</div>
-            <div class="boule boule9 boulevert" id="boule9">9</div>
-            <div class="boule boule10 boulerouge" id="boule10">10</div>
-            <div class="boule boule11 boulevert" id="boule11">11</div>
-            <div class="boule boule12 boulerouge" id="boule12">12</div>
-            <div class="boule boule13 boulerouge" id="boule13">13</div>
-            <div class="boule boule14 boulerouge" id="boule14">14</div>
-            <div class="boule boule15 boulevert" id="boule15">15</div>
-            <div class="boule boule16 boulevert" id="boule16">16</div>
-            <div class="boule boule17 boulevert" id="boule17">17</div>
-            <div class="boule boule18 boulerouge" id="boule18">18</div>
-            <div class="boule boule19 boulevert" id="boule19">19</div>
-            <div class="boule boule20 boulerouge" id="boule20">20</div>
-            <div class="boule null " id="nul">0</div>
-        
-        </div>
+  <div class="containerboule">
+    <div class="boule boule1 boulevert" id="boule1">1</div>
+    <div class="boule boule2 boulerouge" id="boule2">2</div>
+    <div class="boule boule3 boulerouge" id="boule3">3</div>
+    <div class="boule boule4 boulevert" id="boule4">4</div>
+    <div class="boule boule5 boulevert" id="boule5">5</div>
+    <div class="boule boule6 boulevert" id="boule6">6</div>
+    <div class="boule boule7 boulerouge" id="boule7">7</div>
+    <div class="boule boule8 boulerouge" id="boule8">8</div>
+    <div class="boule boule9 boulevert" id="boule9">9</div>
+    <div class="boule boule10 boulerouge" id="boule10">10</div>
+    <div class="boule boule11 boulevert" id="boule11">11</div>
+    <div class="boule boule12 boulerouge" id="boule12">12</div>
+    <div class="boule boule13 boulerouge" id="boule13">13</div>
+    <div class="boule boule14 boulerouge" id="boule14">14</div>
+    <div class="boule boule15 boulevert" id="boule15">15</div>
+    <div class="boule boule16 boulevert" id="boule16">16</div>
+    <div class="boule boule17 boulevert" id="boule17">17</div>
+    <div class="boule boule18 boulerouge" id="boule18">18</div>
+    <div class="boule boule19 boulevert" id="boule19">19</div>
+    <div class="boule boule20 boulerouge" id="boule20">20</div>
+    <div class="boule null " id="nul">0</div>
 
-     <!--  <div class="boule null " id="billard">create array</div>-->
+  </div>
 
-    </body>
-<script src ="jquery.min.js"></script>
-<script src ="script.js"></script>
-<script src ="plus-deux-cents.js"></script>
-<script src ="billard.js"></script>
+  <div class="boutonscriquet">
+    <table width="100%" class="boutonscriquet">
+        <tbody>
+            <tr>
+                <td colspan="" style="padding-top: 200px;">
+                </td>
+                <td>
+                    <div class="btn15 btncriquet btncriquetsimple" attr="15" id="btn15">15</div>
+                </td>
+                <td>
+                    <div class="btn16 btncriquet btncriquetsimple"  attr=16 id="btn16">16</div>
+                </td>
+                <td>
+                    <div class="btn17 btncriquet btncriquetsimple" attr=17 id="btn17">17</div>
+                </td>
+                <td>
+                    <div class="btn18 btncriquet btncriquetsimple" attr=18 id="btn18">18</div>
+                </td>
+                <td>
+                    <div class="btn19 btncriquet btncriquetsimple" attr=19 id="btn19">19</div>
+                </td>
+                <td>
+                    <div class="btn20 btncriquet btncriquetsimple"attr=20 id="btn20">20</div>
+                </td>
+                <td>
+                    <div class="btn25 btncriquet btncriquetsimple" attr=25 id="btn25">25</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="" style="padding-top: 200px;">
+                </td>
+                <td>
+                    <div class="btn15x2 btncriquet btncriquetdouble" attr=15 id="btn15x2">15*2</div>
+                </td>
+                <td>
+                    <div class="btn16x2 btncriquet btncriquetdouble" attr=16 id="btn16x2">16*2</div>
+                </td>
+                <td>
+                    <div class="btn17x2 btncriquet btncriquetdouble" attr=17 id="btn17x2">17*2</div>
+                </td>
+                <td>
+                    <div class="btn18x2 btncriquet btncriquetdouble" attr=18 id="btn18x2">18*2</div>
+                </td>
+                <td>
+                    <div class="btn19x2 btncriquet btncriquetdouble" attr=19 id="btn19x2">19*2</div>
+                </td>
+                <td>
+                    <div class="btn20x2 btncriquet btncriquetdouble" attr=20 id="btn20x2">20*2</div>
+                </td>
+                <td>
+                    <div class="btn50 btncriquet btncriquetdouble" attr=25 id="btn50">50</div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="" style="padding-top: 200px;">
+                </td>
+                <td>
+                    <div class="btn15x3 btncriquet btncriquettriple" attr=15 id="btn15x3">15*3</div>
+                </td>
+                <td>
+                    <div class="btn16x3 btncriquet btncriquettriple" attr=16 id="btn16x3">16*3</div>
+                </td>
+                <td>
+                    <div class="btn17x3 btncriquet btncriquettriple" attr=17 id="btn17x3">17*3</div>
+                </td>
+                <td>
+                    <div class="btn18x3 btncriquet btncriquettriple" attr=18 id="btn18x3">18*3</div>
+                </td>
+                <td>
+                    <div class="btn19x3 btncriquet btncriquettriple" attr=19 id="btn19x3">19*3</div>
+                </td>
+                <td>
+                    <div class="btn20x3 btncriquet btncriquettriple" attr=20 id="btn20x3">20*3</div>
+                </td>
+                <td>
+                  <div class="btnzero btncriquet" attr=0 id="btnzero">0</div>
+              </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+   
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <!--  <div class="boule null " id="billard">create array</div>-->
+
+</body>
+<script src="jquery.min.js"></script>
+<script src="script.js"></script> 
+<script src="testcreationtablecriquet.js"></script>
+
+<script src="plus-deux-cents.js"></script>
+<script src="billard.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
 </html>
-

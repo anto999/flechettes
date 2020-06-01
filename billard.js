@@ -1,4 +1,9 @@
+
 // tester avec this, ajouter attr?
+
+
+
+
 $('.boule1').click(b1);
 $('.boule2').click(b2);
 $('.boule3').click(b3);
@@ -768,12 +773,9 @@ function displayContainerBillard(){
             card += ' <div class="container-card" id="'+i+'">';
                 card += ' <div class ="nomjoueur case pl" id="nomjoueur'+i+'">'+array[b].name+'</div>';
       
-                card += ' <div class ="score case" id="score'+i+'">score: '+array[b].fleche1+'</div>';
-              
-               
                 card += '<div class ="boulesEmpochées case" id="boulesEmpochées'+i+'">boules empochées :</div>';
                 card += '<div class ="tableaubillard case" id="tableaubillard'+i+'">'+array[b].tableaubillard+'</div>';
-                card += '<div class ="totalbillard case" id="totalbillard'+i+'">'+array[b].resultatTotal+'</div>';
+                card += '<div class ="totalbillard case" id="totalbillard'+i+'">total points :'+array[b].resultatTotal+'</div>';
                 //<div class="boule boule20 boulerouge" id="boule20">20</div>
 
 
@@ -821,11 +823,7 @@ function billardWin(){
 
         verifSiégalité.splice(indexmax, 1);
         console.log(arraybillard.array);
-
-
-
-          
-       
+        
         $("#titre").animate({    
             width : '600px',
             height: '400px',
@@ -847,11 +845,20 @@ class Billard
 
     }
 }
+/* a tester plus tard pour optimiser la lourdeur
+function execute(){
+    for (i=1;i<20;i++){
+        $(".boule"+i).click("b"+i);
+    }
+}
+
+*/
 var arraybillard="";
 
 
 function billard(){
-    myFunction();
+    myFunction();//créer les joueurs
+   
     
     var bil =new Billard;
     console.log(bil);
