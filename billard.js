@@ -45,7 +45,7 @@ function b1(){
       
         console.log(del);
         $("#boule1").animate({    
-            width : '3%',
+            width : '10%',
             fontSize:'1em',
         })
         $("#boule1").removeClass("boulevert");

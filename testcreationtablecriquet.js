@@ -21,7 +21,7 @@ var card ='<table width="100%" class="containerCriquet">'+
     '</td>'+
     '<td>'+
         '<div class="score_ligne ligne" id="score_ligne">'+
-            'score'+
+            'pts'+
         '</div>'+
     '</td>'+
     '<td>'+
@@ -136,7 +136,7 @@ var card ='<table width="100%" class="containerCriquet">'+
     $("#h6").css("display","none");
  
     $("#container-wall").css("display","none"); 
-    $(".boutonscriquet").css("display","flex"); 
+    $(".boutonscriquet").css("display","table"); 
     
     return parseInt(a);
         
@@ -161,14 +161,13 @@ var card ='<table width="100%" class="containerCriquet">'+
 
                 document.getElementById("titre").innerHTML="Victoire de  "+array[result].name;
                 $("#titre").animate({    
-                    width : '600px',
-                    height: '400px',
-                    marginTop: '300px',
-                    paddingTop :'8%',
-                    fontSize:'4em'
+                    width : 'auto',
+                    height: '200px',
+                   padding:'10% 0 0',
+                    fontSize:'2em',
                 })
                 array[result].closed["win"]== true;
-                $("#titre").css("display","flex");
+                $("#titre").css("display","list-item");
                
                 throw new Error('This is not an error. This is just to abort javascript');//juste pour stopper le script et ne pas passer à l'instruction suivante
                 return 0;

@@ -4,7 +4,8 @@
 
 <head>
 
-  <meta charset="utf-8" />
+  <meta charset="utf-8"  name='viewport'  content="width=device-width">
+ 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -63,17 +64,17 @@
     </div>
     <div class="contflech">
       <input type="int" id="lancer1">
-      <button type="button" id="btn-f1" onclick="lancerFleche()">lancer 1</button>
+      <button type="button" id="btn-f1" onclick="lancerFleche()"> 1</button>
       <div class="ff f1"> <img class="picture" src="./images/icons/dart.png"></div><br>
     </div>
     <div class="contflech">
       <input type="int" id="lancer2">
-      <button type="button" id="btn-f2" onclick="lancerFleche2()">lancer 2</button>
+      <button type="button" id="btn-f2" onclick="lancerFleche2()"> 2</button>
       <div class="ff f2"> <img class="picture" src="./images/icons/dart.png"></div><br>
     </div>
     <div class="contflech">
       <input type="int" id="lancer3">
-      <button type="button" id="btn-f3" onclick="lancerFleche3()">lancer 3</button>
+      <button type="button" id="btn-f3" onclick="lancerFleche3()"> 3</button>
       <div class="ff f3"> <img class="picture" src="./images/icons/dart.png"></div><br><br>
     </div>
   </form>
@@ -93,8 +94,105 @@
   <div id="inputname"></div>
   <div id="h6"></div>
   <div id="h7"></div>
+  <div class="test">
+
   <div id="criquetDiv"></div>
 
+    <div class="boutonscriquet" width="100%">
+      <table width="100%" class="boutonscriquet">
+          <tbody>
+              <tr>
+              
+                  <td style="width:1px"></td>
+                  <td style="width:14%"></td>
+                  <td style="width:14%"></td>
+                  <td style="width:14%"></td>
+                  <td style="width:14%"></td>
+                  <td style="width:14%"></td>
+                  <td style="width:14%"></td>
+                  <td style="width:16%"></td>
+                  
+              </tr>
+              <tr>
+                  <td  style="padding-top: 30%;">
+                  </td>
+                  <td>
+                      <div class="btn15 btncriquet btncriquetsimple" attr="15" id="btn15">15</div>
+                  </td>
+                  <td>
+                      <div class="btn16 btncriquet btncriquetsimple"  attr=16 id="btn16">16</div>
+                  </td>
+                  <td>
+                      <div class="btn17 btncriquet btncriquetsimple" attr=17 id="btn17">17</div>
+                  </td>
+                  <td>
+                      <div class="btn18 btncriquet btncriquetsimple" attr=18 id="btn18">18</div>
+                  </td>
+                  <td>
+                      <div class="btn19 btncriquet btncriquetsimple" attr=19 id="btn19">19</div>
+                  </td>
+                  <td>
+                      <div class="btn20 btncriquet btncriquetsimple"attr=20 id="btn20">20</div>
+                  </td>
+                  <td>
+                      <div class="btn25 btncriquet btncriquetsimple" attr=25 id="btn25">25</div>
+                  </td>
+              </tr>
+              <tr>
+                  <td  style="padding-top: 30%;">
+                  </td>
+                  <td>
+                      <div class="btn15x2 btncriquet btncriquetdouble" attr=15 id="btn15x2">15*2</div>
+                  </td>
+                  <td>
+                      <div class="btn16x2 btncriquet btncriquetdouble" attr=16 id="btn16x2">16*2</div>
+                  </td>
+                  <td>
+                      <div class="btn17x2 btncriquet btncriquetdouble" attr=17 id="btn17x2">17*2</div>
+                  </td>
+                  <td>
+                      <div class="btn18x2 btncriquet btncriquetdouble" attr=18 id="btn18x2">18*2</div>
+                  </td>
+                  <td>
+                      <div class="btn19x2 btncriquet btncriquetdouble" attr=19 id="btn19x2">19*2</div>
+                  </td>
+                  <td>
+                      <div class="btn20x2 btncriquet btncriquetdouble" attr=20 id="btn20x2">20*2</div>
+                  </td>
+                  <td>
+                      <div class="btn50 btncriquet btncriquetdouble" attr=25 id="btn50">50</div>
+                  </td>
+              </tr>
+              <tr>
+                  <td  style="padding-top: 30%;">
+                  </td>
+                  <td>
+                      <div class="btn15x3 btncriquet btncriquettriple" attr=15 id="btn15x3">15*3</div>
+                  </td>
+                  <td>
+                      <div class="btn16x3 btncriquet btncriquettriple" attr=16 id="btn16x3">16*3</div>
+                  </td>
+                  <td>
+                      <div class="btn17x3 btncriquet btncriquettriple" attr=17 id="btn17x3">17*3</div>
+                  </td>
+                  <td>
+                      <div class="btn18x3 btncriquet btncriquettriple" attr=18 id="btn18x3">18*3</div>
+                  </td>
+                  <td>
+                      <div class="btn19x3 btncriquet btncriquettriple" attr=19 id="btn19x3">19*3</div>
+                  </td>
+                  <td>
+                      <div class="btn20x3 btncriquet btncriquettriple" attr=20 id="btn20x3">20*3</div>
+                  </td>
+                  <td>
+                    <div class="btnzero btncriquet" attr=0 id="btnzero">0</div>
+                </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+ 
+</div><!--fin div test-->
 
  
 
@@ -150,88 +248,7 @@
 
   </div>
 
-  <div class="boutonscriquet">
-    <table width="100%" class="boutonscriquet">
-        <tbody>
-            <tr>
-                <td colspan="" style="padding-top: 200px;">
-                </td>
-                <td>
-                    <div class="btn15 btncriquet btncriquetsimple" attr="15" id="btn15">15</div>
-                </td>
-                <td>
-                    <div class="btn16 btncriquet btncriquetsimple"  attr=16 id="btn16">16</div>
-                </td>
-                <td>
-                    <div class="btn17 btncriquet btncriquetsimple" attr=17 id="btn17">17</div>
-                </td>
-                <td>
-                    <div class="btn18 btncriquet btncriquetsimple" attr=18 id="btn18">18</div>
-                </td>
-                <td>
-                    <div class="btn19 btncriquet btncriquetsimple" attr=19 id="btn19">19</div>
-                </td>
-                <td>
-                    <div class="btn20 btncriquet btncriquetsimple"attr=20 id="btn20">20</div>
-                </td>
-                <td>
-                    <div class="btn25 btncriquet btncriquetsimple" attr=25 id="btn25">25</div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="" style="padding-top: 200px;">
-                </td>
-                <td>
-                    <div class="btn15x2 btncriquet btncriquetdouble" attr=15 id="btn15x2">15*2</div>
-                </td>
-                <td>
-                    <div class="btn16x2 btncriquet btncriquetdouble" attr=16 id="btn16x2">16*2</div>
-                </td>
-                <td>
-                    <div class="btn17x2 btncriquet btncriquetdouble" attr=17 id="btn17x2">17*2</div>
-                </td>
-                <td>
-                    <div class="btn18x2 btncriquet btncriquetdouble" attr=18 id="btn18x2">18*2</div>
-                </td>
-                <td>
-                    <div class="btn19x2 btncriquet btncriquetdouble" attr=19 id="btn19x2">19*2</div>
-                </td>
-                <td>
-                    <div class="btn20x2 btncriquet btncriquetdouble" attr=20 id="btn20x2">20*2</div>
-                </td>
-                <td>
-                    <div class="btn50 btncriquet btncriquetdouble" attr=25 id="btn50">50</div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="" style="padding-top: 200px;">
-                </td>
-                <td>
-                    <div class="btn15x3 btncriquet btncriquettriple" attr=15 id="btn15x3">15*3</div>
-                </td>
-                <td>
-                    <div class="btn16x3 btncriquet btncriquettriple" attr=16 id="btn16x3">16*3</div>
-                </td>
-                <td>
-                    <div class="btn17x3 btncriquet btncriquettriple" attr=17 id="btn17x3">17*3</div>
-                </td>
-                <td>
-                    <div class="btn18x3 btncriquet btncriquettriple" attr=18 id="btn18x3">18*3</div>
-                </td>
-                <td>
-                    <div class="btn19x3 btncriquet btncriquettriple" attr=19 id="btn19x3">19*3</div>
-                </td>
-                <td>
-                    <div class="btn20x3 btncriquet btncriquettriple" attr=20 id="btn20x3">20*3</div>
-                </td>
-                <td>
-                  <div class="btnzero btncriquet" attr=0 id="btnzero">0</div>
-              </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-   
+  
 
   <!--  <div class="boule null " id="billard">create array</div>-->
 
