@@ -17,6 +17,15 @@ body {
     text-align: center;
 }
 
+#container_random{
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+}
+.btnrandom{
+    margin: 0 auto;
+   
+}
 
 #inputname{
     display:inline-block;

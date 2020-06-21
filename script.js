@@ -11,9 +11,16 @@ $(document).ready(function(){
 
 });
 
+var displayrestart = function(){
+    var cardRestart = '<button type ="button" id="restartButton" onclick="restart()">restart</button>';
+    $("#restart").html(cardRestart);
+}
+
+var restart = function(){
+    document.location.reload(true);
+}
+
 $('#btn-display-input-name').click(createInputName);
-
-
 function createInputName(){
     var b = document.getElementById('input_nbplayer0').value;//la valeur de la liste déroulante = aux nombres de joueurs
     a=b-b;//pour l'id du joueur
@@ -31,6 +38,7 @@ function createInputName(){
         inputname += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200TEST()" class="create_myfunction">+100</button>';
         inputname += ' <button type ="button" class="create_myfunction" onclick="billard()" id="billard">billard</button>';
         inputname += ' <button type ="button" class="button_criquet" onclick="criquet()" id="criquet">criquet</button>';
+        inputname += ' <button type ="button" class="button_random" onclick="random()" id="random">random</button>';
         $("#inputname").html(inputname);
         
 
@@ -446,7 +454,7 @@ function verifSiwin() //verif si win le +100
 class Player
 {
     constructor(num,name){
-        this.num=num;this.name=name;this.pointsrestantsDebutTour=301;this.pointsRestantsActuels=301;
+        this.num=num;this.name=name;this.score= 0;this.pointsrestantsDebutTour=301;this.pointsRestantsActuels=301;
         this.coupsRestants = 3;this.fleche1 = 0;this.fleche2 = 0;this.fleche3 = 0;this.fleche4 = 0;this.fleche5 = 0;this.fleche6 = 0;
         this.resultatTotal = 0;this.nbredetours=0;this.gagnant= false;this.test=null;this.resultatTour=0;this.tousLesCoups=[];
         this.average=0;this.tableaubillard=[];this.criquet_score=0;this.criquet_15=0;this.criquet_16=0;this.criquet_17=0;this.criquet_18=0;
