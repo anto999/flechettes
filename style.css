@@ -24,8 +24,19 @@ body {
 }
 .btnrandom{
     margin: 0 auto;
+    font-size: 3em;
+    font-weight: 600;
    
 }
+
+#no{
+background-color: red;
+}
+
+#ok{
+    background-color: green;
+}
+
 
 #inputname{
     display:inline-block;

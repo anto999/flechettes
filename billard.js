@@ -761,27 +761,31 @@ function displayContainerBillard(){
     console.log(a);
      var card ="";
      b=0;
+     card += ' <table style="width:50%">';
+     card += '      <tr>';
+     card += '        <td>';
+     card += '            <div class="table_nom_joueur">';
+     card += '                joueur';
+     card += '           </div>';
+     card += '        </td>';
+     card += '        <td>';
+     card += '           score';
+     card += '       </td>';
+     card += '   </tr>';
         for(i=0;i<a;i++)
         {
        
         console.log(array[b]);
+        card += ' <tr  id="ligne_'+b+'">';
+            card += '      <td>';
+            card += '         <div id="nomjoueur'+i+'">'+array[b].name+'</div>';
+            card += '       </td>';
+            card += '      <td>';
+            card += '        <div class ="" id="score'+i+'"> '+array[b].resultatTotal+'</div>';
+            card += '      </td>';
+            card += ' </tr>';
         
-        card += '<div class="tableaubouttons">';
-        card +='<div class="ico">'; 
-             card += '<img class="icon" id="icon'+i+'" src="./images/icons/cible.png">';
-        card +='</div>'; 
-            card += ' <div class="container-card" id="'+i+'">';
-                card += ' <div class ="nomjoueur case pl" id="nomjoueur'+i+'">'+array[b].name+'</div>';
-      
-                card += '<div class ="boulesEmpochées case" id="boulesEmpochées'+i+'">boules empochées :</div>';
-                card += '<div class ="tableaubillard case" id="tableaubillard'+i+'">'+array[b].tableaubillard+'</div>';
-                card += '<div class ="totalbillard case" id="totalbillard'+i+'">total points :'+array[b].resultatTotal+'</div>';
-                //<div class="boule boule20 boulerouge" id="boule20">20</div>
-
-
-            card += '</div>';
-        card += '</div>';
-        b=b+1;
+              b=b+1;
          }    
 
          $("#h6").html(card);
@@ -824,15 +828,8 @@ function billardWin(){
         verifSiégalité.splice(indexmax, 1);
         console.log(arraybillard.array);
         
-        $("#titre").animate({    
-            width : '600px',
-            height: '400px',
-            marginTop: '300px',
-            paddingTop :'8%',
-            fontSize:'4em'
-        })
-
-        document.getElementById("titre").innerHTML="Victoire de  " +array[indexmax].name+" !"
+        modalwin();
+        displayrestart();
     }
 }
 

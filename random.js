@@ -12,7 +12,7 @@ var displaycontainerRandom = function (){
     console.log(a);
      var card ="";
      b=0;
-     card += ' <table>';
+     card += ' <table style="width:50%">';
      card += '      <tr>';
      card += '        <td>';
      card += '            <div class="table_nom_joueur">';
@@ -59,7 +59,7 @@ var givemerandom = function (){
     console.log(randomNumber);
     $("#h7").html(randomNumber);
     document.getElementById("h7").setAttribute(
-        "style", "background-color: beige; text-align: center; fontsize:2em; ");
+        "style", "background-color: beige; text-align: center; font-size:10em; ");
      
     }//fin givemerandom
 
