@@ -128,6 +128,7 @@ function enchaine(){
 }
 
 function myFunction() { //enregistre les joueurs dans un tableau puis créé ces joueurs avec createplayer()
+    $('.rules').css('display', 'none');
     var x = document.getElementsByClassName("input_add_name");
     var res=[];
     var a=0;
