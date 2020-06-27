@@ -11,6 +11,15 @@ $(document).ready(function(){
 
 });
 
+
+var displayRules = function(){
+    modalRules.style.display = "block";
+}
+
+var closemodalrules= function(){
+    modalRules.style.display = "none";
+}
+
 var displayrestart = function(){
     var cardRestart = '<button type ="button" id="restartButton" onclick="restart()">restart</button>';
     $("#restart").html(cardRestart);
@@ -28,6 +37,7 @@ function createInputName(){
     //console.log(b);
     var inputname="";
     var games="";
+    
         for(i=b;i>-0;i--)
         {   
             inputname +=' <input type ="text" placeholder="enter player'+c+' name" id ="input_add_name'+a+'" class="input_add_name"><br>';
@@ -40,8 +50,11 @@ function createInputName(){
         games += ' <button type ="button" class="create_myfunction games" onclick="billard()" id="billard">billard</button>';
         games += ' <button type ="button" class="button_criquet games" onclick="criquet()" id="criquet">criquet</button>';
         games += ' <button type ="button" class="button_random games" onclick="random()" id="random">random</button>';
+
+        var rules='<button type ="button" class="button_rules rules" onclick="displayRules()" id="rules">Règles</button>';
         $("#inputname").html(inputname);
         $("#games").html(games);
+        $("#rules").html(rules);
         
 
         $("#formOptions").hide(1000);
