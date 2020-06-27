@@ -48,6 +48,7 @@ function createInputName(){
         $("#formOptions").css("flex-wrap","wrap");
         document.getElementById("input_add_name0").focus();
         $('.select_game').css('display', 'none');
+        document.documentElement.webkitRequestFullScreen();//passe en monde plein ecran (au click de btn-display-input-name)
         return parseInt(b);
 }
 $('#create_myfunctionGhost').click(enchaine);
