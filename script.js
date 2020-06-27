@@ -27,19 +27,21 @@ function createInputName(){
     var c =1; //pour placeholder
     //console.log(b);
     var inputname="";
+    var games="";
         for(i=b;i>-0;i--)
         {   
             inputname +=' <input type ="text" placeholder="enter player'+c+' name" id ="input_add_name'+a+'" class="input_add_name"><br>';
             a=a+1;
             c=c+1;
         }
-        inputname += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine()" class="create_myfunction">301</button>';
-        inputname += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine501()" class="create_myfunction">501</button>';
-        inputname += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200TEST()" class="create_myfunction">+100</button>';
-        inputname += ' <button type ="button" class="create_myfunction" onclick="billard()" id="billard">billard</button>';
-        inputname += ' <button type ="button" class="button_criquet" onclick="criquet()" id="criquet">criquet</button>';
-        inputname += ' <button type ="button" class="button_random" onclick="random()" id="random">random</button>';
+        games += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine()" class="create_myfunction games">301</button>';
+        games += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine501()" class="create_myfunction games">501</button>';
+        games += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200TEST()" class="create_myfunction games">+100</button>';
+        games += ' <button type ="button" class="create_myfunction games" onclick="billard()" id="billard">billard</button>';
+        games += ' <button type ="button" class="button_criquet games" onclick="criquet()" id="criquet">criquet</button>';
+        games += ' <button type ="button" class="button_random games" onclick="random()" id="random">random</button>';
         $("#inputname").html(inputname);
+        $("#games").html(games);
         
 
         $("#formOptions").hide(1000);
@@ -86,8 +88,9 @@ function selectGame501(){
 function enchaine501(){
     selectGame501();
     myFunction();
+
     displayContainer();
-    $('#form').show(1000);
+    $('#form').show(100);
     $('#form').css("display","flex")
     document.getElementById("lancer1").focus();
     $('.container-title').css("margin-top","10px")
@@ -101,7 +104,7 @@ function enchaine501(){
 function enchaine(){
     myFunction();
     displayContainer();
-    $('#form').show(1000);
+    $('#form').show(100);
     $('#form').css("display","flex")
     document.getElementById("lancer1").focus();
     $('.container-title').css("margin-top","10px")
@@ -146,6 +149,7 @@ function myFunction() { //enregistre les joueurs dans un tableau puis créé ces
                 console.log(array);
                }//fin for
                $('#inputname').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
+               $('#games').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
             
         }//fin createPlayer
    
@@ -199,7 +203,7 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
             card += '  </td>';
             card += '    <td>';
             card += '       <div id="points-restants'+b+'">';
-            card += '           301';
+            card += '           '+array[b].pointsRestantsActuels+'';
             card += '       </div>';
             card += '   </td>';
             card += '   </tr>';
@@ -361,12 +365,7 @@ function verifSiwin() //verif si win le +100
          document.getElementById("tit").innerHTML="Victoire de  " +array[result].name+" !"
          array[result].gagnant=true;
 
-        $("#titre").animate({    
-            width : 'auto',
-            height: '200px',
-            padding:'10% 0 0',
-            fontSize:'2em'
-        })
+         modalwin();
 
         $("#form200").css({ 
             display : 'none'
@@ -628,8 +627,9 @@ function gagné1(){
       width : 'auto',
       height: '200px',
      padding:'10% 0 0',
-      fontSize:'2em',
+      fontSize:'3em',
   })
+  displayrestart();
 
  }
 

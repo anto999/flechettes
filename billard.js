@@ -27,6 +27,7 @@ $('.boule20').click(b20);
 $('#nul').click(b0);
 
 function b0(){
+    $("#ligne_"+result).css("font-weight","initial");
     nextPlayerbillard();
 }
 
@@ -44,10 +45,7 @@ function b1(){
         }
       
         console.log(del);
-        $("#boule1").animate({    
-            width : '10%',
-            fontSize:'1em',
-        })
+      
         $("#boule1").removeClass("boulevert");
         $("#boule1").removeClass("boule");
         $("#boule1").removeClass("boule1");
@@ -56,9 +54,10 @@ function b1(){
         array[result].fleche1=1;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b1=1;
     }//fin if
       
@@ -80,10 +79,7 @@ function b2(){
         }
       
         console.log(del);
-        $("#boule2").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule2").removeClass("boulerouge");
         $("#boule2").removeClass("boule");
         $("#boule2").removeClass("boule2");
@@ -92,9 +88,10 @@ function b2(){
         array[result].fleche1=2;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b2=1;
     }//fin if
       
@@ -116,10 +113,7 @@ function b3(){
         }
        
         console.log(del);
-        $("#boule3").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+      
         $("#boule3").removeClass("boulerouge");
         $("#boule3").removeClass("boule");
         $("#boule3").removeClass("boule3");
@@ -128,9 +122,10 @@ function b3(){
         array[result].fleche1=3;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b3=1;
     }//fin if
       
@@ -152,10 +147,7 @@ function b4(){
         }
      
         console.log(del);
-        $("#boule4").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule4").removeClass("boulevert");
         $("#boule4").removeClass("boule");
         $("#boule4").removeClass("boule4");
@@ -164,9 +156,10 @@ function b4(){
         array[result].fleche1=4;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b4=1;
     }//fin if
       
@@ -188,10 +181,7 @@ function b5(){
         }
      
         console.log(del);
-        $("#boule5").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule5").removeClass("boulevert");
         $("#boule5").removeClass("boule");
         $("#boule5").removeClass("boule5");
@@ -200,9 +190,10 @@ function b5(){
         array[result].fleche1=5;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b5=1;
     }//fin if
       
@@ -224,10 +215,7 @@ function b6(){
         }
         
         console.log(del);
-        $("#boule6").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+        
         $("#boule6").removeClass("boulevert");
         $("#boule6").removeClass("boule");
         $("#boule6").removeClass("boule6");
@@ -236,9 +224,10 @@ function b6(){
         array[result].fleche1=6;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b6=1;
     }//fin if
       
@@ -261,10 +250,7 @@ function b7(){
         }
    
         console.log(del);
-        $("#boule7").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule7").removeClass("boulerouge");
         $("#boule7").removeClass("boule");
         $("#boule7").removeClass("boule7");
@@ -273,9 +259,10 @@ function b7(){
         array[result].fleche1=7;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b7=1;
     }//fin if
       
@@ -298,10 +285,7 @@ function b8(){
         }
      
         console.log(del);
-        $("#boule8").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule8").removeClass("boulerouge");
         $("#boule8").removeClass("boule");
         $("#boule8").removeClass("boule8");
@@ -310,9 +294,10 @@ function b8(){
         array[result].fleche1=8;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b8=1;
     }//fin if
       
@@ -334,10 +319,7 @@ function b9(){
         }
      
         console.log(del);
-        $("#boule9").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule9").removeClass("boulevert");
         $("#boule9").removeClass("boule");
         $("#boule9").removeClass("boule9");
@@ -346,9 +328,10 @@ function b9(){
         array[result].fleche1=9;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b9=1;
     }//fin if
       
@@ -370,10 +353,7 @@ function b10(){
         }
      
         console.log(del);
-        $("#boule10").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule10").removeClass("boulerouge");
         $("#boule10").removeClass("boule");
         $("#boule10").removeClass("boule10");
@@ -382,9 +362,10 @@ function b10(){
         array[result].fleche1=10;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b10=1;
     }//fin if
       
@@ -406,10 +387,7 @@ function b11(){
         }
         console.log(del);
        
-        $("#boule11").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule11").removeClass("boulevert");
         $("#boule11").removeClass("boule");
         $("#boule11").removeClass("boule11");
@@ -418,9 +396,10 @@ function b11(){
         array[result].fleche1=11;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b11=1;
     }//fin if
       
@@ -441,10 +420,7 @@ function b12(){
         }
         console.log(del);
       
-        $("#boule12").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule12").removeClass("boulerouge");
         $("#boule12").removeClass("boule");
         $("#boule12").removeClass("boule12");
@@ -453,9 +429,10 @@ function b12(){
         array[result].fleche1=12;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b12=1;
     }//fin if
       
@@ -480,10 +457,7 @@ function b13(){
         }
      
         console.log(del);
-        $("#boule13").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule13").removeClass("boulerouge");
         $("#boule13").removeClass("boule");
         $("#boule13").removeClass("boule13");
@@ -492,9 +466,10 @@ function b13(){
         array[result].fleche1=13;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b13=1;
     }//fin if
       
@@ -515,10 +490,7 @@ function b14(){
             del.splice(index,1);
         }
         console.log(del);
-        $("#boule14").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+      
         $("#boule14").removeClass("boulerouge");
         $("#boule14").removeClass("boule");
         $("#boule14").removeClass("boule14");
@@ -527,9 +499,10 @@ function b14(){
         array[result].fleche1=14;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b14=1;
     }//fin if
       
@@ -551,10 +524,7 @@ function b15(){
         }
       
         console.log(del);
-        $("#boule15").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule15").removeClass("boulevert");
         $("#boule15").removeClass("boule");
         $("#boule15").removeClass("boule15");
@@ -563,9 +533,10 @@ function b15(){
         array[result].fleche1=15;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b15=1;
     }//fin if
       
@@ -586,10 +557,7 @@ function b16(){
             del.splice(index,1);
         }
         console.log(del);
-        $("#boule16").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule16").removeClass("boulevert");
         $("#boule16").removeClass("boule");
         $("#boule16").removeClass("boule16");
@@ -598,9 +566,10 @@ function b16(){
         array[result].fleche1=16;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-    
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b16=1;
     }//fin if
       
@@ -621,10 +590,7 @@ function b17(){
             del.splice(index,1);
         }
         console.log(del);
-        $("#boule17").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule17").removeClass("boulevert");
         $("#boule17").removeClass("boule");
         $("#boule17").removeClass("boule17");
@@ -633,9 +599,10 @@ function b17(){
         array[result].fleche1=17;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b17=1;
     }//fin if
       
@@ -657,10 +624,7 @@ function b18(){
         }
         console.log(del);
        
-        $("#boule18").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule18").removeClass("boulerouge");
         $("#boule18").removeClass("boule");
         $("#boule18").removeClass("boule18");
@@ -669,9 +633,10 @@ function b18(){
         array[result].fleche1=18;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b18=1;
     }//fin if
       
@@ -689,10 +654,7 @@ function b19(){
         }
         
         console.log(del);
-        $("#boule19").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+        
         $("#boule19").removeClass("boulevert");
         $("#boule19").removeClass("boule");
         $("#boule19").removeClass("boule19");
@@ -703,9 +665,10 @@ function b19(){
 
 
         displayContainerBillard();
-        //del.remove(19);
+        $("#ligne_"+result).css("font-weight","initial");
+                billardWin();     //del.remove(19);
         nextPlayerbillard();
-        billardWin();
+       
         b19=1;
 
     }
@@ -729,10 +692,7 @@ function b20(){
         console.log(del);
         
         
-        $("#boule20").animate({    
-            width : '3%',
-            fontSize:'1em',
-        })
+       
         $("#boule20").removeClass("boulerouge");
         $("#boule20").removeClass("boule");
         $("#boule20").removeClass("boule20");
@@ -745,9 +705,10 @@ function b20(){
 
 
         displayContainerBillard();
-
-        nextPlayerbillard();
+        $("#ligne_"+result).css("font-weight","initial");
         billardWin();
+        nextPlayerbillard();
+       
         b20=1;
     }//fin if
       
@@ -804,16 +765,18 @@ function nextPlayerbillard(){
         result=result+1;
         document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
     }
-    
+    $("#ligne_"+result).css("font-weight","bold");
 }
 
-function billardWin(){
+function billardWin()
+{
     if (arraybillard.array.length==0)
     { 
 
         var nbjoueurs=array.length;
         var scoretotal
-        for(i=0;i<nbjoueurs;i++){
+        for(i=0;i<nbjoueurs;i++)
+        {
             scoretotal =array[i].resultatTotal;
             arraybillard.array.push(scoretotal)
         }
@@ -829,7 +792,12 @@ function billardWin(){
         console.log(arraybillard.array);
         
         modalwin();
+        document.getElementById("titre").innerHTML="Victoire de  " +array[indexmax].name+" !"//ici modalwin ne suffit pas car elle fait appler a array[name] alors que nous voulons array[indexmax] 
         displayrestart();
+        $('.containerboule').css("display","none");//on efface les boules
+
+        throw new Error('This is not an error. This is just to abort javascript');//juste pour stopper le script et ne pas passer à l'instruction suivante
+
     }
 }
 
@@ -864,7 +832,7 @@ function billard(){
     $('#h6').css("display","none");
     document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
     displayContainerBillard();
-
+    $("#ligne_"+result).css("font-weight","bold");
     return bil;
     
 }

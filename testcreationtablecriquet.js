@@ -160,14 +160,10 @@ var card ='<table width="100%" class="containerCriquet">'+
                 console.log("winner !!!");
 
                 document.getElementById("titre").innerHTML="Victoire de  "+array[result].name;
-                $("#titre").animate({    
-                    width : 'auto',
-                    height: '200px',
-                   padding:'10% 0 0',
-                    fontSize:'2em',
-                })
+                modalwin();
                 array[result].closed["win"]== true;
                 $("#titre").css("display","list-item");
+                displayrestart();
                
                 throw new Error('This is not an error. This is just to abort javascript');//juste pour stopper le script et ne pas passer à l'instruction suivante
                 return 0;
