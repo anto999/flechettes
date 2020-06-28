@@ -10,6 +10,28 @@ $(document).ready(function(){
    
 
 });
+class Rapide{
+    constructor(state){
+        this.state="";
+    }
+
+}
+const rapido = new Rapide ("no");
+
+function partie_rapide(){
+   
+   rapido.state="ok";
+    console.log(rapido);
+   // myFunction();
+
+    displayGamesAndRules();
+    $("#formOptions").hide(500);
+    $("#formOptions").css("flex-wrap","wrap");
+    $('#games').css('display', 'flex')
+    document.documentElement.webkitRequestFullScreen();
+    var b = document.getElementById('input_nbplayer0').value;//la valeur de la liste déroulante = aux nombres de joueurs
+    
+}
 
 
 var displayRules = function(){
@@ -30,13 +52,31 @@ var restart = function(){
 }
 
 $('#btn-display-input-name').click(createInputName);
+
+function displayGamesAndRules(){
+    var games=""; 
+    games += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine()" class="create_myfunction games">301</button>';
+    games += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine501()" class="create_myfunction games">501</button>';
+    games += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200TEST()" class="create_myfunction games">+100</button>';
+    games += ' <button type ="button" class="create_myfunction games" onclick="billard()" id="billard">billard</button>';
+    games += ' <button type ="button" class="button_criquet games" onclick="criquet()" id="criquet">criquet</button>';
+    games += ' <button type ="button" class="button_random games" onclick="random()" id="random">random</button>';
+
+    var rules='<button type ="button" class="button_rules rules" onclick="displayRules()" id="rules">Règles</button>';
+    
+    $("#games").html(games);
+    $("#rules").html(rules);
+}
+
+
+
 function createInputName(){
     var b = document.getElementById('input_nbplayer0').value;//la valeur de la liste déroulante = aux nombres de joueurs
     a=b-b;//pour l'id du joueur
     var c =1; //pour placeholder
     //console.log(b);
     var inputname="";
-    var games="";
+   
     
         for(i=b;i>-0;i--)
         {   
@@ -44,26 +84,21 @@ function createInputName(){
             a=a+1;
             c=c+1;
         }
-        games += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine()" class="create_myfunction games">301</button>';
-        games += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine501()" class="create_myfunction games">501</button>';
-        games += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200TEST()" class="create_myfunction games">+100</button>';
-        games += ' <button type ="button" class="create_myfunction games" onclick="billard()" id="billard">billard</button>';
-        games += ' <button type ="button" class="button_criquet games" onclick="criquet()" id="criquet">criquet</button>';
-        games += ' <button type ="button" class="button_random games" onclick="random()" id="random">random</button>';
-
-        var rules='<button type ="button" class="button_rules rules" onclick="displayRules()" id="rules">Règles</button>';
         $("#inputname").html(inputname);
-        $("#games").html(games);
-        $("#rules").html(rules);
+        displayGamesAndRules();
+
+       
         
 
-        $("#formOptions").hide(1000);
+        $("#formOptions").hide(500);
         $("#formOptions").css("flex-wrap","wrap");
         document.getElementById("input_add_name0").focus();
         $('.select_game').css('display', 'none');
         document.documentElement.webkitRequestFullScreen();//passe en monde plein ecran (au click de btn-display-input-name)
         return parseInt(b);
 }
+
+
 $('#create_myfunctionGhost').click(enchaine);
 
 
@@ -129,15 +164,31 @@ function enchaine(){
 
 function myFunction() { //enregistre les joueurs dans un tableau puis créé ces joueurs avec createplayer()
     $('.rules').css('display', 'none');
-    var x = document.getElementsByClassName("input_add_name");
+    var b = document.getElementById('input_nbplayer0').value;//la valeur de la liste déroulante = aux nombres de joueurs
+    var x = document.getElementsByClassName("input_add_name");//x.length retournera le nombre de joueurs
+    console.log("laa: "+b);
     var res=[];
-    var a=0;
-    for (i=x.length;i>0;i--)
+    var a=0;//pr recup l'index du tableau
+    var aa=1;//pr le numero du joueur
+    for (i=b;i>0;i--)
     {
-        var nom = x[a].value;
-        console.log(nom);
-        res.push(x[a].value);
-        a=a+1;
+        if(rapido.state=="ok")
+        { //
+            var nom = "joueur "+aa;
+            console.log(nom);
+            console.log("test ici");
+            res.push(nom);
+            console.log(res);
+            aa=aa+1;
+        }
+        else
+        {
+            var nom = x[a].value;
+            console.log(nom);
+            res.push(nom);
+            a=a+1;
+        }
+      
     }//fin for
     console.log(res);
     createPlayer();
@@ -147,10 +198,7 @@ function myFunction() { //enregistre les joueurs dans un tableau puis créé ces
             for (i=0;i<P;i++)
             {     
             const player = new Player();
-            // console.log(player);
-            // var x = document.getElementById("input_add_name0").value
             var x = res[i];
-            //  var x = document.getElementById("input_add_name"+i).value
                 console.log(x);
                 player.name= x;
                 player.num=i;
@@ -167,20 +215,16 @@ function myFunction() { //enregistre les joueurs dans un tableau puis créé ces
                $('#games').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
             
         }//fin createPlayer
-   
     document.getElementById("lancer1").focus();
 }// fin myfunc
+
 function createPlayer()
     {  // returnRes();
         var P = document.getElementById('input_nbplayer0').value;
         for (i=0;i<P;i++)
         {   
-            
             const player = new Player();
-           
-          
-           var x = res[i];
-          //  var x = document.getElementById("input_add_name"+i).value
+            var x = res[i];
             console.log(x);
             player.name= x;
             console.log(i);           
