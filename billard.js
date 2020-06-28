@@ -4,26 +4,26 @@
 
 
 
-$('.boule1').click(b1);
-$('.boule2').click(b2);
-$('.boule3').click(b3);
-$('.boule4').click(b4);
-$('.boule5').click(b5);
-$('.boule6').click(b6);
-$('.boule7').click(b7);
-$('.boule8').click(b8);
-$('.boule9').click(b9);
-$('.boule10').click(b10);
-$('.boule11').click(b11);
-$('.boule12').click(b12);
-$('.boule13').click(b13);
-$('.boule14').click(b14);
-$('.boule15').click(b15);
-$('.boule16').click(b16);
-$('.boule17').click(b17);
-$('.boule18').click(b18);
-$('.boule19').click(b19);
-$('.boule20').click(b20);
+$('#boule1').click(b1);
+$('#boule2').click(b2);
+$('#boule3').click(b3);
+$('#boule4').click(b4);
+$('#boule5').click(b5);
+$('#boule6').click(b6);
+$('#boule7').click(b7);
+$('#boule8').click(b8);
+$('#boule9').click(b9);
+$('#boule10').click(b10);
+$('#boule11').click(b11);
+$('#boule12').click(b12);
+$('#boule13').click(b13);
+$('#boule14').click(b14);
+$('#boule15').click(b15);
+$('#boule16').click(b16);
+$('#boule17').click(b17);
+$('#boule18').click(b18);
+$('#boule19').click(b19);
+$('#boule20').click(b20);
 $('#nul').click(b0);
 
 function b0(){
@@ -754,7 +754,7 @@ function displayContainerBillard(){
          $("#h6").css("display","flex");
          return parseInt(a);
          
-      }//fin displayContainer()
+      }//fin displayContainerBillard()
 
 
 function nextPlayerbillard(){
@@ -846,3 +846,193 @@ function toto(){
 
 
 
+$('.boulevertcolor').click(vert);
+$('.boulerougecolor').click(rouge);
+$('#nulcolor').click(nextPlayerBillardColor);
+
+function nextPlayerBillardColor(){
+    nextPlayer();
+    if (color.lastflech=="vert"){
+        $('.boulevertcolor').css('visibility', 'hidden');
+        $('.boulerougecolor').css('visibility', 'initial');
+        $('.boulemorte').css('visibility', 'hidden');
+        color.lastflech="rouge";
+
+    }else{
+        $('.boulerougecolor').css('visibility', 'hidden');
+        $('.boulevertcolor').css('visibility', 'initial');
+        $('.boulemorte').css('visibility', 'hidden');
+        color.lastflech="vert";
+    }
+}
+
+function verifSiWinBillardColor(){
+    if (color.vert==10){
+        console.log("winner vert!");
+        $('.container-title').css('display', 'initial');
+        modalwin();
+    }
+    else if(color.rouge==10){
+        console.log("winner rouge!");
+        $('.container-title').css('display', 'initial');
+        modalwin();
+    }
+}
+
+
+function vert(){
+    if (color.premiercoup==false){
+        document.getElementById("titre").innerHTML="Equipe vert : " +array[result].name ;
+        array[result].equipe="vert";
+
+        array[result+1].equipe="rouge";
+
+    }
+        color.premiercoup=true;
+        $(this).addClass("boulemorte");
+        $(this).removeClass("boulevertcolor");
+        color.vert=color.vert+1;
+        color.lastflech="vert";
+        console.log(color.vert);
+        $('.container-title').css('display', 'none');
+        verifSiWinBillardColor();
+        array[result].resultatTotal=color.vert;
+        displayContainerBillardColor();
+        $('.boulerougecolor').css('visibility', 'hidden');
+        $(this).css('visibility', 'hidden');
+        
+}
+
+function rouge(){
+    if (color.premiercoup==false){
+        document.getElementById("titre").innerHTML="Equipe rouge : " +array[result].name ;
+        array[result].equipe="rouge";
+
+        array[result+1].equipe="vert";
+
+    }
+        color.premiercoup=true;
+        $(this).addClass("boulemorte");
+        $(this).removeClass("boulerougecolor");
+        color.rouge=color.rouge+1;
+        color.lastflech="rouge";
+        console.log(color.rouge);
+        $('.container-title').css('display', 'none');
+        verifSiWinBillardColor();
+        array[result].resultatTotal=color.rouge;
+        displayContainerBillardColor();
+        $('.boulevertcolor').css('visibility', 'hidden');
+        $(this).css('visibility', 'hidden');
+        
+}
+
+
+function billardColor(){
+    myfunctionBillardColor();
+    $('#criquetDiv').css('display', 'none');
+    $('.containerbouleColor').css("display","flex");
+    document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
+    //var color = new billardcolor (0,0);
+   
+}
+
+
+function myfunctionBillardColor(){
+    $('.rules').css('display', 'none');
+    var b = document.getElementById('input_nbplayer0').value;//la valeur de la liste déroulante = aux nombres de joueurs
+    var x = document.getElementsByClassName("input_add_name");//x.length retournera le nombre de joueurs
+    console.log("laa: "+b);
+    var res=[];
+    var a=0;//pr recup l'index du tableau
+    var aa=1;//pr le numero du joueur
+    for (i=2;i>0;i--)
+    {
+        if(rapido.state=="ok")
+        { //
+            var nom = "joueur "+aa;
+            console.log(nom);
+            console.log("test ici");
+            res.push(nom);
+            console.log(res);
+            aa=aa+1;
+        }
+        else
+        {
+            var nom = x[a].value;
+            console.log(nom);
+            res.push(nom);
+            a=a+1;
+        }
+      
+    }//fin for
+    console.log(res);
+    createPlayerBillardColor();
+        function createPlayerBillardColor()
+        {  // returnRes();
+            //var P = document.getElementById('input_nbplayer0').value;
+            for (i=0;i<2;i++)
+            {     
+            const player = new Player();
+            var x = res[i];
+                console.log(x);
+                player.name= x;
+                player.num=i;
+                array.push(player)
+                console.log(array);
+               }//fin for
+               $('#inputname').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
+               $('#games').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
+            
+        }//fin createPlayer
+    document.getElementById("lancer1").focus();
+}// fin myfunctionBillardColor
+
+
+
+function displayContainerBillardColor(){
+
+    var a = document.getElementById('input_nbplayer0').value;
+    console.log(a);
+     var card ="";
+     b=0;
+     card += ' <table style="width:70%">';
+     card += '      <tr>';
+     card += '        <td>';
+     card += '            <div class="table_nom_joueur">';
+     card += '                joueur';
+     card += '           </div>';
+     card += '        </td>';
+     card += '        <td>';
+     card += '            <div class="table_nom_joueur">';
+     card += '                équipe';
+     card += '           </div>';
+     card += '        </td>';
+     card += '        <td>';
+     card += '           score';
+     card += '       </td>';
+     card += '   </tr>';
+        for(i=0;i<2;i++)
+        {
+       
+        //console.log(array[b]);
+        card += ' <tr  id="ligne_'+b+'" class="'+array[b].equipe+ '">';
+            card += '      <td>';
+            card += '         <div id="nomjoueur'+i+'">'+array[b].name+'</div>';
+            card += '       </td>';
+            card += '      <td>';
+            card += '        <div class ="" id="equipe'+i+'"> '+array[b].equipe+'</div>';
+            card += '      </td>';
+            card += '      <td>';
+            card += '        <div class ="" id="score'+i+'"> '+array[b].resultatTotal+'</div>';
+            card += '      </td>';
+            card += ' </tr>';
+        
+              b=b+1;
+         }    
+
+         $("#h6").html(card);
+        // $("#ligne_"+result).css("font-weight","bold");
+         $("#h6").css("display","flex");
+         return parseInt(a);
+         
+      }//fin displayContainerBillardColor()

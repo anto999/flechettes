@@ -10,6 +10,13 @@ $(document).ready(function(){
    
 
 });
+class billardcolor
+{
+    constructor(rouge,vert,premiercoup){
+        this.rouge=0;this.vert=0;this.premiercoup=false;this.lastflech=""};
+        
+}
+
 class Rapide{
     constructor(state){
         this.state="";
@@ -17,19 +24,20 @@ class Rapide{
 
 }
 const rapido = new Rapide ("no");
+const color = new billardcolor (0,0);//pour billardcolor
 
 function partie_rapide(){
    
    rapido.state="ok";
     console.log(rapido);
-   // myFunction();
-
     displayGamesAndRules();
-    $("#formOptions").hide(500);
+    $("#formOptions").hide(100);
     $("#formOptions").css("flex-wrap","wrap");
     $('#games').css('display', 'flex')
+    document.getElementById("titre").innerHTML="Choisisez un jeu" ;
+
     document.documentElement.webkitRequestFullScreen();
-    var b = document.getElementById('input_nbplayer0').value;//la valeur de la liste déroulante = aux nombres de joueurs
+    //var b = document.getElementById('input_nbplayer0').value;//la valeur de la liste déroulante = aux nombres de joueurs
     
 }
 
@@ -59,6 +67,7 @@ function displayGamesAndRules(){
     games += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine501()" class="create_myfunction games">501</button>';
     games += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200TEST()" class="create_myfunction games">+100</button>';
     games += ' <button type ="button" class="create_myfunction games" onclick="billard()" id="billard">billard</button>';
+    games += ' <button type ="button" class="create_myfunction games" onclick="billardColor()" id="billardcolor">billard color</button>';
     games += ' <button type ="button" class="button_criquet games" onclick="criquet()" id="criquet">criquet</button>';
     games += ' <button type ="button" class="button_random games" onclick="random()" id="random">random</button>';
 
@@ -89,11 +98,11 @@ function createInputName(){
 
        
         
-
-        $("#formOptions").hide(500);
+        $('.select_game').css('display', 'none');
+        $("#formOptions").hide(100);
         $("#formOptions").css("flex-wrap","wrap");
         document.getElementById("input_add_name0").focus();
-        $('.select_game').css('display', 'none');
+       
         document.documentElement.webkitRequestFullScreen();//passe en monde plein ecran (au click de btn-display-input-name)
         return parseInt(b);
 }
@@ -515,7 +524,7 @@ class Player
         this.num=num;this.name=name;this.score= 0;this.pointsrestantsDebutTour=301;this.pointsRestantsActuels=301;
         this.coupsRestants = 3;this.fleche1 = 0;this.fleche2 = 0;this.fleche3 = 0;this.fleche4 = 0;this.fleche5 = 0;this.fleche6 = 0;
         this.resultatTotal = 0;this.nbredetours=0;this.gagnant= false;this.test=null;this.resultatTour=0;this.tousLesCoups=[];
-        this.average=0;this.tableaubillard=[];this.criquet_score=0;this.criquet_15=0;this.criquet_16=0;this.criquet_17=0;this.criquet_18=0;
+        this.average=0;this.tableaubillard=[];this.equipe="";this.criquet_score=0;this.criquet_15=0;this.criquet_16=0;this.criquet_17=0;this.criquet_18=0;
         this.criquet_19=0;this.criquet_20=0;this.criquet_bulle=0;this.closed_15=false;this.closed_16=false;this.closed_17=false;this.closed_18=false;
         this.closed_19=false;this.closed_20=false;this.closed_bulle=false;this.closed={15:0,16:0,17:0,18:0,19:0,20:0,25:0,score:0,win:false };
         }//fin constructor
