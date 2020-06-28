@@ -824,6 +824,7 @@ var arraybillard="";
 function billard(){
     myFunction();//créer les joueurs
    
+    $('#criquetDiv').css('display', 'none');
     
     var bil =new Billard;
     console.log(bil);
