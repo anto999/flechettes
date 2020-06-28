@@ -858,11 +858,13 @@ function nextPlayerBillardColor(){
         $('.boulemorte').css('visibility', 'hidden');
         color.lastflech="rouge";
 
-    }else{
+    }else if (color.lastflech=="rouge"){
         $('.boulerougecolor').css('visibility', 'hidden');
         $('.boulevertcolor').css('visibility', 'initial');
         $('.boulemorte').css('visibility', 'hidden');
         color.lastflech="vert";
+    }else{
+
     }
 }
 
@@ -900,6 +902,7 @@ function vert(){
         displayContainerBillardColor();
         $('.boulerougecolor').css('visibility', 'hidden');
         $(this).css('visibility', 'hidden');
+        $('#nulcolor').css('visibility', 'initial');
         
 }
 
@@ -923,6 +926,7 @@ function rouge(){
         displayContainerBillardColor();
         $('.boulevertcolor').css('visibility', 'hidden');
         $(this).css('visibility', 'hidden');
+        $('#nulcolor').css('visibility', 'initial');
         
 }
 
@@ -932,6 +936,7 @@ function billardColor(){
     $('#criquetDiv').css('display', 'none');
     $('.containerbouleColor').css("display","flex");
     document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
+    $('#nulcolor').css('visibility', 'hidden');
     //var color = new billardcolor (0,0);
    
 }
