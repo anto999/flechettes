@@ -1,5 +1,5 @@
 function random(){
-    myFunction();
+    addPlayer();
     givemerandom();
     document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
     displaycontainerRandom();

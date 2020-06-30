@@ -822,7 +822,7 @@ var arraybillard="";
 
 
 function billard(){
-    myFunction();//créer les joueurs
+    addPlayer();//créer les joueurs
    
     $('#criquetDiv').css('display', 'none');
     
@@ -938,6 +938,7 @@ function billardColor(){
     document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
     $('#nulcolor').css('visibility', 'hidden');
     //var color = new billardcolor (0,0);
+
    
 }
 
@@ -987,9 +988,10 @@ function myfunctionBillardColor(){
                }//fin for
                $('#inputname').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
                $('#games').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
-            
+               fullscreen();
         }//fin createPlayer
     document.getElementById("lancer1").focus();
+
 }// fin myfunctionBillardColor
 
 

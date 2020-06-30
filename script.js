@@ -7,9 +7,14 @@ $(document).ready(function(){
 
     btnWall();
     document.getElementById("input_nbplayer0").focus();
-   
 
 });
+
+var fullscreen= function(){
+    document.documentElement.webkitRequestFullScreen();
+    console.log("fullscreen")
+} 
+
 class billardcolor
 {
     constructor(rouge,vert,premiercoup){
@@ -35,27 +40,23 @@ function partie_rapide(){
     $("#formOptions").css("flex-wrap","wrap");
     $('#games').css('display', 'flex')
     document.getElementById("titre").innerHTML="Choisisez un jeu" ;
-
-    document.documentElement.webkitRequestFullScreen();
-    //var b = document.getElementById('input_nbplayer0').value;//la valeur de la liste déroulante = aux nombres de joueurs
     
 }
 
-
-var displayRules = function(){
+var displayRules = function(){ //affiche la modale des règles
     modalRules.style.display = "block";
 }
 
-var closemodalrules= function(){
+var closemodalrules= function(){//ferme la modale des règles
     modalRules.style.display = "none";
 }
 
-var displayrestart = function(){
+var displayrestart = function(){ //affiche le btn restar a la fin d'une game
     var cardRestart = '<button type ="button" id="restartButton" onclick="restart()">restart</button>';
     $("#restart").html(cardRestart);
 }
 
-var restart = function(){
+var restart = function(){ //reload la page
     document.location.reload(true);
 }
 
@@ -103,7 +104,7 @@ function createInputName(){
         $("#formOptions").css("flex-wrap","wrap");
         document.getElementById("input_add_name0").focus();
        
-        document.documentElement.webkitRequestFullScreen();//passe en monde plein ecran (au click de btn-display-input-name)
+      // fullscreen();//passe en monde plein ecran (au click de btn-display-input-name)
         return parseInt(b);
 }
 
@@ -122,30 +123,15 @@ class GameSelected
 
 const gameselected = new GameSelected();
 
-/*function selectGame501(){
-    
-    gameselected.game="501";
-    var game="501";
-    return game;
-}
-function whatgame(){
-    var whatgame=selectGame501();
-    console.log(whatgame);
-    return whatgame;
-    
-}*/
 
 function selectGame501(){
     document.getElementById("selectedGame").innerHTML="501"
-   // document.getElementById("score-cumulé"+result).innerHTML= "score total : "+array[result].resultatTotal;
 }
-
-
 
 //501
 function enchaine501(){
     selectGame501();
-    myFunction();
+    addPlayer();
 
     displayContainer();
     $('#form').show(100);
@@ -155,12 +141,10 @@ function enchaine501(){
     $('#icon0').css("visibility","initial");
     return 0;
 }
-
-
 
 //301
 function enchaine(){
-    myFunction();
+    addPlayer();
     displayContainer();
     $('#form').show(100);
     $('#form').css("display","flex")
@@ -171,7 +155,7 @@ function enchaine(){
     return 0;
 }
 
-function myFunction() { //enregistre les joueurs dans un tableau puis créé ces joueurs avec createplayer()
+function addPlayer() { //enregistre les joueurs dans un tableau puis créé ces joueurs avec createplayer()
     $('.rules').css('display', 'none');
     var b = document.getElementById('input_nbplayer0').value;//la valeur de la liste déroulante = aux nombres de joueurs
     var x = document.getElementsByClassName("input_add_name");//x.length retournera le nombre de joueurs
@@ -225,6 +209,7 @@ function myFunction() { //enregistre les joueurs dans un tableau puis créé ces
             
         }//fin createPlayer
     document.getElementById("lancer1").focus();
+    fullscreen();
 }// fin myfunc
 
 function createPlayer()
@@ -239,8 +224,6 @@ function createPlayer()
             console.log(i);           
         }
     }
-
-
 
 function displayContainer(){ //créer les div nom joueur, points restants, score...
 
@@ -294,7 +277,7 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
 function displayContainer200(){
     $('#inputname').css('display', 'none');
     $('.container-title').css("margin-top","10px")
-    myFunction();
+    addPlayer();
     var a = document.getElementById('input_nbplayer0').value;
     console.log(a);
      var card ="";
@@ -340,12 +323,10 @@ function displayContainer200(){
    
 }//fin displayContainer200()
 
-
-
 function displayContainer200TEST(){
     $('#inputname').css('display', 'none');
     $('.container-title').css("margin-top","10px")
-    myFunction();
+    addPlayer();
     var a = document.getElementById('input_nbplayer0').value;
     console.log(a);
      var card ="";
@@ -392,9 +373,6 @@ function displayContainer200TEST(){
    document.getElementById("lancer200_1").focus();
    if(array[result+1]){
     array[result+1].coupsRestants=3;
-    // document.getElementById("coupsrestants1").innerHTML= "coups restants : "+array[result+1].coupsRestants;
-    // $('#icon0').css("visibility","initial");
-    // $("#"+result).addClass("green");
     $("#ligne_"+result).css("font-weight","bold");
 }
   
@@ -441,18 +419,10 @@ function verifSiwin() //verif si win le +100
           return 0;
       }
 }
-
-
-
  function flech200() //au clic de du btn "lancer" une fois +100 selectioné 
  {
-  
-    
             var nbpts200 = document.getElementById('lancer200_1').value;
             console.log(nbpts200);
-           
-        
-
                 if (isNaN(parseInt(nbpts200)) == true)
                 { //verif si l'input est bien un int
                 nbpts200=0;
@@ -468,16 +438,12 @@ function verifSiwin() //verif si win le +100
             array[result].average =array[result].resultatTotal/array[result].tousLesCoups.length;
             var num= array[result].average.toFixed(1);
             document.getElementById("score-cumulé"+result).innerHTML=array[result].resultatTotal;
-         //   document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
-         //   document.getElementById("score"+result).innerHTML= "score fleche  : "+array[result].fleche1;
-          //  document.getElementById("score-tour"+result).innerHTML= "score tour  : "+array[result].resultatTour;
             form200.reset();
-           
-
             resultTour200 =resultTour200 -1;
             console.log(resultTour200);
             verifSiwin();
             document.getElementById("tit").innerHTML= "coups restants : "+array[result].coupsRestants;
+            document.getElementById("lancer200_1").focus();
             
             if(resultTour200==0){
                 console.log('on change!');
@@ -485,9 +451,6 @@ function verifSiwin() //verif si win le +100
                 $('#icon'+result).css("visibility","hidden");
                 resultTour200=6;
                 array[result].coupsRestants =6;
-                
-          //      document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
-             //   $("#"+result).removeClass("green");
                 $("#ligne_"+result).css("font-weight","initial");
                 nextPlayer();
                 $("#ligne_"+result).css("font-weight","bold");
@@ -497,24 +460,18 @@ function verifSiwin() //verif si win le +100
                         weHaveAWinner=true;
                     }
                 }
-                    if (weHaveAWinner==false){
-                        
-           //     document.getElementById("score-tour"+result).innerHTML= "score tour  : 0";
+                    if (weHaveAWinner==false)
+                    {
+           
                 array[result].resultatTour=0;
                 $('#icon'+result).css("visibility","initial");
                 $("#"+result).addClass("green");
-                
-                
                 document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
-                
                 array[result].coupsRestants=6;
                 document.getElementById("tit").innerHTML= "coups restants : "+array[result].coupsRestants;
-               // document.getElementById("coupsrestants"+result).innerHTML= "coups restants : "+array[result].coupsRestants;
+             
                     }
-
-                
             }
-
  }//fin flech200()
 
 
@@ -540,12 +497,9 @@ var Match=[];
 
 
 
-$('#create_myfunction').click(myFunction);
-
-
-
+$('#create_myfunction').click(addPlayer);
 function returnRes(){
-    var joueursdanstableau=myFunction();
+    var joueursdanstableau=addPlayer();
     console.log(joueursdanstableau);
 }
 
@@ -558,78 +512,9 @@ function returnRes(){
         console.log(array)
         
     }
-/*
-    function enattente(){
-        var P = document.getElementById('input_nbplayer0').value;
-        for (i=0;i<P;i++){
-            a=0;
-            var P1 = new Player;
-            //var res= document.getElementById("input_add_name'+i+'").value;
-            var inpt2= document.getElementById("input_add_name0").value;
-           
-            P1.name=inpt2;
-          //  P1.name=res;
-
-            P1.num=i;
-
-            array.push(P1)
-            console.log(array);
-            document.getElementById("input_add_name1").value="";
-           var inpt2= document.getElementById("input_add_name'+i+'").value;
-
-           document.getElementById('input_add_name1').value=inpt2;
-
-            a=a+1;
-
-
-        }//fin for
-        
-    }//fin function
-    $('#atd').click(enattente);*/
-
-
-
-   
-//var NbPlayer = document.getElementById('input_nbplayer').value;
-
-
-/*
-createInputName();
-var x=createInputName();
-console.log(x);*/
-
 const player1 = new Player (1,"anto");
-
 const player2 = new Player (2,"micka");
 
-
-/*
-function choisirJeu()
-{
-    document.getElementById("h2").innerHTML= "choisissez votre jeu";
-    var listejeu= '<div class="listejeux"><button type="button" onclick= g301()>301</button><br><button type="button" onclick=g501()>501</button><br><button type="button" onclick=g701()>701</button></div'
-    document.getElementById("h6").innerHTML= listejeu
-}
-*/
-function g301() 
-{   //a remettre quand j'aurais finis la fction go()
-
-   /* document.getElementById("h4").innerHTML= 'vous avez choisi le 301' ;
-    var NbPlayer = document.getElementById("grr").value
-    console.log(NbPlayer);
-    document.getElementById("h5").innerHTML= 'vous etes ' +NbPlayer+ ' a jouer' ;
- 
-    
- 
-      for (i=0;i<NbPlayer-1;i++)
-      {
-        addplayerinput();
-      }*/
-
-   
-
-    //addplayerinput();
-}
 
 function g501() {
     document.getElementById("h4").innerHTML= 'vous avez choisi le 501' ;
@@ -638,16 +523,6 @@ function g501() {
 function g701() {
     document.getElementById("h4").innerHTML= 'vous avez choisi le 701' ;
 }
-
-
-
-function addplayerinput() {
-    var elmnt = document.getElementsByTagName("form")[0];
-    var cln = elmnt.cloneNode(true);
-    document.body.appendChild(cln);
-}
-
-
 
 function gagné1(){
     document.getElementById("titre").innerHTML="Victoire de  " +array[result].name+" !"
@@ -899,7 +774,7 @@ function perdu1(){
             }else if(array[result].fleche2>array[result].pointsRestantsActuels){
                 perdu1();
                 array[result].pointsRestantsActuels=array[result].pointsrestantsDebutTour;
-                document.getElementById("points-restants"+result).innerHTML=pointsRestantsActuels;
+                document.getElementById("points-restants"+result).innerHTML=array[result].pointsRestantsActuels;
                 console.log('perdu!');
                 return parseInt(nbpts2);
             }else if (array[result].fleche2<array[result].pointsRestantsActuels){

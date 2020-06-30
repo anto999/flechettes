@@ -1,5 +1,5 @@
 function criquet(){
-    myFunction();
+    addPlayer();
     displayTableCriquet();
     $("#titre").css("display","none");
     $("#ligne_"+result).css("font-weight","bold");
@@ -14,7 +14,7 @@ var a = document.getElementById('input_nbplayer0').value;// a= nbre de joueurs
 //console.log("nbre de joueurs: "+a);
 var card ='<table width="100%" class="containerCriquet">'+
 '<tr>'+
-    '<td width="20%">'+
+    '<td width="25%">'+
         '<div class="case_vide" id="case_vide">'+
             
         '</div>'+
