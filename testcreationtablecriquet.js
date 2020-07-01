@@ -67,8 +67,8 @@ var card ='<table width="100%" class="containerCriquet">'+
     //console.log(array[b]);
     
     card += ' <tr  id="ligne_'+b+'">';
-    card +='<td>'; 
-    card += '<div class="joueur_'+array[b].name+' joueur" id="'+array[b].name+'">';
+    card +='<td style="height:60px">'; 
+    card += '<div class="joueur_'+array[b].name+' joueur" id="'+array[b].name+'name">';
     card +=array[b].name; 
     card += '</div>';
     card += ' </td>';
@@ -82,44 +82,44 @@ var card ='<table width="100%" class="containerCriquet">'+
     card += ' </td>';
 
     card +='<td>'; 
-    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'">';
-    card +=array[b].closed[15]; 
+    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'_15">';
+    card +='<img class="cible" id="'+array[b].name+'_15_img" src="">'; 
     card += '</div>';
     card += ' </td>';
 
     card +='<td>'; 
-    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'">';
-    card +=array[b].closed[16]; 
+    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'_16">';
+    card +='<img class="cible" id="'+array[b].name+'_16_img" src="">'; 
     card += '</div>';
     card += ' </td>';
 
     card +='<td>'; 
-    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'">';
-    card +=array[b].closed[17]; 
+    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'_17">';
+    card +='<img class="cible" id="'+array[b].name+'_17_img" src="">'; 
     card += '</div>';
     card += ' </td>';
 
     card +='<td>'; 
-    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'">';
-    card +=array[b].closed[18]; 
+    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'_18">';
+    card +='<img class="cible" id="'+array[b].name+'_18_img" src="">';  
     card += '</div>';
     card += ' </td>';
 
     card +='<td>'; 
-    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'">';
-    card +=array[b].closed[19]; 
+    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'_19">';
+    card +='<img class="cible" id="'+array[b].name+'_19_img" src="">'; 
     card += '</div>';
     card += ' </td>';
 
     card +='<td>'; 
-    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'">';
-    card +=array[b].closed[20]; 
+    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'_20">';
+    card +='<img class="cible" id="'+array[b].name+'_20_img" src="">'; 
     card += '</div>';
     card += ' </td>';
 
     card +='<td>'; 
-    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'">';
-    card +=array[b].closed[25]; 
+    card += '<div class="'+array[b].name+' joueur" id="'+array[b].name+'_bul">';
+    card +='<img class="cible" id="'+array[b].name+'_25_img" src="">';  
     card += '</div>';
     card += ' </td>';
     
@@ -137,10 +137,36 @@ var card ='<table width="100%" class="containerCriquet">'+
  
     $("#container-wall").css("display","none"); 
     $(".boutonscriquet").css("display","table"); 
+   
+    //test de la boucle:
+
+    for(b=15;b<26;b++){//de 15 à 25 car bull=closed[25]
+        for (i=0;i<array.length;i++){//on fait le calcul pour i c'est a dire tous les joueurs
+            if (array[i].closed[b]==1){
+                document.getElementById(array[i].name+"_"+b+"_img").src = "images/icons/dart.png";
+            }else if (array[i].closed[b]==2){
+                document.getElementById(array[i].name+"_"+b+"_img").src = "images/icons/dart2.png";
+            }
+            else if (array[i].closed[b]==3){
+                document.getElementById(array[i].name+"_"+b+"_img").src = "images/icons/cible.png";
+            }
+        }
+    }
+    
     
     return parseInt(a);
+
+   
         
     }//fin displayTableCriquet()
+
+   
+
+    for (i=0;i<array.length;i++){
+        if (array[i].closed==1){
+            document.getElementById(array[i].name).src = "images/icons/dart.png";
+        }
+    }
 
   
 

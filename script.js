@@ -53,6 +53,9 @@ var closemodalrules= function(){//ferme la modale des règles
 
 var displayrestart = function(){ //affiche le btn restar a la fin d'une game
     var cardRestart = '<button type ="button" id="restartButton" onclick="restart()">restart</button>';
+    $('#restart').css('visibility', 'initial');
+    $('#restart').css('margin-top',  '40px');
+
     $("#restart").html(cardRestart);
 }
 
@@ -167,7 +170,7 @@ function addPlayer() { //enregistre les joueurs dans un tableau puis créé ces 
     {
         if(rapido.state=="ok")
         { //
-            var nom = "joueur "+aa;
+            var nom = "joueur_"+aa;
             console.log(nom);
             console.log("test ici");
             res.push(nom);
