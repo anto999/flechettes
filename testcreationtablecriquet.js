@@ -211,6 +211,7 @@ var card ='<table width="100%" class="containerCriquet">'+
     $('.btncriquetsimple').click({id:this}, simple);
 
 function simple() {
+    window.navigator.vibrate(200);
     $(this).animate({    
         fontSize:'2em',
     })
@@ -253,6 +254,7 @@ function simple() {
     $('.btncriquetdouble').click({id:this}, double);
 
     function double() {
+        window.navigator.vibrate(200);
         $(this).animate({    
             fontSize:'2em',
         })
@@ -307,6 +309,7 @@ function simple() {
     $('.btncriquettriple').click({id:this}, triple);
 
     function triple() {
+        window.navigator.vibrate(200);
         $(this).animate({    
             fontSize:'2em',
         })

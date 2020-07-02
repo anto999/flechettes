@@ -9,10 +9,22 @@ $(document).ready(function(){
     document.getElementById("input_nbplayer0").focus();
 
 });
+//testwidth();
+//test device width
+function testwidth(){
+    if (window.screen.width <= 500){
+        var w =window.screen.width;
+        console.log(w);
+    }
+}
+
+
 
 var fullscreen= function(){
+    if (window.screen.width <= 500){
     document.documentElement.webkitRequestFullScreen();
-    console.log("fullscreen")
+    console.log("fullscreen");
+    }
 } 
 
 class billardcolor
