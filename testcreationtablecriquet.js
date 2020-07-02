@@ -4,6 +4,9 @@ function criquet(){
     $("#titre").css("display","none");
     $("#ligne_"+result).css("font-weight","bold");
     document.getElementById("case_vide").innerHTML="x "+array[result].coupsRestants ;
+    document.getElementById("titre-criquet").innerHTML=array[result].name;
+    $("#containertitrecriquet").css("visibility","initial");
+    displayCoupsRestants();
 }
 
 
@@ -67,7 +70,7 @@ var card ='<table width="100%" class="containerCriquet">'+
     //console.log(array[b]);
     
     card += ' <tr  id="ligne_'+b+'">';
-    card +='<td style="height:60px">'; 
+    card +='<td style="height:45px">'; 
     card += '<div class="joueur_'+array[b].name+' joueur" id="'+array[b].name+'name">';
     card +=array[b].name; 
     card += '</div>';
@@ -127,12 +130,12 @@ var card ='<table width="100%" class="containerCriquet">'+
         
     b=b+1;
         } //fin boucle
-    
    
     card += ' </table>';
+
     $("#criquetDiv").html(card);
    
-    document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer "+array[result].coupsRestants+" fois !" ;
+   // document.getElementById("titre-criquet").innerHTML="A  "+array[result].name+" de jouer "+array[result].coupsRestants+" fois !" ;
     $("#h6").css("display","none");
  
     $("#container-wall").css("display","none"); 
@@ -152,23 +155,26 @@ var card ='<table width="100%" class="containerCriquet">'+
             }
         }
     }
-    
-    
     return parseInt(a);
-
-   
-        
     }//fin displayTableCriquet()
-
-   
-
-    for (i=0;i<array.length;i++){
-        if (array[i].closed==1){
-            document.getElementById(array[i].name).src = "images/icons/dart.png";
+    function displayCoupsRestants(){
+        if (array[result].coupsRestants==3){
+            document.getElementById("img_titre_criquet_3").src = "images/icons/dart_black.png";
+            document.getElementById("img_titre_criquet_2").src = "images/icons/dart_black.png";
+            document.getElementById("img_titre_criquet_1").src = "images/icons/dart_black.png";
+        }else if(array[result].coupsRestants==2){
+            document.getElementById("img_titre_criquet_3").src = "";
+            document.getElementById("img_titre_criquet_2").src = "images/icons/dart_black.png";
+            document.getElementById("img_titre_criquet_1").src = "images/icons/dart_black.png";
         }
+        else if(array[result].coupsRestants==1){
+            document.getElementById("img_titre_criquet_3").src = "";
+            document.getElementById("img_titre_criquet_2").src = "";
+            document.getElementById("img_titre_criquet_1").src = "images/icons/dart_black.png";
+        }
+        document.getElementById("titre-criquet").innerHTML=array[result].name;
     }
-
-  
+ 
 
     function verifsiwincriquet(){
         if  (array[result].closed[15]  ==3  && array[result].closed[16]  ==3  && array[result].closed[17]  ==3  && array[result].closed[18] ==3  && array[result].closed[19] ==3 
@@ -189,6 +195,7 @@ var card ='<table width="100%" class="containerCriquet">'+
                 modalwin();
                 array[result].closed["win"]== true;
                 $("#titre").css("display","list-item");
+                $(".boutonscriquet").css("visibility","hidden");
                 displayrestart();
                
                 throw new Error('This is not an error. This is just to abort javascript');//juste pour stopper le script et ne pas passer à l'instruction suivante
@@ -236,7 +243,8 @@ function simple() {
         array[result].coupsRestants = 3;
         
     }
-    document.getElementById("case_vide").innerHTML="x "+array[result].coupsRestants ;
+    
+     displayCoupsRestants();
     $("#ligne_"+result).css("font-weight","bold");
 }//fin function simple
 
@@ -291,7 +299,8 @@ function simple() {
             array[result].coupsRestants = 3;
             
         }
-        document.getElementById("case_vide").innerHTML="x "+array[result].coupsRestants ;
+         
+         displayCoupsRestants();
         $("#ligne_"+result).css("font-weight","bold");
     }//fin function double
 
@@ -356,7 +365,8 @@ function simple() {
             array[result].coupsRestants = 3;
            
         }
-        document.getElementById("case_vide").innerHTML="x "+array[result].coupsRestants ;
+         
+         displayCoupsRestants();
         $("#ligne_"+result).css("font-weight","bold");
     }//fin function triple
 
@@ -378,7 +388,7 @@ function simple() {
             array[result].coupsRestants = 3;
             
         }
-        document.getElementById("case_vide").innerHTML="x "+array[result].coupsRestants ;
+         displayCoupsRestants();
         $("#ligne_"+result).css("font-weight","bold");
     }//fin zero
 

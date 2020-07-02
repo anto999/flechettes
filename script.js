@@ -54,7 +54,7 @@ var closemodalrules= function(){//ferme la modale des règles
 var displayrestart = function(){ //affiche le btn restar a la fin d'une game
     var cardRestart = '<button type ="button" id="restartButton" onclick="restart()">restart</button>';
     $('#restart').css('visibility', 'initial');
-    $('#restart').css('margin-top',  '40px');
+    //$('#restart').css('margin-top',  '40px');
 
     $("#restart").html(cardRestart);
 }
@@ -575,6 +575,7 @@ function gagné1(){
      padding:'10% 0 0',
       fontSize:'3em',
   })
+  $("#containertitrecriquet").css("visibility","hidden");//pour le criquet
   displayrestart();
 
  }

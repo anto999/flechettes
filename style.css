@@ -633,6 +633,27 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
  }
 
+ #titre-criquet{
+    text-align: right;
+    width: 50%;
+    font-weight: 600;
+    font-size: 20px;
+    padding-right: 10px;
+ }
+ #containertitrecriquet{
+     display: flex;
+     border: 3px solid black;
+     visibility: hidden;
+    
+
+ }
+
+
+ .imgtitrecriquet{
+     width: 25px;
+     margin: 2px 2px;
+ }
+
  /*les boules:*/
  .boutonscriquet{ 
 display: none;
@@ -641,7 +662,7 @@ background-color: cornsilk;
 width:100%;
 font-size: 15px;
 justify-content: center;
-position: absolute;
+-position: fixed;
 bottom:0px;
 
  }
