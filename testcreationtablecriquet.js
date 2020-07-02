@@ -211,13 +211,15 @@ var card ='<table width="100%" class="containerCriquet">'+
     $('.btncriquetsimple').click({id:this}, simple);
 
 function simple() {
-    window.navigator.vibrate(200);
-    $(this).animate({    
-        fontSize:'2em',
-    })
-    $(this).animate({    
-        fontSize:'1em',
-    })
+    window.navigator.vibrate(130);
+    if (window.screen.width >= 500){
+        $(this).animate({    
+            fontSize:'2em',
+        })
+        $(this).animate({    
+            fontSize:'1em',
+        })
+    }
     var thisnumber = parseInt(this.getAttribute("attr"));
     console.log("thisnumber :" + thisnumber);
 
@@ -254,13 +256,15 @@ function simple() {
     $('.btncriquetdouble').click({id:this}, double);
 
     function double() {
-        window.navigator.vibrate(200);
-        $(this).animate({    
-            fontSize:'2em',
-        })
-        $(this).animate({    
-            fontSize:'1em',
-        })
+        window.navigator.vibrate(130);
+        if (window.screen.width >= 500){
+            $(this).animate({    
+                fontSize:'2em',
+            })
+            $(this).animate({    
+                fontSize:'1em',
+            })
+        }
         var thisnumber = parseInt(this.getAttribute("attr"));
         console.log("thisnumber :" + thisnumber);
     
@@ -309,13 +313,16 @@ function simple() {
     $('.btncriquettriple').click({id:this}, triple);
 
     function triple() {
-        window.navigator.vibrate(200);
-        $(this).animate({    
-            fontSize:'2em',
-        })
-        $(this).animate({    
-            fontSize:'1em',
-        })
+        window.navigator.vibrate(130);
+        if (window.screen.width >= 500){
+            $(this).animate({    
+                fontSize:'2em',
+            })
+            $(this).animate({    
+                fontSize:'1em',
+            })
+        }
+    
         var thisnumber = parseInt(this.getAttribute("attr"));
         console.log("thisnumber :" + thisnumber);
     
@@ -376,12 +383,15 @@ function simple() {
     $('.btnzero').click(zero);
     
     function zero(){
-        $(this).animate({    
-            fontSize:'2em',
-        })
-        $(this).animate({    
-            fontSize:'1em',
-        })
+        window.navigator.vibrate(130);
+        if (window.screen.width >= 500){
+            $(this).animate({    
+                fontSize:'2em',
+            })
+            $(this).animate({    
+                fontSize:'1em',
+            })
+        }
         array[result].coupsRestants--;
         displayTableCriquet();//pour mettre à jour le tableau des scores
         if (array[result].coupsRestants < 1)//si plus de coup alors on change de joueur

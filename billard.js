@@ -25,6 +25,7 @@ $('#boule18').click(b18);
 $('#boule19').click(b19);
 $('#boule20').click(b20);
 $('#nul').click(b0);
+$('.boule').click(viber);
 
 function b0(){
     $("#ligne_"+result).css("font-weight","initial");

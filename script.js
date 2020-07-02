@@ -11,11 +11,18 @@ $(document).ready(function(){
 });
 //testwidth();
 //test device width
-function testwidth(){
-    if (window.screen.width <= 500){
-        var w =window.screen.width;
-        console.log(w);
+function animateIfDesktop(){
+    if (window.screen.width >= 500){
+        $(this).animate({    
+            fontSize:'2em',
+        })
+        $(this).animate({    
+            fontSize:'1em',
+        })
     }
+}
+function viber(){
+    window.navigator.vibrate(130);
 }
 
 
@@ -44,7 +51,7 @@ const rapido = new Rapide ("no");
 const color = new billardcolor (0,0);//pour billardcolor
 
 function partie_rapide(){
-   
+    window.navigator.vibrate(130);
    rapido.state="ok";
     console.log(rapido);
     displayGamesAndRules();
