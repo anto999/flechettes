@@ -9,7 +9,7 @@ body {
 }
 
 .cible{
-    width: 25px;
+    width: 22px;
 }
 
 input::placeholder {
@@ -87,7 +87,9 @@ background-color: red;
 }
 
 
-
+.joueur_name{
+    text-align: left;
+}
 
 #criquetDiv{
     width: 100%;
@@ -688,7 +690,7 @@ bottom:0px;
 
 .joueur{
     font-size: 17px;/*nom du joueur pour criquet*/
-    text-align: left
+    -text-align: left
 }
 
 .score_ligne{

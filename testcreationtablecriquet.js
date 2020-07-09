@@ -71,7 +71,7 @@ var card ='<table width="100%" class="containerCriquet">'+
     
     card += ' <tr  id="ligne_'+b+'">';
     card +='<td style="height:45px">'; 
-    card += '<div class="joueur_'+array[b].name+' joueur" id="'+array[b].name+'name">';
+    card += '<div class="joueur_'+array[b].name+' joueur joueur_name" id="'+array[b].name+'name">';
     card +=array[b].name; 
     card += '</div>';
     card += ' </td>';
