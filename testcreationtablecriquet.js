@@ -3,7 +3,7 @@ function criquet(){
     displayTableCriquet();
     $("#titre").css("display","none");
     $("#ligne_"+result).css("font-weight","bold");
-    document.getElementById("case_vide").innerHTML="x "+array[result].coupsRestants ;
+    //document.getElementById("case_vide").innerHTML="x "+array[result].coupsRestants ;
     document.getElementById("titre-criquet").innerHTML=array[result].name;
     $("#containertitrecriquet").css("visibility","initial");
     displayCoupsRestants();
@@ -233,14 +233,15 @@ var card ='<table width="100%" class="containerCriquet">'+
 
 function simple() {
     window.navigator.vibrate(200);
-    if (window.screen.width >= 500){
-        $(this).animate({    
-            fontSize:'2em',
-        })
-        $(this).animate({    
-            fontSize:'1em',
-        })
-    }
+    
+       // $(this).css('background-color', 'red');
+        //$(this).css('background-color', 'cornflowerblue');
+        $(this).addClass("white").delay(200).queue(function(next){
+            $(this).removeClass("white");
+            next();
+        });
+        //$(this).removeClass('white');
+  
     var thisnumber = parseInt(this.getAttribute("attr"));
     console.log("thisnumber :" + thisnumber);
 
@@ -308,14 +309,12 @@ function simple() {
 
     function double() {
         window.navigator.vibrate(200);
-        if (window.screen.width >= 500){
-            $(this).animate({    
-                fontSize:'2em',
-            })
-            $(this).animate({    
-                fontSize:'1em',
-            })
-        }
+       
+            $(this).addClass("white").delay(200).queue(function(next){
+                $(this).removeClass("white");
+                next();
+            });
+        
         var thisnumber = parseInt(this.getAttribute("attr"));
         console.log("thisnumber :" + thisnumber);
     
@@ -383,14 +382,12 @@ function simple() {
 
     function triple() {
         window.navigator.vibrate(200);
-        if (window.screen.width >= 500){
-            $(this).animate({    
-                fontSize:'2em',
-            })
-            $(this).animate({    
-                fontSize:'1em',
-            })
-        }
+        
+            $(this).addClass("white").delay(200).queue(function(next){
+                $(this).removeClass("white");
+                next();
+            });
+        
     
         var thisnumber = parseInt(this.getAttribute("attr"));
         console.log("thisnumber :" + thisnumber);
@@ -471,14 +468,12 @@ function simple() {
     
     function zero(){
         window.navigator.vibrate(200);
-        if (window.screen.width >= 500){
-            $(this).animate({    
-                fontSize:'2em',
-            })
-            $(this).animate({    
-                fontSize:'1em',
-            })
-        }
+        
+            $(this).addClass("white").delay(200).queue(function(next){
+                $(this).removeClass("white");
+                next();
+            });
+        
         array[result].coupsRestants--;
             //ici on met en dur ce qui equivaut a la fonction MAJtableau() en attendant de trouver comment faire pour seulement appeller cette dite fonction (cela ne marche pas quand je met MAJtableau(), cette fonction met a jour le tableu en rechargeant uniquement ce qui doit l'etre et pas le tableau entier comme dans displayTableCriquet())
       

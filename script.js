@@ -88,10 +88,11 @@ function displayGamesAndRules(){
     var games=""; 
     games += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine()" class="create_myfunction games">301</button>';
     games += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine501()" class="create_myfunction games">501</button>';
+    games += ' <button type ="button" class="button_criquet games" onclick="criquet()" id="criquet">criquet</button>';
     games += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200TEST()" class="create_myfunction games">+100</button>';
     games += ' <button type ="button" class="create_myfunction games" onclick="billard()" id="billard">billard</button>';
     games += ' <button type ="button" class="create_myfunction games" onclick="billardColor()" id="billardcolor">billard color</button>';
-    games += ' <button type ="button" class="button_criquet games" onclick="criquet()" id="criquet">criquet</button>';
+    
     games += ' <button type ="button" class="button_random games" onclick="random()" id="random">random</button>';
 
     var rules='<button type ="button" class="button_rules rules" onclick="displayRules()" id="rules">Règles</button>';

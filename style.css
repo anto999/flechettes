@@ -700,3 +700,76 @@ bottom:0px;
 .score_joueur_criquet{
     font-size: 25px;
 }
+
+@media only screen and (min-width:700px)and (max-width:16000px){
+    .cible{
+           width: 40px;
+    }
+    .joueur_name{
+            text-align: center;
+            font-size: 30px;
+    }
+
+    .ligne{
+        font-size: 50px;
+    }
+    #titre-criquet {
+       
+        font-size: 30px;
+      
+    }
+    .imgtitrecriquet {
+        width: 35px;
+        margin: 2px 2px;
+    }
+
+    .titre{
+        -padding-top:6%;
+        font-size: 2em;
+    }
+
+    button{
+        width: max-content;
+        border-radius: 20px;
+        height: 76px;
+        font-size: 1.5em;
+
+    }
+
+    select{
+       height: 75px;
+       width :75px;
+    }
+
+    .games{
+        width: 170px;
+    }
+
+    .score_joueur_criquet{
+        font-size: 35px;
+    }
+
+    .btncriquet{
+        font-size: 30px;
+        width: 100%;
+        padding-top: 10px;
+
+    }
+
+    .btnrandom {
+        font-size: 7em;
+    }
+
+    .close{
+        top:7%;
+    }
+
+    #h6{
+        font-size: 2em;
+    }
+}
+
+
+.white{
+    background-color: white;
+}

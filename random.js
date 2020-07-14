@@ -59,7 +59,12 @@ var givemerandom = function (){
     console.log(randomNumber);
     $("#h7").html(randomNumber);
     document.getElementById("h7").setAttribute(
-        "style", "background-color: beige; text-align: center; font-size:10em; ");
+        "style", "background-color: beige; text-align: center; font-size:10em;");
+        if (window.screen.width >= 500){
+            document.getElementById("h7").setAttribute(
+                "style", "background-color: beige; text-align: center; font-size:10em; width:80%; margin-left:10%;");
+        }
+
      
     }//fin givemerandom
 
