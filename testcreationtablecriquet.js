@@ -66,7 +66,9 @@ var card ='<table width="100%" class="containerCriquet">'+
        var b=0;
     for(i=0;i<a;i++)
     {
-    
+    //2em bout de test :
+  
+
     //console.log(array[b]);
     
     card += ' <tr  id="ligne_'+b+'">';
@@ -157,6 +159,7 @@ var card ='<table width="100%" class="containerCriquet">'+
     }
     return parseInt(a);
     }//fin displayTableCriquet()
+
     function displayCoupsRestants(){
         if (array[result].coupsRestants==3){
             document.getElementById("img_titre_criquet_3").src = "images/icons/dart_black.png";
@@ -173,6 +176,7 @@ var card ='<table width="100%" class="containerCriquet">'+
             document.getElementById("img_titre_criquet_1").src = "images/icons/dart_black.png";
         }
         document.getElementById("titre-criquet").innerHTML=array[result].name;
+        $("#ligne_"+result).css("font-weight","bold");
     }
  
 
@@ -206,7 +210,24 @@ var card ='<table width="100%" class="containerCriquet">'+
     }//fin verifsiwincriquet
 
        
-   
+    var MAJtableau = function(){
+        var thisnumber = parseInt(this.getAttribute("attr"));
+    
+        if ( array[result].closed[thisnumber]==1){
+            this.src='images/icons/dart.png';
+            document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
+        }else if (array[result].closed[thisnumber]==2){
+            this.src='images/icons/dart2.png';
+            document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
+        }else if (array[result].closed[thisnumber]==3){
+            this.src='images/icons/cible.png';
+            document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
+        }
+        for(i=0;i<array.length;i++){
+            document.getElementById('score_'+array[i].name).innerHTML=array[i].closed["score"];
+        }
+    
+       }//fin  MAJtableau()
 
     $('.btncriquetsimple').click({id:this}, simple);
 
@@ -226,6 +247,15 @@ function simple() {
     if (array[result].closed[thisnumber] < 3)//si le nombre a été touché moins de 3 fois 
     {
         array[result].closed[thisnumber] = array[result].closed[thisnumber] + 1;//alors on ajoute 1
+        //ici le test:
+       
+     /*   this.src='images/icons/cible.png';
+       // id="'+array[b].name+'_16_img" src="";
+        console.log("1 : "+array[result].name);
+        console.log("2 "+thisnumber);
+       
+        console.log("3 : "+array[result].name+'_'+thisnumber+'_img');
+        document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src;*/
     }
     else //sinon on ajoute les points à qui n'a pas fermé :
     {
@@ -237,10 +267,29 @@ function simple() {
     }
     
     array[result].coupsRestants--;
-    displayTableCriquet();//pour mettre à jour le tableau des scores
+
+    //ici on met en dur ce qui equivaut a la fonction MAJtableau() en attendant de trouver comment faire pour seulement appeller cette dite fonction (cela ne marche pas quand je met MAJtableau(), cette fonction met a jour le tableu en rechargeant uniquement ce qui doit l'etre et pas le tableau entier comme dans displayTableCriquet())
+    if ( array[result].closed[thisnumber]==1){
+        this.src='images/icons/dart.png';
+        document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
+    }else if (array[result].closed[thisnumber]==2){
+        this.src='images/icons/dart2.png';
+        document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
+    }else if (array[result].closed[thisnumber]==3){
+        this.src='images/icons/cible.png';
+        document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
+    }
+    for(i=0;i<array.length;i++){
+        document.getElementById('score_'+array[i].name).innerHTML=array[i].closed["score"];
+    }
+
+    
+    //MAJtableau();//pour mettre à jour le tableau des scores avec uniquement ce qui doit etre rechargé, probleme : ca marche pas !!: this.getAttribute is not a function  !! grrrrr 
+    //displayTableCriquet();//pour mettre à jour le tableau des scores, probleme : absolument toutes les images se rechargent
     verifsiwincriquet();
     if (array[result].coupsRestants == 0)//si plus de coup alors on change de joueur
     {
+        $("#ligne_"+result).css("font-weight","initial");//on passea la ligne en initial avant de changer de joueur, puis la suivante sera en bold quand on appellera displayCoupsRestants()
         console.log("nextplayer");
         nextPlayer();
         array[result].coupsRestants = 3;
@@ -248,8 +297,10 @@ function simple() {
     }
     
      displayCoupsRestants();
-    $("#ligne_"+result).css("font-weight","bold");
+    
 }//fin function simple
+
+
 
 
 
@@ -296,18 +347,36 @@ function simple() {
         }
         
         array[result].coupsRestants--;
-        displayTableCriquet();//pour mettre à jour le tableau des scores
+     //ici on met en dur ce qui equivaut a la fonction MAJtableau() en attendant de trouver comment faire pour seulement appeller cette dite fonction (cela ne marche pas quand je met MAJtableau(), cette fonction met a jour le tableu en rechargeant uniquement ce qui doit l'etre et pas le tableau entier comme dans displayTableCriquet())
+     if ( array[result].closed[thisnumber]==1){
+        this.src='images/icons/dart.png';
+        document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
+    }else if (array[result].closed[thisnumber]==2){
+        this.src='images/icons/dart2.png';
+        document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
+    }else if (array[result].closed[thisnumber]==3){
+        this.src='images/icons/cible.png';
+        document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
+    }
+    for(i=0;i<array.length;i++){
+        document.getElementById('score_'+array[i].name).innerHTML=array[i].closed["score"];
+    }
+
+    
+    //MAJtableau();//pour mettre à jour le tableau des scores avec uniquement ce qui doit etre rechargé, probleme : ca marche pas !!: this.getAttribute is not a function  !! grrrrr 
+    //displayTableCriquet();//pour mettre à jour le tableau des scores, probleme : absolument toutes les images se rechargent
         verifsiwincriquet(); 
         if (array[result].coupsRestants == 0)//si plus de coup alors on change de joueur
         {
             console.log("nextplayer");
+            $("#ligne_"+result).css("font-weight","initial");//on passea la ligne en initial avant de changer de joueur, puis la suivante sera en bold quand on appellera displayCoupsRestants()
             nextPlayer();
             array[result].coupsRestants = 3;
             
         }
          
          displayCoupsRestants();
-        $("#ligne_"+result).css("font-weight","bold");
+       
     }//fin function double
 
     $('.btncriquettriple').click({id:this}, triple);
@@ -366,18 +435,36 @@ function simple() {
         }
         
         array[result].coupsRestants--;
-        displayTableCriquet();//pour mettre à jour le tableau des scores
+            //ici on met en dur ce qui equivaut a la fonction MAJtableau() en attendant de trouver comment faire pour seulement appeller cette dite fonction (cela ne marche pas quand je met MAJtableau(), cette fonction met a jour le tableu en rechargeant uniquement ce qui doit l'etre et pas le tableau entier comme dans displayTableCriquet())
+        if ( array[result].closed[thisnumber]==1){
+            this.src='images/icons/dart.png';
+            document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
+        }else if (array[result].closed[thisnumber]==2){
+            this.src='images/icons/dart2.png';
+            document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
+        }else if (array[result].closed[thisnumber]==3){
+            this.src='images/icons/cible.png';
+            document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
+        }
+        for(i=0;i<array.length;i++){
+            document.getElementById('score_'+array[i].name).innerHTML=array[i].closed["score"];
+        }
+
+        
+        //MAJtableau();//pour mettre à jour le tableau des scores avec uniquement ce qui doit etre rechargé, probleme : ca marche pas !!: this.getAttribute is not a function  !! grrrrr 
+        //displayTableCriquet();//pour mettre à jour le tableau des scores, probleme : absolument toutes les images se rechargent
         verifsiwincriquet();
         if (array[result].coupsRestants == 0)//si plus de coup alors on change de joueur
         {
             console.log("nextplayer");
+            $("#ligne_"+result).css("font-weight","initial");//on passea la ligne en initial avant de changer de joueur, puis la suivante sera en bold quand on appellera displayCoupsRestants()
             nextPlayer();
             array[result].coupsRestants = 3;
            
         }
          
          displayCoupsRestants();
-        $("#ligne_"+result).css("font-weight","bold");
+        
     }//fin function triple
 
     $('.btnzero').click(zero);
@@ -393,16 +480,23 @@ function simple() {
             })
         }
         array[result].coupsRestants--;
-        displayTableCriquet();//pour mettre à jour le tableau des scores
+            //ici on met en dur ce qui equivaut a la fonction MAJtableau() en attendant de trouver comment faire pour seulement appeller cette dite fonction (cela ne marche pas quand je met MAJtableau(), cette fonction met a jour le tableu en rechargeant uniquement ce qui doit l'etre et pas le tableau entier comme dans displayTableCriquet())
+      
+     
+
+
+        //MAJtableau();//pour mettre à jour le tableau des scores avec uniquement ce qui doit etre rechargé, probleme : ca marche pas !!: this.getAttribute is not a function  !! grrrrr 
+        //displayTableCriquet();//pour mettre à jour le tableau des scores, probleme : absolument toutes les images se rechargent
         if (array[result].coupsRestants < 1)//si plus de coup alors on change de joueur
         {
             console.log("nextplayer");
+            $("#ligne_"+result).css("font-weight","initial");//on passea la ligne en initial avant de changer de joueur, puis la suivante sera en bold quand on appellera displayCoupsRestants()
             nextPlayer();
             array[result].coupsRestants = 3;
             
         }
          displayCoupsRestants();
-        $("#ligne_"+result).css("font-weight","bold");
+       
     }//fin zero
 
 
