@@ -182,6 +182,11 @@ var card ='<table width="100%" class="containerCriquet">'+
             document.getElementById("img_titre_criquet_3").src = "";
             document.getElementById("img_titre_criquet_2").src = "";
             document.getElementById("img_titre_criquet_1").src = "images/icons/dart_black.png";
+        }else {
+            console.log("bug coups restants "+array[result].name+" : " +array[result].coupsRestants+" coups restants");
+            document.getElementById("img_titre_criquet_3").src = "images/icons/back.png";
+            document.getElementById("img_titre_criquet_2").src = "images/icons/back.png";
+            document.getElementById("img_titre_criquet_1").src = "images/icons/back.png";
         }
         document.getElementById("titre-criquet").innerHTML=array[result].name;
         $("#ligne_"+result).css("font-weight","bold");
@@ -492,32 +497,28 @@ function simple() {
 
 
     function returnCriquet(){
+        window.navigator.vibrate(200);
+        $(this).addClass("white").delay(200).queue(function(next){
+            $(this).removeClass("white");
+            next();
+        });
         var histocoupPrecedent=HistoriqueCriquetVar.historique.length-2;
         var newstate=JSON.parse(HistoriqueCriquetVar.historique[histocoupPrecedent]);
-        
         //nextplayer inversé:
         if (array[result].coupsRestants ==3){//si =3 alors il faut revenir au joueur précédent
-            
-        
-            if (result>= array.length-1){
-                result=0;
-                var x =JSON.parse(HistoriqueCriquetVar.historique[histocoupPrecedent]);
-                x[result].coupsRestants=1;
-                newstate=x;
-                array=newstate;
-               
-            }else{
-                array=newstate;
-                nextPlayer();
+             if (result==0 ){
+                result=array.length-1;
             }
-        }
+            else{
+                result=result-1;
+            }
+            var x =JSON.parse(HistoriqueCriquetVar.historique[histocoupPrecedent]);
+            x[result].coupsRestants=1;
+            newstate=x;
+            array=newstate;
+        }//fin if coups restant s 3
         array=newstate;
-        console.log(array[result].coupsRestants);
-        console.log(array[result].name+" : "+array[result].coupsRestants);
-
-        
         HistoriqueCriquetVar.historique.pop();//on supprime le dernier coup de l'historique
-
         displayTableCriquet();
         displayCoupsRestants();
     }
