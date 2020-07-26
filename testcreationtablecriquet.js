@@ -498,8 +498,8 @@ function simple() {
 
     function returnCriquet(){
         window.navigator.vibrate(200);
-        $(this).addClass("white").delay(200).queue(function(next){
-            $(this).removeClass("white");
+        $("#containertitrecriquet").addClass("btnzero").delay(200).queue(function(next){
+            $("#containertitrecriquet").removeClass("btnzero"); //on ajoute et on retire la class de btnzero c'est a dire o najoute un backgroud color red
             next();
         });
         var histocoupPrecedent=HistoriqueCriquetVar.historique.length-2;
