@@ -194,32 +194,37 @@ var card ='<table width="100%" class="containerCriquet">'+
  
 
     function verifsiwincriquet(){
-        if  (array[result].closed[15]  ==3  && array[result].closed[16]  ==3  && array[result].closed[17]  ==3  && array[result].closed[18] ==3  && array[result].closed[19] ==3 
-             && array[result].closed[20]  ==3  && array[result].closed[25] ==3 ) // si toutes les portes sont fermées
-        {
-            console.log("portes fermées!")
-            var arayscoredetoutlemondecriquet=[];//on créé un tableau avec le score de chacun
-            for (i=0;i<array.length;i++)
-            {   
-                arayscoredetoutlemondecriquet.push(array[i].closed["score"]);
-            }
-            var m= Math.min(...arayscoredetoutlemondecriquet);
-            if(array[result].closed["score"]==m)
-            {
-                console.log("winner !!!");
-
-                document.getElementById("titre").innerHTML="Victoire de  "+array[result].name;
-                modalwin();
-                array[result].closed["win"]== true;
-                $("#titre").css("display","list-item");
-                $(".boutonscriquet").css("visibility","hidden");
-                displayrestart();
-               
-                throw new Error('This is not an error. This is just to abort javascript');//juste pour stopper le script et ne pas passer à l'instruction suivante
-                return 0;
-                console.log("return 0 ne marche pas!")
-            }
+        for(a=0;a<array.length;a++){
+            if  (array[a].closed[15]  ==3  && array[a].closed[16]  ==3  && array[a].closed[17]  ==3  && array[a].closed[18] ==3  && array[a].closed[19] ==3 
+                && array[a].closed[20]  ==3  && array[a].closed[25] ==3 ) // si toutes les portes sont fermées
+           {
+               console.log("portes fermées!")
+               var arayscoredetoutlemondecriquet=[];//on créé un tableau avec le score de chacun
+               for (i=0;i<array.length;i++)
+               {   
+                   arayscoredetoutlemondecriquet.push(array[i].closed["score"]);
+               }
+               var m= Math.min(...arayscoredetoutlemondecriquet);
+               if(array[a].closed["score"]==m)
+               {
+                   console.log("winner !!!");
+                   modalwin();
+                   document.getElementById("titre").innerHTML="Victoire de  "+array[a].name;
+                 //ici modalwin ne suffit pas car elle fait appler a array[name] alors que nous voulons array[i] 
+                   $("#containertitrecriquet").css("visibility","hidden");//pour le criquet
+                 
+                   array[result].closed["win"]== true;
+                   $("#titre").css("display","list-item");
+                   $(".boutonscriquet").css("visibility","hidden");
+                   displayrestart();
+                  
+                   throw new Error('This is not an error. This is just to abort javascript');//juste pour stopper le script et ne pas passer à l'instruction suivante
+                   return 0;
+                   console.log("return 0 ne marche pas!")
+               }
+           }
         }
+       
     }//fin verifsiwincriquet
 
        
