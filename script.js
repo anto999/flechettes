@@ -496,7 +496,12 @@ function verifSiwin() //verif si win le +100
                     }
             }
  }//fin flech200()
-
+class HistoriqueCriquet
+{
+    constructor(){
+        this.historique;
+    }
+}
 
 class Player
 {
@@ -504,9 +509,7 @@ class Player
         this.num=num;this.name=name;this.score= 0;this.pointsrestantsDebutTour=301;this.pointsRestantsActuels=301;
         this.coupsRestants = 3;this.fleche1 = 0;this.fleche2 = 0;this.fleche3 = 0;this.fleche4 = 0;this.fleche5 = 0;this.fleche6 = 0;
         this.resultatTotal = 0;this.nbredetours=0;this.gagnant= false;this.test=null;this.resultatTour=0;this.tousLesCoups=[];
-        this.average=0;this.tableaubillard=[];this.equipe="";this.criquet_score=0;this.criquet_15=0;this.criquet_16=0;this.criquet_17=0;this.criquet_18=0;
-        this.criquet_19=0;this.criquet_20=0;this.criquet_bulle=0;this.closed_15=false;this.closed_16=false;this.closed_17=false;this.closed_18=false;
-        this.closed_19=false;this.closed_20=false;this.closed_bulle=false;this.closed={15:0,16:0,17:0,18:0,19:0,20:0,25:0,score:0,win:false };
+        this.average=0;this.tableaubillard=[];this.equipe="";this.closed={15:0,16:0,17:0,18:0,19:0,20:0,25:0,score:0,win:false };
         }//fin constructor
    /* sayplayer()
     {

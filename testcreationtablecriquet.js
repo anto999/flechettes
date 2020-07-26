@@ -7,9 +7,17 @@ function criquet(){
     document.getElementById("titre-criquet").innerHTML=array[result].name;
     $("#containertitrecriquet").css("visibility","initial");
     displayCoupsRestants();
+    createHistoriqueClassCriquet();
 }
-
-
+var HistoriqueCriquetVar;
+function createHistoriqueClassCriquet(){
+    const H = new HistoriqueCriquet ();
+    H.historique=[];
+    console.log("histoqieCriquet");
+    HistoriqueCriquetVar=H;
+    HistoriqueCriquetVar.historique.push(JSON.stringify(array));
+    
+}
 
 function displayTableCriquet(){ //créer le tableau criquet, met aussi le tableau à jour quand elle est executée
 
@@ -18,8 +26,8 @@ var a = document.getElementById('input_nbplayer0').value;// a= nbre de joueurs
 var card ='<table width="100%" class="containerCriquet">'+
 '<tr>'+
     '<td width="25%">'+
-        '<div class="case_vide" id="case_vide">'+
-            
+        '<div class="case_vide" id="retourCriquet" onclick="returnCriquet()">'+
+            'annuler'+
         '</div>'+
     '</td>'+
     '<td>'+
@@ -298,6 +306,12 @@ function simple() {
     }
     
      displayCoupsRestants();
+     
+     HistoriqueCriquetVar.historique.push(JSON.stringify(array));
+    // arraycriquet=array;
+    console.log(array[result].coupsRestants);
+    console.log(array[result].name+" : "+array[result].coupsRestants);
+
     
 }//fin function simple
 
@@ -477,9 +491,6 @@ function simple() {
         array[result].coupsRestants--;
             //ici on met en dur ce qui equivaut a la fonction MAJtableau() en attendant de trouver comment faire pour seulement appeller cette dite fonction (cela ne marche pas quand je met MAJtableau(), cette fonction met a jour le tableu en rechargeant uniquement ce qui doit l'etre et pas le tableau entier comme dans displayTableCriquet())
       
-     
-
-
         //MAJtableau();//pour mettre à jour le tableau des scores avec uniquement ce qui doit etre rechargé, probleme : ca marche pas !!: this.getAttribute is not a function  !! grrrrr 
         //displayTableCriquet();//pour mettre à jour le tableau des scores, probleme : absolument toutes les images se rechargent
         if (array[result].coupsRestants < 1)//si plus de coup alors on change de joueur
@@ -495,3 +506,32 @@ function simple() {
     }//fin zero
 
 
+    function returnCriquet(){
+        var histocoupPrecedent=HistoriqueCriquetVar.historique.length-2;
+        var newstate=JSON.parse(HistoriqueCriquetVar.historique[histocoupPrecedent]);
+        
+        //nextplayer inversé:
+        if (array[result].coupsRestants ==3){//si =3 alors il faut revenir au joueur précédent
+            
+        
+            if (result>= array.length-1){
+                result=0;
+                var x =JSON.parse(HistoriqueCriquetVar.historique[histocoupPrecedent]);
+                x[result].coupsRestants=1;
+                newstate=x;
+                array=newstate;
+               
+            }else{
+                array=newstate;
+            }
+        }
+        array=newstate;
+        console.log(array[result].coupsRestants);
+        console.log(array[result].name+" : "+array[result].coupsRestants);
+
+        
+        HistoriqueCriquetVar.historique.pop();//on supprime le dernier coup de l'historique
+
+        displayTableCriquet();
+        displayCoupsRestants();
+    }
