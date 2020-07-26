@@ -701,6 +701,11 @@ bottom:0px;
     font-size: 25px;
 }
 
+.back{
+    width:27px;
+    cursor: pointer;
+}
+
 @media only screen and (min-width:700px)and (max-width:16000px){
     .cible{
            width: 40px;
@@ -766,6 +771,10 @@ bottom:0px;
 
     #h6{
         font-size: 2em;
+    }
+    .back{
+        width:65px;
+        cursor: pointer;
     }
 }
 

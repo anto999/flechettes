@@ -27,7 +27,7 @@ var card ='<table width="100%" class="containerCriquet">'+
 '<tr>'+
     '<td width="25%">'+
         '<div class="case_vide" id="retourCriquet" onclick="returnCriquet()">'+
-            'annuler'+
+            '<img class="back" src=images/icons/back.png>'+
         '</div>'+
     '</td>'+
     '<td>'+
@@ -241,14 +241,11 @@ var card ='<table width="100%" class="containerCriquet">'+
 
 function simple() {
     window.navigator.vibrate(200);
-    
-       // $(this).css('background-color', 'red');
-        //$(this).css('background-color', 'cornflowerblue');
+
         $(this).addClass("white").delay(200).queue(function(next){
             $(this).removeClass("white");
             next();
         });
-        //$(this).removeClass('white');
   
     var thisnumber = parseInt(this.getAttribute("attr"));
     console.log("thisnumber :" + thisnumber);
@@ -256,15 +253,7 @@ function simple() {
     if (array[result].closed[thisnumber] < 3)//si le nombre a été touché moins de 3 fois 
     {
         array[result].closed[thisnumber] = array[result].closed[thisnumber] + 1;//alors on ajoute 1
-        //ici le test:
-       
-     /*   this.src='images/icons/cible.png';
-       // id="'+array[b].name+'_16_img" src="";
-        console.log("1 : "+array[result].name);
-        console.log("2 "+thisnumber);
-       
-        console.log("3 : "+array[result].name+'_'+thisnumber+'_img');
-        document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src;*/
+
     }
     else //sinon on ajoute les points à qui n'a pas fermé :
     {
@@ -304,15 +293,8 @@ function simple() {
         array[result].coupsRestants = 3;
         
     }
-    
      displayCoupsRestants();
-     
      HistoriqueCriquetVar.historique.push(JSON.stringify(array));
-    // arraycriquet=array;
-    console.log(array[result].coupsRestants);
-    console.log(array[result].name+" : "+array[result].coupsRestants);
-
-    
 }//fin function simple
 
 
@@ -389,6 +371,7 @@ function simple() {
         }
          
          displayCoupsRestants();
+         HistoriqueCriquetVar.historique.push(JSON.stringify(array));
        
     }//fin function double
 
@@ -475,6 +458,7 @@ function simple() {
         }
          
          displayCoupsRestants();
+         HistoriqueCriquetVar.historique.push(JSON.stringify(array));
         
     }//fin function triple
 
@@ -502,6 +486,7 @@ function simple() {
             
         }
          displayCoupsRestants();
+         HistoriqueCriquetVar.historique.push(JSON.stringify(array));
        
     }//fin zero
 
@@ -523,6 +508,7 @@ function simple() {
                
             }else{
                 array=newstate;
+                nextPlayer();
             }
         }
         array=newstate;
