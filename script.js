@@ -9,6 +9,7 @@ $(document).ready(function(){
     document.getElementById("input_nbplayer0").focus();
 
 });
+
 //testwidth();
 //test device width
 function animateIfDesktop(){
@@ -96,9 +97,13 @@ function displayGamesAndRules(){
     games += ' <button type ="button" class="button_random games" onclick="random()" id="random">random</button>';
 
     var rules='<button type ="button" class="button_rules rules" onclick="displayRules()" id="rules">Règles</button>';
+    var back ='<div class="backMenu" id="retourmenu" onclick="restart()">';
+    back +=       '<img class="backMenu" src=images/icons/back.png>';
+    back +=    '</div>'
     
     $("#games").html(games);
     $("#rules").html(rules);
+    $("#back").html(back);
 }
 
 
@@ -180,6 +185,8 @@ function enchaine(){
 
 function addPlayer() { //enregistre les joueurs dans un tableau puis créé ces joueurs avec createplayer()
     $('.rules').css('display', 'none');
+    $('.backMenu').css('display', 'none');
+
     var b = document.getElementById('input_nbplayer0').value;//la valeur de la liste déroulante = aux nombres de joueurs
     var x = document.getElementsByClassName("input_add_name");//x.length retournera le nombre de joueurs
     console.log("laa: "+b);

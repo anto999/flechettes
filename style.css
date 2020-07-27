@@ -706,6 +706,11 @@ bottom:0px;
     cursor: pointer;
 }
 
+.backMenu{
+    width:53px;
+    cursor: pointer;
+}
+
 @media only screen and (min-width:700px)and (max-width:16000px){
     .cible{
            width: 40px;
@@ -773,6 +778,10 @@ bottom:0px;
         font-size: 2em;
     }
     .back{
+        width:65px;
+        cursor: pointer;
+    }
+    .backMenu{
         width:65px;
         cursor: pointer;
     }

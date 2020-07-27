@@ -782,8 +782,6 @@ function billardWin()
             arraybillard.array.push(scoretotal)
         }
         console.log(arraybillard.array);
-
-
         var verifSiégalité=arraybillard.array;//on créé un tableau dans lequel on supprime le score max
         
         var indexmax = arraybillard.array.indexOf(Math.max(... arraybillard.array));
@@ -946,6 +944,7 @@ function billardColor(){
 
 function myfunctionBillardColor(){
     $('.rules').css('display', 'none');
+    $('.backMenu').css('display', 'none');
     var b = document.getElementById('input_nbplayer0').value;//la valeur de la liste déroulante = aux nombres de joueurs
     var x = document.getElementsByClassName("input_add_name");//x.length retournera le nombre de joueurs
     console.log("laa: "+b);
