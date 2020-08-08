@@ -309,8 +309,6 @@ function simple() {
 
 
 
-
-
     $('.btncriquetdouble').click({id:this}, double);
 
     function double() {
@@ -499,6 +497,24 @@ function simple() {
          HistoriqueCriquetVar.historique.push(JSON.stringify(array));
        
     }//fin zero
+
+    function rienCriquet(){
+        $("#ligne_"+result).css("font-weight","initial");//on passea la ligne en initial avant de changer de joueur, puis la suivante sera en bold quand on appellera displayCoupsRestants()
+        if (array[result].coupsRestants==3){
+            zero();
+            zero();
+            zero();
+        }
+        else if (array[result].coupsRestants==2){
+            zero();
+            zero();
+        }
+        else if (array[result].coupsRestants==1){   
+            zero();
+        }else{
+            console.log("bug rienCriquet");
+        }
+    }// fin rienCriquet
 
 
     function returnCriquet(){

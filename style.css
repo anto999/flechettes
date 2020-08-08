@@ -1,5 +1,6 @@
 /*ceci est un test*/
 
+
 body {
     -background-image: url("./images/wall/wall1.jpg");
     background-size: 100%;
@@ -650,6 +651,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
  .btnzero {
      background-color: red;
+ }
+
+ .btnriencriquet{
+     background-color: maroon;
+     color: white;
  }
 
 
