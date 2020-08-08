@@ -514,6 +514,10 @@ function simple() {
         }else{
             console.log("bug rienCriquet");
         }
+        $("#containertitrecriquet").addClass("btnzero").delay(200).queue(function(next){
+            $("#containertitrecriquet").removeClass("btnzero"); //on ajoute et on retire la class de btnzero c'est a dire o najoute un backgroud color red
+            next();
+        });
     }// fin rienCriquet
 
 

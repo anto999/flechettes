@@ -717,6 +717,26 @@ bottom:0px;
     cursor: pointer;
 }
 
+.inputPass{
+    width:200px;
+  
+}
+
+.validatepass{
+    cursor: pointer;
+    background-color: #ADFF2F;
+    max-width: min-content;
+}
+
+.link{
+    display: none;
+}
+
+.MonChampionnat{
+    bottom:10px;
+    position: absolute;
+}
+
 @media only screen and (min-width:700px)and (max-width:16000px){
     .cible{
            width: 40px;
