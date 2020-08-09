@@ -238,12 +238,31 @@ var card ='<table width="100%" class="containerCriquet">'+
             this.src='images/icons/dart2.png';
             document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
         }else if (array[result].closed[thisnumber]==3){
+
+
+            
             this.src='images/icons/cible.png';
             document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
         }
         for(i=0;i<array.length;i++){
             document.getElementById('score_'+array[i].name).innerHTML=array[i].closed["score"];
         }
+
+      
+       //test pour griser le criquet quand tout le monde a fermé le meme chiffre
+     var nbdejoueurfermés = 0
+     for (a=0; a<array.length;a++){
+         if (array[a].closed[thisnumber]==3){
+             nbdejoueurfermés++;
+         }
+     }
+     if (nbdejoueurfermés==array.length){
+         console.log("grisé");
+         for (a=0; a<array.length;a++){
+            this.src='images/icons/full.png';
+            document.getElementById(array[a].name+'_'+thisnumber+'_img').src=this.src;
+         }
+     }
     
        }//fin  MAJtableau()
 
@@ -290,6 +309,20 @@ function simple() {
     for(i=0;i<array.length;i++){
         document.getElementById('score_'+array[i].name).innerHTML=array[i].closed["score"];
     }
+     //test pour griser le criquet quand tout le monde a fermé le meme chiffre
+     var nbdejoueurfermés = 0
+     for (a=0; a<array.length;a++){
+         if (array[a].closed[thisnumber]==3){
+             nbdejoueurfermés++;
+         }
+     }
+     if (nbdejoueurfermés==array.length){
+         console.log("grisé");
+         for (a=0; a<array.length;a++){
+            this.src='images/icons/full.png';
+            document.getElementById(array[a].name+'_'+thisnumber+'_img').src=this.src;
+         }
+     }
 
     
     //MAJtableau();//pour mettre à jour le tableau des scores avec uniquement ce qui doit etre rechargé, probleme : ca marche pas !!: this.getAttribute is not a function  !! grrrrr 
@@ -364,6 +397,21 @@ function simple() {
     for(i=0;i<array.length;i++){
         document.getElementById('score_'+array[i].name).innerHTML=array[i].closed["score"];
     }
+
+     //test pour griser le criquet quand tout le monde a fermé le meme chiffre
+     var nbdejoueurfermés = 0
+     for (a=0; a<array.length;a++){
+         if (array[a].closed[thisnumber]==3){
+             nbdejoueurfermés++;
+         }
+     }
+     if (nbdejoueurfermés==array.length){
+         console.log("grisé");
+         for (a=0; a<array.length;a++){
+            this.src='images/icons/full.png';
+            document.getElementById(array[a].name+'_'+thisnumber+'_img').src=this.src;
+         }
+     }
 
     
     //MAJtableau();//pour mettre à jour le tableau des scores avec uniquement ce qui doit etre rechargé, probleme : ca marche pas !!: this.getAttribute is not a function  !! grrrrr 
@@ -451,6 +499,21 @@ function simple() {
         for(i=0;i<array.length;i++){
             document.getElementById('score_'+array[i].name).innerHTML=array[i].closed["score"];
         }
+
+         //test pour griser le criquet quand tout le monde a fermé le meme chiffre
+     var nbdejoueurfermés = 0
+     for (a=0; a<array.length;a++){
+         if (array[a].closed[thisnumber]==3){
+             nbdejoueurfermés++;
+         }
+     }
+     if (nbdejoueurfermés==array.length){
+         console.log("grisé");
+         for (a=0; a<array.length;a++){
+            this.src='images/icons/full.png';
+            document.getElementById(array[a].name+'_'+thisnumber+'_img').src=this.src;
+         }
+     }
 
         
         //MAJtableau();//pour mettre à jour le tableau des scores avec uniquement ce qui doit etre rechargé, probleme : ca marche pas !!: this.getAttribute is not a function  !! grrrrr 
@@ -544,6 +607,8 @@ function simple() {
         }//fin if coups restant s 3
         array=newstate;
         HistoriqueCriquetVar.historique.pop();//on supprime le dernier coup de l'historique
+         //test pour griser le criquet quand tout le monde a fermé le meme chiffre
+      
         displayTableCriquet();
         displayCoupsRestants();
     }
