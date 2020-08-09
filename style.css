@@ -737,6 +737,39 @@ bottom:0px;
     position: absolute;
 }
 
+.calssementjournée{
+    width: 98%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.journée{
+    font-weight: bold;
+}
+
+.classementgeneral{
+    text-align: center;
+    margin: 0 auto;
+    -background-color: rgb(212, 212, 97);
+    border-collapse: collapse;
+}
+
+.classementgeneraltitre{
+    font-weight: bold;
+}
+
+.test21{
+    background-color: red;
+}
+
+.infos{
+    font-style: italic;
+}
+
+.nextjournée{
+    font-weight: bold;
+}
+
 @media only screen and (min-width:700px)and (max-width:16000px){
     .cible{
            width: 40px;
