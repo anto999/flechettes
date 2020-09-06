@@ -706,10 +706,19 @@ bottom:0px;
 .score_joueur_criquet{
     font-size: 25px;
 }
+.backJeu1{
+    width:60px;
+    cursor: pointer;
+}
 
+ /*retour criquet:*/
 .back{
     width:27px;
     cursor: pointer;
+}
+
+#calcsuivant{
+    background-color: #20c997;
 }
 
 .backMenu{
@@ -768,6 +777,25 @@ bottom:0px;
 
 .nextjournée{
     font-weight: bold;
+}
+
+.resultTour{
+    width: 100px;
+    border: 1px black solid;
+    line-height: 64px;
+    font-size: 30px;
+    background-color: antiquewhite;
+    margin: 0 20px;
+}
+
+.calculette301{
+    display: flex;
+    text-align: center;
+    width: 100%;
+    -display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    -height: 20%;
 }
 
 @media only screen and (min-width:700px)and (max-width:16000px){
@@ -849,4 +877,8 @@ bottom:0px;
 
 .white{
     background-color: white;
+}
+
+.green301{
+    background-color: green;
 }
