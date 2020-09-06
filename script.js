@@ -6,10 +6,11 @@ $(document).ready(function(){
     $('.containerboule').css("display","none");
     $('.calculette301').css("display","none");
 
-    btnWall();
     document.getElementById("input_nbplayer0").focus();
 
 });
+var tour=1;
+
 
 //testwidth();
 //test device width
@@ -397,7 +398,7 @@ function displayContainer200(){
 
    return parseInt(a);
    
-}//fin displayContainer200()
+}//fin displayContainer200() //valable pour Jeu1 (301,501...)
 
 function displayContainer200TEST(){
     $('#inputname').css('display', 'none');
@@ -703,11 +704,17 @@ window.onclick = function(event) {
 function nextPlayer(){
     if (result>= array.length-1){
         result=0;
+        tour++;
+        var eles = document.getElementsByClassName("nbtour");
+        for(var i in eles) {
+            document.getElementsByClassName("nbtour")[i].innerText = tour;
+        }
+     
     }else{
         result=result+1;
     }
     
-}
+}//fin nextPlayer
 
 
 function perdu1(){
@@ -821,9 +828,16 @@ function perdu1(){
         //nextplayer inversé:
         if (result==0 ){
             result=array.length-1;
+            tour--;
+            eles = document.getElementsByClassName("nbtour");
+                for(var i in eles) {
+                    document.getElementsByClassName("nbtour")[i].innerText = tour;
+                }
+
         }
         else{
             result=result-1;
+
         }
     
         $("#ligne_"+result).css("font-weight","bold");

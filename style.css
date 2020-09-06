@@ -8,6 +8,20 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+.containertour{
+    display: flex;
+    min-width : 11%;
+    line-height: 68px;
+}
+/*
+.tour {
+    font-size: 30px;
+}
+.nbtour{
+    font-size: 30px;
+    text-align: left;
+}
+*/
 
 .cible{
     width: 22px;
@@ -719,6 +733,7 @@ bottom:0px;
 
 #calcsuivant{
     background-color: #20c997;
+    margin-left: 10px;
 }
 
 .backMenu{
@@ -780,7 +795,7 @@ bottom:0px;
 }
 
 .resultTour{
-    width: 100px;
+    width: 18%;
     border: 1px black solid;
     line-height: 64px;
     font-size: 30px;

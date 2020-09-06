@@ -596,6 +596,12 @@ function simple() {
         if (array[result].coupsRestants ==3){//si =3 alors il faut revenir au joueur précédent
              if (result==0 ){
                 result=array.length-1;
+                tour--;
+
+                  eles = document.getElementsByClassName("nbtour");
+                for(var i in eles) {
+                    document.getElementsByClassName("nbtour")[i].innerText = tour;
+                }
             }
             else{
                 result=result-1;
