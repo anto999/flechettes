@@ -41,6 +41,10 @@ var displaycontainerRandom = function (){
 
     var card2="";
     card2 += ' <div id="container_random" class="container_random">';
+    card2 += '  <div class="containertourRandom"> ';
+    card2 += '    <div class="tour"> tour&nbsp:</div>    ';
+    card2 += '    <div class="nbtour nbtourRandom">1</div>    ';
+    card2 += '  </div> ';
     card2 += '   <div id="ok" class="btnrandom" onclick="good()">';
     card2 += '     ok';
     card2 += '   </div>';

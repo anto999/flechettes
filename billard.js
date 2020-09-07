@@ -762,6 +762,11 @@ function nextPlayerbillard(){
     if (result>= array.length-1){
         result=0;
         document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
+        var eles = document.getElementsByClassName("nbtour");
+        tour++;
+        for(var i in eles) {
+            document.getElementsByClassName("nbtour")[i].innerText = tour;
+        }
     }else{
         result=result+1;
         document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
