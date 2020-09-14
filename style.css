@@ -97,6 +97,41 @@ input::placeholder {
    
 }
 
+.containertourbest{
+    
+}
+
+.scoreCombo{
+    width: 65%;
+}
+
+#validbest{
+    background-color:#20c997;
+}
+
+#btn-ChooseNbTour{
+    margin: 0 0 0 20px;
+    width: 50px;
+    font-size: 19px;
+    height: 42px;
+}
+
+.chooseNumber{
+    font-size: 26px;
+}
+
+#h7{
+    text-align: center;
+
+}
+
+.containertourbest{
+    margin-left:30px;
+    display: flex;
+    font-size: 20px;
+    font-weight: 600;
+}
+
 #no{
 background-color: red;
 }
@@ -836,7 +871,17 @@ bottom:0px;
 }
 
 .calculette301{
-    display: flex;
+    display: none;
+    text-align: center;
+    width: 100%;
+    -display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    -height: 20%;
+}
+
+.BestCombo{
+    display: none;
     text-align: center;
     width: 100%;
     -display: none;

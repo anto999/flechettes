@@ -4,7 +4,7 @@ $(document).ready(function(){
     $('.select_game').css("display","none");
     $('.200').css("display","none");
     $('.containerboule').css("display","none");
-    $('.calculette301').css("display","none");
+    //$('.calculette301').css("display","none");
 
     document.getElementById("input_nbplayer0").focus();
 
@@ -93,12 +93,12 @@ function displayGamesAndRules(){
     games += '<button type ="button" id="create_myfunctionGhost2" onclick="enchaine501()" class="create_myfunction games">501</button>';
     games += '<button type ="button" id="create_myfunctionGhost3" onclick="enchaine701()" class="create_myfunction games">701</button>';
     games += '<button type ="button" id="create_myfunctionGhost4" onclick="enchaine901()" class="create_myfunction games">901</button>';
-    games += ' <button type ="button" class="button_criquet games" onclick="criquet()" id="criquet">criquet</button>';
+    games += ' <button type ="button" class="button_criquet games" onclick="criquet()" id="criquet">Criquet</button>';
     games += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200TEST()" class="create_myfunction games">+100</button>';
-    games += ' <button type ="button" class="create_myfunction games" onclick="billard()" id="billard">billard</button>';
-    games += ' <button type ="button" class="create_myfunction games" onclick="billardColor()" id="billardcolor">billard color</button>';
-    
-    games += ' <button type ="button" class="button_random games" onclick="random()" id="random">random</button>';
+    games += ' <button type ="button" class="create_myfunction games" onclick="billard()" id="billard">Billard</button>';
+    games += ' <button type ="button" class="create_myfunction games" onclick="billardColor()" id="billardcolor">Billard Color</button>';
+    games += ' <button type ="button" class="create_myfunction games" onclick="chooseNumber()" id="BestCombo">Best Combo</button>';
+    games += ' <button type ="button" class="button_random games" onclick="random()" id="random">Random</button>';
 
     var rules='<button type ="button" class="button_rules rules" onclick="displayRules()" id="rules">Règles</button>';
     var back ='<div class="backMenu" id="retourmenu" onclick="restart()">';
@@ -572,7 +572,8 @@ class Player
         this.num=num;this.name=name;this.score= 0;this.pointsrestantsDebutTour=301;this.pointsRestantsActuels=301;
         this.coupsRestants = 3;this.fleche1 = 0;this.fleche2 = 0;this.fleche3 = 0;this.fleche4 = 0;this.fleche5 = 0;this.fleche6 = 0;
         this.resultatTotal = 0;this.nbredetours=0;this.gagnant= false;this.test=null;this.resultatTour=0;this.tousLesCoups=[];
-        this.average=0;this.tableaubillard=[];this.equipe="";this.closed={15:0,16:0,17:0,18:0,19:0,20:0,25:0,score:0,win:false };
+        this.average=0;this.tableaubillard=[];this.equipe="";this.closed={15:0,16:0,17:0,18:0,19:0,20:0,25:0,score:0,win:false };this.meilleurscore=0;
+        this.position=0;
         }//fin constructor
    /* sayplayer()
     {
@@ -591,19 +592,11 @@ function returnRes(){
     var joueursdanstableau=addPlayer();
     console.log(joueursdanstableau);
 }
-
-
     $('#creerjoueur').click(createPlayer);
-  
-    $('#test').click(displayArray);
-
+  /*  $('#test').click(displayArray);
     function displayArray(){
         console.log(array)
-        
-    }
-const player1 = new Player (1,"anto");
-const player2 = new Player (2,"micka");
-
+    }*/
 
 function g501() {
     document.getElementById("h4").innerHTML= 'vous avez choisi le 501' ;
@@ -619,14 +612,6 @@ function gagné1(){
     array[result].pointsRestantsActuels=0;
     document.getElementById("points-restants"+result).innerHTML=array[result].pointsRestantsActuels;
     modalwin();
-
-/*
-    var num= array[result].average.toFixed(1);
-    console.log(Math.max(...array[result].tousLesCoups))
-    document.getElementById("h1").innerHTML="Vous avez fini en  " +array[result].tousLesCoups.length+" coups! moyenne : "+num+" "
-*/
-
-  
 
     var li ='';
     for (i=0;i<array[result].tousLesCoups.length;i++)
@@ -696,11 +681,6 @@ window.onclick = function(event) {
 
 
 
-
-
-
-
-
 function nextPlayer(){
     if (result>= array.length-1){
         result=0;
@@ -736,15 +716,7 @@ function perdu1(){
     array[result].coupsRestants=3;
    // document.getElementById("coupsrestants"+[result]).innerHTML="coups restants : "+ array[result].coupsRestants;
     document.getElementById("lancer1").focus();
-
-   // $(".f1").css("display","flex");
-   // $(".f2").css("display","none");
-   // $(".f3").css("display","none");
-    
-
 }
-
-
  
     function compteur(){
         var resultCompteur=0;
@@ -843,9 +815,6 @@ function perdu1(){
         $("#ligne_"+result).css("font-weight","bold");
         array[result].resultatTour=0;
         document.getElementById("resultTourDiv").innerText = 0;
-
-
-
 
         array=newstate;
         HistoriqueJeu1Var.historique.pop();//on supprime le dernier coup de l'historique
