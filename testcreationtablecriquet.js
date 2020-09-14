@@ -269,7 +269,7 @@ var card ='<table width="100%" class="containerCriquet">'+
     $('.btncriquetsimple').click({id:this}, simple);
 
 function simple() {
-    window.navigator.vibrate(200);
+    window.navigator.vibrate(50);
 
         $(this).addClass("white").delay(200).queue(function(next){
             $(this).removeClass("white");
@@ -345,7 +345,7 @@ function simple() {
     $('.btncriquetdouble').click({id:this}, double);
 
     function double() {
-        window.navigator.vibrate(200);
+        window.navigator.vibrate(50);
        
             $(this).addClass("white").delay(200).queue(function(next){
                 $(this).removeClass("white");
@@ -434,7 +434,7 @@ function simple() {
     $('.btncriquettriple').click({id:this}, triple);
 
     function triple() {
-        window.navigator.vibrate(200);
+        window.navigator.vibrate(50);
         
             $(this).addClass("white").delay(200).queue(function(next){
                 $(this).removeClass("white");
@@ -536,7 +536,7 @@ function simple() {
     $('.btnzero').click(zero);
     
     function zero(){
-        window.navigator.vibrate(200);
+        window.navigator.vibrate(50);
         
             $(this).addClass("white").delay(200).queue(function(next){
                 $(this).removeClass("white");
@@ -585,7 +585,7 @@ function simple() {
 
 
     function returnCriquet(){
-        window.navigator.vibrate(200);
+        window.navigator.vibrate(50);
         $("#containertitrecriquet").addClass("btnzero").delay(200).queue(function(next){
             $("#containertitrecriquet").removeClass("btnzero"); //on ajoute et on retire la class de btnzero c'est a dire o najoute un backgroud color red
             next();

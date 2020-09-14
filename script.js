@@ -25,9 +25,8 @@ function animateIfDesktop(){
     }
 }
 function viber(){
-    window.navigator.vibrate(130);
+    window.navigator.vibrate(50);
 }
-
 
 
 var fullscreen= function(){
@@ -54,7 +53,7 @@ const rapido = new Rapide ("no");
 const color = new billardcolor (0,0);//pour billardcolor
 
 function partie_rapide(){
-    window.navigator.vibrate(130);
+    window.navigator.vibrate(50);
    rapido.state="ok";
     console.log(rapido);
     displayGamesAndRules();
@@ -98,6 +97,7 @@ function displayGamesAndRules(){
     games += ' <button type ="button" class="create_myfunction games" onclick="billard()" id="billard">Billard</button>';
     games += ' <button type ="button" class="create_myfunction games" onclick="billardColor()" id="billardcolor">Billard Color</button>';
     games += ' <button type ="button" class="create_myfunction games" onclick="chooseNumber()" id="BestCombo">Best Combo</button>';
+    games += ' <button type ="button" class="create_myfunction games" onclick="chooseNumberPire()" id="PireCombo">Pire Combo</button>';
     games += ' <button type ="button" class="button_random games" onclick="random()" id="random">Random</button>';
 
     var rules='<button type ="button" class="button_rules rules" onclick="displayRules()" id="rules">Règles</button>';
@@ -435,8 +435,6 @@ function displayContainer200TEST(){
             card += ' <div class ="" id="score-cumulé'+i+'"> '+array[b].resultatTotal+'</div>';
             card += '   </td>';
             card += '   </tr>';
-
-        
        
         b=b+1;
          }    
@@ -452,7 +450,6 @@ function displayContainer200TEST(){
     array[result+1].coupsRestants=3;
     $("#ligne_"+result).css("font-weight","bold");
 }
-  
 
    return parseInt(a);
    
@@ -739,7 +736,7 @@ function perdu1(){
     //ici on joue au 301,501...
     var lancer= function(nb){
         // let a = parseInt(document.getElementById('calc5').getAttribute("attr"));
-        window.navigator.vibrate(200);
+        window.navigator.vibrate(50);
      
              $(nb).addClass("green301").delay(200).queue(function(next){
                  $(nb).removeClass("green301");
@@ -754,7 +751,7 @@ function perdu1(){
      }
 
      function valider(az){
-        window.navigator.vibrate(200);
+        window.navigator.vibrate(50);
         $(az).addClass("green301").delay(200).queue(function(next){
             $(az).removeClass("green301");
             next();
@@ -820,9 +817,6 @@ function perdu1(){
         HistoriqueJeu1Var.historique.pop();//on supprime le dernier coup de l'historique
         document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
         document.getElementById("points-restants"+result).innerHTML=array[result].pointsrestantsDebutTour;
-
-
-
 
     }
   

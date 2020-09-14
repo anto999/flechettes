@@ -890,6 +890,16 @@ bottom:0px;
     -height: 20%;
 }
 
+.PireCombo{
+    display: none;
+    text-align: center;
+    width: 100%;
+    -display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    -height: 20%;
+}
+
 @media only screen and (min-width:700px)and (max-width:16000px){
     .cible{
            width: 40px;

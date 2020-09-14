@@ -73,7 +73,7 @@ var givemerandom = function (){
     }//fin givemerandom
 
     var good= function(){
-        window.navigator.vibrate(130);
+        window.navigator.vibrate(50);
         array[result].score++;
         document.getElementById("score"+result).innerHTML=array[result].score;
         verifWinRandom();
@@ -81,7 +81,7 @@ var givemerandom = function (){
     }
 
     var bad = function(){
-        window.navigator.vibrate(130);
+        window.navigator.vibrate(50);
         $("#ligne_"+result).css("font-weight","initial");
         nextPlayer();
         $("#ligne_"+result).css("font-weight","bold");

@@ -1,6 +1,6 @@
 //let nbTour = 0;
 
-function chooseNumber(){
+function chooseNumberPire(){
     $('.rules').css('display', 'none');
     $('.backMenu').css('display', 'none');
     $('#inputname').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
@@ -24,7 +24,7 @@ function chooseNumber(){
     txt +=     '<option value="9">9</option>';
     txt +=     '<option value="10">10</option>';
     txt +=   ' </select>';
-    txt += '<button type="button" id="btn-ChooseNbTour" onclick="ValidateNbTour()">ok </button>';
+    txt += '<button type="button" id="btn-ChooseNbTour" onclick="ValidateNbTourPire()">ok </button>';
     
     txt += '</form>';
     txt += '';
@@ -37,19 +37,24 @@ function chooseNumber(){
 
 }
 
-function ValidateNbTour(){
+function ValidateNbTourPire(){
     var nbTour=document.getElementById("input_nbTour").value;
    
     array[result].nbTour = nbTour;
     parseInt(array[result].nbTour);
     console.log(nbTour);
-    displayContainerBestCombo(nbTour);
+    displayContainerPireCombo(nbTour);
     
 }
 
 
-function displayContainerBestCombo(nbTour){
-    console.log("ici");
+function displayContainerPireCombo(nbTour){
+for (b=0;b<array.length;b++){
+    array[b].meilleurscore =0;
+}
+
+
+    console.log("ici pire");
     var a = document.getElementById('input_nbplayer0').value;
     console.log(a);
      var card ="";
@@ -63,7 +68,7 @@ function displayContainerBestCombo(nbTour){
      card += '           </div>';
      card += '        </td>';
      card += '        <td>';
-     card += '           Meilleur<br>Score';
+     card += '           Pire<br>Score';
      card += '       </td>';
      card += '        <td id="position">';
      card += '          Position';
@@ -78,7 +83,7 @@ function displayContainerBestCombo(nbTour){
             card += '        <div id="nomjoueur'+i+'">'+array[b].name+'</div>';
             card += '    </td>';
             card += '    <td>';
-            card += '       <div id="score-max'+b+'">';
+            card += '       <div id="score-min'+b+'">';
             card += '           '+array[b].meilleurscore+'';
             card += '       </div>';
             card += '    </td>';
@@ -107,13 +112,13 @@ function displayContainerBestCombo(nbTour){
    //$(".f1").css("display","flex");
    $("#ligne_"+result).css("font-weight","bold");
    $('#h7').css('display', 'none');
-   $('.BestCombo').css('display', 'flex');
+   $('.PireCombo').css('display', 'flex');
    createHistoriqueJeu1();//on essaie avec cette variable, pas la pein de creer un objet historique pour tous les jeux?
    return parseInt(a);
    
 }//fin displayContainerCombo()
 
-var lancerBest = function(nb){
+var lancerPire = function(nb){
     window.navigator.vibrate(50);
      
     $(nb).addClass("green301").delay(200).queue(function(next){
@@ -122,34 +127,46 @@ var lancerBest = function(nb){
     });
     let aa = parseInt(nb.getAttribute("attr"));
     array[result].resultatTour =array[result].resultatTour+ aa;
-    document.getElementById("resultTourDivBest").innerText = array[result].resultatTour; 
+    document.getElementById("resultTourDivPire").innerText = array[result].resultatTour; 
 }
 
-function validerBest(az){
-    window.navigator.vibrate(50);
-    $(az).addClass("green301").delay(200).queue(function(next){
-        $(az).removeClass("green301");
-        next();
-      
-    });
-       
-        array[result].tousLesCoups.push(array[result].resultatTour);
-        array[result].meilleurscore = Math.max(...array[result].tousLesCoups);
-        document.getElementById('score-max'+result).innerHTML=array[result].meilleurscore;
-        document.getElementById('resultTourDivBest').innerHTML=0;
-        array[result].resultatTour =0;
-        $("#ligne_"+result).css("font-weight","initial");
-        nextPlayer();
-        document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
-        $("#ligne_"+result).css("font-weight","bold");
-        displayPosition();
-        HistoriqueJeu1Var.historique.push(JSON.stringify(array));
-       
-        if (tour> array[0].nbTour){ //on a stocké la variable dans array[0].nBtour car...je ne savais pas faire autrement!(putin de portée des variables)
-            BestComboWin();
-        }
+function validerPire(az){
+    if(document.getElementById("resultTourDivPire").innerText<=2){
+        window.navigator.vibrate(50);
+        $(az).addClass("rouge").delay(200).queue(function(next){
+            $(az).removeClass("rouge");
+            next();
+          
+        });
+           
+    }else{
+        window.navigator.vibrate(50);
+        $(az).addClass("green301").delay(200).queue(function(next){
+            $(az).removeClass("green301");
+            next();
+          
+        });
+           
+            array[result].tousLesCoups.push(array[result].resultatTour);
+            array[result].meilleurscore = Math.min(...array[result].tousLesCoups);
+            document.getElementById('score-min'+result).innerHTML=array[result].meilleurscore;
+            document.getElementById('resultTourDivPire').innerHTML=0;
+            array[result].resultatTour =0;
+            $("#ligne_"+result).css("font-weight","initial");
+            nextPlayer();
+            document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
+            $("#ligne_"+result).css("font-weight","bold");
+            displayPositionPire();
+            HistoriqueJeu1Var.historique.push(JSON.stringify(array));
+           
+            if (tour> array[0].nbTour){ //on a stocké la variable dans array[0].nBtour car...je ne savais pas faire autrement!(putin de portée des variables)
+                PireComboWin();
+            }
+    }// finvaliderPire
+
+  
         
-        function BestComboWin()
+        function PireComboWin()
         {
                 var nbjoueurs=array.length;
                 var bestScore;
@@ -159,7 +176,7 @@ function validerBest(az){
                         totaux.push(bestScore);
                     }
                 var verifSiégalité=totaux;//on créé un tableau dans lequel on supprime le score max
-                var indexmax = totaux.indexOf(Math.max(... totaux));
+                var indexmax = totaux.indexOf(Math.min(... totaux));
                 verifSiégalité.splice(indexmax, 1);
                 
                 modalwin();
@@ -175,16 +192,16 @@ function validerBest(az){
         }
 
 }//fin validerBest
-let totauxEnCours=[];
-function displayPosition(){
+//let totauxEnCours=[];
+function displayPositionPire(){
     for (a=0;a<array.length;a++){
         totauxEnCours.push(array[a]);
       }
       totauxEnCours.sort(function(a, b){
         if(a.meilleurscore > b.meilleurscore)
-            return -1;
-        if(a.meilleurscore < b.meilleurscore)
             return 1;
+        if(a.meilleurscore < b.meilleurscore)
+            return -1;
         return 0;
       });
 
@@ -200,7 +217,7 @@ function displayPosition(){
       totauxEnCours=[];
 }
 
-function returnBest(){
+function returnPire(){
     var histocoupPrecedent=HistoriqueJeu1Var.historique.length-2;
     var newstate=JSON.parse(HistoriqueJeu1Var.historique[histocoupPrecedent]);
 
@@ -226,7 +243,7 @@ function returnBest(){
     array=newstate;
     HistoriqueJeu1Var.historique.pop();//on supprime le dernier coup de l'historique
     document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
-    document.getElementById("score-max"+result).innerHTML=array[result].meilleurscore;
-    displayPosition();
+    document.getElementById("score-min"+result).innerHTML=array[result].meilleurscore;
+    displayPositionPire();
 
 }
