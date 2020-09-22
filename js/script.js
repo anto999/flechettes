@@ -104,7 +104,7 @@ function displayGamesAndRules(){
 
     var rules='<button type ="button" class="button_rules rules" onclick="displayRules()" id="rules">Règles</button>';
     var back ='<div class="backMenu" id="retourmenu" onclick="restart()">';
-    back +=       '<img class="backMenu" src=images/icons/back.png>';
+    back +=       '<img class="backMenu" src=../images/icons/back.png>';
     back +=    '</div>'
     
     $("#games").html(games);
@@ -377,7 +377,7 @@ function displayContainer200(){
         
         card += '<div class="tableaubouttons">';
         card +='<div class="ico">'; 
-             card += '<img class="icon" id="icon'+i+'" src="./images/icons/cible.png">';
+             card += '<img class="icon" id="icon'+i+'" src="../images/icons/cible.png">';
         card +='</div>'; 
             card += ' <div class="container-card" id="'+i+'">';
                 card += ' <div class ="nomjoueur200 case pl" id="nomjoueur'+i+'">'+array[b].name+'</div>';

@@ -84,8 +84,9 @@ td.pw3
 
 #canvasContainer {
     position: relative;
-    width: 300px;
+    width: 313px;
     height: 500px;
+
 }
 
 #canvas {
@@ -95,8 +96,16 @@ td.pw3
  
 #prizePointer {
     position: absolute;
-    left: 132px;
+    left: 133px;
     top: 10px;
     z-index: 999;
 }
  
+.tourneLaRoue{
+    cursor: pointer;
+    font-size: 20px;
+    background-color: rgb(236, 241, 165);
+    width: 30%;
+    margin: auto;
+    border: solid black 1px;
+}

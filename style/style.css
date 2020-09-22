@@ -145,7 +145,15 @@ background-color: red;
 }
 
 .rules{
-    background-color: yellow;
+    background-color: rgb(236, 241, 165);
+    margin: 10px 10px;
+}
+
+.otherOptions{
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+    
 }
 
 
@@ -325,7 +333,7 @@ button{
     height: 35px;
 
     background-color: rgb(239,239,239);
-    border-radius: 39px;
+    -border-radius: 39px;
     
     
 }

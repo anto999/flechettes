@@ -27,7 +27,7 @@ var card ='<table width="100%" class="containerCriquet">'+
 '<tr>'+
     '<td width="25%">'+
         '<div class="case_vide" id="retourCriquet" onclick="returnCriquet()">'+
-            '<img class="back" src=images/icons/back.png>'+
+            '<img class="back" src=../images/icons/back.png>'+
         '</div>'+
     '</td>'+
     '<td>'+
@@ -156,12 +156,12 @@ var card ='<table width="100%" class="containerCriquet">'+
     for(b=15;b<26;b++){//de 15 à 25 car bull=closed[25]
         for (i=0;i<array.length;i++){//on fait le calcul pour i c'est a dire tous les joueurs
             if (array[i].closed[b]==1){
-                document.getElementById(array[i].name+"_"+b+"_img").src = "images/icons/dart.png";
+                document.getElementById(array[i].name+"_"+b+"_img").src = "../images/icons/dart.png";
             }else if (array[i].closed[b]==2){
-                document.getElementById(array[i].name+"_"+b+"_img").src = "images/icons/dart2.png";
+                document.getElementById(array[i].name+"_"+b+"_img").src = "../images/icons/dart2.png";
             }
             else if (array[i].closed[b]==3){
-                document.getElementById(array[i].name+"_"+b+"_img").src = "images/icons/cible.png";
+                document.getElementById(array[i].name+"_"+b+"_img").src = "../images/icons/cible.png";
             }
         }
     }
@@ -170,23 +170,23 @@ var card ='<table width="100%" class="containerCriquet">'+
 
     function displayCoupsRestants(){
         if (array[result].coupsRestants==3){
-            document.getElementById("img_titre_criquet_3").src = "images/icons/dart_black.png";
-            document.getElementById("img_titre_criquet_2").src = "images/icons/dart_black.png";
-            document.getElementById("img_titre_criquet_1").src = "images/icons/dart_black.png";
+            document.getElementById("img_titre_criquet_3").src = "../images/icons/dart_black.png";
+            document.getElementById("img_titre_criquet_2").src = "../images/icons/dart_black.png";
+            document.getElementById("img_titre_criquet_1").src = "../images/icons/dart_black.png";
         }else if(array[result].coupsRestants==2){
             document.getElementById("img_titre_criquet_3").src = "";
-            document.getElementById("img_titre_criquet_2").src = "images/icons/dart_black.png";
-            document.getElementById("img_titre_criquet_1").src = "images/icons/dart_black.png";
+            document.getElementById("img_titre_criquet_2").src = "../images/icons/dart_black.png";
+            document.getElementById("img_titre_criquet_1").src = "../images/icons/dart_black.png";
         }
         else if(array[result].coupsRestants==1){
             document.getElementById("img_titre_criquet_3").src = "";
             document.getElementById("img_titre_criquet_2").src = "";
-            document.getElementById("img_titre_criquet_1").src = "images/icons/dart_black.png";
+            document.getElementById("img_titre_criquet_1").src = "../images/icons/dart_black.png";
         }else {
             console.log("bug coups restants "+array[result].name+" : " +array[result].coupsRestants+" coups restants");
-            document.getElementById("img_titre_criquet_3").src = "images/icons/back.png";
-            document.getElementById("img_titre_criquet_2").src = "images/icons/back.png";
-            document.getElementById("img_titre_criquet_1").src = "images/icons/back.png";
+            document.getElementById("img_titre_criquet_3").src = "../images/icons/back.png";
+            document.getElementById("img_titre_criquet_2").src = "../images/icons/back.png";
+            document.getElementById("img_titre_criquet_1").src = "../images/icons/back.png";
         }
         document.getElementById("titre-criquet").innerHTML=array[result].name;
         $("#ligne_"+result).css("font-weight","bold");
@@ -232,16 +232,16 @@ var card ='<table width="100%" class="containerCriquet">'+
         var thisnumber = parseInt(this.getAttribute("attr"));
     
         if ( array[result].closed[thisnumber]==1){
-            this.src='images/icons/dart.png';
+            this.src='../images/icons/dart.png';
             document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
         }else if (array[result].closed[thisnumber]==2){
-            this.src='images/icons/dart2.png';
+            this.src='../images/icons/dart2.png';
             document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
         }else if (array[result].closed[thisnumber]==3){
 
 
             
-            this.src='images/icons/cible.png';
+            this.src='../images/icons/cible.png';
             document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
         }
         for(i=0;i<array.length;i++){
@@ -259,7 +259,7 @@ var card ='<table width="100%" class="containerCriquet">'+
      if (nbdejoueurfermés==array.length){
          console.log("grisé");
          for (a=0; a<array.length;a++){
-            this.src='images/icons/full.png';
+            this.src='../images/icons/full.png';
             document.getElementById(array[a].name+'_'+thisnumber+'_img').src=this.src;
          }
      }
@@ -297,13 +297,13 @@ function simple() {
 
     //ici on met en dur ce qui equivaut a la fonction MAJtableau() en attendant de trouver comment faire pour seulement appeller cette dite fonction (cela ne marche pas quand je met MAJtableau(), cette fonction met a jour le tableu en rechargeant uniquement ce qui doit l'etre et pas le tableau entier comme dans displayTableCriquet())
     if ( array[result].closed[thisnumber]==1){
-        this.src='images/icons/dart.png';
+        this.src='../images/icons/dart.png';
         document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
     }else if (array[result].closed[thisnumber]==2){
-        this.src='images/icons/dart2.png';
+        this.src='../images/icons/dart2.png';
         document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
     }else if (array[result].closed[thisnumber]==3){
-        this.src='images/icons/cible.png';
+        this.src='../images/icons/cible.png';
         document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
     }
     for(i=0;i<array.length;i++){
@@ -319,7 +319,7 @@ function simple() {
      if (nbdejoueurfermés==array.length){
          console.log("grisé");
          for (a=0; a<array.length;a++){
-            this.src='images/icons/full.png';
+            this.src='../images/icons/full.png';
             document.getElementById(array[a].name+'_'+thisnumber+'_img').src=this.src;
          }
      }
@@ -385,13 +385,13 @@ function simple() {
         array[result].coupsRestants--;
      //ici on met en dur ce qui equivaut a la fonction MAJtableau() en attendant de trouver comment faire pour seulement appeller cette dite fonction (cela ne marche pas quand je met MAJtableau(), cette fonction met a jour le tableu en rechargeant uniquement ce qui doit l'etre et pas le tableau entier comme dans displayTableCriquet())
      if ( array[result].closed[thisnumber]==1){
-        this.src='images/icons/dart.png';
+        this.src='../images/icons/dart.png';
         document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
     }else if (array[result].closed[thisnumber]==2){
-        this.src='images/icons/dart2.png';
+        this.src='../images/icons/dart2.png';
         document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
     }else if (array[result].closed[thisnumber]==3){
-        this.src='images/icons/cible.png';
+        this.src='../images/icons/cible.png';
         document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
     }
     for(i=0;i<array.length;i++){
@@ -408,7 +408,7 @@ function simple() {
      if (nbdejoueurfermés==array.length){
          console.log("grisé");
          for (a=0; a<array.length;a++){
-            this.src='images/icons/full.png';
+            this.src='../images/icons/full.png';
             document.getElementById(array[a].name+'_'+thisnumber+'_img').src=this.src;
          }
      }
@@ -487,13 +487,13 @@ function simple() {
         array[result].coupsRestants--;
             //ici on met en dur ce qui equivaut a la fonction MAJtableau() en attendant de trouver comment faire pour seulement appeller cette dite fonction (cela ne marche pas quand je met MAJtableau(), cette fonction met a jour le tableu en rechargeant uniquement ce qui doit l'etre et pas le tableau entier comme dans displayTableCriquet())
         if ( array[result].closed[thisnumber]==1){
-            this.src='images/icons/dart.png';
+            this.src='../images/icons/dart.png';
             document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
         }else if (array[result].closed[thisnumber]==2){
-            this.src='images/icons/dart2.png';
+            this.src='../images/icons/dart2.png';
             document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
         }else if (array[result].closed[thisnumber]==3){
-            this.src='images/icons/cible.png';
+            this.src='../images/icons/cible.png';
             document.getElementById(array[result].name+'_'+thisnumber+'_img').src=this.src; //on met l'image dart sur la case correspondante
         }
         for(i=0;i<array.length;i++){
@@ -510,7 +510,7 @@ function simple() {
      if (nbdejoueurfermés==array.length){
          console.log("grisé");
          for (a=0; a<array.length;a++){
-            this.src='images/icons/full.png';
+            this.src='../images/icons/full.png';
             document.getElementById(array[a].name+'_'+thisnumber+'_img').src=this.src;
          }
      }
