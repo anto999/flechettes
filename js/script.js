@@ -104,7 +104,7 @@ function displayGamesAndRules(){
 
     var rules='<button type ="button" class="button_rules rules" onclick="displayRules()" id="rules">Règles</button>';
     var back ='<div class="backMenu" id="retourmenu" onclick="restart()">';
-    back +=       '<img class="backMenu" src=../images/icons/back.png>';
+    back +=       '<img class="backMenu" src=images/icons/back.png>';
     back +=    '</div>'
     
     $("#games").html(games);
