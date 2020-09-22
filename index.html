@@ -11,8 +11,9 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="main.css" type="text/css" />
 
-
+  <script type="text/javascript" src="winwheel-2.8.0/Winwheel.js"></script>
 </head>
 
 <body>
@@ -32,7 +33,7 @@
         <option value="7">7</option>
         <option value="8">8</option>
       </select>
-      <button type="button" id="btn-display-input-name">entrez vos noms </button>
+      <button type="button" id="btn-display-input-name" onclick="fullscreen()">entrez vos noms </button>
       <button type="button" id="btn-display-input-name-partie-rapide" onclick="partie_rapide()">partie rapide </button>
      
 
@@ -84,7 +85,7 @@
   <div id="h7"></div>
   <div id="randomdiv"></div>
   <div id ="restart"></div>
-  <div class="test">
+  <div class="test"></div>
 
   <div id="criquetDiv"></div>
 
@@ -385,6 +386,29 @@
   </div>
 
 </div>
+<div align="center" class="roue">
+  <table class="containerCanvas" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+          <td>
+              <div class="power_controls">
+                  <img id="spin_button" src="images/spin_off.png" alt="Spin" onClick="startSpin();" />
+              </div>
+          </td>
+      </tr>
+      <tr>
+          <td width="350" height="500" class="the_wheel" align="center" valign="center">
+              <div id="canvasContainer" width="350">
+                <canvas id="canvas" width="340" height="400">
+                    <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+                </canvas>
+                <img id="prizePointer" src="images/basic_pointer.png" alt="V" />
+              </div>
+          </td>
+      </tr>
+  </table>
+</div>
+
+
 
   
 
@@ -399,6 +423,9 @@
 <script src="random.js"></script>
 <script src="combo.js"></script>
 <script src="PireCombo.js"></script>
+<script src="hasard.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

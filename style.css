@@ -105,6 +105,10 @@ input::placeholder {
     width: 65%;
 }
 
+.tableauscore301{
+    width: 65%;
+}
+
 #validbest{
     background-color:#20c997;
 }
@@ -900,6 +904,10 @@ bottom:0px;
     -height: 20%;
 }
 
+.roue{
+    display: none;
+}
+
 @media only screen and (min-width:700px)and (max-width:16000px){
     .cible{
            width: 40px;
@@ -979,6 +987,7 @@ bottom:0px;
 
 .white{
     background-color: white;
+    color: #000;
 }
 
 .green301{

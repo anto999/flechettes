@@ -581,15 +581,20 @@ function simple() {
             $("#containertitrecriquet").removeClass("btnzero"); //on ajoute et on retire la class de btnzero c'est a dire o najoute un backgroud color red
             next();
         });
+        $("#btnriencriquet").addClass("white").delay(200).queue(function(next){
+            $("#btnriencriquet").removeClass("white");
+            next();
+        });
     }// fin rienCriquet
 
 
     function returnCriquet(){
-        window.navigator.vibrate(50);
+        window.navigator.vibrate(80);
         $("#containertitrecriquet").addClass("btnzero").delay(200).queue(function(next){
             $("#containertitrecriquet").removeClass("btnzero"); //on ajoute et on retire la class de btnzero c'est a dire o najoute un backgroud color red
             next();
         });
+      
         var histocoupPrecedent=HistoriqueCriquetVar.historique.length-2;
         var newstate=JSON.parse(HistoriqueCriquetVar.historique[histocoupPrecedent]);
         //nextplayer inversé:

@@ -53,6 +53,7 @@ const rapido = new Rapide ("no");
 const color = new billardcolor (0,0);//pour billardcolor
 
 function partie_rapide(){
+    fullscreen();
     window.navigator.vibrate(50);
    rapido.state="ok";
     console.log(rapido);
@@ -99,6 +100,7 @@ function displayGamesAndRules(){
     games += ' <button type ="button" class="create_myfunction games" onclick="chooseNumber()" id="BestCombo">Best Combo</button>';
     games += ' <button type ="button" class="create_myfunction games" onclick="chooseNumberPire()" id="PireCombo">Pire Combo</button>';
     games += ' <button type ="button" class="button_random games" onclick="random()" id="random">Random</button>';
+    games += ' <button type ="button" class="button_random games" onclick="Jeu_au_hasard()" id="hasard">Au hasard!</button>';
 
     var rules='<button type ="button" class="button_rules rules" onclick="displayRules()" id="rules">Règles</button>';
     var back ='<div class="backMenu" id="retourmenu" onclick="restart()">';
@@ -286,7 +288,7 @@ function addPlayer() { //enregistre les joueurs dans un tableau puis créé ces 
             
         }//fin createPlayer
     document.getElementById("lancer1").focus();
-    fullscreen();
+    
 }// fin myfunc
 
 function createPlayer()
@@ -309,7 +311,7 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
      var card ="";
      b=0;
      
-     card += ' <table>';
+     card += ' <table class="tableauscore301">';
      card += '      <tr>';
      card += '        <td>';
      card += '            <div class="table_nom_joueur">';
@@ -318,6 +320,9 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
      card += '        </td>';
      card += '        <td>';
      card += '           score';
+     card += '       </td>';
+     card += '        <td  class="pos">';
+     card += '           pos';
      card += '       </td>';
      card += '   </tr>';
      
@@ -334,6 +339,11 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
             card += '           '+array[b].pointsRestantsActuels+'';
             card += '       </div>';
             card += '   </td>';
+            card += '    <td>';
+            card += '       <div id="position301_'+b+'">';
+            card += '           '+array[b].position+'';
+            card += '       </div>';
+            card += '   </td>';
             card += '   </tr>';
 
         
@@ -346,6 +356,7 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
    document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
    //$(".f1").css("display","flex");
    $("#ligne_"+result).css("font-weight","bold");
+   displayPosition301();
    return parseInt(a);
    
 }//fin displayContainer()
@@ -748,6 +759,7 @@ function perdu1(){
          document.getElementById("resultTourDiv").innerText = array[result].resultatTour;       
          array[result].pointsRestantsActuels=array[result].pointsRestantsActuels-aa;
          document.getElementById("points-restants"+result).innerHTML=array[result].pointsRestantsActuels;
+         displayPosition301();
      }
 
      function valider(az){
@@ -769,6 +781,7 @@ function perdu1(){
             array[result].resultatTour=0;
             document.getElementById("resultTourDiv").innerText = 0;
             HistoriqueJeu1Var.historique.push(JSON.stringify(array));
+            displayPosition301();
 
         }else if (array[result].resultatTour < array[result].pointsrestantsDebutTour){
               array[result].pointsrestantsDebutTour=array[result].pointsRestantsActuels;
@@ -779,6 +792,7 @@ function perdu1(){
               array[result].resultatTour=0;
               document.getElementById("resultTourDiv").innerText = 0;
               HistoriqueJeu1Var.historique.push(JSON.stringify(array));
+              
 
         }else if (array[result].resultatTour == array[result].pointsrestantsDebutTour){
             console.log("gagné!");
@@ -861,4 +875,27 @@ function perdu1(){
         }
     });
 
- 
+    function displayPosition301(){
+        for (a=0;a<array.length;a++){
+            totauxEnCours.push(array[a]);
+          }
+          totauxEnCours.sort(function(a, b){
+            if(a.pointsRestantsActuels < b.pointsRestantsActuels)
+                return -1;
+            if(a.pointsRestantsActuels > b.pointsRestantsActuels)
+                return 1;
+            return 0;
+          });
+    
+          for(i=0;i<array.length;i++) {
+            if(i != 0 && totauxEnCours[i].pointsRestantsActuels == totauxEnCours[i-1].pointsRestantsActuels)  // Si on a le même score que le précédent, on donne le même classement
+                totauxEnCours[i].position = totauxEnCours[i-1].position;
+            else                                            // Sinon on met bien l'index +1
+                totauxEnCours[i].position = i+1;
+        }
+          for (a=0;a<array.length;a++){
+            document.getElementById("position301_"+a).innerHTML=array[a].position;
+          }
+          console.log(totauxEnCours);
+          totauxEnCours=[];
+    }

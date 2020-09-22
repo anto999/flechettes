@@ -723,7 +723,7 @@ function displayContainerBillard(){
     console.log(a);
      var card ="";
      b=0;
-     card += ' <table style="width:50%">';
+     card += ' <table style="width:65%">';
      card += '      <tr>';
      card += '        <td>';
      card += '            <div class="table_nom_joueur">';
@@ -732,6 +732,9 @@ function displayContainerBillard(){
      card += '        </td>';
      card += '        <td>';
      card += '           score';
+     card += '       </td>';
+     card += '        <td>';
+     card += '           pos';
      card += '       </td>';
      card += '   </tr>';
         for(i=0;i<a;i++)
@@ -744,6 +747,9 @@ function displayContainerBillard(){
             card += '       </td>';
             card += '      <td>';
             card += '        <div class ="" id="score'+i+'"> '+array[b].resultatTotal+'</div>';
+            card += '      </td>';
+            card += '      <td>';
+            card += '        <div class ="" id="positionBillard_'+i+'"> '+array[b].position+'</div>';
             card += '      </td>';
             card += ' </tr>';
         
@@ -772,6 +778,7 @@ function nextPlayerbillard(){
         document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
     }
     $("#ligne_"+result).css("font-weight","bold");
+    displayPositionBillard();
 }
 
 function billardWin()
@@ -799,6 +806,7 @@ function billardWin()
         document.getElementById("titre").innerHTML="Victoire de  " +array[indexmax].name+" !"//ici modalwin ne suffit pas car elle fait appler a array[name] alors que nous voulons array[indexmax] 
         displayrestart();
         $('.containerboule').css("display","none");//on efface les boules
+        displayPositionBillard();
 
         throw new Error('This is not an error. This is just to abort javascript');//juste pour stopper le script et ne pas passer à l'instruction suivante
 
@@ -847,6 +855,37 @@ function toto(){
     console.log(toto);
     return toto;
 }
+
+
+
+
+function displayPositionBillard(){
+    for (a=0;a<array.length;a++){
+        totauxEnCours.push(array[a]);
+      }
+      totauxEnCours.sort(function(a, b){
+        if(a.resultatTotal > b.resultatTotal)
+            return -1;
+        if(a.resultatTotal < b.resultatTotal)
+            return 1;
+        return 0;
+      });
+
+      for(i=0;i<array.length;i++) {
+        if(i != 0 && totauxEnCours[i].resultatTotal == totauxEnCours[i-1].resultatTotal)  // Si on a le même score que le précédent, on donne le même classement
+            totauxEnCours[i].position = totauxEnCours[i-1].position;
+        else                                            // Sinon on met bien l'index +1
+            totauxEnCours[i].position = i+1;
+    }
+      for (a=0;a<array.length;a++){
+        document.getElementById("positionBillard_"+a).innerHTML=array[a].position;
+      }
+      console.log(totauxEnCours);
+      totauxEnCours=[];
+}
+
+
+
 
 
 

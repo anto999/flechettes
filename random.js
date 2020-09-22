@@ -12,7 +12,7 @@ var displaycontainerRandom = function (){
     console.log(a);
      var card ="";
      b=0;
-     card += ' <table style="width:50%">';
+     card += ' <table style="width:65%">';
      card += '      <tr>';
      card += '        <td>';
      card += '            <div class="table_nom_joueur">';
@@ -22,6 +22,9 @@ var displaycontainerRandom = function (){
      card += '        <td>';
      card += '           score';
      card += '       </td>';
+     card += '        <td>';
+     card += '           pos';
+     card += '       </td>';
      card += '   </tr>';
         for(i=0;i<a;i++){
             card += ' <tr  id="ligne_'+b+'">';
@@ -30,6 +33,9 @@ var displaycontainerRandom = function (){
             card += '       </td>';
             card += '      <td>';
             card += '        <div class ="" id="score'+i+'"> '+array[b].score+'</div>';
+            card += '      </td>';
+            card += '      <td>';
+            card += '        <div class ="" id="scorePos'+i+'"> '+array[b].position+'</div>';
             card += '      </td>';
             card += ' </tr>';
         b=b+1;
@@ -59,6 +65,7 @@ var displaycontainerRandom = function (){
 }
 
 var givemerandom = function (){
+    
     var randomNumber = Math.floor(Math.random() * 20) + 1;
     console.log(randomNumber);
     $("#h7").html(randomNumber);
@@ -78,6 +85,7 @@ var givemerandom = function (){
         document.getElementById("score"+result).innerHTML=array[result].score;
         verifWinRandom();
         givemerandom();
+        displayPositionRandom();
     }
 
     var bad = function(){
@@ -86,6 +94,7 @@ var givemerandom = function (){
         nextPlayer();
         $("#ligne_"+result).css("font-weight","bold");
         givemerandom();
+        displayPositionRandom();
         document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
     }
 
@@ -95,4 +104,29 @@ var givemerandom = function (){
             modalwin();
             displayrestart();
         }
+    }
+
+    function displayPositionRandom(){
+        for (a=0;a<array.length;a++){
+            totauxEnCours.push(array[a]);
+          }
+          totauxEnCours.sort(function(a, b){
+            if(a.score > b.score)
+                return -1;
+            if(a.score < b.score)
+                return 1;
+            return 0;
+          });
+    
+          for(i=0;i<array.length;i++) {
+            if(i != 0 && totauxEnCours[i].score == totauxEnCours[i-1].score)  // Si on a le même score que le précédent, on donne le même classement
+                totauxEnCours[i].position = totauxEnCours[i-1].position;
+            else                                            // Sinon on met bien l'index +1
+                totauxEnCours[i].position = i+1;
+        }
+          for (a=0;a<array.length;a++){
+            document.getElementById("scorePos"+a).innerHTML=array[a].position;
+          }
+          console.log(totauxEnCours);
+          totauxEnCours=[];
     }
