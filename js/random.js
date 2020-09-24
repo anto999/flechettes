@@ -48,10 +48,10 @@ var displaycontainerRandom = function (){
 
     var card2="";
     card2 += ' <div id="container_random" class="container_random">';
-    card2 += '   <div id="ok" class="btnrandom" onclick="good()">';
+    card2 += '   <div id="ok" class="ok btnrandom" onclick="good(this)">';
     card2 += '     OK';
     card2 += '   </div>';
-    card2 += '   <div id="no" class="btnrandom" onclick="bad()">';
+    card2 += '   <div id="no" class="no btnrandom" onclick="bad(this)">';
     card2 += '     NO';
     card2 += '   </div>';
     card2 += ' </div>';
@@ -71,7 +71,7 @@ var givemerandom = function (){
     console.log(randomNumber);
     $("#h7").html(randomNumber);
     document.getElementById("h7").setAttribute(
-        "style", "background-color: beige; text-align: center; font-size:9em; line-height:130px;border: solid; width: 50%; margin: 5px auto;");
+        "style", "background-color: beige; text-align: center; font-size:9em; line-height:130px;border: solid; width: 50%; margin: 5px auto; color:#000");
         if (window.screen.width >= 500){
             document.getElementById("h7").setAttribute(
                 "style", "background-color: beige; text-align: center; font-size:10em; width:80%; margin-left:10%;");
@@ -80,8 +80,13 @@ var givemerandom = function (){
      
     }//fin givemerandom
 
-    var good= function(){
+    var good= function(x){
         window.navigator.vibrate(50);
+        $(x).addClass("grey").delay(200).queue(function(next){
+            $(x).removeClass("grey");
+            next();
+        });
+
         array[result].score++;
         document.getElementById("score"+result).innerHTML=array[result].score;
         verifWinRandom();
@@ -89,8 +94,12 @@ var givemerandom = function (){
         displayPositionRandom();
     }
 
-    var bad = function(){
+    var bad = function(x){
         window.navigator.vibrate(50);
+        $(x).addClass("grey").delay(200).queue(function(next){
+            $(x).removeClass("grey");
+            next();
+        });
         $("#ligne_"+result).css("font-weight","initial");
         nextPlayer();
         $("#ligne_"+result).css("font-weight","bold");

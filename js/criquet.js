@@ -33,7 +33,7 @@ var card ='<table width="100%" class="containerCriquet">'+
     '</td>'+
     '<td>'+
         '<div class="score_ligne ligne" id="score_ligne">'+
-            'pts'+
+            'Pts'+
         '</div>'+
     '</td>'+
     '<td>'+
@@ -582,8 +582,8 @@ function simple() {
             $("#containertitrecriquet").removeClass("btnzero"); //on ajoute et on retire la class de btnzero c'est a dire o najoute un backgroud color red
             next();
         });
-        $("#btnriencriquet").addClass("white").delay(200).queue(function(next){
-            $("#btnriencriquet").removeClass("white");
+        $("#btnriencriquet").addClass("grey").delay(200).queue(function(next){
+            $("#btnriencriquet").removeClass("grey");
             next();
         });
     }// fin rienCriquet

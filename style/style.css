@@ -7,6 +7,7 @@ body {
     -width:100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    color:#000;
 }
 .containerTourBillard{
     display: flex;
@@ -92,7 +93,7 @@ input::placeholder {
     font-size: 3.5em;
     font-weight: 600;
     cursor: pointer;
-   
+    padding: 0 5px;
 }
 
 
@@ -136,12 +137,19 @@ input::placeholder {
     font-weight: 600;
 }
 
-#no{
-background-color: red;
+.grey{
+    background-color: grey !important;
+    color: #000 !important;
 }
 
-#ok{
+.no{
+background-color: red;
+color: #000;
+}
+
+.ok{
     background-color: green;
+    color: #000;
 }
 
 .rules{
@@ -809,17 +817,24 @@ bottom:0px;
 
 .inputPass{
     width:200px;
-  
+    
+}
+
+.containerPass{
+    text-align: center;
 }
 
 .validatepass{
     cursor: pointer;
     background-color: #ADFF2F;
     max-width: min-content;
+    margin: 10px auto;
+
 }
 
 .link{
     display: none;
+    justify-content: center;
 }
 
 .MonChampionnat{
