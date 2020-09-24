@@ -8,7 +8,6 @@ function Jeu_au_hasard(){
     $(".otherOptions").css("display","none");
 }
  
- 
  // Create new wheel object specifying the parameters at creation time.
             let theWheel = new Winwheel({
                 'numSegments'  : 11,     // Specify number of segments.
@@ -63,8 +62,6 @@ function Jeu_au_hasard(){
             // -------------------------------------------------------
             function alertPrize(indicatedSegment)
             {
-               
-
                 if(indicatedSegment.text=="301"){
                     var game_selected = "301";
                     console.log(game_selected);
@@ -124,17 +121,13 @@ function Jeu_au_hasard(){
                 else{
                     console.log("aps 301 !");
                 }
-
-
                 function animHasard(){
                     console.log("animhasard()");
                     document.getElementById("titre").innerText=game_selected;
                     $("#titre").animate({height: "300px",fontSize: "70px",paddingTop: "13%"});           
                     $("#titre").delay(1500).animate({height: "10%",fontSize: "1em", paddingTop: "0"});
                     $('.roue').css("display","none");
-                }
-              
-              
+                }           
                 // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
                // alert("You have won " + indicatedSegment.text);
             }

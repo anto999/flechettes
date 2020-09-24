@@ -14,7 +14,7 @@ var displaycontainerRandom = function (){
      var card ="";
      b=0;
      card += ' <table style="width:70%; font-size: 1.3em; border: solid 2px; margin-top:4px">';
-     card += '      <tr>';
+     card += '      <tr style="border-bottom: 1px solid black;">';
      card += '        <td>';
      card += '            <div class="table_nom_joueur">';
      card += '                Joueur';

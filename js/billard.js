@@ -11,7 +11,6 @@ function b1(){
     var thisnumb=parseInt(this.innerText);
     var del = arraybillard.array;
     var index=del.indexOf(thisnumb);
-        //console.log(index);
         if (index> -1){
             del.splice(index,1);
         $("#boule"+thisnumb).removeClass("boulevert");
@@ -30,13 +29,11 @@ function b1(){
 }//fin b1
 
 function displayContainerBillard(){
-
     var a = document.getElementById('input_nbplayer0').value;
-  //  console.log(a);
      var card ="";
      b=0;
      card += ' <table style="width:75%; font-size:1.3em; border: solid 2px; margin-top:5px;">';
-     card += '      <tr>';
+     card += '      <tr style="border-bottom: 1px solid black;">';
      card += '        <td>';
      card += '            <div class="table_nom_joueur">';
      card += '                Joueur';
@@ -51,9 +48,7 @@ function displayContainerBillard(){
      card += '   </tr>';
         for(i=0;i<a;i++)
         {
-       
-     //   console.log(array[b]);
-        card += ' <tr  id="ligne_'+b+'">';
+            card += ' <tr  id="ligne_'+b+'">';
             card += '      <td>';
             card += '         <div id="nomjoueur'+i+'">'+array[b].name+'</div>';
             card += '       </td>';
@@ -64,8 +59,7 @@ function displayContainerBillard(){
             card += '        <div class ="" id="positionBillard_'+i+'"> '+array[b].position+'</div>';
             card += '      </td>';
             card += ' </tr>';
-        
-              b=b+1;
+            b=b+1;
          }    
 
          $("#h6").html(card);
@@ -317,7 +311,7 @@ function displayContainerBillardColor(){
      var card ="";
      b=0;
      card += ' <table style="width:70%;font-size:1.3em; border: solid">';
-     card += '      <tr>';
+     card += '      <tr style="border-bottom: 1px solid black;">';
      card += '        <td>';
      card += '            <div class="table_nom_joueur">';
      card += '                Joueur';
@@ -334,9 +328,8 @@ function displayContainerBillardColor(){
      card += '   </tr>';
         for(i=0;i<2;i++)
         {
-       
         //console.log(array[b]);
-        card += ' <tr  id="ligne_'+b+'" class="'+array[b].equipe+ '">';
+            card += ' <tr  id="ligne_'+b+'" class="'+array[b].equipe+ '">';
             card += '      <td>';
             card += '         <div id="nomjoueur'+i+'">'+array[b].name+'</div>';
             card += '       </td>';
@@ -347,12 +340,9 @@ function displayContainerBillardColor(){
             card += '        <div class ="" id="score'+i+'"> '+array[b].resultatTotal+'</div>';
             card += '      </td>';
             card += ' </tr>';
-        
-              b=b+1;
+            b=b+1;
          }    
          $("#h6").html(card);
-        // $("#ligne_"+result).css("font-weight","bold");
          $("#h6").css("display","flex");
-       
          return parseInt(a);
       }//fin displayContainerBillardColor()

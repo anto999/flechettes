@@ -35,7 +35,6 @@ function chooseNumberPire(){
     txt += '';
 
     $("#h7").html(txt);
-
 }
 
 function ValidateNbTourPire(){
@@ -48,21 +47,17 @@ function ValidateNbTourPire(){
     
 }
 
-
 function displayContainerPireCombo(nbTour){
-for (b=0;b<array.length;b++){
-    array[b].meilleurscore =0;
+    for (b=0;b<array.length;b++){
+        array[b].meilleurscore =0;
 }
-
-
-    console.log("ici pire");
     var a = document.getElementById('input_nbplayer0').value;
     console.log(a);
      var card ="";
      b=0;
      
      card += ' <table class="scoreCombo">';
-     card += '      <tr>';
+     card += '    <tr style="border-bottom: 1px solid black;">';;
      card += '        <td>';
      card += '            <div class="table_nom_joueur">';
      card += '                Joueur';

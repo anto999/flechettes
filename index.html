@@ -6,10 +6,8 @@
 
   <meta charset="utf-8"  name='viewport'  content="width=device-width">
   <meta name="mobile-web-app-capable" content="yes"><!--pour se mettre en fullscreen dans chrome android-->
- 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
-
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="style/main.css" type="text/css" />
 
@@ -18,34 +16,25 @@
 
 <body>
   <div id="selectedGame"> </div>
-
     <div class="container-title">
-        <div class="titre" id="titre" onclick="fullscreen()"> Choisissez le nombre de joueurs</div>
-
-    <form class="selectplayers" id="formOptions">
-      <select id="input_nbplayer0">
-        <option value="1">1</option>
-        <option value="2" selected>2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-      </select>
-      <button type="button" id="btn-display-input-name" onclick="fullscreen()">Entrez vos noms </button>
-      <button type="button" id="btn-display-input-name-partie-rapide" onclick="partie_rapide()">Partie rapide </button>
-     
-
-      
-      <h1 class="ok"></h1>
-      <div class="MonChampionnat"><a href="html/pass.html">Mon championnat</a></div>
-      
-    </form>
-    
+      <div class="titre" id="titre" onclick="fullscreen()"> Choisissez le nombre de joueurs</div>
+      <form class="selectplayers" id="formOptions">
+        <select id="input_nbplayer0">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+        </select>
+        <button type="button" id="btn-display-input-name" onclick="fullscreen()">Entrez vos noms </button>
+        <button type="button" id="btn-display-input-name-partie-rapide" onclick="partie_rapide()">Partie rapide </button>
+        <h1 class="ok"></h1>
+        <div class="MonChampionnat"><a href="html/pass.html">Mon championnat</a></div>
+      </form>
   </div>
-
-
 
   <form class="301" id="form">
     <div class="contflech">
@@ -110,7 +99,7 @@
   <div class="boutonscriquet" width="100%">
     <table width="100%" class="boutonscriquet">
         <tbody>    
-               
+            <tr>
                 <td style="width:14%"></td>
                 <td style="width:14%"></td>
                 <td style="width:14%"></td>
@@ -119,9 +108,7 @@
                 <td style="width:14%"></td>
                 <td style="width:16%"></td>
             </tr>
-            
             <tr>
-               
                 <td>
                     <div class="btn15 btncriquet btncriquetsimple" attr="15" id="btn15">15</div>
                 </td>
@@ -145,7 +132,6 @@
                 </td>
             </tr>
             <tr>
-               
                 <td>
                     <div class="btn15x2 btncriquet btncriquetdouble" attr=15 id="btn15x2">15*2</div>
                 </td>
@@ -169,7 +155,6 @@
                 </td>
             </tr>
             <tr>
-                
                 <td>
                     <div class="btn15x3 btncriquet btncriquettriple" attr=15 id="btn15x3">15*3</div>
                 </td>
@@ -208,9 +193,6 @@
         </tbody>
     </table>
 </div>
-
-</div><!--fin div test-->
-
  
   <div class="containerboule">
     <div class="boule boule1 boulevert bouledebillard" id="boule1">1</div>
@@ -290,7 +272,7 @@
     <div onclick ="lancer(this)" class="boule" attr="19" id="calc19">19</div>
     <div onclick ="lancer(this)" class="boule" attr="20" id="calc20">20</div>
     <div class="containertour">
-      <div class="tour"> tour&nbsp: </div>
+      <div class="tour"> Tour&nbsp: </div>
       <div class="nbtour" id="nbtour">1</div>
     </div>
     <div onclick ="valider(this)" class="boule" id="calcsuivant">ok</div>
@@ -416,8 +398,7 @@
 </body>
 <script src="js/jquery.min.js"></script>
 <script src="js/script.js"></script> 
-<script src="js/testcreationtablecriquet.js"></script>
-<script src="js/plus-deux-cents.js"></script>
+<script src="js/criquet.js"></script>
 <script src="js/billard.js"></script>
 <script src="js/random.js"></script>
 <script src="js/combo.js"></script>

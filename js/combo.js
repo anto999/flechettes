@@ -7,7 +7,6 @@ function chooseNumber(){
     $('#games').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
     $(".otherOptions").css("display","none");
     addPlayer();
-
     
     var txt='<div class ="chooseNumber">';
     txt +=   'Choisissez le nombre de tour :';
@@ -26,28 +25,17 @@ function chooseNumber(){
     txt +=     '<option value="10">10</option>';
     txt +=   ' </select>';
     txt += '<button type="button" id="btn-ChooseNbTour" onclick="ValidateNbTour()">ok </button>';
-    
     txt += '</form>';
-    txt += '';
-    txt += '';
-    txt += '';
-    txt += '';
-    txt += '';
-
     $("#h7").html(txt);
-
 }
 
 function ValidateNbTour(){
     var nbTour=document.getElementById("input_nbTour").value;
-   
     array[result].nbTour = nbTour;
     parseInt(array[result].nbTour);
     console.log(nbTour);
     displayContainerBestCombo(nbTour);
-    
 }
-
 
 function displayContainerBestCombo(nbTour){
     console.log("ici");
@@ -57,7 +45,7 @@ function displayContainerBestCombo(nbTour){
      b=0;
      
      card += ' <table class="scoreCombo">';
-     card += '      <tr>';
+     card += '   <tr style="border-bottom: 1px solid black;">';
      card += '        <td>';
      card += '            <div class="table_nom_joueur">';
      card += '                Joueur';
@@ -73,7 +61,6 @@ function displayContainerBestCombo(nbTour){
      
         for(i=0;i<a;i++)
         {
-       
             card += ' <tr  id="ligne_'+b+'">';
             card += '    <td>';
             card += '        <div id="nomjoueur'+i+'">'+array[b].name+'</div>';
@@ -87,8 +74,7 @@ function displayContainerBestCombo(nbTour){
             card += '          0';
             card += '     </td>';
             card += '   </tr>';
- 
-        b=b+1;
+            b=b+1;
          }   
       card += '</table> ';
       card += '<div class="containertourbest">';
@@ -112,12 +98,10 @@ function displayContainerBestCombo(nbTour){
    $("#containertitrecriquet").css("display","none");
    createHistoriqueJeu1();//on essaie avec cette variable, pas la pein de creer un objet historique pour tous les jeux?
    return parseInt(a);
-   
 }//fin displayContainerCombo()
 
 var lancerBest = function(nb){
     window.navigator.vibrate(50);
-     
     $(nb).addClass("green301").delay(200).queue(function(next){
         $(nb).removeClass("green301");
         next();
@@ -132,7 +116,6 @@ function validerBest(az){
     $(az).addClass("green301").delay(200).queue(function(next){
         $(az).removeClass("green301");
         next();
-      
     });
        
         array[result].tousLesCoups.push(array[result].resultatTour);
@@ -150,7 +133,6 @@ function validerBest(az){
         if (tour> array[0].nbTour){ //on a stocké la variable dans array[0].nBtour car...je ne savais pas faire autrement!(putin de portée des variables)
             BestComboWin();
         }
-        
         function BestComboWin()
         {
                 var nbjoueurs=array.length;
@@ -163,7 +145,6 @@ function validerBest(az){
                 var verifSiégalité=totaux;//on créé un tableau dans lequel on supprime le score max
                 var indexmax = totaux.indexOf(Math.max(... totaux));
                 verifSiégalité.splice(indexmax, 1);
-                
                 modalwin();
                 document.getElementById("titre").innerHTML="Victoire de  " +array[indexmax].name+" !"//ici modalwin ne suffit pas car elle fait appler a array[name] alors que nous voulons array[indexmax] 
                 $("#ligne_"+result).css("font-weight","initial");
@@ -171,11 +152,8 @@ function validerBest(az){
                 displayrestart();
                 $('.BestCombo').css("display","none");//on efface les boules
                 document.getElementById("containertourbest").innerText= tour-1;
-                
-        
                 throw new Error('This is not an error. This is just to abort javascript');//juste pour stopper le script et ne pas passer à l'instruction suivante
         }
-
 }//fin validerBest
 let totauxEnCours=[];
 function displayPosition(){
@@ -189,7 +167,6 @@ function displayPosition(){
             return 1;
         return 0;
       });
-
       for(i=0;i<array.length;i++) {
         if(i != 0 && totauxEnCours[i].meilleurscore == totauxEnCours[i-1].meilleurscore)  // Si on a le même score que le précédent, on donne le même classement
             totauxEnCours[i].position = totauxEnCours[i-1].position;
@@ -215,20 +192,15 @@ function returnBest(){
             for(var i in eles) {
                 document.getElementsByClassName("nbtour")[i].innerText = tour;
             }
-
     }
     else{
         result=result-1;
-
     }
-
     $("#ligne_"+result).css("font-weight","bold");
     document.getElementById("resultTourDiv").innerText = 0;
-
     array=newstate;
     HistoriqueJeu1Var.historique.pop();//on supprime le dernier coup de l'historique
     document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
     document.getElementById("score-max"+result).innerHTML=array[result].meilleurscore;
     displayPosition();
-
 }

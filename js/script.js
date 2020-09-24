@@ -236,7 +236,7 @@ function addPlayer() { //enregistre les joueurs dans un tableau puis créé ces 
     {
         if(rapido.state=="ok")
         { //
-            var nom = "joueur_"+aa;
+            var nom = "Joueur_"+aa;
             console.log(nom);
             console.log("test ici");
             res.push(nom);
@@ -309,7 +309,7 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
      b=0;
      
      card += ' <table class="tableauscore301">';
-     card += '      <tr>';
+     card += '      <tr style="border-bottom: 1px solid black; ">';
      card += '        <td>';
      card += '            <div class="table_nom_joueur">';
      card += '                Joueur';
