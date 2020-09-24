@@ -5,6 +5,7 @@ function chooseNumberPire(){
     $('.backMenu').css('display', 'none');
     $('#inputname').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
     $('#games').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
+   
     addPlayer();
 
     
@@ -113,6 +114,8 @@ for (b=0;b<array.length;b++){
    $("#ligne_"+result).css("font-weight","bold");
    $('#h7').css('display', 'none');
    $('.PireCombo').css('display', 'flex');
+   $(".otherOptions").css("display","none");
+   $("#containertitrecriquet").css("display","none");
    createHistoriqueJeu1();//on essaie avec cette variable, pas la pein de creer un objet historique pour tous les jeux?
    return parseInt(a);
    

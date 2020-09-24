@@ -5,6 +5,7 @@ function chooseNumber(){
     $('.backMenu').css('display', 'none');
     $('#inputname').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
     $('#games').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
+    $(".otherOptions").css("display","none");
     addPlayer();
 
     
@@ -108,6 +109,7 @@ function displayContainerBestCombo(nbTour){
    $("#ligne_"+result).css("font-weight","bold");
    $('#h7').css('display', 'none');
    $('.BestCombo').css('display', 'flex');
+   $("#containertitrecriquet").css("display","none");
    createHistoriqueJeu1();//on essaie avec cette variable, pas la pein de creer un objet historique pour tous les jeux?
    return parseInt(a);
    

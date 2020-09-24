@@ -5,6 +5,7 @@ function Jeu_au_hasard(){
     $('.rules').css("display","none");
     $('.roue').css("display","flex");
     $('#inputname').css("display","none");
+    $(".otherOptions").css("display","none");
 }
  
  

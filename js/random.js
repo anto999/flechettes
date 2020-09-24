@@ -3,6 +3,7 @@ function random(){
     givemerandom();
     document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
     displaycontainerRandom();
+    $(".otherOptions").css("display","none");
     
  
 }
@@ -12,18 +13,18 @@ var displaycontainerRandom = function (){
     console.log(a);
      var card ="";
      b=0;
-     card += ' <table style="width:65%">';
+     card += ' <table style="width:70%; font-size: 1.3em; border: solid 2px; margin-top:4px">';
      card += '      <tr>';
      card += '        <td>';
      card += '            <div class="table_nom_joueur">';
-     card += '                joueur';
+     card += '                Joueur';
      card += '           </div>';
      card += '        </td>';
      card += '        <td>';
-     card += '           score';
+     card += '           Score';
      card += '       </td>';
      card += '        <td>';
-     card += '           pos';
+     card += '           Pos';
      card += '       </td>';
      card += '   </tr>';
         for(i=0;i<a;i++){
@@ -47,17 +48,17 @@ var displaycontainerRandom = function (){
 
     var card2="";
     card2 += ' <div id="container_random" class="container_random">';
-    card2 += '  <div class="containertourRandom"> ';
-    card2 += '    <div class="tour"> tour&nbsp:</div>    ';
-    card2 += '    <div class="nbtour nbtourRandom">1</div>    ';
-    card2 += '  </div> ';
     card2 += '   <div id="ok" class="btnrandom" onclick="good()">';
-    card2 += '     ok';
+    card2 += '     OK';
     card2 += '   </div>';
     card2 += '   <div id="no" class="btnrandom" onclick="bad()">';
-    card2 += '     no';
+    card2 += '     NO';
     card2 += '   </div>';
     card2 += ' </div>';
+    card2 += '  <div class="containertourRandom"> ';
+    card2 += '    <div class="tour"> Tour&nbsp:</div>    ';
+    card2 += '    <div class="nbtour nbtourRandom">1</div>    ';
+    card2 += '  </div> ';
 
     $("#randomdiv").html(card2);
    return parseInt(a);
@@ -70,7 +71,7 @@ var givemerandom = function (){
     console.log(randomNumber);
     $("#h7").html(randomNumber);
     document.getElementById("h7").setAttribute(
-        "style", "background-color: beige; text-align: center; font-size:10em;");
+        "style", "background-color: beige; text-align: center; font-size:9em; line-height:130px;border: solid; width: 50%; margin: 5px auto;");
         if (window.screen.width >= 500){
             document.getElementById("h7").setAttribute(
                 "style", "background-color: beige; text-align: center; font-size:10em; width:80%; margin-left:10%;");

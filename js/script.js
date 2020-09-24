@@ -28,7 +28,6 @@ function viber(){
     window.navigator.vibrate(50);
 }
 
-
 var fullscreen= function(){
     if (window.screen.width <= 500){
     document.documentElement.webkitRequestFullScreen();
@@ -215,9 +214,7 @@ function enchaine(){
     $('.test').css("display","none");
     addPlayer();
     displayContainer();
-   // $('#form').show(100);
-    //$('#form').css("display","flex")
-  //  document.getElementById("lancer1").focus();
+    $('#containertitrecriquet').css("display","none");
     $('.container-title').css("margin-top","10px")
     $('#icon0').css("visibility","initial");
     $('.calculette301').css("display","flex");
@@ -315,14 +312,14 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
      card += '      <tr>';
      card += '        <td>';
      card += '            <div class="table_nom_joueur">';
-     card += '                joueur';
+     card += '                Joueur';
      card += '           </div>';
      card += '        </td>';
      card += '        <td>';
-     card += '           score';
+     card += '           Score';
      card += '       </td>';
      card += '        <td  class="pos">';
-     card += '           pos';
+     card += '           Pos';
      card += '       </td>';
      card += '   </tr>';
      
@@ -351,11 +348,12 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
         b=b+1;
          }   
       card += '</table> ';
-
+        
    $("#h6").html(card);
    document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
    //$(".f1").css("display","flex");
    $("#ligne_"+result).css("font-weight","bold");
+   $(".otherOptions").css("display","none");
    displayPosition301();
    return parseInt(a);
    
@@ -363,6 +361,7 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
 
 
 function displayContainer200(){
+    console.log("aaaaaaaaaaaaaa");
     $('#inputname').css('display', 'none');
     $('.container-title').css("margin-top","10px")
     addPlayer();
@@ -398,6 +397,7 @@ function displayContainer200(){
    //$(".f1").css("display","flex");
    $("#form").css("display","none");
    $('.200').css("display","block");
+   
    document.getElementById("lancer200_1").focus();
    if(array[result+1]){
     array[result+1].coupsRestants=3;
@@ -412,6 +412,7 @@ function displayContainer200(){
 }//fin displayContainer200() //valable pour Jeu1 (301,501...)
 
 function displayContainer200TEST(){
+    $(".otherOptions").css("display","none");
     $('#inputname').css('display', 'none');
     $('.container-title').css("margin-top","10px")
     addPlayer();

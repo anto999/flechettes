@@ -1,6 +1,7 @@
 function criquet(){
     addPlayer();
     displayTableCriquet();
+    $(".otherOptions").css("display","none");
     $("#titre").css("display","none");
     $("#ligne_"+result).css("font-weight","bold");
     //document.getElementById("case_vide").innerHTML="x "+array[result].coupsRestants ;
