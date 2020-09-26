@@ -94,6 +94,7 @@ input::placeholder {
     font-weight: 600;
     cursor: pointer;
     padding: 0 5px;
+    border: 1px black solid;
 }
 
 
@@ -605,6 +606,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
   #selectedGame{
       display: none;
   }
+  .boule25{
+    background-color: green !important;
+  }
+
+  .boule50{
+    background-color: red !important;
+  }
 
   .boule{
       width:18%;
@@ -807,7 +815,7 @@ bottom:0px;
 
 #calcsuivant{
     background-color: #20c997;
-    margin-left: 10px;
+   /* margin-left: 10px;*/
 }
 
 .backMenu{
@@ -905,7 +913,7 @@ bottom:0px;
     line-height: 64px;
     font-size: 30px;
     background-color: antiquewhite;
-    margin: 0 20px;
+    margin: 0 4px;
 }
 
 .calculette301{
@@ -1024,5 +1032,5 @@ bottom:0px;
 }
 
 .green301{
-    background-color: green;
+    background-color: #ADFF2F !important;
 }

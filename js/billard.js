@@ -329,7 +329,7 @@ function displayContainerBillardColor(){
         for(i=0;i<2;i++)
         {
         //console.log(array[b]);
-            card += ' <tr  id="ligne_'+b+'" class="'+array[b].equipe+ '">';
+            card += ' <tr  id="ligne_'+b+'" style="font-weight:600" class="'+array[b].equipe+ '">';
             card += '      <td>';
             card += '         <div id="nomjoueur'+i+'">'+array[b].name+'</div>';
             card += '       </td>';
@@ -340,8 +340,10 @@ function displayContainerBillardColor(){
             card += '        <div class ="" id="score'+i+'"> '+array[b].resultatTotal+'</div>';
             card += '      </td>';
             card += ' </tr>';
+          
             b=b+1;
          }    
+         card += ' </table>';
          $("#h6").html(card);
          $("#h6").css("display","flex");
          return parseInt(a);

@@ -348,6 +348,11 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
         b=b+1;
          }   
       card += '</table> ';
+      card += '<div class="containertour">';
+      card += '<div class="tour"> Tour&nbsp: </div>';
+      card += '<div class="nbtour" id="nbtour">1</div>';
+      card += '</div>';
+      
         
    $("#h6").html(card);
    document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
