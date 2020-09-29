@@ -3,7 +3,11 @@ $('#nul').click(b0);
 $('.boule').click(viber);
 
 function b0(){
+    var thisnumb=parseInt(this.innerText);
     $("#ligne_"+result).css("font-weight","initial");
+    arraybillard.lastCoup=0;
+    arraybillard.histo.push(thisnumb);
+    arraybillard.ptsRestantsEnJeu=arraybillard.ptsRestantsEnJeu-thisnumb;
     nextPlayerbillard();
 }
 
@@ -19,6 +23,9 @@ function b1(){
         $("#boule"+thisnumb).removeClass("boule"+thisnumb);
         $("#boule"+thisnumb).addClass("boulemorte");
         array[result].tableaubillard.push(thisnumb);
+        arraybillard.histo.push(thisnumb);
+        arraybillard.ptsRestantsEnJeu=arraybillard.ptsRestantsEnJeu-thisnumb;
+        arraybillard.lastCoup=1;
         array[result].fleche1=thisnumb;
         array[result].resultatTotal=array[result].resultatTotal+  array[result].fleche1;
         displayContainerBillard();
@@ -30,7 +37,7 @@ function b1(){
 
 function displayContainerBillard(){
     var a = document.getElementById('input_nbplayer0').value;
-     var card ="";
+     var card ='<div class ="containerBillard">';
      b=0;
      card += ' <table style="width:75%; font-size:1.3em; border: solid 2px; margin-top:5px;">';
      card += '      <tr style="border-bottom: 1px solid black;">';
@@ -60,20 +67,28 @@ function displayContainerBillard(){
             card += '      </td>';
             card += ' </tr>';
             b=b+1;
-         }    
+         }
+         card += '</table>';
+         card +=  '<div class="case_vide" id ="retourBillard" onclick="returnBillard()">';
+         card +=     '<img class="backBillard" src=images/icons/back.png>';
+         card +=  '</div>';// fin case_vide
+         card +='<div>';//fin containerBillard
 
          $("#h6").html(card);
          $("#h6").css("display","flex");
          return parseInt(a);
       }//fin displayContainerBillard()
 
-function nextPlayerbillard(){
-    if (result>= array.length-1){
+function nextPlayerbillard()
+{
+    if (result>= array.length-1)
+    {
         result=0;
         document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
         var eles = document.getElementsByClassName("nbtour");
         tour++;
-        for(var i in eles) {
+        for(var i in eles)
+        {
             document.getElementsByClassName("nbtour")[i].innerText = tour;
         }
     }else{
@@ -83,26 +98,32 @@ function nextPlayerbillard(){
     $("#ligne_"+result).css("font-weight","bold");
     displayPositionBillard();
 }
+//var res=1;
+
+function myFunc(total, num) {
+    return total + num;
+  }
 
 function billardWin()
 {
-    if (arraybillard.array.length==0)
-    { 
+
+    if (arraybillard.ptsRestantsEnJeu==0)
+    {
         var nbjoueurs=array.length;
         var scoretotal
         for(i=0;i<nbjoueurs;i++)
         {
             scoretotal =array[i].resultatTotal;
-            arraybillard.array.push(scoretotal)
+            arraybillard.score.push(scoretotal)
         }
-        console.log(arraybillard.array);
-        var verifSiégalité=arraybillard.array;//on créé un tableau dans lequel on supprime le score max
-        var indexmax = arraybillard.array.indexOf(Math.max(... arraybillard.array));
+        console.log(arraybillard.score);
+        var verifSiégalité=arraybillard.score;//on créé un tableau dans lequel on supprime le score max
+        var indexmax = arraybillard.score.indexOf(Math.max(... arraybillard.score));
        // console.log(indexmax);
         verifSiégalité.splice(indexmax, 1);
        // console.log(arraybillard.array);
         modalwin();
-        document.getElementById("titre").innerHTML="Victoire de  " +array[indexmax].name+" !"//ici modalwin ne suffit pas car elle fait appler a array[name] alors que nous voulons array[indexmax] 
+        document.getElementById("titre").innerHTML="Victoire de  " +array[indexmax].name+" !"//ici modalwin ne suffit pas car elle fait appler a array[name] alors que nous voulons array[indexmax]
         displayrestart();
         $('.containerboule').css("display","none");//on efface les boules
         displayPositionBillard();
@@ -114,7 +135,7 @@ class Billard
 {
     constructor(){
         this.array=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-        this.ptsRestantsEnJeu=[210];
+        this.ptsRestantsEnJeu=[210];this.histo=[];this.lastCoup=1;this.score=[];
     }
 }
 
@@ -131,7 +152,7 @@ function billard(){
     displayContainerBillard();
     $("#ligne_"+result).css("font-weight","bold");
     $('.otherOptions').css("display","none");
-    
+
     return bil;
 }
 
@@ -165,7 +186,45 @@ function displayPositionBillard(){
    //   console.log(totauxEnCours);
       totauxEnCours=[];
 }
+//a ajouter:
+function returnBillard(){
+
+    if (arraybillard.histo.length==0){
+        console.log("ko");
+    }else{
+        $("#ligne_"+result).css("font-weight","initial");
+        nextPlayerInvers();
+        $("#ligne_"+result).css("font-weight","bold");
+        var lastNumberScored =arraybillard.histo[arraybillard.histo.length-1];
+        console.log(lastNumberScored);//dernier element ajouté
+        array[result].resultatTotal = array[result].resultatTotal-lastNumberScored;
+        displayContainerBillard();
+        displayPositionBillard();
+        $("#ligne_"+result).css("font-weight","bold");
+        arraybillard.histo.pop();
+       // $("#boule"+lastNumberScored).css("visibility","initial");
+        $("#boule"+lastNumberScored).removeClass("boulemorte");
+        $("#boule"+lastNumberScored).addClass("boule");
+        arraybillard.array.push(lastNumberScored);
+        document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
+        arraybillard.ptsRestantsEnJeu=arraybillard.ptsRestantsEnJeu+lastNumberScored;
+    }
+}//fin returnBillard
+
+
+/////////////////////////////
 ////////////billartdColor:////////////////
+//////////////////////////////////
+
+class billardcolor
+{
+    constructor(rouge,vert,premiercoup){
+        this.rouge=0;this.vert=0;this.premiercoup=false;this.lastflech="";this.touche=2;this.arrayRouge=[];this.arrayVert=[];
+    }
+
+}
+const color = new billardcolor (0,0);//pour billardcolor
+
 $('.boulevertcolor').click(vert);
 $('.boulerougecolor').click(rouge);
 $('#nulcolor').click(nextPlayerBillardColor);
@@ -186,6 +245,7 @@ function nextPlayerBillardColor(){
     }else{
 
     }
+    color.touche=0;
 }
 
 function verifSiWinBillardColor(){
@@ -207,9 +267,14 @@ function vert(){
         array[result].equipe="vert";
         array[result+1].equipe="rouge";
     }
+        $('#retourBillardColor').css("visibilty","initial");
+        var x= this.innerHTML;
+        color.arrayVert.push(x);
+        console.log(color.arrayVert);
+        console.log(x);
         color.premiercoup=true;
         $(this).addClass("boulemorte");
-        $(this).removeClass("boulevertcolor");
+       // $(this).removeClass("boulevertcolor");
         color.vert=color.vert+1;
         color.lastflech="vert";
         console.log(color.vert);
@@ -218,19 +283,24 @@ function vert(){
         array[result].resultatTotal=color.vert;
         displayContainerBillardColor();
         $('.boulerougecolor').css('visibility', 'hidden');
-        $(this).css('visibility', 'hidden');
-        $('#nulcolor').css('visibility', 'initial');    
+      //  $(this).css('visibility', 'hidden');
+        $('#nulcolor').css('visibility', 'initial');
+        color.touche=1;
 }
 
-function rouge(){
+function rouge(x){
     if (color.premiercoup==false){
         document.getElementById("titre").innerHTML="Equipe rouge : " +array[result].name ;
         array[result].equipe="rouge";
         array[result+1].equipe="vert";
     }
+        $('#retourBillardColor').css("visibilty","initial");
+        var x= this.innerHTML;
+        color.arrayRouge.push(parseInt(x));
+        console.log(color.arrayRouge);
         color.premiercoup=true;
         $(this).addClass("boulemorte");
-        $(this).removeClass("boulerougecolor");
+      //  $(this).removeClass("boulerougecolor");
         color.rouge=color.rouge+1;
         color.lastflech="rouge";
         console.log(color.rouge);
@@ -239,8 +309,10 @@ function rouge(){
         array[result].resultatTotal=color.rouge;
         displayContainerBillardColor();
         $('.boulevertcolor').css('visibility', 'hidden');
-        $(this).css('visibility', 'hidden');
+       // $(this).css('visibility', 'hidden');
         $('#nulcolor').css('visibility', 'initial');
+        color.touche=1;
+
 }
 
 function billardColor(){
@@ -288,7 +360,7 @@ function myfunctionBillardColor(){
         {  // returnRes();
             //var P = document.getElementById('input_nbplayer0').value;
             for (i=0;i<2;i++)
-            {     
+            {
             const player = new Player();
             var x = res[i];
                 console.log(x);
@@ -308,7 +380,7 @@ function myfunctionBillardColor(){
 function displayContainerBillardColor(){
     var a = document.getElementById('input_nbplayer0').value;
     console.log(a);
-     var card ="";
+     var card ='<div class="containerBillardColor">';
      b=0;
      card += ' <table style="width:70%;font-size:1.3em; border: solid">';
      card += '      <tr style="border-bottom: 1px solid black;">';
@@ -329,7 +401,7 @@ function displayContainerBillardColor(){
         for(i=0;i<2;i++)
         {
         //console.log(array[b]);
-            card += ' <tr  id="ligne_'+b+'" style="font-weight:600" class="'+array[b].equipe+ '">';
+            card += ' <tr id="ligne_'+b+'" style="font-weight:600" class="'+array[b].equipe+ '">';
             card += '      <td>';
             card += '         <div id="nomjoueur'+i+'">'+array[b].name+'</div>';
             card += '       </td>';
@@ -340,11 +412,66 @@ function displayContainerBillardColor(){
             card += '        <div class ="" id="score'+i+'"> '+array[b].resultatTotal+'</div>';
             card += '      </td>';
             card += ' </tr>';
-          
+
             b=b+1;
-         }    
+         }
          card += ' </table>';
+         card +=    '<div class="case_vide" id ="retourBillardColor" onclick="returnBillardColor()">';
+         card +=        '<img class="backBillard" src=images/icons/back.png>';
+         card +=    '</div>';// fin case_vide
+        // card += ' </div>';//fin containerBillardColor
+
+
          $("#h6").html(card);
          $("#h6").css("display","flex");
          return parseInt(a);
       }//fin displayContainerBillardColor()
+
+    function returnBillardColor(){
+
+        if (color.touche ==0){ //si on execute la fonction après "joueur suivant"
+        nextPlayerInvers();
+
+            if (color.lastflech=="vert"){
+                $('.boulevertcolor').css('visibility', 'hidden');
+                $('.boulerougecolor').css('visibility', 'initial');
+                $('.boulemorte').css('visibility', 'hidden');
+
+
+            }else if (color.lastflech=="rouge"){
+                $('.boulerougecolor').css('visibility', 'hidden');
+                $('.boulevertcolor').css('visibility', 'initial');
+                $('.boulemorte').css('visibility', 'hidden');
+
+            }else{
+                console.log("pb returnBillardColor")
+            }
+        }
+        else if (color.touche ==1){ //si on execute la fonction apres avoir touché une case
+            if(color.lastflech=="vert"){
+                color.vert=color.vert-1;
+                //color.lastflech="rouge";
+                var xx = color.arrayVert[color.arrayVert.length-1]
+                console.log("xx= "+xx);
+                $("#boule"+xx+"color").removeClass("boulemorte");
+
+            }else if(color.lastflech=="rouge"){
+                color.rouge=color.rouge-1;
+              //  color.lastflech="vert";
+                var xx = color.arrayRouge[color.arrayRouge.length-1]
+                console.log("xx= "+xx);
+                $("#boule"+xx+"color").removeClass("boulemorte");
+            }
+            array[result].resultatTotal --;
+            displayContainerBillardColor();
+        }
+        else {
+            console.log("erreur probleme returnBillardColor")
+        }
+      console.log("result : "+result);
+     // $('#retourBillardColor').css("visibilty","hidden");
+      $('#retourBillardColor').css("display","none");
+      console.log("hidden");
+
+
+      }//fin returnBillardColor

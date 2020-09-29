@@ -35,12 +35,7 @@ var fullscreen= function(){
     }
 } 
 
-class billardcolor
-{
-    constructor(rouge,vert,premiercoup){
-        this.rouge=0;this.vert=0;this.premiercoup=false;this.lastflech=""};
-        
-}
+
 
 class Rapide{
     constructor(state){
@@ -49,7 +44,7 @@ class Rapide{
 
 }
 const rapido = new Rapide ("no");
-const color = new billardcolor (0,0);//pour billardcolor
+
 
 function partie_rapide(){
     fullscreen();
@@ -568,7 +563,7 @@ function verifSiwin() //verif si win le +100
  class HistoriqueJeu1
  {
      constructor(){
-         this.historique;
+         this.historique;this.lastrandomnumber=[];
      }
  }
 
@@ -807,14 +802,8 @@ function perdu1(){
         }
     }//fin valider()
 
-
-    function returnJeu1(){
-
-        var histocoupPrecedent=HistoriqueJeu1Var.historique.length-2;
-        var newstate=JSON.parse(HistoriqueJeu1Var.historique[histocoupPrecedent]);
-
-        $("#ligne_"+result).css("font-weight","initial");
-        //nextplayer inversé:
+      //nextplayer inversé:
+      function nextPlayerInvers(){
         if (result==0 ){
             result=array.length-1;
             tour--;
@@ -826,7 +815,26 @@ function perdu1(){
         }
         else{
             result=result-1;
+        }
+    }//fin nextPlayerInvers
 
+
+
+    function returnJeu1(){
+        var histocoupPrecedent=HistoriqueJeu1Var.historique.length-2;
+        var newstate=JSON.parse(HistoriqueJeu1Var.historique[histocoupPrecedent]);
+        $("#ligne_"+result).css("font-weight","initial");
+        //nextplayer inversé:
+        if (result==0 ){
+            result=array.length-1;
+            tour--;
+            eles = document.getElementsByClassName("nbtour");
+                for(var i in eles) {
+                    document.getElementsByClassName("nbtour")[i].innerText = tour;
+                }
+        }
+        else{
+            result=result-1;
         }
     
         $("#ligne_"+result).css("font-weight","bold");
@@ -839,12 +847,8 @@ function perdu1(){
         document.getElementById("points-restants"+result).innerHTML=array[result].pointsrestantsDebutTour;
 
     }
-  
-
-
-
     // ces  variables servent à "simuler" un click quand on click sur entrée (keycode 13) et aussi de "tabuler" (methode focus)
-    var input = document.getElementById("lancer1");
+   /* var input = document.getElementById("lancer1");
     input.addEventListener("keyup", function(event) {
         event.preventDefault();
         if (event.keyCode === 13) {
@@ -870,7 +874,7 @@ function perdu1(){
             document.getElementById("btn-f3").click();
             
         }
-    });
+    });*/
 
     var input200 = document.getElementById("lancer200_1");
     input200.addEventListener("keyup", function(event) {

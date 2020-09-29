@@ -1,4 +1,19 @@
 /*ceci est un test*/
+.containerBillard{
+    display: contents;
+}
+
+.backBillard{
+    width: 40px;
+    position: absolute;
+    right: 0;
+}
+
+.containerBillardColor{
+    display: flex;
+    width:100%;
+    justify-content: center;
+}
 
 
 body {
@@ -629,15 +644,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
   }
   .boulemorte{
     width:18%;
-    height: 10%;
+   /* height: 10%;
     text-align: center;
     border-radius: 41px;
     font-size: 2em;
     border:3px solid;
     cursor: pointer;
-    background-color:grey; 
-    visibility: hidden;
-    margin:5px 2px;
+    background-color:grey;*/
+    visibility: hidden !important;
+    /*margin:5px 2px;*/
 }
 
 #nul{
@@ -790,6 +805,13 @@ bottom:0px;
     font-size: 20px;
 }
 
+.case_vide_random{
+    position: absolute;
+    right: 0;
+}
+
+
+
 .joueur{
     font-size: 17px;/*nom du joueur pour criquet*/
     -text-align: left
@@ -804,6 +826,11 @@ bottom:0px;
 }
 .backJeu1{
     width:60px;
+    cursor: pointer;
+}
+
+.backRandom{
+    width:40px;
     cursor: pointer;
 }
 

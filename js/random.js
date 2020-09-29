@@ -1,9 +1,11 @@
 function random(){
     addPlayer();
+    createHistoriqueJeu1();
     givemerandom();
     document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
     displaycontainerRandom();
     $(".otherOptions").css("display","none");
+    
     
  
 }
@@ -41,6 +43,10 @@ var displaycontainerRandom = function (){
             card += ' </tr>';
         b=b+1;
          }    
+         card += '     </table> ';
+         card += '    <div class="case_vide_random" id ="retourRandom" onclick="returnRandom()">   ';
+         card += '       <img class="backRandom" src=images/icons/back.png>   ';
+         card += '     </div> ';
 
     $("#h6").html(card);
     document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ; 
@@ -57,7 +63,7 @@ var displaycontainerRandom = function (){
     card2 += ' </div>';
     card2 += '  <div class="containertourRandom"> ';
     card2 += '    <div class="tour"> Tour&nbsp:</div>    ';
-    card2 += '    <div class="nbtour nbtourRandom">1</div>    ';
+    card2 += '    <div class="nbtour nbtourRandom">'+tour+'</div>    ';
     card2 += '  </div> ';
 
     $("#randomdiv").html(card2);
@@ -76,6 +82,9 @@ var givemerandom = function (){
             document.getElementById("h7").setAttribute(
                 "style", "background-color: beige; text-align: center; font-size:10em; width:80%; margin-left:10%;");
         }
+       // //randomNumber.push(HistoriqueJeu1Var.lastrandomnumber);
+        HistoriqueJeu1Var.lastrandomnumber.push(randomNumber);
+       // console.log(HistoriqueJeu1Var.lastrandomnumber);
 
      
     }//fin givemerandom
@@ -86,8 +95,9 @@ var givemerandom = function (){
             $(x).removeClass("grey");
             next();
         });
-
+        HistoriqueJeu1Var.lastcoup=1;
         array[result].score++;
+        HistoriqueJeu1Var.historique.push(JSON.stringify(array));
         document.getElementById("score"+result).innerHTML=array[result].score;
         verifWinRandom();
         givemerandom();
@@ -100,6 +110,8 @@ var givemerandom = function (){
             $(x).removeClass("grey");
             next();
         });
+        HistoriqueJeu1Var.lastcoup=0;
+        HistoriqueJeu1Var.historique.push(JSON.stringify(array));
         $("#ligne_"+result).css("font-weight","initial");
         nextPlayer();
         $("#ligne_"+result).css("font-weight","bold");
@@ -137,6 +149,43 @@ var givemerandom = function (){
           for (a=0;a<array.length;a++){
             document.getElementById("scorePos"+a).innerHTML=array[a].position;
           }
-          console.log(totauxEnCours);
+         // console.log(totauxEnCours);
           totauxEnCours=[];
     }
+
+    function returnRandom(){
+
+        if (HistoriqueJeu1Var.lastcoup==1){
+            var histocoupPrecedent=HistoriqueJeu1Var.historique.length-2;
+            var newstate=JSON.parse(HistoriqueJeu1Var.historique[histocoupPrecedent]);
+            array=newstate;
+            HistoriqueJeu1Var.historique.pop();//on supprime le dernier coup de l'historique
+            document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
+            displaycontainerRandom();
+            displayPositionRandom();
+            givemerandom();
+
+        }else{
+            console.log("lastcoup bad");
+            $("#ligne_"+result).css("font-weight","initial");
+             // nextplayer inversé:
+                if (result==0 ){
+                    result=array.length-1;
+                    tour--;
+                    eles = document.getElementsByClassName("nbtour");
+                        for(var i in eles) {
+                            document.getElementsByClassName("nbtour")[i].innerText = tour;
+                        }//fin f0r
+                }//fin if result=0
+                    else{
+                        result=result-1;
+                    }//fin else1
+            $("#ligne_"+result).css("font-weight","bold");
+            document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
+            displaycontainerRandom();
+            displayPositionRandom();
+            givemerandom();
+
+         }//fin else2
+      
+    }//fin returnRandom
