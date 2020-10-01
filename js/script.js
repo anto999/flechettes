@@ -1,8 +1,8 @@
 $(document).ready(function(){
-    
+
     $('.container-title').css("margin-top","300px");
     $('.select_game').css("display","none");
-    $('.200').css("display","none");
+    $('.c200').css("display","none");
     $('.containerboule').css("display","none");
     //$('.calculette301').css("display","none");
 
@@ -16,10 +16,10 @@ var tour=1;
 //test device width
 function animateIfDesktop(){
     if (window.screen.width >= 500){
-        $(this).animate({    
+        $(this).animate({
             fontSize:'2em',
         })
-        $(this).animate({    
+        $(this).animate({
             fontSize:'1em',
         })
     }
@@ -33,7 +33,7 @@ var fullscreen= function(){
     document.documentElement.webkitRequestFullScreen();
     console.log("fullscreen");
     }
-} 
+}
 
 
 
@@ -56,7 +56,7 @@ function partie_rapide(){
     $("#formOptions").css("flex-wrap","wrap");
     $('#games').css('display', 'flex')
     document.getElementById("titre").innerHTML="Choisisez un jeu" ;
-    
+
 }
 
 var displayRules = function(){ //affiche la modale des règles
@@ -82,13 +82,13 @@ var restart = function(){ //reload la page
 $('#btn-display-input-name').click(createInputName);
 
 function displayGamesAndRules(){
-    var games=""; 
+    var games="";
     games += '<button type ="button" id="create_myfunctionGhost" onclick="enchaine()" class="create_myfunction games">301</button>';
     games += '<button type ="button" id="create_myfunctionGhost2" onclick="enchaine501()" class="create_myfunction games">501</button>';
     games += '<button type ="button" id="create_myfunctionGhost3" onclick="enchaine701()" class="create_myfunction games">701</button>';
     games += '<button type ="button" id="create_myfunctionGhost4" onclick="enchaine901()" class="create_myfunction games">901</button>';
     games += ' <button type ="button" class="button_criquet games" onclick="criquet()" id="criquet">Criquet</button>';
-    games += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200TEST()" class="create_myfunction games">+100</button>';
+    games += '<button type ="button" id="create_myfunctionGhost200" onclick="displayContainer200()" class="create_myfunction games">+100</button>';
     games += ' <button type ="button" class="create_myfunction games" onclick="billard()" id="billard">Billard</button>';
     games += ' <button type ="button" class="create_myfunction games" onclick="billardColor()" id="billardcolor">Billard Color</button>';
     games += ' <button type ="button" class="create_myfunction games" onclick="chooseNumber()" id="BestCombo">Best Combo</button>';
@@ -100,13 +100,11 @@ function displayGamesAndRules(){
     var back ='<div class="backMenu" id="retourmenu" onclick="restart()">';
     back +=       '<img class="backMenu" src=images/icons/back.png>';
     back +=    '</div>'
-    
+
     $("#games").html(games);
     $("#rules").html(rules);
     $("#back").html(back);
 }
-
-
 
 function createInputName(){
     var b = document.getElementById('input_nbplayer0').value;//la valeur de la liste déroulante = aux nombres de joueurs
@@ -114,10 +112,10 @@ function createInputName(){
     var c =1; //pour placeholder
     //console.log(b);
     var inputname="";
-   
-    
+
+
         for(i=b;i>-0;i--)
-        {   
+        {
             inputname +=' <input type ="text" placeholder="enter player'+c+' name" id ="input_add_name'+a+'" class="input_add_name"><br>';
             a=a+1;
             c=c+1;
@@ -125,20 +123,16 @@ function createInputName(){
         $("#inputname").html(inputname);
         displayGamesAndRules();
 
-       
-        
         $('.select_game').css('display', 'none');
         $("#formOptions").hide(100);
         $("#formOptions").css("flex-wrap","wrap");
         document.getElementById("input_add_name0").focus();
-       
+
       // fullscreen();//passe en monde plein ecran (au click de btn-display-input-name)
         return parseInt(b);
 }
 
-
 $('#create_myfunctionGhost').click(enchaine);
-
 
 //$('#').click(selectGame);
 class GameSelected
@@ -146,7 +140,7 @@ class GameSelected
     constructor(){
         this.game="";
     }//fin constructor
-  
+
 }
 
 const gameselected = new GameSelected();
@@ -169,7 +163,6 @@ function enchaine701(){
     selectGame701();
     addPlayer();
     displayContainer();
-    document.getElementById("lancer1").focus();
     $('.container-title').css("margin-top","10px")
     $('#icon0').css("visibility","initial");
     $('.calculette301').css("display","flex");
@@ -182,7 +175,6 @@ function enchaine901(){
     selectGame901();
     addPlayer();
     displayContainer();
-    document.getElementById("lancer1").focus();
     $('.container-title').css("margin-top","10px")
     $('#icon0').css("visibility","initial");
     $('.calculette301').css("display","flex");
@@ -196,7 +188,7 @@ function enchaine501(){
     selectGame501();
     addPlayer();
     displayContainer();
-    document.getElementById("lancer1").focus();
+
     $('.container-title').css("margin-top","10px")
     $('#icon0').css("visibility","initial");
     $('.calculette301').css("display","flex");
@@ -245,7 +237,7 @@ function addPlayer() { //enregistre les joueurs dans un tableau puis créé ces 
             res.push(nom);
             a=a+1;
         }
-      
+
     }//fin for
     console.log(res);
     createPlayer();
@@ -253,7 +245,7 @@ function addPlayer() { //enregistre les joueurs dans un tableau puis créé ces 
         {  // returnRes();
             var P = document.getElementById('input_nbplayer0').value;
             for (i=0;i<P;i++)
-            {     
+            {
             const player = new Player();
             var x = res[i];
                 console.log(x);
@@ -277,22 +269,22 @@ function addPlayer() { //enregistre les joueurs dans un tableau puis créé ces 
                }//fin for
                $('#inputname').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
                $('#games').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
-            
+
         }//fin createPlayer
-    document.getElementById("lancer1").focus();
-    
+    //document.getElementById("lancer1").focus();
+
 }// fin myfunc
 
 function createPlayer()
     {  // returnRes();
         var P = document.getElementById('input_nbplayer0').value;
         for (i=0;i<P;i++)
-        {   
+        {
             const player = new Player();
             var x = res[i];
             console.log(x);
             player.name= x;
-            console.log(i);           
+            console.log(i);
         }
     }
 
@@ -302,7 +294,7 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
     console.log(a);
      var card ="";
      b=0;
-     
+
      card += ' <table class="tableauscore301">';
      card += '      <tr style="border-bottom: 1px solid black; ">';
      card += '        <td>';
@@ -317,14 +309,14 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
      card += '           Pos';
      card += '       </td>';
      card += '   </tr>';
-     
+
         for(i=0;i<a;i++)
         {
-       
+
             card += ' <tr  id="ligne_'+b+'">';
             card += '      <td>';
             card += '         <div id="nomjoueur'+i+'">'+array[b].name+'</div>';
-           
+
             card += '  </td>';
             card += '    <td>';
             card += '       <div id="points-restants'+b+'">';
@@ -338,17 +330,17 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
             card += '   </td>';
             card += '   </tr>';
 
-        
-       
+
+
         b=b+1;
-         }   
+         }
       card += '</table> ';
       card += '<div class="containertour">';
       card += '<div class="tour"> Tour&nbsp: </div>';
       card += '<div class="nbtour" id="nbtour">1</div>';
       card += '</div>';
-      
-        
+
+
    $("#h6").html(card);
    document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
    //$(".f1").css("display","flex");
@@ -356,62 +348,10 @@ function displayContainer(){ //créer les div nom joueur, points restants, score
    $(".otherOptions").css("display","none");
    displayPosition301();
    return parseInt(a);
-   
+
 }//fin displayContainer()
 
-
 function displayContainer200(){
-    console.log("aaaaaaaaaaaaaa");
-    $('#inputname').css('display', 'none');
-    $('.container-title').css("margin-top","10px")
-    addPlayer();
-    var a = document.getElementById('input_nbplayer0').value;
-    console.log(a);
-     var card ="";
-     b=0;
-        for(i=0;i<a;i++)
-        {
-       
-        console.log(array[b]);
-        
-        card += '<div class="tableaubouttons">';
-        card +='<div class="ico">'; 
-             card += '<img class="icon" id="icon'+i+'" src="../images/icons/cible.png">';
-        card +='</div>'; 
-            card += ' <div class="container-card" id="'+i+'">';
-                card += ' <div class ="nomjoueur200 case pl" id="nomjoueur'+i+'">'+array[b].name+'</div>';
-              
-                card += ' <div class ="score200 case" id="score'+i+'">score: '+array[b].fleche1+'</div>';
-               
-                card += '<div class ="score-tour200 case" id="score-tour'+i+'">score tour '+array[b].resultatTour+'</div>';
-                card += '<div class ="coupsrestants200 case" id="coupsrestants'+i+'">coups restants '+array[b].coupsRestants+'</div>';
-                card += ' <div class ="score-cumulé200 case" id="score-cumulé'+i+'">total '+array[b].resultatTotal+'</div>';
-            card += '</div>';
-        card += '</div>';
-        b=b+1;
-         }    
-
-   $("#h6").html(card);
-   document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
-   document.getElementById("tit").innerHTML="A  " +array[result].name+" de jouer !" ;
-   //$(".f1").css("display","flex");
-   $("#form").css("display","none");
-   $('.200').css("display","block");
-   
-   document.getElementById("lancer200_1").focus();
-   if(array[result+1]){
-    array[result+1].coupsRestants=3;
-     document.getElementById("coupsrestants1").innerHTML= "coups restants : "+array[result+1].coupsRestants;
-     $('#icon0').css("visibility","initial");
-     $("#"+result).addClass("green");
-}
-  
-
-   return parseInt(a);
-   
-}//fin displayContainer200() //valable pour Jeu1 (301,501...)
-
-function displayContainer200TEST(){
     $(".otherOptions").css("display","none");
     $('#inputname').css('display', 'none');
     $('.container-title').css("margin-top","10px")
@@ -421,51 +361,48 @@ function displayContainer200TEST(){
      var card ="";
      b=0;
 
-     card += ' <table>';
+     card += ' <table class="containerTable200">';
      card += '      <tr>';
-     card += '        <td>';
+     card += '         <td>';
      card += '            <div class="table_nom_joueur">';
-     card += '                joueur';
+     card += '                 Joueur';
      card += '           </div>';
-     card += '        </td>';
-     card += '        <td>';
-     card += '           score';
+     card += '         </td>';
+     card += '         <td>';
+     card += '            Score';
      card += '       </td>';
-     card += '   </tr>';
-
+     card += '       </tr>';
 
         for(i=0;i<a;i++)
         {
-       
-        console.log(array[b]);
-        card += ' <tr  id="ligne_'+b+'">';
+            card += ' <tr id="ligne_'+b+'">';
             card += '      <td>';
             card += '         <div id="nomjoueur'+i+'">'+array[b].name+'</div>';
-           
-            card += '  </td>';
-            card += '    <td>';
-            card += ' <div class ="" id="score-cumulé'+i+'"> '+array[b].resultatTotal+'</div>';
-            card += '   </td>';
-            card += '   </tr>';
-       
+            card += '      </td>';
+            card += '      <td>';
+            card += '           <div class ="" id="score-cumulé'+i+'"> '+array[b].resultatTotal+'</div>';
+            card += '       </td>';
+            card += '</tr>';
+
         b=b+1;
-         }    
+         }
+        card += '</table> ';
+        card += '<div class="containertour200">';
+        card += '    <div class="tour"> Tour&nbsp: </div>';
+        card += '    <div class="nbtour" id="nbtour">1</div>';
+        card += '</div>';
 
    $("#h6").html(card);
-   document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
-   document.getElementById("tit").innerHTML= "coups restants : "+array[result].coupsRestants;
-   //$(".f1").css("display","flex");
-   $("#form").css("display","none");
-   $('.200').css("display","block");
-   document.getElementById("lancer200_1").focus();
-   if(array[result+1]){
+   document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer ! (3 flèches)" ;
+   $("#ligne_"+result).css("font-weight","bold");
+ //  $("#form").css("display","none");
+   $('.c200').css("display","flex");
+   /*if(array[result+1]){
     array[result+1].coupsRestants=3;
     $("#ligne_"+result).css("font-weight","bold");
-}
-
+}*/
    return parseInt(a);
-   
-}//fin displayContainer200TEST()
+}//fin displayContainer200()
 
 function compteurTour200(){
     var resultCompteurTour200=3;
@@ -474,38 +411,69 @@ function compteurTour200(){
 
 var resultTour200 =compteurTour200();
 
-
 function verifSiwin() //verif si win le +100
 {
     var arrayResTotal=[];
-    
+
     for (i=0;i<array.length;i++)
-    {   
-         arrayResTotal.push(array[i].resultatTotal)
+    {
+         arrayResTotal.push(array[i].score)
     }
     console.log(arrayResTotal);
       arrayResTotal.splice(result, 1);
       console.log(arrayResTotal);
       var m= Math.max(...arrayResTotal);
       console.log(m);
-      console.log(array[result].resultatTotal);
+      console.log(array[result].score);
 
-      if(array[result].resultatTotal-100>=m){
+      if(array[result].score-100>=m){
          // modalwin();
         console.log('gagné!!!');
          document.getElementById("titre").innerHTML="Victoire de  " +array[result].name+" !"
-         document.getElementById("tit").innerHTML="Victoire de  " +array[result].name+" !"
          array[result].gagnant=true;
-
          modalwin();
-
-        $("#form200").css({ 
+        $(".c200").css({
             display : 'none'
         })
-          return 0;
+        throw new Error('This is not an error. This is just to abort javascript');//juste pour stopper le script et ne pas passer à l'instruction suivante
       }
 }
- function flech200() //au clic de du btn "lancer" une fois +100 selectioné 
+
+function lancer200(x){
+    window.navigator.vibrate(50);
+    $(x).addClass("green301").delay(200).queue(function(next){
+        $(x).removeClass("green301");
+        next();
+    });
+
+    var thisnumb=parseInt(x.innerText);
+    console.log(thisnumb);
+    array[result].resultatTour = array[result].resultatTour+ thisnumb;
+    document.getElementById("resultTourDiv200").innerText = array[result].resultatTour;
+
+}
+
+function valider200(y){
+    window.navigator.vibrate(50);
+    $(y).addClass("green301").delay(200).queue(function(next){
+        $(y).removeClass("green301");
+        next();
+    });
+    array[result].score=array[result].score+array[result].resultatTour;
+    document.getElementById("score-cumulé"+result).innerHTML=array[result].score;
+    $("#ligne_"+result).css("font-weight","initial");
+    verifSiwin();
+    nextPlayer();
+    $("#ligne_"+result).css("font-weight","bold");
+    array[result].resultatTour=0;
+    document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer ! (6 flèches)" ;
+    document.getElementById("resultTourDiv200").innerText = 0;
+
+
+}
+
+/*
+ function flech200() //au clic de du btn "lancer" une fois +100 selectioné
  {
             var nbpts200 = document.getElementById('lancer200_1').value;
             console.log(nbpts200);
@@ -530,10 +498,10 @@ function verifSiwin() //verif si win le +100
             verifSiwin();
             document.getElementById("tit").innerHTML= "coups restants : "+array[result].coupsRestants;
             document.getElementById("lancer200_1").focus();
-            
+
             if(resultTour200==0){
                 console.log('on change!');
-                
+
                 $('#icon'+result).css("visibility","hidden");
                 resultTour200=6;
                 array[result].coupsRestants =6;
@@ -548,17 +516,17 @@ function verifSiwin() //verif si win le +100
                 }
                     if (weHaveAWinner==false)
                     {
-           
+
                 array[result].resultatTour=0;
                 $('#icon'+result).css("visibility","initial");
                 $("#"+result).addClass("green");
                 document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
                 array[result].coupsRestants=6;
                 document.getElementById("tit").innerHTML= "coups restants : "+array[result].coupsRestants;
-             
+
                     }
             }
- }//fin flech200()
+ }//fin flech200()*/
 
  class HistoriqueJeu1
  {
@@ -617,7 +585,7 @@ function g701() {
 
 function gagné1(){
     document.getElementById("titre").innerHTML="Victoire de  " +array[result].name+" !"
-    document.getElementById("tit").innerHTML="Victoire de  " +array[result].name+" !"
+    //document.getElementById("tit").innerHTML="Victoire de  " +array[result].name+" !"
     array[result].pointsRestantsActuels=0;
     document.getElementById("points-restants"+result).innerHTML=array[result].pointsRestantsActuels;
     modalwin();
@@ -626,13 +594,13 @@ function gagné1(){
     for (i=0;i<array[result].tousLesCoups.length;i++)
     {
 
-        
+
         li+= '<li class="list li'+[i]+'">';
         li+=     array[result].tousLesCoups[i];
         li+='</li>';
 
     }
-    //pour afficher tous les coups du gagnant 
+    //pour afficher tous les coups du gagnant
     //$("#listefinale").html(li);
 
     var listeCoups='';
@@ -649,7 +617,7 @@ function gagné1(){
    // $("#exampleModalCenter").modal("show");
   // document.getElementById("open").click()
   document.getElementById("titre").innerHTML="Victoire de  "+array[result].name;
-  $("#titre").animate({    
+  $("#titre").animate({
       width : 'auto',
       height: '200px',
      padding:'10% 0 0',
@@ -660,8 +628,6 @@ function gagné1(){
 
  }
 
-
-
 // Get the modal
 var modal = document.getElementById('myModal');
 
@@ -671,15 +637,10 @@ var btn = document.getElementById("myBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
+// When the user clicks the button, open the modal
  function openmodal() {
     modal.style.display = "block";
 }
-
-// When the user clicks on <span> (x), close the modal
-/*span.onclick = function() {
-    modal.style.display = "none";
-}*/
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -687,8 +648,6 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-
-
 
 function nextPlayer(){
     if (result>= array.length-1){
@@ -698,23 +657,23 @@ function nextPlayer(){
         for(var i in eles) {
             document.getElementsByClassName("nbtour")[i].innerText = tour;
         }
-     
+
     }else{
         result=result+1;
     }
-    
+
 }//fin nextPlayer
 
 
 function perdu1(){
-    
+
     document.getElementById("titre").innerHTML="Domage " +array[result].name+", trop de points !"
-    
+
     array[result].pointsRestantsActuels=array[result].pointsrestantsDebutTour;
     document.getElementById("points-restants"+result).innerHTML=+array[result].pointsRestantsActuels;
     array[result].coupsRestants=3;
    // document.getElementById("coupsrestants"+[result]).innerHTML="coups restants : "+ array[result].coupsRestants;
-   
+
     document.getElementById("form").reset();
     form.reset();
     $('#icon'+result).css("visibility","hidden");
@@ -726,15 +685,12 @@ function perdu1(){
    // document.getElementById("coupsrestants"+[result]).innerHTML="coups restants : "+ array[result].coupsRestants;
     document.getElementById("lancer1").focus();
 }
- 
+
     function compteur(){
         var resultCompteur=0;
         return resultCompteur;
     }
-
     var result =compteur();
-
-
     var HistoriqueJeu1Var;//jeu1 valable pour 301 , 501 ,701...
     function createHistoriqueJeu1(){
         const H = new HistoriqueJeu1 ();
@@ -742,14 +698,13 @@ function perdu1(){
         console.log("histoqiejeu1");
         HistoriqueJeu1Var=H;
         HistoriqueJeu1Var.historique.push(JSON.stringify(array));
-    
     }
 
     //ici on joue au 301,501...
     var lancer= function(nb){
         // let a = parseInt(document.getElementById('calc5').getAttribute("attr"));
         window.navigator.vibrate(50);
-     
+
              $(nb).addClass("green301").delay(200).queue(function(next){
                  $(nb).removeClass("green301");
                  next();
@@ -757,7 +712,7 @@ function perdu1(){
 
          let aa = parseInt(nb.getAttribute("attr"));
          array[result].resultatTour = array[result].resultatTour+ aa;
-         document.getElementById("resultTourDiv").innerText = array[result].resultatTour;       
+         document.getElementById("resultTourDiv").innerText = array[result].resultatTour;
          array[result].pointsRestantsActuels=array[result].pointsRestantsActuels-aa;
          document.getElementById("points-restants"+result).innerHTML=array[result].pointsRestantsActuels;
          displayPosition301();
@@ -793,7 +748,7 @@ function perdu1(){
               array[result].resultatTour=0;
               document.getElementById("resultTourDiv").innerText = 0;
               HistoriqueJeu1Var.historique.push(JSON.stringify(array));
-              
+
 
         }else if (array[result].resultatTour == array[result].pointsrestantsDebutTour){
             console.log("gagné!");
@@ -818,8 +773,6 @@ function perdu1(){
         }
     }//fin nextPlayerInvers
 
-
-
     function returnJeu1(){
         var histocoupPrecedent=HistoriqueJeu1Var.historique.length-2;
         var newstate=JSON.parse(HistoriqueJeu1Var.historique[histocoupPrecedent]);
@@ -836,54 +789,14 @@ function perdu1(){
         else{
             result=result-1;
         }
-    
         $("#ligne_"+result).css("font-weight","bold");
         array[result].resultatTour=0;
         document.getElementById("resultTourDiv").innerText = 0;
-
         array=newstate;
         HistoriqueJeu1Var.historique.pop();//on supprime le dernier coup de l'historique
         document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
         document.getElementById("points-restants"+result).innerHTML=array[result].pointsrestantsDebutTour;
-
     }
-    // ces  variables servent à "simuler" un click quand on click sur entrée (keycode 13) et aussi de "tabuler" (methode focus)
-   /* var input = document.getElementById("lancer1");
-    input.addEventListener("keyup", function(event) {
-        event.preventDefault();
-        if (event.keyCode === 13) {
-            document.getElementById("btn-f1").click();
-            
-            console.log(input);
-        }
-    });
-
-    var input2 = document.getElementById("lancer2");
-    input2.addEventListener("keyup", function(event) {
-         
-        if (event.keyCode === 13) {
-            document.getElementById("btn-f2").click();
-            
-        }
-    });
-
-    var input3 = document.getElementById("lancer3");
-    input3.addEventListener("keyup", function(event) {
-        event.preventDefault();
-        if (event.keyCode === 13) {
-            document.getElementById("btn-f3").click();
-            
-        }
-    });*/
-
-    var input200 = document.getElementById("lancer200_1");
-    input200.addEventListener("keyup", function(event) {
-        event.preventDefault();
-        if (event.keyCode === 13) {
-            document.getElementById("btn200-f1").click();
-            
-        }
-    });
 
     function displayPosition301(){
         for (a=0;a<array.length;a++){
@@ -896,7 +809,7 @@ function perdu1(){
                 return 1;
             return 0;
           });
-    
+
           for(i=0;i<array.length;i++) {
             if(i != 0 && totauxEnCours[i].pointsRestantsActuels == totauxEnCours[i-1].pointsRestantsActuels)  // Si on a le même score que le précédent, on donne le même classement
                 totauxEnCours[i].position = totauxEnCours[i-1].position;

@@ -52,6 +52,22 @@ body {
     font-size: 27px;
 }
 
+.containertour200{
+    display: flex;
+    min-width : 11%;
+    line-height: 51px;
+    font-size: 27px;
+    margin-left: 15px;
+}
+
+.containerTable200{
+    width: 60%;
+    font-size: 1.5em;
+    border: solid 2px;
+    margin-top: 5px;
+}
+
+
 .tourbillard{
     display: flex;
     min-width: 11%;
@@ -231,14 +247,13 @@ color: #000;
     -opacity: 0.7;
 
 }
+
 .nomjoueur{
     height: 16.66%;
-
     background-color:rgb(236, 241, 165);
     font-weight: bold;
     font-size: 2em;
     color: black;
-
    
 }
 .points-restants{
@@ -394,6 +409,16 @@ button{
     background-color: antiquewhite;
 }
 
+.c200{
+
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#resultTourDiv200{
+    text-align: center;
+}
 
 #form2{
     position: absolute;
