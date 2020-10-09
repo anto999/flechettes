@@ -14,6 +14,7 @@ var tour=1;
 
 //testwidth();
 //test device width
+/*
 function animateIfDesktop(){
     if (window.screen.width >= 500){
         $(this).animate({
@@ -23,10 +24,12 @@ function animateIfDesktop(){
             fontSize:'1em',
         })
     }
-}
+}*/
+
 function viber(){
     window.navigator.vibrate(50);
 }
+
 
 var fullscreen= function(){
     if (window.screen.width <= 500){
@@ -617,12 +620,43 @@ function gagné1(){
    // $("#exampleModalCenter").modal("show");
   // document.getElementById("open").click()
   document.getElementById("titre").innerHTML="Victoire de  "+array[result].name;
-  $("#titre").animate({
-      width : 'auto',
-      height: '200px',
-     padding:'10% 0 0',
-      fontSize:'3em',
-  })
+  if ($(document).width()<500){
+    $("#titre").animate({
+        width : 'auto',
+        height: '200px',
+       padding:'10% 0 0',
+        fontSize:'3em',
+        
+    })
+      
+  }else if ($(document).width()>500 && $(document).width()<999 ){
+    $("#titre").animate({
+        width : 'auto',
+        height: '200px',
+       padding:'6% 0 0',
+        fontSize:'3em',
+       
+    })
+   
+  }else if ($(document).width()>1000 && $(document).width()<1699 ){
+    $("#titre").animate({
+        width : 'auto',
+        height: '300px',
+       padding:'7% 0 0',
+        fontSize:'3em',
+        
+    })
+    
+  }else{
+    $("#titre").animate({
+        width : 'auto',
+        height: '400px',
+       padding:'10% 0 0',
+        fontSize:'3em',
+        
+    })
+  }
+ 
   $("#containertitrecriquet").css("visibility","hidden");//pour le criquet
   displayrestart();
 

@@ -6,9 +6,11 @@ function criquet(){
     $("#ligne_"+result).css("font-weight","bold");
     //document.getElementById("case_vide").innerHTML="x "+array[result].coupsRestants ;
     document.getElementById("titre-criquet").innerHTML=array[result].name;
+    document.getElementById("btnriencriquet").innerHTML=array[result].name+" 0";
     $("#containertitrecriquet").css("visibility","initial");
     displayCoupsRestants();
     createHistoriqueClassCriquet();
+
 }
 var HistoriqueCriquetVar;
 function createHistoriqueClassCriquet(){
@@ -334,6 +336,7 @@ function simple() {
         $("#ligne_"+result).css("font-weight","initial");//on passea la ligne en initial avant de changer de joueur, puis la suivante sera en bold quand on appellera displayCoupsRestants()
         console.log("nextplayer");
         nextPlayer();
+        document.getElementById("btnriencriquet").innerHTML=array[result].name+" 0";
         array[result].coupsRestants = 3;
         
     }
@@ -423,6 +426,7 @@ function simple() {
             console.log("nextplayer");
             $("#ligne_"+result).css("font-weight","initial");//on passea la ligne en initial avant de changer de joueur, puis la suivante sera en bold quand on appellera displayCoupsRestants()
             nextPlayer();
+            document.getElementById("btnriencriquet").innerHTML=array[result].name+" 0";
             array[result].coupsRestants = 3;
             
         }
@@ -525,6 +529,7 @@ function simple() {
             console.log("nextplayer");
             $("#ligne_"+result).css("font-weight","initial");//on passea la ligne en initial avant de changer de joueur, puis la suivante sera en bold quand on appellera displayCoupsRestants()
             nextPlayer();
+            document.getElementById("btnriencriquet").innerHTML=array[result].name+" 0";
             array[result].coupsRestants = 3;
            
         }
@@ -554,6 +559,7 @@ function simple() {
             console.log("nextplayer");
             $("#ligne_"+result).css("font-weight","initial");//on passea la ligne en initial avant de changer de joueur, puis la suivante sera en bold quand on appellera displayCoupsRestants()
             nextPlayer();
+            document.getElementById("btnriencriquet").innerHTML=array[result].name+" 0";
             array[result].coupsRestants = 3;
             
         }
@@ -623,4 +629,5 @@ function simple() {
       
         displayTableCriquet();
         displayCoupsRestants();
+        document.getElementById("btnriencriquet").innerHTML=array[result].name+" 0";
     }

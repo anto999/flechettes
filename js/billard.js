@@ -373,7 +373,7 @@ function myfunctionBillardColor(){
                $('#games').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
                fullscreen();
         }//fin createPlayer
-    document.getElementById("lancer1").focus();
+   // document.getElementById("lancer1").focus();
 
 }// fin myfunctionBillardColor
 
