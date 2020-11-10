@@ -10,7 +10,9 @@ $(document).ready(function(){
     NoSleep();
 
 });
-function clic(a){
+
+
+function clic(){
     console.log("click!")
 }
 $('#titre').click(clic());
@@ -31,6 +33,8 @@ function NoSleep() {         //  create a loop function
    // console.log(iNoSleep);   //  your code here
     //document.getElementById("compteur").innerHTML=iNoSleep;
     document.getElementById("titre").click();
+   document.body.click();
+
 
     iNoSleep++;                    //  increment the counter
     if (iNoSleep < 100000) {           //  if the counter < 10, call the loop function
