@@ -1,4 +1,12 @@
 /*ceci est un test*/
+#compteur{
+    visibility: hidden;
+    font-size:10px;
+    height: 10px;
+    background-color: #ADFF2F;
+    color:black;
+}
+
 .containerBillard{
     display: contents;
 }
@@ -165,7 +173,23 @@ input::placeholder {
 
 #h7{
     text-align: center;
+    background-color: beige;
+    font-size: 9em;
+    line-height: 130px;
+    -border: solid 1px black;
+    width: 70%;
+    margin: 0 auto;
+    color:#000;
+}
 
+#h8{
+    text-align: center;
+    background-color: beige;
+    font-size: 1em;
+   
+    width: 90%;
+    margin: 0 auto;
+    color:#000;
 }
 
 .containertourbest{
@@ -380,6 +404,7 @@ button{
 
 .selectplayers{
     margin-top:20px;
+
 }
 
 .case{
@@ -1022,6 +1047,14 @@ bottom:0px;
 
 @media only screen and (min-width:500px)and (max-width:999px){
 
+.containertourRandom{
+    display: flex;
+    min-width : 11%;
+    font-size: 37px;
+    justify-content: center;
+    margin-top:10px;
+}
+
 
 
 .containertour{
@@ -1130,6 +1163,13 @@ select{
 
 /*pour les pc*/
 @media only screen and (min-width:1000px)and (max-width:1799px){
+.containertourRandom{
+    display: flex;
+    min-width : 11%;
+    font-size: 50px;
+    justify-content: center;
+    margin-top:20px;
+}
 
 #h7{
     -display: none;

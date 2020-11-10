@@ -15,57 +15,30 @@
 </head>
 
 <body>
-  <div id="selectedGame"> </div>
-    <div class="container-title">
-      <div class="titre" id="titre" onclick="fullscreen()"> Choisissez le nombre de joueurs</div>
-      <form class="selectplayers" id="formOptions">
-        <select id="input_nbplayer0">
-          <option value="1">1</option>
-          <option value="2" selected>2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-        </select>
-        <button type="button" id="btn-display-input-name" onclick="fullscreen()">Entrez vos noms </button>
-        <button type="button" id="btn-display-input-name-partie-rapide" onclick="partie_rapide()">Partie rapide </button>
-        <h1 class="ok"></h1>
-        <div class="MonChampionnat"><a href="html/pass.html">Mon championnat</a></div>
-      </form>
+  <div id="selectedGame"></div>
+  <div class="container-title">
+    <div class="titre" id="titre" onclick="fullscreen()"> 
+      Choisissez le nombre de joueurs
+    </div>
+    <form class="selectplayers" id="formOptions">
+      <select id="input_nbplayer0">
+        <option value="1">1</option>
+        <option value="2" selected>2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+      <button type="button" id="btn-display-input-name" onclick="fullscreen()">Entrez vos noms </button>
+      <button type="button" id="btn-display-input-name-partie-rapide" onclick="partie_rapide()">Partie rapide </button>
+      <h1 class="ok"></h1>
+      <div class="MonChampionnat"><a href="html/pass.html">Mon championnat</a></div>
+    </form>
   </div>
 
- <!-- <form class="301" id="form">
-    <div class="contflech">
-      <input type="int" id="lancer1">
-      <button type="button" id="btn-f1" class="btnlancerfleche" onclick="lancerFleche()"> 1</button>
-      <div class="ff f1"> <img class="picture" src="images/icons/dart.png"></div><br>
-    </div>
-    <div class="contflech">
-      <input type="int" id="lancer2">
-      <button type="button" id="btn-f2" class="btnlancerfleche" onclick="lancerFleche2()"> 2</button>
-      <div class="ff f2"> <img class="picture" src="images/icons/dart.png"></div><br>
-    </div>
-    <div class="contflech">
-      <input type="int" id="lancer3">
-      <button type="button" id="btn-f3" class="btnlancerfleche" onclick="lancerFleche3()"> 3</button>
-      <div class="ff f3"> <img class="picture" src="images/icons/dart.png"></div><br><br>
-    </div>
-  </form>-->
-
-
-  <!--+200  
-  <form onSubmit="return false;" class="200" id="form200">
-    <div class="contflech200">
-      <div id="tit" class="tit"></div>
-      <input type="int" class="hh" id="lancer200_1">
-      <button type="button" id="btn200-f1" onclick="flech200()">lancer</button>
-    </div>
-  </form> -->
-
-
-
+  <div id ="restart"></div>
 
   <div id="h1"></div>
   <div id="h2"></div>
@@ -78,9 +51,11 @@
   </div>
 
   <div id="h6"></div>
-  <div id="h7"></div>
+  <div id="h7"></div><!--h7 pour random uniquement !-->
+  <div id="h8"></div>
   <div id="randomdiv"></div>
-  <div id ="restart"></div>
+  <div id ="compteur"></div>
+
   <div class="test"></div>
 
   <div id="criquetDiv"></div>

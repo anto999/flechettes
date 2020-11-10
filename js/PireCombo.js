@@ -7,6 +7,7 @@ function chooseNumberPire(){
     $('#games').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
    
     addPlayer();
+    document.getElementById("titre").innerHTML="Pire Combo !" ;
 
     
     var txt='<div class ="chooseNumber">';
@@ -34,7 +35,7 @@ function chooseNumberPire(){
     txt += '';
     txt += '';
 
-    $("#h7").html(txt);
+    $("#h8").html(txt);
 }
 
 function ValidateNbTourPire(){
@@ -107,7 +108,7 @@ function displayContainerPireCombo(nbTour){
    document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
    //$(".f1").css("display","flex");
    $("#ligne_"+result).css("font-weight","bold");
-   $('#h7').css('display', 'none');
+   $('#h8').css('display', 'none');
    $('.PireCombo').css('display', 'flex');
    $(".otherOptions").css("display","none");
    $("#containertitrecriquet").css("display","none");

@@ -7,11 +7,13 @@ function chooseNumber(){
     $('#games').css('display', 'none');//fait disparaitre le champ où on doit remplir son nom et les jeux disponibles
     $(".otherOptions").css("display","none");
     addPlayer();
+    document.getElementById("titre").innerHTML="Best Combo !" ;
+
     
     var txt='<div class ="chooseNumber">';
     txt +=   'Choisissez le nombre de tour :';
     txt += '</div>';
-    txt += '<form class="selectplayers" id="formOptions">';
+    txt += '<form class="selectTourCombo" id="formOptionsCombo">';
     txt +=  '<select id="input_nbTour">';
     txt +=      '<option value="1">1</option>';
     txt +=      ' <option value="2" >2</option>';
@@ -26,7 +28,7 @@ function chooseNumber(){
     txt +=   ' </select>';
     txt += '<button type="button" id="btn-ChooseNbTour" onclick="ValidateNbTour()">ok </button>';
     txt += '</form>';
-    $("#h7").html(txt);
+    $("#h8").html(txt);
 }
 
 function ValidateNbTour(){
@@ -93,7 +95,7 @@ function displayContainerBestCombo(nbTour){
    document.getElementById("titre").innerHTML="A  "+array[result].name+" de jouer !" ;
    //$(".f1").css("display","flex");
    $("#ligne_"+result).css("font-weight","bold");
-   $('#h7').css('display', 'none');
+   $('#h8').css('display', 'none');
    $('.BestCombo').css('display', 'flex');
    $("#containertitrecriquet").css("display","none");
    createHistoriqueJeu1();//on essaie avec cette variable, pas la pein de creer un objet historique pour tous les jeux?

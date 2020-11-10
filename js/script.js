@@ -7,8 +7,35 @@ $(document).ready(function(){
     //$('.calculette301').css("display","none");
 
     document.getElementById("input_nbplayer0").focus();
+    //NoSleep();
 
 });
+/*
+var NoSleep = function(){
+    for (a=0;a<100000;a++){
+        
+       (document.getElementById("compteur").innerHTML=a);
+       setTimeout(console.log(a),1000);
+        
+    }
+}*/
+
+var iNoSleep = 1;                  //  set your counter to 1
+
+function NoSleep() {         //  create a loop function
+  setTimeout(function() {   //  call a 3s setTimeout when the loop is called
+    console.log(iNoSleep);   //  your code here
+    document.getElementById("compteur").innerHTML=iNoSleep;
+    iNoSleep++;                    //  increment the counter
+    if (iNoSleep < 100000) {           //  if the counter < 10, call the loop function
+        NoSleep();             //  ..  again which will trigger another 
+    }                       //  ..  setTimeout()
+  }, 3000)
+}
+
+NoSleep();                   //  start the loop
+
+
 var tour=1;
 
 

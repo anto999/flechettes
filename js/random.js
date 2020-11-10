@@ -77,12 +77,12 @@ var givemerandom = function (){
     var randomNumber = Math.floor(Math.random() * 20) + 1;
     console.log(randomNumber);
     $("#h7").html(randomNumber);
-    document.getElementById("h7").setAttribute(
+   /* document.getElementById("h7").setAttribute(
         "style", "background-color: beige; text-align: center; font-size:9em; line-height:130px;border: solid; width: 50%; margin: 5px auto; color:#000");
         if (window.screen.width >= 500){
             document.getElementById("h7").setAttribute(
                 "style", "background-color: beige; text-align: center; font-size:10em; width:80%; margin-left:10%;");
-        }
+        }*/
        // //randomNumber.push(HistoriqueJeu1Var.lastrandomnumber);
         HistoriqueJeu1Var.lastrandomnumber.push(randomNumber);
        // console.log(HistoriqueJeu1Var.lastrandomnumber);
