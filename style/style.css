@@ -1008,6 +1008,7 @@ bottom:0px;
     flex-wrap: wrap;
     justify-content: center;
     -height: 20%;
+    background-color: rgb(236, 241, 165);
 }
 
 .BestCombo{
