@@ -86,7 +86,7 @@ function Jeu_au_hasard(){
                     var game_selected = "+100";
                     console.log(game_selected);
                     animHasard();
-                    setTimeout(displayContainer200TEST,2200);
+                    setTimeout(displayContainer200,2200);
                 }else if(indicatedSegment.text=="Best combo"){
                     var game_selected = "Best combo";
                     console.log(game_selected);
