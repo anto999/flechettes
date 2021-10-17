@@ -962,6 +962,12 @@ bottom:0px;
 
 }
 
+.containerGénéralPalmares{
+    display: flex;
+    justify-content: center;
+
+}
+
 .arrow{
     margin:0 6px;
 }
@@ -1043,6 +1049,30 @@ bottom:0px;
 .green301{
     background-color: #ADFF2F !important;
 }
+
+.topmenu{
+    padding: 0 10px;
+ }
+
+ .palmares{
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: rgb(212, 212, 97);
+ }
+
+ .titrepalmares{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .playerPalmares{
+    margin-left: 4px;
+    font-size: larger;
+    font-weight: bold;
+    color: brown;
+ }
+
 
 /*pour les tabelettes:*/
 
@@ -1155,6 +1185,10 @@ select{
     width:65px;
     cursor: pointer;
 }
+
+.topmenu{
+    padding: 0 10px;
+ }
 
 }/*fin media query*/
 
@@ -1377,6 +1411,9 @@ font-weight: 600;
      width:65px;
      cursor: pointer;
  }
+ .topmenu{
+    padding: 0 10px;
+ }
 }
 
 /*pour les grands écrans et les tv*/
@@ -1472,5 +1509,9 @@ font-weight: 600;
  .backMenu{
      width:65px;
      cursor: pointer;
+ }
+
+ .topmenu{
+    padding: 0 10px;
  }
 }
