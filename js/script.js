@@ -135,6 +135,7 @@ function displayGamesAndRules(){
     games += ' <button type ="button" class="create_myfunction games" onclick="chooseNumberPire()" id="PireCombo">Pire Combo</button>';
     games += ' <button type ="button" class="button_random games" onclick="random()" id="random">Random</button>';
     games += ' <button type ="button" class="button_random games" onclick="Jeu_au_hasard()" id="hasard">Au hasard!</button>';
+    games += ' <button type ="button" class="balle_de_match games" onclick="balle_de_match()" id="balle_de_match">Balle de match</button>';
 
     var rules='<button type ="button" class="button_rules rules" onclick="displayRules()" id="rules">Règles</button>';
     var back ='<div class="backMenu" id="retourmenu" onclick="restart()">';
