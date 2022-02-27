@@ -21,6 +21,11 @@
     display: flex;
     width:100%;
     justify-content: center;
+    margin: 10px 10px;
+}
+
+.btnballe{
+    margin: 10px;
 }
 
 
@@ -32,6 +37,12 @@ body {
     background-attachment: fixed;
     color:#000;
 }
+
+.containerDifficulty{
+    justify-content: center;
+    display: flex;
+}
+
 .containerTourBillard{
     display: flex;
     min-width : 11%;

@@ -5,7 +5,7 @@ function random(){
     document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
     displaycontainerRandom();
     $(".otherOptions").css("display","none");
-    //$("#h7").css("display","flex");
+    $("#h7").css("display","flex");
     
     
  
