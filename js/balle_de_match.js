@@ -100,7 +100,7 @@ function easy(min, max){
     difficulty=1;
     console.log("difficulty= "+difficulty);
     $("#h7").html(easyNumber);
-    $("#h8").html("difficulté: facile");
+    $("#h8").html("facile 1pt");
     $('.h7').css("display","flex");
     $('#h8').css("display","flex");
     
@@ -117,7 +117,7 @@ function medium(min, max) {
     difficulty=2;
     console.log("difficulty= "+difficulty);
     $("#h7").html(mediumnumber);
-    $("#h8").html("difficulté: normale");
+    $("#h8").html("normal 2pts");
     $('.h7').css("display","flex");
     $('#h8').css("display","flex");
 }
@@ -132,7 +132,7 @@ function hard(min, max) {
     difficulty=3;
     console.log("difficulty= "+difficulty);
     $("#h7").html(hardnumber);
-    $("#h8").html("difficulté: difficile");
+    $("#h8").html("difficile 3pts");
     $('.h7').css("display","flex");
     $('#h8').css("display","flex");
 }
