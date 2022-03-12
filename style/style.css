@@ -7,6 +7,10 @@
     color:black;
 }
 
+#h8{
+    font-size: 2em !important;
+}
+
 .containerBillard{
     display: contents;
 }
@@ -182,7 +186,7 @@ input::placeholder {
     font-size: 26px;
 }
 
-#h7{
+#h7, #h8 {
     text-align: center;
     background-color: beige;
     font-size: 9em;
@@ -191,8 +195,9 @@ input::placeholder {
     width: 70%;
     margin: 0 auto;
     color:#000;
+    justify-content: center;
 }
-
+/*
 #h8{
     text-align: center;
     background-color: beige;
@@ -201,7 +206,7 @@ input::placeholder {
     width: 90%;
     margin: 0 auto;
     color:#000;
-}
+}*/
 
 .containertourbest{
     margin-left:20px;
@@ -1217,7 +1222,7 @@ select{
     margin-top:20px;
 }
 
-#h7{
+#h7, #h8{ 
     -display: none;
     background-color: beige;
     text-align: center;
@@ -1228,6 +1233,8 @@ select{
     -border: 3px solid black;
     margin: 10px 0 10px 25%;
 }
+
+
 
 .btnrandom {
     margin: 0 auto;

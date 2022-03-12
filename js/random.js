@@ -122,10 +122,11 @@ var givemerandom = function (){
     }
 
     var verifWinRandom = function() {
-        if(array[result].score==10){
+        if(array[result].score>=10){
             console.log("you win");
             modalwin();
             displayrestart();
+            
         }
     }
 

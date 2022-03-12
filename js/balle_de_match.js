@@ -1,7 +1,7 @@
 function balle_de_match(){
     addPlayer();
     $(".otherOptions").css("display","none");
-    $("#titre").css("display","flex");
+    $("#titre").css("display","block");
     createHistoriqueJeu1();
     displaycontainerBalleDeMatch(); 
     console.log("coucou")
@@ -43,9 +43,9 @@ var displaycontainerBalleDeMatch = function (){
         b=b+1;
          }    
          card += '     </table> ';
-         card += '    <div class="case_vide_random" id ="retourRandom" onclick="returnRandom()">   ';
+        /* card += '    <div class="case_vide_random" id ="retourRandom" onclick="returnRandom()">   ';
          card += '       <img class="backRandom" src=images/icons/back.png>   ';
-         card += '     </div> ';
+         card += '     </div> ';*/
 
     $("#h6").html(card);
     document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ; 
@@ -100,6 +100,9 @@ function easy(min, max){
     difficulty=1;
     console.log("difficulty= "+difficulty);
     $("#h7").html(easyNumber);
+    $("#h8").html("difficulté: facile");
+    $('.h7').css("display","flex");
+    $('#h8').css("display","flex");
     
 
 }
@@ -114,6 +117,9 @@ function medium(min, max) {
     difficulty=2;
     console.log("difficulty= "+difficulty);
     $("#h7").html(mediumnumber);
+    $("#h8").html("difficulté: normale");
+    $('.h7').css("display","flex");
+    $('#h8').css("display","flex");
 }
 
 
@@ -126,6 +132,9 @@ function hard(min, max) {
     difficulty=3;
     console.log("difficulty= "+difficulty);
     $("#h7").html(hardnumber);
+    $("#h8").html("difficulté: difficile");
+    $('.h7').css("display","flex");
+    $('#h8').css("display","flex");
 }
 
 function veryHard(min, max) {
@@ -134,18 +143,51 @@ function veryHard(min, max) {
     console.log("VeryHard");
     var mediumnumber= Math.floor(Math.random() * (max - min + 1)) + min;
     console.log(mediumnumber);
+    $('.h7').css("display","flex");
+    $('#h8').css("display","flex");
+}
+
+var Victoire=0;
+var verifWinBalleDeMatch = function() {
+    if(array[result].score>=10){
+        console.log("you win");
+        modalwin();
+        displayrestart();
+        Victoire = 1;
+        return 0;
+        
+    }
 }
 
 function goodBalleDeMatch(){
     console.log(difficulty);
-    array[result].score++;
+    if (difficulty==1){
+        array[result].score++;
+    }else if (difficulty==2){
+        array[result].score++;
+        array[result].score++;
+    }else if (difficulty==3){
+        array[result].score++;
+        array[result].score++;
+        array[result].score++;
+    }
     document.getElementById("score"+result).innerHTML=array[result].score;
+    verifWinBalleDeMatch();
+    if (Victoire==1){
+        console.log("victoire");
+        return 0;
+    }
     nextPlayer();
     document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
-
+    //console.log("ca doit pas marcher");
+    $('.h7').css("display","none");
+    $('#h8').css("display","none");
 }
 
 function badBalleDeMatch(){
+
     nextPlayer();
     document.getElementById("titre").innerHTML="A  " +array[result].name+" de jouer !" ;
+    $('.h7').css("display","none");
+    $('#h8').css("display","none");
 }
